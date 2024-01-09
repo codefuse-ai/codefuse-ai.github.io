@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Codefuse-ChatBot Development by Private Knowledge Augmentation · CodeFuse</title>
+
+<link rel="canonical" href="/docs/codefuse-chatbot/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/zh/docs/codefuse-chatbot-zh/">中文</a></li>
+          
+          <li role="menuitem"><a href="/docs/codefuse-chatbot/">English</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Documentation</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link current" href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/modelcache/">
+            
+              ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/fastertransformer4codefuse/">
+            
+              FasterTransformer4CodeFuse
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/configurations/">
+            
+              Configurations
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">❤️</strong>
+          
+          <a class="sidebar-link " href="/docs/acknowledgements/">
+            
+              Acknowledgements
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Codefuse-ChatBot Development by Private Knowledge Augmentation</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <p align="left">
+    <a href="/docs/codefuse-chatbot-zh">中文</a>&nbsp ｜ &nbsp<a>English&nbsp </a>
+</p>
+<p>This project is an open-source AI intelligent assistant, specifically designed for the entire lifecycle of software development, covering design, coding, testing, deployment, and operations. Through knowledge retrieval, tool utilization, and sandbox execution, Codefuse-ChatBot can not only answer professional questions you encounter during the development process but also coordinate multiple independent, dispersed platforms through a conversational interface.</p>
+<h2 id="-contents">📜 Contents</h2>
+<ul>
+<li><a href="#-introduction">🤝 Introduction</a></li>
+<li><a href="#-technical-route">🧭 Technical Route</a></li>
+</ul>
+<h2 id="-introduction">🤝 Introduction</h2>
+<p>💡 The aim of this project is to construct an AI intelligent assistant for the entire lifecycle of software development, covering design, coding, testing, deployment, and operations, through Retrieval Augmented Generation (RAG), Tool Learning, and sandbox environments. It transitions gradually from the traditional development and operations mode of querying information from various sources and operating on standalone, disparate platforms to an intelligent development and operations mode based on large-model Q&amp;A, changing people&rsquo;s development and operations habits.</p>
+<ul>
+<li><strong>🧠 Intelligent Scheduling Core:</strong> Constructed a well-integrated scheduling core system that supports multi-mode one-click configuration, simplifying the operational process.<a href="/docs/multi-agent">Use Introduction</a></li>
+<li><strong>💻 Comprehensive Code Repository Analysis:</strong> Achieved in-depth understanding at the repository level and coding and generation at the project file level, enhancing development efficiency.</li>
+<li><strong>📄 Enhanced Document Analysis:</strong> Integrated document knowledge bases with knowledge graphs, providing deeper support for document analysis through enhanced retrieval and reasoning.</li>
+<li><strong>🔧 Industry-Specific Knowledge:</strong> Tailored a specialized knowledge base for the DevOps domain, supporting the self-service one-click construction of industry-specific knowledge bases for convenience and practicality.</li>
+<li><strong>🤖 Compatible Models for Specific Verticals:</strong> Designed small models specifically for the DevOps field, ensuring compatibility with related DevOps platforms and promoting the integration of the technological ecosystem.</li>
+</ul>
+<p>🌍 Relying on open-source LLM and Embedding models, this project can achieve offline private deployments based on open-source models. Additionally, this project also supports the use of the OpenAI API.<a href="/docs/fastchat">Access Demo</a></p>
+<p>👥 The core development team has been long-term focused on research in the AIOps + NLP domain. We initiated the CodefuseGPT project, hoping that everyone could contribute high-quality development and operations documents widely, jointly perfecting this solution to achieve the goal of &ldquo;Making Development Seamless for Everyone.&rdquo;</p>
+<div align=center>
+  <img src="/images/chatbot/objective_v4.png" alt="Image" width="600" height="333">
+</div>
+<p>🌍 Relying on open-source LLM and Embedding models, this project can achieve offline private deployments based on open-source models. Additionally, this project also supports the use of the OpenAI API.</p>
+<p>👥 The core development team has been long-term focused on research in the AIOps + NLP domain. We initiated the DevOpsGPT project, hoping that everyone could contribute high-quality development and operations documents widely, jointly perfecting this solution to achieve the goal of &ldquo;Making Development Seamless for Everyone.&rdquo;</p>
+<h2 id="-technical-route">🧭 Technical Route</h2>
+<div align="center">
+  <img src="/images/chatbot/devops-chatbot-module-v2.png" alt="Image" width="600" height="503">
+</div>
+<ul>
+<li>🧠 <strong>Multi-Agent Schedule Core:</strong> Easily configurable to create interactive intelligent agents.</li>
+<li>🕷️ <strong>Multi Source Web Crawl:</strong> Offers the capability to crawl specified URLs for collecting the required information.</li>
+<li>🗂️ <strong>Data Processor:</strong> Effortlessly handles document loading, data cleansing, and text segmentation, integrating data from different sources.</li>
+<li>🔤 <strong>Text Embedding &amp; Index:</strong>：Users can easily upload files for document retrieval, optimizing the document analysis process.</li>
+<li>🗄️ <strong>Vector Database &amp; Graph Database:</strong> Provides flexible and powerful data management solutions.</li>
+<li>📝 <strong>Prompt Control &amp; Management:</strong>：Precisely defines the contextual environment for intelligent agents.</li>
+<li>🚧 <strong>SandBox:</strong>：Safely executes code compilation and actions.</li>
+<li>💬 <strong>LLM:</strong>：Supports various open-source models and LLM interfaces.</li>
+<li>🛠️ <strong>API Management:：</strong> Enables rapid integration of open-source components and operational platforms.</li>
+</ul>
+<p>For implementation details, see: <a href="sources/readme_docs/roadmap.md">Technical Route Details</a></p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-01-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/overview/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/codefuse-devops-eval/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contents">📜 Contents</a></li>
+    <li><a href="#-introduction">🤝 Introduction</a></li>
+    <li><a href="#-technical-route">🧭 Technical Route</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-01-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

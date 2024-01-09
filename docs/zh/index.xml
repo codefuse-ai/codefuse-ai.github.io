@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CodeFuse</title>
+    <link>/zh/</link>
+    <description>Recent content on CodeFuse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-CN</language>
+    <atom:link href="/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatBot 技术路线</title>
+      <link>/zh/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/</guid>
+      <description>RoadMap 完整路线&#xA;Sandbox 环境 环境隔离的sandbox环境与代码执行 上传、下载文件 支持java执行环境 Vector Database &amp;amp; Retrieval task retrieval tool retrieval Prompt Management memory Management Multi Agent PRD需求文档、系分、接口设计 根据需求文档、系分、接口设计生产代码 自动测试、自动debugger 运维流程接入（ToolLearning） 全流程自动 基于fastchat接入LLM 基于sentencebert接入Text Embedding 向量加载速度提升 Connector 基于langchain的react模式 基于langchain完成tool检索 Web Crawl 通用能力 技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等 issue document SDK Library Document v0.0 Sandbox 环境 环境隔离的sandbox环境与代码执行 基于fastchat接入LLM 基于sentencebert接入Text Embedding Web Crawl 通用能力：技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等 v0.1 Sandbox 环境: 上传、下载文件 Vector Database &amp;amp; Retrieval task retrieval tool retrieval Connector 基于langchain的react模式 基于sentencebert接入Text Embedding: 向量加载速度提升 Done v0.</description>
+    </item>
+    <item>
+      <title>CodeFuse-ChatBot Development by Private Knowledge Augmentation</title>
+      <link>/zh/docs/codefuse-chatbot-zh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/codefuse-chatbot-zh/</guid>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp DevOps-ChatBot是由蚂蚁CodeFuse团队开发的开源AI智能助手，致力于简化和优化软件开发生命周期中的各个环节。该项目结合了Multi-Agent的协同调度机制，并集成了丰富的工具库、代码库、知识库和沙盒环境，使得LLM模型能够在DevOps领域内有效执行和处理复杂任务。&#xA;📜 目录 🤝 介绍 🎥 演示视频 🧭 技术路线 🤝 介绍 💡 本项目旨在通过检索增强生成（Retrieval Augmented Generation，RAG）、工具学习（Tool Learning）和沙盒环境来构建软件开发全生命周期的AI智能助手，涵盖设计、编码、测试、部署和运维等阶段。 逐渐从各处资料查询、独立分散平台操作的传统开发运维模式转变到大模型问答的智能化开发运维模式，改变人们的开发运维习惯。&#xA;本项目核心差异技术、功能点：&#xA;🧠 智能调度核心： 构建了体系链路完善的调度核心，支持多模式一键配置，简化操作流程。 使用说明 💻 代码整库分析： 实现了仓库级的代码深入理解，以及项目文件级的代码编写与生成，提升了开发效率。 📄 文档分析增强： 融合了文档知识库与知识图谱，通过检索和推理增强，为文档分析提供了更深层次的支持。 🔧 垂类专属知识： 为DevOps领域定制的专属知识库，支持垂类知识库的自助一键构建，便捷实用。 🤖 垂类模型兼容： 针对DevOps领域的小型模型，保证了与DevOps相关平台的兼容性，促进了技术生态的整合。 🌍 依托于开源的 LLM 与 Embedding 模型，本项目可实现基于开源模型的离线私有部署。此外，本项目也支持 OpenAI API 的调用。接入Demo&#xA;👥 核心研发团队长期专注于 AIOps + NLP 领域的研究。我们发起了 Codefuse-ai 项目，希望大家广泛贡献高质量的开发和运维文档，共同完善这套解决方案，以实现“让天下没有难做的开发”的目标。&#xA;🎥 演示视频 为了帮助您更直观地了解 Codefuse-ChatBot 的功能和使用方法，我们录制了一系列演示视频。您可以通过观看这些视频，快速了解本项目的主要特性和操作流程。&#xA;知识库导入和问答：演示视频 本地代码库导入和问答：演示视频 🧭 技术路线 🧠 Multi-Agent Schedule Core: 多智能体调度核心，简易配置即可打造交互式智能体。 🕷️ Multi Source Web Crawl: 多源网络爬虫，提供对指定 URL 的爬取功能，以搜集所需信息。 🗂️ Data Processor: 数据处理器，轻松完成文档载入、数据清洗，及文本切分，整合不同来源的数据。 🔤 Text Embedding &amp;amp; Index:：文本嵌入索引，用户可以轻松上传文件进行文档检索，优化文档分析过程。 🗄️ Vector Database &amp;amp; Graph Database: 向量与图数据库，提供灵活强大的数据管理解决方案。 📝 Prompt Control &amp;amp; Management:：Prompt 控制与管理，精确定义智能体的上下文环境。 🚧 SandBox:：沙盒环境，安全地执行代码编译和动作。 💬 LLM:：智能体大脑，支持多种开源模型和 LLM 接口。 🛠️ API Management:： API 管理工具，实现对开源组件和运维平台的快速集成。 具体实现明细见：技术路线明细</description>
+    </item>
+    <item>
+      <title>CodeFuse-DevOps</title>
+      <link>/zh/docs/codefuse-devops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/codefuse-devops/</guid>
+      <description>CodeFuse-DevOps CodeFuse-DevOps</description>
+    </item>
+    <item>
+      <title>CodeFuse-DevOps-Eval</title>
+      <link>/zh/docs/codefuse-devops-eval-zh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/codefuse-devops-eval-zh/</guid>
+      <description>codefuse-devops-eval codefuse-devops-eval</description>
+    </item>
+    <item>
+      <title>CodeFuse-DevOps-Model</title>
+      <link>/zh/docs/codefuse-devops-model-zh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/codefuse-devops-model-zh/</guid>
+      <description>codeFuse-devops-model codeFuse-devops-model</description>
+    </item>
+    <item>
+      <title>CodeFuse-ModelCache</title>
+      <link>/zh/docs/codefuse-modelcache-zh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/codefuse-modelcache-zh/</guid>
+      <description>CodeFuse-ModelCache CodeFuse-ModelCache</description>
+    </item>
+    <item>
+      <title>CodeFuse-Query</title>
+      <link>/zh/docs/codefuse-query-zh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/codefuse-query-zh/</guid>
+      <description>CodeFuse-Query CodeFuse-Query</description>
+    </item>
+    <item>
+      <title>FasterTransformer4CodeFuse</title>
+      <link>/zh/docs/fastertransformer4codefuse-zh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/fastertransformer4codefuse-zh/</guid>
+      <description>FasterTransformer4CodeFuse FasterTransformer4CodeFuse</description>
+    </item>
+    <item>
+      <title>MFTCoder</title>
+      <link>/zh/docs/mftcoder-zh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/mftcoder-zh/</guid>
+      <description>MFTCoder MFTCoder</description>
+    </item>
+    <item>
+      <title>Test-Agent</title>
+      <link>/zh/docs/test-agent-zh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/test-agent-zh/</guid>
+      <description>Test-Agent Test-Agent</description>
+    </item>
+    <item>
+      <title>多智能体</title>
+      <link>/zh/docs/%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93/</guid>
+      <description>📜 目录 简介 模块介绍 快速使用 简介 为了提高大型模型在推理准确性方面的表现，业界出现了多种创新的大型语言模型(LLM)玩法。从最早的CoT、ToT到GoT，这些方法不断拓展了LLM的能力边界。在处理复杂问题时，我们可以通过ReAct过程来选择、调用和执行工具反馈，同时实现多轮工具使用和多步骤执行。&#xA;但对于更复杂的场景，例如复杂代码的开发，单一功能的LLM Agent显然难以胜任。因此，社区开始发展出多Agent的组合玩法，比如专注于metaGPT、GPT-Engineer、chatDev等开发领域的项目，以及专注于自动化构建Agent和Agent对话的AutoGen项目。&#xA;经过对这些框架的深入分析，发现大多数的Agent框架整体耦合度较高，其易用性和可扩展性较差。在预设场景中实现特定场景，但想要进行场景扩展却困难重重。&#xA;因此，我们希望构建一个可扩展、易于使用的Multi-Agent框架，以支持ChatBot在获取知识库信息的同时，能够辅助完成日常办公、数据分析、开发运维等各种通用任务。&#xA;本项目的Mutli-Agent框架汲取兼容了多个框架的优秀设计，比如metaGPT中的消息池（message pool）、autogen中的代理选择器（agent selector）等。&#xA;以下模块将从5个方面介绍Multi Agent框架所需要素：&#xA;Agent Communication在Multi Agent框架中，确保Agent可以有效地进行信息交流对于管理上下文以及提高问答效率至关重要。 a. 遵循简洁直观易于理解的链式对话原则，将Agent以线性方式排列串连成一个执行链路。 b. 借鉴metaGPT中的Message Pool框架，允许Agent对Message Pool进行推送和订阅，使链路更加灵活。有利于精细化Prompt工程的场景，但难以把握复杂链路的关系分析。 Standard Operation Process（SOP）：对LLM的生成结果进行标准化解析和处理。 a. 定义Agent的 Input 和 Output 范围，能够组装和解析相关Action和Status，保证框架运行的稳定性 b. 封装多种基础Action执行模块，如Tool Using、Planning、Coding、Direct Answering、final answer等SOP标识，以满足Agent的基本工作需求。 Plan and Executor：增加LLM的Tool使用、Agent调度、代码的生成。设置了几种基本链路，例如： a. 单轮问答，也可以扩展到CoT、ToT、GoT等形式。 b. ReAct，基础的响应决策过程，模型设置SOP 状态以终止循环 c. TaskPlaning - Executor，任务完成即可结束 Long-short term memory Management：Multi-Agent与单Agent的关键区别在于，Multi-Agent需要处理大量的交流信息，类似人类团队协作的过程。增加一个专门负责内容总结（类似于会议助理）的Agent，对长期记忆进行总结并提更有效信息传递给下一位Agent，而非传递所有内容给下一位Agent。 Human-agent interaction：面对复杂场景时，需要人类介入Agent交互过程并提供反馈。通过上述 Long-short term memory Management 和 Agent Communication 过程，使LLM能准确理解人类的意图，从而更有效地完成任务。 总的来说，这五个要素共同构建了一个Multi Agent框架，确保Agent之间的协作更加紧密和高效，同时也能够适应更复杂的任务需求和更多样的交互场景。通过组合多个Agent链路来实现一个完整且复杂的项目上线场景（Dev Phase），如Demand Chain（CEO）、Product Arguement Chain（CPO、CFO、CTO）、Engineer Group Chain（Selector、Developer1~N）、QA Engineer Chain（Developer、Tester）、Deploy Chain（Developer、Deploer）。</description>
+    </item>
+    <item>
+      <title>概览</title>
+      <link>/zh/docs/zh_overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/zh_overview/</guid>
+      <description>HuggingFace | 魔搭社区 | 产品主页 Hello World! This is CodeFuse!&#xA;CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs），涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。&#xA;我们非常有激情去构建创新的解决方案来支持全生命周期AI驱动的软件开发，如上图所示。同时，我们也诚邀志同道合的工程师和研究人员加入这个社区，共同构建和增强CodeFuse。</description>
+    </item>
+    <item>
+      <title>快速开始</title>
+      <link>/zh/docs/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</guid>
+      <description>🚀 快速使用 请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。&#xA;Docker安装、私有化LLM接入及相关启动问题见：快速使用明细&#xA;python 环境准备 推荐采用 conda 对 python 环境进行管理（可选） # 准备 conda 环境 conda create --name devopsgpt python=3.9 conda activate devopsgpt 安装相关依赖 cd codefuse-chatbot # python=3.9，notebook用最新即可，python=3.8用notebook=6.5.6 pip install -r requirements.txt 基础配置 # 修改服务启动的基础配置 cd configs cp model_config.py.example model_config.py cp server_config.py.example server_config.py # model_config#11~12 若需要使用openai接口，openai接口key os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xxx&amp;#34; # 可自行替换自己需要的api_base_url os.environ[&amp;#34;API_BASE_URL&amp;#34;] = &amp;#34;https://api.openai.com/v1&amp;#34; # vi model_config#LLM_MODEL 你需要选择的语言模型 LLM_MODEL = &amp;#34;gpt-3.5-turbo&amp;#34; LLM_MODELs = [&amp;#34;gpt-3.</description>
+    </item>
+    <item>
+      <title>配置</title>
+      <link>/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/</guid>
+      <description>本地私有化/大模型接口接入 依托于开源的 LLM 与 Embedding 模型，本项目可实现基于开源模型的离线私有部署。此外，本项目也支持 OpenAI API 的调用。&#xA;📜 目录 本地私有化模型接入 公开大模型接口接入 启动大模型服务 本地私有化模型接入 模型地址配置示例，model_config.py配置修改&#xA;# 建议：走huggingface接入，尽量使用chat模型，不要使用base，无法获取正确输出 # 注意：当llm_model_dict和VLLM_MODEL_DICT同时存在时，优先启动VLLM_MODEL_DICT中的模型配置 # llm_model_dict 配置接入示例如下 llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;THUDM/chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } # VLLM_MODEL_DICT 配置接入示例如下 VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;THUDM/chatglm-6b&amp;#34;, } 模型路径填写示例&#xA;# 1、若把模型放到 ~/codefuse-chatbot/llm_models 路径下 # 若模型地址如下 model_dir: ~/codefuse-chatbot/llm_models/THUDM/chatglm-6b # 参考配置如下 llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;THUDM/chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;THUDM/chatglm-6b&amp;#34;, } # or 若模型地址如下 model_dir: ~/codefuse-chatbot/llm_models/chatglm-6b llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;chatglm-6b&amp;#34;, } # 2、若不想移动相关模型到 ~/codefuse-chatbot/llm_models # 同时删除 `模型路径重置` 以下的相关代码，具体见model_config.</description>
+    </item>
+    <item>
+      <title>启动明细</title>
+      <link>/zh/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/</guid>
+      <description>请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。&#xA;python 环境准备 推荐采用 conda 对 python 环境进行管理（可选） # 准备 conda 环境 conda create --name devopsgpt python=3.9 conda activate devopsgpt 安装相关依赖 cd codefuse-chatbot # python=3.9，notebook用最新即可，python=3.8用notebook=6.5.6 pip install -r requirements.txt 沙盒环境准备 windows Docker 安装： Docker Desktop for Windows 支持 64 位版本的 Windows 10 Pro，且必须开启 Hyper-V（若版本为 v1903 及以上则无需开启 Hyper-V），或者 64 位版本的 Windows 10 Home v1903 及以上版本。&#xA;【全面详细】Windows10 Docker安装详细教程 Docker 从入门到实践 Docker Desktop requires the Server service to be enabled 处理 安装wsl或者等报错提示 Linux Docker 安装： Linux 安装相对比较简单，请自行 baidu/google 相关安装</description>
+    </item>
+    <item>
+      <title>致谢</title>
+      <link>/zh/docs/%E8%87%B4%E8%B0%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/%E8%87%B4%E8%B0%A2/</guid>
+      <description>CodeFuse-ai 主页基于docura构建，在此深深感谢他们的开源贡献！&#xA;ChatBot 项目基于langchain-chatchat和codebox-api，在此深深感谢他们的开源贡献！</description>
+    </item>
+  </channel>
+</rss>

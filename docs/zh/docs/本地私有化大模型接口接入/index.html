@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs）， 涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。">
+<meta name="author" content="codefuse-ai">
+
+<title>配置 · CodeFuse</title>
+
+<link rel="canonical" href="/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/configurations/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Documentation</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI 整体介绍</strong>
+          
+          <a class="sidebar-link " href="/docs/%E6%A6%82%E8%A7%88/">
+            
+              概览
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI 模块</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-zh/">
+            
+              CodeFuse-ChatBot-zh
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-zh/">
+            
+              CodeFuse-DevOps-Eval-zh
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-zh/">
+            
+              CodeFuse-DevOps-Model-zh
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-zh/">
+            
+              MFTCoder-zh
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-zh/">
+            
+              CodeFuse-ModelCache-zh
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/fastertransformer4codefuse-zh/">
+            
+              FasterTransformer4CodeFuse-zh
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent-zh/">
+            
+              Test-Agent-zh
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-zh/">
+            
+              CodeFuse-Query-zh
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/">
+            
+              启动明细
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/">
+            
+              本地私有化&amp;大模型接口接入
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/">
+            
+              ChatBot 技术路线
+            
+          </a>
+
+        <strong class="sidebar-section">❤️</strong>
+          
+          <a class="sidebar-link " href="/docs/%E8%87%B4%E8%B0%A2/">
+            
+              致谢
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>配置</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="本地私有化大模型接口接入">本地私有化/大模型接口接入</h1>
+<p>依托于开源的 LLM 与 Embedding 模型，本项目可实现基于开源模型的离线私有部署。此外，本项目也支持 OpenAI API 的调用。</p>
+<h2 id="-目录">📜 目录</h2>
+<ul>
+<li><a href="#%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%85%A5"> 本地私有化模型接入</a></li>
+<li><a href="#%E5%85%AC%E5%BC%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5"> 公开大模型接口接入</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%9C%8D%E5%8A%A1"> 启动大模型服务</a></li>
+</ul>
+<h2 id="本地私有化模型接入">本地私有化模型接入</h2>
+<p><br>模型地址配置示例，model_config.py配置修改</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 建议：走huggingface接入，尽量使用chat模型，不要使用base，无法获取正确输出</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 注意：当llm_model_dict和VLLM_MODEL_DICT同时存在时，优先启动VLLM_MODEL_DICT中的模型配置</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># llm_model_dict 配置接入示例如下</span>
+</span></span><span class="line"><span class="cl"><span class="nv">llm_model_dict</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;chatglm-6b&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;local_model_path&#34;</span>: <span class="s2">&#34;THUDM/chatglm-6b&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_base_url&#34;</span>: <span class="s2">&#34;http://localhost:8888/v1&#34;</span>,  <span class="c1"># &#34;name&#34;修改为fastchat服务中的&#34;api_base_url&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_key&#34;</span>: <span class="s2">&#34;EMPTY&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># VLLM_MODEL_DICT 配置接入示例如下</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VLLM_MODEL_DICT</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;chatglm2-6b&#39;</span>:  <span class="s2">&#34;THUDM/chatglm-6b&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p><br>模型路径填写示例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1、若把模型放到 ~/codefuse-chatbot/llm_models 路径下</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 若模型地址如下</span>
+</span></span><span class="line"><span class="cl">model_dir: ~/codefuse-chatbot/llm_models/THUDM/chatglm-6b
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 参考配置如下</span>
+</span></span><span class="line"><span class="cl"><span class="nv">llm_model_dict</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;chatglm-6b&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;local_model_path&#34;</span>: <span class="s2">&#34;THUDM/chatglm-6b&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_base_url&#34;</span>: <span class="s2">&#34;http://localhost:8888/v1&#34;</span>,  <span class="c1"># &#34;name&#34;修改为fastchat服务中的&#34;api_base_url&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_key&#34;</span>: <span class="s2">&#34;EMPTY&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">VLLM_MODEL_DICT</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;chatglm2-6b&#39;</span>:  <span class="s2">&#34;THUDM/chatglm-6b&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># or 若模型地址如下</span>
+</span></span><span class="line"><span class="cl">model_dir: ~/codefuse-chatbot/llm_models/chatglm-6b
+</span></span><span class="line"><span class="cl"><span class="nv">llm_model_dict</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;chatglm-6b&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;local_model_path&#34;</span>: <span class="s2">&#34;chatglm-6b&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_base_url&#34;</span>: <span class="s2">&#34;http://localhost:8888/v1&#34;</span>,  <span class="c1"># &#34;name&#34;修改为fastchat服务中的&#34;api_base_url&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_key&#34;</span>: <span class="s2">&#34;EMPTY&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">VLLM_MODEL_DICT</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;chatglm2-6b&#39;</span>:  <span class="s2">&#34;chatglm-6b&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2、若不想移动相关模型到 ~/codefuse-chatbot/llm_models</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 同时删除 `模型路径重置` 以下的相关代码，具体见model_config.py</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 若模型地址如下</span>
+</span></span><span class="line"><span class="cl">model_dir: ~/THUDM/chatglm-6b
+</span></span><span class="line"><span class="cl"><span class="c1"># 参考配置如下</span>
+</span></span><span class="line"><span class="cl"><span class="nv">llm_model_dict</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;chatglm-6b&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;local_model_path&#34;</span>: <span class="s2">&#34;~/THUDM/chatglm-6b&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_base_url&#34;</span>: <span class="s2">&#34;http://localhost:8888/v1&#34;</span>,  <span class="c1"># &#34;name&#34;修改为fastchat服务中的&#34;api_base_url&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_key&#34;</span>: <span class="s2">&#34;EMPTY&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">VLLM_MODEL_DICT</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;chatglm2-6b&#39;</span>:  <span class="s2">&#34;~/THUDM/chatglm-6b&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 3、指定启动的模型服务，两者保持一致</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LLM_MODEL</span> <span class="o">=</span> <span class="s2">&#34;gpt-3.5-turbo-16k&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LLM_MODELs</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;gpt-3.5-turbo-16k&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># server_config.py配置修改， 若LLM_MODELS无多个模型配置不需要额外进行设置</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 修改server_config.py#FSCHAT_MODEL_WORKERS的配置</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;model_name&#34;</span>: <span class="o">{</span><span class="s1">&#39;host&#39;</span>: DEFAULT_BIND_HOST, <span class="s1">&#39;port&#39;</span>: 20057<span class="o">}</span>
+</span></span></code></pre></div><p><br>量化模型接入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 若需要支撑codellama-34b-int4模型，需要给fastchat打一个补丁</span>
+</span></span><span class="line"><span class="cl">cp examples/gptq.py ~/site-packages/fastchat/modules/gptq.py
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 若需要支撑qwen-72b-int4模型，需要给fastchat打一个补丁</span>
+</span></span><span class="line"><span class="cl">cp examples/gptq.py ~/site-packages/fastchat/modules/gptq.py
+</span></span><span class="line"><span class="cl"><span class="c1"># 量化需修改llm_api.py的配置</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># dev_opsgpt/service/llm_api.py#559 取消注释 kwargs[&#34;gptq_wbits&#34;] = 4</span>
+</span></span></code></pre></div><h2 id="公开大模型接口接入">公开大模型接口接入</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># model_config.py配置修改</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ONLINE_LLM_MODEL</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 其它接口开发来自于langchain-chatchat项目，缺少相关账号未经测试</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 指定启动的模型服务，两者保持一致</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LLM_MODEL</span> <span class="o">=</span> <span class="s2">&#34;gpt-3.5-turbo-16k&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LLM_MODELs</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;gpt-3.5-turbo-16k&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><p>外部大模型接口接入示例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1、实现新的模型接入类</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 参考  ~/dev_opsgpt/service/model_workers/openai.py#ExampleWorker</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 实现do_chat函数即可使用LLM的能力</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class XXWorker<span class="o">(</span>ApiModelWorker<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">    def __init__<span class="o">(</span>
+</span></span><span class="line"><span class="cl">            self,
+</span></span><span class="line"><span class="cl">            *,
+</span></span><span class="line"><span class="cl">            controller_addr: <span class="nv">str</span> <span class="o">=</span> None,
+</span></span><span class="line"><span class="cl">            worker_addr: <span class="nv">str</span> <span class="o">=</span> None,
+</span></span><span class="line"><span class="cl">            model_names: List<span class="o">[</span>str<span class="o">]</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;gpt-3.5-turbo&#34;</span><span class="o">]</span>,
+</span></span><span class="line"><span class="cl">            version: <span class="nv">str</span> <span class="o">=</span> <span class="s2">&#34;gpt-3.5&#34;</span>,
+</span></span><span class="line"><span class="cl">            **kwargs,
+</span></span><span class="line"><span class="cl">    <span class="o">)</span>:
+</span></span><span class="line"><span class="cl">        kwargs.update<span class="o">(</span><span class="nv">model_names</span><span class="o">=</span>model_names, <span class="nv">controller_addr</span><span class="o">=</span>controller_addr, <span class="nv">worker_addr</span><span class="o">=</span>worker_addr<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        kwargs.setdefault<span class="o">(</span><span class="s2">&#34;context_len&#34;</span>, 16384<span class="o">)</span> <span class="c1">#TODO 16K模型需要改成16384</span>
+</span></span><span class="line"><span class="cl">        super<span class="o">()</span>.__init__<span class="o">(</span>**kwargs<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        self.version <span class="o">=</span> version
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    def do_chat<span class="o">(</span>self, params: ApiChatParams<span class="o">)</span> -&gt; Dict:
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        执行Chat的方法，默认使用模块里面的chat函数。
+</span></span></span><span class="line"><span class="cl"><span class="s1">        :params.messages : [
+</span></span></span><span class="line"><span class="cl"><span class="s1">            {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;hello&#34;}, 
+</span></span></span><span class="line"><span class="cl"><span class="s1">            {&#34;role&#34;: &#34;assistant&#34;, &#34;content&#34;: &#34;hello&#34;}
+</span></span></span><span class="line"><span class="cl"><span class="s1">            ]
+</span></span></span><span class="line"><span class="cl"><span class="s1">        :params.xx: 详情见 ApiChatParams 
+</span></span></span><span class="line"><span class="cl"><span class="s1">        要求返回形式：{&#34;error_code&#34;: int, &#34;text&#34;: str}
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">{</span><span class="s2">&#34;error_code&#34;</span>: 500, <span class="s2">&#34;text&#34;</span>: f<span class="s2">&#34;{self.model_names[0]}未实现chat功能&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 最后在 ~/dev_opsgpt/service/model_workers/__init__.py 中完成注册</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># from .xx import XXWorker</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2、通过已有模型接入类完成接入</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者直接使用已有的相关大模型类进行使用（缺少相关账号测试，欢迎大家测试后提PR）</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># model_config.py#ONLINE_LLM_MODEL 配置修改</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 填写专属模型的 version、api_base_url、api_key、provider（与上述类名一致）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ONLINE_LLM_MODEL</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 线上模型。请在server_config中为每个在线API设置不同的端口</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;openai-api&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;model_name&#34;</span>: <span class="s2">&#34;gpt-3.5-turbo&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_base_url&#34;</span>: <span class="s2">&#34;https://api.openai.com/v1&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_key&#34;</span>: <span class="s2">&#34;&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;openai_proxy&#34;</span>: <span class="s2">&#34;&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;example&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;gpt-3.5&#34;</span>,  <span class="c1"># 采用openai接口做示例</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_base_url&#34;</span>: <span class="s2">&#34;https://api.openai.com/v1&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;api_key&#34;</span>: <span class="s2">&#34;&#34;</span>,
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;provider&#34;</span>: <span class="s2">&#34;ExampleWorker&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>,
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="启动大模型服务">启动大模型服务</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># start llm-service（可选）  单独启动大模型服务</span>
+</span></span><span class="line"><span class="cl">python dev_opsgpt/service/llm_api.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 启动测试</span>
+</span></span><span class="line"><span class="cl">import openai
+</span></span><span class="line"><span class="cl"><span class="c1"># openai.api_key = &#34;EMPTY&#34; # Not support yet</span>
+</span></span><span class="line"><span class="cl">openai.api_base <span class="o">=</span> <span class="s2">&#34;http://127.0.0.1:8888/v1&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 选择你启动的模型</span>
+</span></span><span class="line"><span class="cl"><span class="nv">model</span> <span class="o">=</span> <span class="s2">&#34;example&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># create a chat completion</span>
+</span></span><span class="line"><span class="cl"><span class="nv">completion</span> <span class="o">=</span> openai.ChatCompletion.create<span class="o">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">model</span><span class="o">=</span>model,
+</span></span><span class="line"><span class="cl">    <span class="nv">messages</span><span class="o">=[{</span><span class="s2">&#34;role&#34;</span>: <span class="s2">&#34;user&#34;</span>, <span class="s2">&#34;content&#34;</span>: <span class="s2">&#34;Hello! What is your name? &#34;</span><span class="o">}]</span>,
+</span></span><span class="line"><span class="cl">    <span class="nv">max_tokens</span><span class="o">=</span>100,
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print the completion</span>
+</span></span><span class="line"><span class="cl">print<span class="o">(</span>completion.choices<span class="o">[</span>0<span class="o">]</span>.message.content<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 正确输出后则确认LLM可正常接入</span>
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># model_config.py#USE_FASTCHAT 判断是否进行fastchat接入本地模型</span>
+</span></span><span class="line"><span class="cl"><span class="nv">USE_FASTCHAT</span> <span class="o">=</span> <span class="s2">&#34;gpt&#34;</span> not in LLM_MODEL
+</span></span><span class="line"><span class="cl">python start.py <span class="c1">#224 自动执行 python service/llm_api.py</span>
+</span></span></code></pre></div>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-01-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-目录">📜 目录</a></li>
+    <li><a href="#本地私有化模型接入">本地私有化模型接入</a></li>
+    <li><a href="#公开大模型接口接入">公开大模型接口接入</a></li>
+    <li><a href="#启动大模型服务">启动大模型服务</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-01-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>
