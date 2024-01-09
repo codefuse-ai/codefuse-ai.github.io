@@ -1,0 +1,31 @@
+<style>
+  .github-repos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .github-repo-tile {
+    flex: 0 1 30%; /*设置每个repo占据的宽度为30%，可以根据需要进行调整*/
+    text-align: center;
+    margin: 10px;
+  }
+</style>
+
+<div class="github-repos-grid">
+{{ range . }}
+  <div class="github-repo-tile">
+    <a href="https://github.com/{{.repo}}" target="_blank">
+      <div>{{ .icon | safeHTML }}</div>
+      <h3>{{ .name }}</h3>
+      <p>{{ .description }}</p>
+    </a>
+
+    <div class="github-buttons">
+      <a href="https://github.com/{{.repo}}" class="github-button"  data-icon="octicon-star" data-show-count="true" aria-label="Star {{.repo}} on GitHub">Star</a>
+      <a href="https://github.com/{{.repo}}/fork" class="github-button"  data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork {{.repo}} on GitHub">Fork</a>
+    </div>
+  </div>
+{{ end }}
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</div>

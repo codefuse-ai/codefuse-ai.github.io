@@ -1,0 +1,24 @@
+- title: 📖 CodeFuse-AI 整体介绍
+  pages:
+    - title: 概览
+
+- title: 📖 CodeFuse-AI 模块
+  pages:
+    - title: CodeFuse-ChatBot-zh
+    - title: CodeFuse-DevOps-Eval-zh
+    - title: CodeFuse-DevOps-Model-zh
+    - title: MFTCoder-zh
+    - title: CodeFuse-ModelCache-zh
+    - title: FasterTransformer4CodeFuse-zh
+    - title: Test-Agent-zh
+    - title: CodeFuse-Query-zh
+
+- title: 🌱 CodeFuse-ChatBot
+  pages:
+    - title: 快速开始
+    - title: 启动明细
+    - title: 本地私有化&大模型接口接入
+    - title: ChatBot 技术路线
+- title: ❤️
+  pages:
+    - title: 致谢

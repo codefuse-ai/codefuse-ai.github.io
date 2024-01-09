@@ -1,0 +1,25 @@
+- title: 📖 CodeFuse-AI Overview
+  pages:
+    - title: overview
+
+- title: 📖 CodeFuse-AI Module
+  pages:
+    - title: CodeFuse-ChatBot
+    - title: CodeFuse-DevOps-Eval
+    - title: CodeFuse-DevOps-Model
+    - title: MFTCoder
+    - title: ModelCache
+    - title: FasterTransformer4CodeFuse
+    - title: Test-Agent
+    - title: CodeFuse-Query
+
+- title: 🌱 CodeFuse-ChatBot
+  pages:
+    - title: QuickStart
+    - title: Start-Detail
+    - title: Configurations
+    - title: ChatBot-RoadMap
+- title: ❤️
+  pages:
+    - title: Acknowledgements
+

@@ -1,0 +1,106 @@
+theme: docura
+
+enableGitInfo: true
+
+showSidebar: true
+
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
+
+services:
+  googleAnalytics:
+    ID: G-xxxx
+
+defaultContentLanguage: en
+languages:
+  en:
+    languageName: English
+    languageCode: en-US
+    contentDir: content/en
+    title: CodeFuse
+    description: "CodeFuse aims to develop Code Large Language Models (Code LLMs) to support and enhance full-lifecycle AI native sotware developing, 
+      covering crucial stages such as design requirements, coding, testing, building, deployment, operations, and insight analysis."
+    weight: 1
+
+  zh:
+    languageName: 中文
+    languageCode: en-CN
+    contentDir: content/zh
+    title: CodeFuse
+    description: "CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs），
+      涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。"
+    weight: 1
+
+params:
+
+  author:
+    name: codefuse-ai
+    url: https://github.com/codefuse-ai
+
+  themeColors:
+    light: '#ffffff'
+    dark: '#121212'
+
+  years:
+    start: 2023
+    present: 2024
+
+  social:
+    github: 'codefuse-ai'
+    youtube: ''
+    facebook: ''
+    x: ''
+
+  ads:
+    googleAdSense: ''
+
+  donate:
+    buyMeACoffee: ''
+    githubSponsor: ''
+
+  algolia:
+    en:
+      container: '#site-header-search'
+      appId: ''
+      indexName: ''
+      apiKey: ''
+
+  home:
+
+    # repository: 'codefuse-ai/codefuse-chatbot'
+
+    repositories:
+
+      - name: DevOps-ChatBot
+        repo: codefuse-ai/codefuse-chatbot
+        icon: "<i class='icon icon-book'></i>"
+        description: The repository of the project
+
+      - name: DevOps-Eval
+        repo: codefuse-ai/codefuse-devops-eval
+        icon: "<i class='icon icon-book'></i>"
+        description: The repository of the website
+
+      - name: DevOps-Model
+        repo: codefuse-ai/CodeFuse-DevOps-Model
+        icon: "<i class='icon icon-book'></i>"
+        description: The repository of the project
+
+menu:
+  main:
+
+    - url: /
+      name: Home
+      identifier: home
+      pre: "<i class='icon icon-home'></i>"
+      weight: 1
+
+    - url: /docs
+      name: Documentation
+      identifier: docs
+      pre: "<i class='icon icon-book'></i>"
+      weight: 2

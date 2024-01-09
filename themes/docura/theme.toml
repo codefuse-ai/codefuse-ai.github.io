@@ -1,0 +1,13 @@
+name = "Docura"
+license = "MIT"
+licenselink = "https://github.com/docura/docura/blob/main/LICENSE"
+description = "A modular Hugo theme for your next documentation site"
+homepage = "https://docura.github.io"
+demosite = "https://docura.github.io"
+tags = ["documentation", "responsive", "dark mode", "light mode", "modern", "clean", "customizable"]
+features = ["responsive", "customizable", "dark mode", "light mode", "night mode", "search", "syntax highlighting", "multilingual", "seo", "docsearch"]
+min_version = "0.41.0"
+
+[author]
+  name = "Dumindu Madunuwan"
+  homepage = "https://github.com/dumindu"

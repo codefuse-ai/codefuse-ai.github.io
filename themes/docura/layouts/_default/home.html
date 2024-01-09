@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div id="site-main-content-wrapper">
+  <main>
+    <section class="cover">
+      <h1>{{ .Site.Title }}</h1>
+      <h2>{{ .Site.Params.description }}</h2>
+
+      {{ with .Site.Params.home.repositories }}
+        {{ partial "github-repos-grid" . }}
+      {{ end }}
+      
+      <!-- {{ with .Site.Params.home.repository }}
+        {{ partial "github-buttons" . }}
+      {{ else }}
+        {{ with .Site.Params.home.repositories }}
+          {{ partial "github-repos-grid" . }}
+        {{ end }}
+      {{ end }} -->
+
+    </section>
+  </main>
+</div>
+{{ end }}
