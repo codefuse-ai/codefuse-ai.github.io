@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Issue Report · CodeFuse-AI</title>
+
+<link rel="canonical" href="/contribution/issue-report/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/contribution/issue-report/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4issue/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Documentation</a></li>
+        
+          
+          <li><a href="/contribution"  class="active"><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ Contributing Guide</strong>
+          
+          <a class="sidebar-link " href="/contribution/contribution-guide/">
+            
+              Contribution Guide
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/contribution/issue-report/">
+            
+              Issue Report
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/contribution/pull-request/">
+            
+              Pull Request
+            
+          </a>
+
+        <strong class="sidebar-section">❤️ Acknowledgments</strong>
+          
+          <a class="sidebar-link " href="/contribution/acknowledgements/">
+            
+              Acknowledgements
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Issue Report</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <p align="left">
+    <a href="/contribution/issue-report-zh">中文</a>&nbsp ｜ &nbsp<a>English&nbsp </a>
+</p>
+<h2 id="issue-type">Issue Type</h2>
+<p>Issues can be categorized into three types:</p>
+<ul>
+<li>Bug: Issues where code or execution examples contain bugs or lack dependencies, resulting in incorrect execution.</li>
+<li>Documentation: Discrepancies in documentation, inconsistencies between documentation content and code, etc.</li>
+<li>Feature: New functionalities that evolve from the current codebase.</li>
+</ul>
+<h2 id="issue-template">Issue Template</h2>
+<h3 id="issue-bug-template">Issue: Bug Template</h3>
+<p><strong>Checklist before submitting an issue</strong>
+<br>Please confirm that you have checked the document, issues, discussions (GitHub feature), and other publicly available documentation.</p>
+<ul>
+<li>I have searched through all documentation related to Codefuse.</li>
+<li>I used GitHub search to find a similar issue, but did not find one.</li>
+<li>I have added a very descriptive title for this issue.</li>
+</ul>
+<p><strong>System Information</strong>
+<br>Please confirm your operating system, such as mac-xx, windows-xx, linux-xx.</p>
+<p><strong>Code Version</strong>
+<br>Please confirm the code version or branch, such as master, release, etc.</p>
+<p><strong>Problem Description</strong>
+<br>Describe the problem you encountered, what you want to achieve, or the bug encountered during code execution.</p>
+<p><strong>Code Example</strong>
+<br>Attach your execution code and relevant configuration to facilitate rapid intervention and reproduction.</p>
+<p><strong>Error Information, Logs</strong>
+<br>The error logs and related information after executing the above code example.</p>
+<p><strong>Related Dependencies</strong>
+<br>Taking the chatbot project as an example:</p>
+<ul>
+<li>connector</li>
+<li>codechat</li>
+<li>sandbox</li>
+<li>&hellip;</li>
+</ul>
+<h3 id="issue-documentation-template">Issue: Documentation Template</h3>
+<p><strong>Issue with current documentation:</strong>
+<br>Please point out any problems, typos, or confusing points in the current documentation.</p>
+<p><strong>Idea or request for content</strong>
+<br>What do you think would be a reasonable way to express the documentation?</p>
+<h3 id="issue-feature-template">Issue: Feature Template</h3>
+<p><strong>Checklist before submitting an issue</strong>
+<br>Please confirm that you have checked the document, issues, discussions (GitHub feature), and other publicly available documentation.</p>
+<ul>
+<li>I have searched through all documentation related to Codefuse.</li>
+<li>I used GitHub Issue search to find a similar issue, but did not find one.</li>
+<li>I have added a very descriptive title for this issue.</li>
+</ul>
+<p><strong>Feature Description</strong>
+<br>Describe the purpose of this feature.</p>
+<p><strong>Related Examples</strong>
+<br>Provide references to documents, repositories, etc., Please provide links to any relevant GitHub repos, papers, or other resources if relevant.</p>
+<p><strong>Motivation</strong>
+<br>Describe the motivation for this feature. Why is it needed? Provide enough context information to help understand the demand for this feature.</p>
+<p><strong>Contribution</strong>
+<br>How you can contribute to the building of this feature (if you are participating).</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
+
+  
+    <a id="article-prev-link" href="/contribution/contribution-guide/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/contribution/pull-request/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#issue-type">Issue Type</a></li>
+    <li><a href="#issue-template">Issue Template</a>
+      <ul>
+        <li><a href="#issue-bug-template">Issue: Bug Template</a></li>
+        <li><a href="#issue-documentation-template">Issue: Documentation Template</a></li>
+        <li><a href="#issue-feature-template">Issue: Feature Template</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-01-23')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

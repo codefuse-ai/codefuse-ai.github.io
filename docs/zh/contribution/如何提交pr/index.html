@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>如何提交PR · CodeFuse-AI</title>
+
+<link rel="canonical" href="/zh/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4pr/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/contribution/pull-request/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4pr/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Documentation</a></li>
+        
+          
+          <li><a href="/contribution"  class="active"><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ 贡献指南</strong>
+          
+          <a class="sidebar-link " href="/contribution/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97/">
+            
+              贡献指南
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4issue/">
+            
+              如何提交Issue
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4pr/">
+            
+              如何提交PR
+            
+          </a>
+
+        <strong class="sidebar-section">❤️ 致谢</strong>
+          
+          <a class="sidebar-link " href="/contribution/%E8%87%B4%E8%B0%A2/">
+            
+              致谢
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>如何提交PR</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <p align="left">
+    <a>中文</a>&nbsp ｜ &nbsp<a href="/contribution/pull-request">English&nbsp </a>
+</p>
+<h2 id="contribution">Contribution</h2>
+<h3 id="pre-checklist">Pre-Checklist</h3>
+<ul>
+<li>要先确认是否查看  document、issue、discussion(github 功能) 等公开的文档信息</li>
+<li>找到你想处理的GitHub问题。如果不存在，创建一个问题或草案PR，并请求维护者进行检查。</li>
+<li>检查相关的、相似的或重复的拉取请求。</li>
+<li>创建一个草案拉取请求。</li>
+<li>完成PR模板中的描述。</li>
+<li>链接任何被你的PR解决的GitHub问题。</li>
+</ul>
+<h3 id="description">Description</h3>
+<p>PR的描述信息，用简洁的语言表达PR完成的事情，具体规范见<a href="#commit-%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83">Commit 格式规范</a></p>
+<h3 id="related-issue">Related Issue</h3>
+<p><code>#xx</code> if has</p>
+<h3 id="test-code-with-result">Test Code with Result</h3>
+<p>请提供相关的测试代码如果有必要的话</p>
+<h2 id="commit-格式规范">Commit 格式规范</h2>
+<p>Commit 分为“标题”和“内容”。原则上标题全部小写。内容首字母大写。</p>
+<h3 id="标题">标题</h3>
+<p>commit message的标题：<code>[&lt;type&gt;](&lt;scope&gt;) &lt;subject&gt; (#pr)</code></p>
+<h3 id="type-可选值">type 可选值</h3>
+<p>本次提交的类型，限定在以下类型（全小写）</p>
+<ul>
+<li>fix：bug修复</li>
+<li>feature：新增功能</li>
+<li>feature-wip：开发中的功能，比如某功能的部分代码。</li>
+<li>improvement：原有功能的优化和改进</li>
+<li>style：代码风格调整</li>
+<li>typo：代码或文档勘误</li>
+<li>refactor：代码重构（不涉及功能变动）</li>
+<li>performance/optimize：性能优化</li>
+<li>test：单元测试的添加或修复</li>
+<li>deps：第三方依赖库的修改</li>
+<li>community：社区相关的修改，如修改 Github Issue 模板等。</li>
+</ul>
+<p>几点说明：</p>
+<p>如在一次提交中出现多种类型，需增加多个类型。
+如代码重构带来了性能提升，可以同时添加 [refactor][optimize]
+不得出现如上所列类型之外的其他类型。如有必要，需要将新增类型添加到这个文档中。</p>
+<h3 id="scope-可选值">scope 可选值</h3>
+<p>本次提交涉及的模块范围。因为功能模块繁多，在此仅罗列部分，后续根据需求不断完善。
+<br>以 chatbot的框架为例</p>
+<ul>
+<li>connector</li>
+<li>codechat</li>
+<li>sandbox</li>
+<li>&hellip;</li>
+</ul>
+<p>几点说明：</p>
+<p>尽量使用列表中已存在的选项。如需添加，请及时更新本文档。</p>
+<h3 id="subject-内容">subject 内容</h3>
+<p>标题需尽量清晰表明本次提交的主要内容。</p>
+<h2 id="示例">示例</h2>
+<p>comming soon</p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://doris.apache.org/zh-CN/community/how-to-contribute/commit-format-specification" target="_blank">doris-commit-format</a></p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
+
+  
+    <a id="article-prev-link" href="/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4issue/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/contribution/%E8%87%B4%E8%B0%A2/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#contribution">Contribution</a>
+      <ul>
+        <li><a href="#pre-checklist">Pre-Checklist</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#related-issue">Related Issue</a></li>
+        <li><a href="#test-code-with-result">Test Code with Result</a></li>
+      </ul>
+    </li>
+    <li><a href="#commit-格式规范">Commit 格式规范</a>
+      <ul>
+        <li><a href="#标题">标题</a></li>
+        <li><a href="#type-可选值">type 可选值</a></li>
+        <li><a href="#scope-可选值">scope 可选值</a></li>
+        <li><a href="#subject-内容">subject 内容</a></li>
+      </ul>
+    </li>
+    <li><a href="#示例">示例</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-01-23')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

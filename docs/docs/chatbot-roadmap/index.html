@@ -6,7 +6,7 @@
 <meta name="description" content="介绍主要功能">
 <meta name="author" content="codefuse-ai">
 
-<title>ChatBot-RoadMap · CodeFuse</title>
+<title>ChatBot-RoadMap · CodeFuse-AI</title>
 
 <link rel="canonical" href="/docs/chatbot-roadmap/">
 
@@ -55,7 +55,7 @@
     <header id="site-header">
   
   <div id="site-header-brand">
-    <a href="/">CodeFuse</a>
+    <a href="/">CodeFuse-AI</a>
   </div>
 
   
@@ -103,6 +103,9 @@
         
           
           <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Documentation</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
         
       </ul>
     </nav>
@@ -160,9 +163,9 @@
 
         
           
-          <a class="sidebar-link " href="/docs/modelcache/">
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
             
-              ModelCache
+              CodeFuse-ModelCache
             
           </a>
 
@@ -208,9 +211,9 @@
 
         
           
-          <a class="sidebar-link " href="/docs/configurations/">
+          <a class="sidebar-link " href="/docs/llm-configuration/">
             
-              Configurations
+              LLM-Configuration
             
           </a>
 
@@ -219,14 +222,6 @@
           <a class="sidebar-link current" href="/docs/chatbot-roadmap/">
             
               ChatBot-RoadMap
-            
-          </a>
-
-        <strong class="sidebar-section">❤️</strong>
-          
-          <a class="sidebar-link " href="/docs/acknowledgements/">
-            
-              Acknowledgements
             
           </a>
 
@@ -246,114 +241,116 @@
       <div id="article-content">
         
         
-        <h2 id="roadmap">RoadMap</h2>
+        <p align="left">
+    <a href="/docs/chatbot-roadmap-zh">中文</a>&nbsp ｜ &nbsp<a>English&nbsp </a>
+</p>
+<h2 id="roadmap">RoadMap</h2>
 <div align=center>
   <img src="/images/chatbot/devops-chatbot-module-v2.png" alt="图片" width="600" height="400">
 </div>
 <br>
-<p>完整路线</p>
+<p>Roadmap Overview</p>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> Sandbox 环境
+<li><input checked="" disabled="" type="checkbox"> Sandbox Environment ✅
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 环境隔离的sandbox环境与代码执行</li>
-<li><input checked="" disabled="" type="checkbox"> 上传、下载文件</li>
-<li><input disabled="" type="checkbox"> 支持java执行环境</li>
+<li><input checked="" disabled="" type="checkbox"> Isolated sandbox environment for code execution ✅</li>
+<li><input checked="" disabled="" type="checkbox"> File upload and download ✅</li>
+<li><input disabled="" type="checkbox"> Support for Java execution environment ⬜</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> Vector Database &amp; Retrieval
+<li><input checked="" disabled="" type="checkbox"> Vector Database &amp; Retrieval ✅
 <ul>
-<li><input checked="" disabled="" type="checkbox"> task retrieval</li>
-<li><input checked="" disabled="" type="checkbox"> tool retrieval</li>
+<li><input checked="" disabled="" type="checkbox"> Task retrieval ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Tool retrieval ✅</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> Prompt Management</li>
-<li><input disabled="" type="checkbox"> memory Management</li>
-<li><input disabled="" type="checkbox"> Multi Agent
+<li><input checked="" disabled="" type="checkbox"> Prompt Management ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Memory Management ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Multi Agent Framework ✅
 <ul>
-<li><input disabled="" type="checkbox"> PRD需求文档、系分、接口设计</li>
-<li><input disabled="" type="checkbox"> 根据需求文档、系分、接口设计生产代码</li>
-<li><input disabled="" type="checkbox"> 自动测试、自动debugger</li>
-<li><input disabled="" type="checkbox"> 运维流程接入（ToolLearning）</li>
-<li><input disabled="" type="checkbox"> 全流程自动</li>
+<li><input disabled="" type="checkbox"> PRD (Product Requirement Document), system analysis, interface design ⬜</li>
+<li><input disabled="" type="checkbox"> Generate code based on requirement documents, system analysis, and interface design ⬜</li>
+<li><input disabled="" type="checkbox"> Automated testing, automated debugger ⬜</li>
+<li><input disabled="" type="checkbox"> Operations process integration (ToolLearning) ⬜</li>
+<li><input disabled="" type="checkbox"> Fully automated end-to-end process ⬜</li>
 </ul>
 </li>
-<li><input checked="" disabled="" type="checkbox"> 基于fastchat接入LLM</li>
-<li><input checked="" disabled="" type="checkbox"> 基于sentencebert接入Text Embedding
+<li><input checked="" disabled="" type="checkbox"> Integration with LLM based on fastchat ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Integration with Text Embedding based on sentencebert ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Improved vector loading speed ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Connector ✅
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 向量加载速度提升</li>
+<li><input checked="" disabled="" type="checkbox"> React Mode based on langchain ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Tool retrieval completed with langchain ✅</li>
 </ul>
 </li>
-<li><input checked="" disabled="" type="checkbox"> Connector
+<li><input disabled="" type="checkbox"> General Capability for Web Crawl ⬜
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 基于langchain的react模式</li>
-<li><input checked="" disabled="" type="checkbox"> 基于langchain完成tool检索</li>
-</ul>
-</li>
-<li><input disabled="" type="checkbox"> Web Crawl 通用能力
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等</li>
-<li><input disabled="" type="checkbox"> issue document</li>
-<li><input disabled="" type="checkbox"> SDK Library Document</li>
+<li><input checked="" disabled="" type="checkbox"> Technical documentation: Zhihu, CSDN, Alibaba Cloud Developer Forum, Tencent Cloud Developer Forum, etc. ✅</li>
+<li><input disabled="" type="checkbox"> Issue document ⬜</li>
+<li><input disabled="" type="checkbox"> SDK Library Document ⬜</li>
 </ul>
 </li>
 </ul>
-<p><br><br></p>
+<p>v0.0</p>
 <ul>
-<li>v0.0</li>
-<li><input checked="" disabled="" type="checkbox"> Sandbox 环境
+<li><input checked="" disabled="" type="checkbox"> Sandbox Environment ✅
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 环境隔离的sandbox环境与代码执行</li>
+<li><input checked="" disabled="" type="checkbox"> Isolated sandbox environment for code execution ✅</li>
 </ul>
 </li>
-<li><input checked="" disabled="" type="checkbox"> 基于fastchat接入LLM</li>
-<li><input checked="" disabled="" type="checkbox"> 基于sentencebert接入Text Embedding</li>
-<li><input checked="" disabled="" type="checkbox"> Web Crawl 通用能力：技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等
-<br></li>
-<li>v0.1</li>
-<li><input checked="" disabled="" type="checkbox"> Sandbox 环境: 上传、下载文件</li>
-<li><input checked="" disabled="" type="checkbox"> Vector Database &amp; Retrieval
-<ul>
-<li><input checked="" disabled="" type="checkbox"> task retrieval</li>
-<li><input checked="" disabled="" type="checkbox"> tool retrieval</li>
-</ul>
-</li>
-<li><input checked="" disabled="" type="checkbox"> Connector
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 基于langchain的react模式</li>
-</ul>
-</li>
-<li><input checked="" disabled="" type="checkbox"> 基于sentencebert接入Text Embedding: 向量加载速度提升</li>
+<li><input checked="" disabled="" type="checkbox"> Integration with LLM based on fastchat ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Integration with Text Embedding based on sentencebert ✅</li>
+<li><input checked="" disabled="" type="checkbox"> General Capability for Web Crawl: Technical documentation: Zhihu, CSDN, Alibaba Cloud Developer Forum, Tencent Cloud Developer Forum, etc. ✅</li>
 </ul>
 <p>Done
 <br></p>
+<p>v0.1</p>
 <ul>
-<li>v0.2</li>
-<li><input disabled="" type="checkbox"> Prompt Management</li>
-<li><input disabled="" type="checkbox"> memory Management</li>
-<li><input disabled="" type="checkbox"> Vector Database &amp; Retrieval</li>
+<li><input checked="" disabled="" type="checkbox"> Sandbox Environment: File upload and download ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Vector Database &amp; Retrieval ✅
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Task retrieval ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Tool retrieval ✅</li>
 </ul>
-<p>DDL： 2024.01.31
+</li>
+<li><input checked="" disabled="" type="checkbox"> Connector ✅
+<ul>
+<li><input checked="" disabled="" type="checkbox"> React Mode based on langchain ✅</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> Integration with Text Embedding based on sentencebert: Improved vector loading speed ✅</li>
+</ul>
+<p>Done
 <br></p>
+<p>v0.2</p>
 <ul>
-<li>v0.3</li>
-<li><input checked="" disabled="" type="checkbox"> Sandbox 环境
+<li><input checked="" disabled="" type="checkbox"> Prompt Management ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Memory Management ✅</li>
+<li><input checked="" disabled="" type="checkbox"> Vector Database &amp; Retrieval  ✅</li>
+</ul>
+<p>Done
+<br></p>
+<p>v0.3</p>
 <ul>
-<li><input disabled="" type="checkbox"> 支持java执行环境</li>
+<li><input checked="" disabled="" type="checkbox"> Sandbox Environment ✅
+<ul>
+<li><input disabled="" type="checkbox"> Support for Java execution environment ⬜</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> Multi Agent
+<li><input checked="" disabled="" type="checkbox"> Multi Agent ✅
 <ul>
-<li><input disabled="" type="checkbox"> PRD需求文档、系分、接口设计</li>
-<li><input disabled="" type="checkbox"> 根据需求文档、系分、接口设计生产代码</li>
-<li><input disabled="" type="checkbox"> 自动测试、自动debugger</li>
-<li><input disabled="" type="checkbox"> 运维流程接入（ToolLearning）</li>
-<li><input disabled="" type="checkbox"> 全流程自动</li>
+<li><input disabled="" type="checkbox"> PRD (Product Requirement Document), system analysis, interface design ⬜</li>
+<li><input disabled="" type="checkbox"> Generate code based on requirement documents, system analysis, and interface design ⬜</li>
+<li><input disabled="" type="checkbox"> Automated testing, automated debugger ⬜</li>
+<li><input disabled="" type="checkbox"> Operations process integration (ToolLearning) ⬜</li>
+<li><input disabled="" type="checkbox"> Fully automated end-to-end process ⬜</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> Web Crawl 通用能力
+<li><input checked="" disabled="" type="checkbox"> General Capability for Web Crawl ✅
 <ul>
-<li><input disabled="" type="checkbox"> issue document</li>
-<li><input disabled="" type="checkbox"> SDK Library Document</li>
+<li><input disabled="" type="checkbox"> Issue document ⬜</li>
+<li><input disabled="" type="checkbox"> SDK Library Document ⬜</li>
 </ul>
 </li>
 </ul>
@@ -473,25 +470,15 @@
 
       
     
-        
-
-        
-          
-        
-
-        
-        
 
 
 <footer id="article-footer">
-  <time id="article-last-updated" datetime="2024-01-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-09</time>
+  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
 
   
-    <a id="article-prev-link" href="/docs/configurations/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+    <a id="article-prev-link" href="/docs/llm-configuration/"><i class="icon icon-prev icon-colored"></i> Prev</a>
   
 
-  
-    <a id="article-next-link"  href="/docs/acknowledgements/">Next <i class="icon icon-next icon-colored"></i></a>
   
 </footer>
     </article>
@@ -573,7 +560,7 @@
 
 <script type="application/javascript">
     if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js?2024-01-09')
+        navigator.serviceWorker.register('/sw.js?2024-01-23')
             .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
     }
 </script>

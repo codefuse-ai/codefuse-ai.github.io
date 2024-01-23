@@ -6,7 +6,7 @@
 <meta name="description" content="CodeFuse aims to develop Code Large Language Models (Code LLMs) to support and enhance full-lifecycle AI native sotware developing, covering crucial stages such as design requirements, coding, testing, building, deployment, operations, and insight analysis.">
 <meta name="author" content="codefuse-ai">
 
-<title>Start-Detail · CodeFuse</title>
+<title>Start-Detail · CodeFuse-AI</title>
 
 <link rel="canonical" href="/docs/chatbot/start-detail/">
 
@@ -55,7 +55,7 @@
     <header id="site-header">
   
   <div id="site-header-brand">
-    <a href="/">CodeFuse</a>
+    <a href="/">CodeFuse-AI</a>
   </div>
 
   
@@ -103,6 +103,9 @@
         
           
           <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Documentation</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
         
       </ul>
     </nav>
@@ -160,9 +163,9 @@
 
         
           
-          <a class="sidebar-link " href="/docs/modelcache/">
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
             
-              ModelCache
+              CodeFuse-ModelCache
             
           </a>
 
@@ -208,9 +211,9 @@
 
         
           
-          <a class="sidebar-link " href="/docs/configurations/">
+          <a class="sidebar-link " href="/docs/llm-configuration/">
             
-              Configurations
+              LLM-Configuration
             
           </a>
 
@@ -219,14 +222,6 @@
           <a class="sidebar-link " href="/docs/chatbot-roadmap/">
             
               ChatBot-RoadMap
-            
-          </a>
-
-        <strong class="sidebar-section">❤️</strong>
-          
-          <a class="sidebar-link " href="/docs/acknowledgements/">
-            
-              Acknowledgements
             
           </a>
 
@@ -246,48 +241,50 @@
       <div id="article-content">
         
         
-        <p>请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。</p>
-<h3 id="python-环境准备">python 环境准备</h3>
+        <p align="left">
+    <a href="/docs/start-detail-zh">中文</a>&nbsp ｜ &nbsp<a>English&nbsp </a>
+</p>
+<p>If you need to deploy a privatized model, please install the NVIDIA driver yourself.</p>
+<h3 id="preparation-of-python-environment">Preparation of Python environment</h3>
 <ul>
-<li>推荐采用 conda 对 python 环境进行管理（可选）</li>
+<li>It is recommended to use conda to manage the python environment (optional)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 准备 conda 环境</span>
-</span></span><span class="line"><span class="cl">conda create --name devopsgpt <span class="nv">python</span><span class="o">=</span>3.9
-</span></span><span class="line"><span class="cl">conda activate devopsgpt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Prepare conda environment</span>
+</span></span><span class="line"><span class="cl">conda create --name Codefusegpt <span class="nv">python</span><span class="o">=</span>3.9
+</span></span><span class="line"><span class="cl">conda activate Codefusegpt
 </span></span></code></pre></div><ul>
-<li>安装相关依赖</li>
+<li>Install related dependencies</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> codefuse-chatbot
-</span></span><span class="line"><span class="cl"><span class="c1"># python=3.9，notebook用最新即可，python=3.8用notebook=6.5.6</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> Codefuse-ChatBot
 </span></span><span class="line"><span class="cl">pip install -r requirements.txt
-</span></span></code></pre></div><h3 id="沙盒环境准备">沙盒环境准备</h3>
+</span></span></code></pre></div><h3 id="sandbox-environment-preparation">Sandbox Environment Preparation</h3>
 <ul>
 <li>
-<p>windows Docker 安装：
-<a href="https://docs.docker.com/desktop/install/windows-install/" target="_blank">Docker Desktop for Windows</a> 支持 64 位版本的 Windows 10 Pro，且必须开启 Hyper-V（若版本为 v1903 及以上则无需开启 Hyper-V），或者 64 位版本的 Windows 10 Home v1903 及以上版本。</p>
+<p>Windows Docker installation:
+<a href="https://docs.docker.com/desktop/install/windows-install/" target="_blank">Docker Desktop for Windows</a> supports 64-bit versions of Windows 10 Pro with Hyper-V enabled (Hyper-V is not required for versions v1903 and above), or 64-bit versions of Windows 10 Home v1903 and above.</p>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/441965046" target="_blank">【全面详细】Windows10 Docker安装详细教程</a></li>
 <li><a href="https://yeasy.gitbook.io/docker_practice/install/windows" target="_blank">Docker 从入门到实践</a></li>
-<li><a href="https://blog.csdn.net/sunhy_csdn/article/details/106526991" target="_blank">Docker Desktop requires the Server service to be enabled 处理</a></li>
+<li><a href="https://blog.csdn.net/sunhy_csdn/article/details/106526991" target="_blank">Handling &lsquo;Docker Desktop requires the Server service to be enabled&rsquo;</a></li>
 <li><a href="https://learn.microsoft.com/zh-cn/windows/wsl/install" target="_blank">安装wsl或者等报错提示</a></li>
 </ul>
 </li>
 <li>
-<p>Linux Docker 安装：
-Linux 安装相对比较简单，请自行 baidu/google 相关安装</p>
+<p>Linux Docker installation：
+Linux installation is relatively simple, please search Baidu/Google for installation guides.</p>
 </li>
 <li>
-<p>Mac Docker 安装</p>
+<p>Mac Docker installation</p>
 <ul>
 <li><a href="https://yeasy.gitbook.io/docker_practice/install/mac" target="_blank">Docker 从入门到实践</a></li>
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 构建沙盒环境的镜像，notebook版本问题见上述</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Build the image for the sandbox environment, see above for notebook version issues</span>
 </span></span><span class="line"><span class="cl">bash docker_build.sh
-</span></span></code></pre></div><h3 id="模型下载可选">模型下载（可选）</h3>
-<p>如需使用开源 LLM 与 Embedding 模型可以从 HuggingFace 下载。
-此处以 THUDM/chatglm2-6bm 和 text2vec-base-chinese 为例：</p>
+</span></span></code></pre></div><h3 id="model-download-optional">Model Download (Optional)</h3>
+<p>If you need to use open-source LLM and Embedding models, you can download them from HuggingFace.
+Here we take THUDM/chatglm2-6b and text2vec-base-chinese as examples:</p>
 <pre tabindex="0"><code># install git-lfs
 git lfs install
 
@@ -298,48 +295,47 @@ cp ~/THUDM/chatglm2-6b ~/codefuse-chatbot/llm_models/
 # install Embedding-model
 git lfs clone https://huggingface.co/shibing624/text2vec-base-chinese
 cp ~/shibing624/text2vec-base-chinese ~/codefuse-chatbot/embedding_models/
-</code></pre><h3 id="基础配置">基础配置</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 修改服务启动的基础配置</span>
+</code></pre><h3 id="basic-configuration">Basic Configuration</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Modify the basic configuration for service startup</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> configs
 </span></span><span class="line"><span class="cl">cp model_config.py.example model_config.py
 </span></span><span class="line"><span class="cl">cp server_config.py.example server_config.py
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># model_config#11~12 若需要使用openai接口，openai接口key</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># model_config#11~12 If you need to use the OpenAI interface, the OpenAI interface key</span>
 </span></span><span class="line"><span class="cl">os.environ<span class="o">[</span><span class="s2">&#34;OPENAI_API_KEY&#34;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;sk-xxx&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 可自行替换自己需要的api_base_url</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Replace with the api_base_url you need</span>
 </span></span><span class="line"><span class="cl">os.environ<span class="o">[</span><span class="s2">&#34;API_BASE_URL&#34;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;https://api.openai.com/v1&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#LLM_MODEL 你需要选择的语言模型</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#LLM_MODEL The language model you need to choose</span>
 </span></span><span class="line"><span class="cl"><span class="nv">LLM_MODEL</span> <span class="o">=</span> <span class="s2">&#34;gpt-3.5-turbo&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">LLM_MODELs</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;gpt-3.5-turbo&#34;</span><span class="o">]</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#EMBEDDING_MODEL 你需要选择的私有化向量模型</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#EMBEDDING_MODEL The private vector model you need to choose</span>
 </span></span><span class="line"><span class="cl"><span class="nv">EMBEDDING_ENGINE</span> <span class="o">=</span> <span class="s1">&#39;model&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">EMBEDDING_MODEL</span> <span class="o">=</span> <span class="s2">&#34;text2vec-base&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#embedding_model_dict 修改成你的本地路径，如果能直接连接huggingface则无需修改</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 若模型地址为：</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Example of vector model access, modify model_config#embedding_model_dict</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># If the model directory is:</span>
 </span></span><span class="line"><span class="cl">model_dir: ~/codefuse-chatbot/embedding_models/shibing624/text2vec-base-chinese
-</span></span><span class="line"><span class="cl"><span class="c1"># 配置如下</span>
-</span></span><span class="line"><span class="cl"><span class="s2">&#34;text2vec-base&#34;</span>: <span class="s2">&#34;shibing624/text2vec-base-chinese&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="c1"># Configure as follows</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;text2vec-base&#34;</span>: <span class="s2">&#34;shibing624/text2vec-base-chinese&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi server_config#8~14, 推荐采用容器启动服务</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># vi server_config#8~14, It&#39;s recommended to use a container to start the service to prevent environment conflicts when installing other dependencies using the codeInterpreter feature</span>
 </span></span><span class="line"><span class="cl"><span class="nv">DOCKER_SERVICE</span> <span class="o">=</span> True
-</span></span><span class="line"><span class="cl"><span class="c1"># 是否采用容器沙箱</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Whether to use a container sandbox</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SANDBOX_DO_REMOTE</span> <span class="o">=</span> True
-</span></span><span class="line"><span class="cl"><span class="c1"># 是否采用api服务来进行</span>
-</span></span><span class="line"><span class="cl"><span class="nv">NO_REMOTE_API</span> <span class="o">=</span> True
-</span></span></code></pre></div><h3 id="启动服务">启动服务</h3>
-<p>默认只启动webui相关服务，未启动fastchat（可选）。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 若需要支撑codellama-34b-int4模型，需要给fastchat打一个补丁</span>
+</span></span></code></pre></div><h3 id="starting-the-service">Starting the Service</h3>
+<p>By default, only the webui-related services are started, and fastchat is not started (optional).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># If you need to support the codellama-34b-int4 model, you need to patch fastchat</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># cp examples/gptq.py ~/site-packages/fastchat/modules/gptq.py</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># dev_opsgpt/service/llm_api.py#258 修改为 kwargs={&#34;gptq_wbits&#34;: 4},</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Modify dev_opsgpt/llm_api.py#258 to kwargs={&#34;gptq_wbits&#34;: 4},</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># start llm-service（可选）</span>
-</span></span><span class="line"><span class="cl">python dev_opsgpt/service/llm_api.py
-</span></span></code></pre></div><p>更多LLM接入方法见<a href="./fastchat.md">详情&hellip;</a>
+</span></span><span class="line"><span class="cl"><span class="c1"># start llm-service (optional)</span>
+</span></span><span class="line"><span class="cl">python dev_opsgpt/llm_api.py
+</span></span></code></pre></div><p>For more LLM integration methods, see<a href="./fastchat.md">more details&hellip;</a>
 <br></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 完成server_config.py配置后，可一键启动</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># After completing the server_config.py configuration, you can start with one click</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> examples
 </span></span><span class="line"><span class="cl">python start.py
 </span></span></code></pre></div>
@@ -448,18 +444,17 @@ cp ~/shibing624/text2vec-base-chinese ~/codefuse-chatbot/embedding_models/
 
         
         
-      
 
 
 <footer id="article-footer">
-  <time id="article-last-updated" datetime="2024-01-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-09</time>
+  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
 
   
     <a id="article-prev-link" href="/docs/quickstart/"><i class="icon icon-prev icon-colored"></i> Prev</a>
   
 
   
-    <a id="article-next-link"  href="/docs/configurations/">Next <i class="icon icon-next icon-colored"></i></a>
+    <a id="article-next-link"  href="/docs/llm-configuration/">Next <i class="icon icon-next icon-colored"></i></a>
   
 </footer>
     </article>
@@ -471,11 +466,11 @@ cp ~/shibing624/text2vec-base-chinese ~/codefuse-chatbot/embedding_models/
   <ul>
     <li>
       <ul>
-        <li><a href="#python-环境准备">python 环境准备</a></li>
-        <li><a href="#沙盒环境准备">沙盒环境准备</a></li>
-        <li><a href="#模型下载可选">模型下载（可选）</a></li>
-        <li><a href="#基础配置">基础配置</a></li>
-        <li><a href="#启动服务">启动服务</a></li>
+        <li><a href="#preparation-of-python-environment">Preparation of Python environment</a></li>
+        <li><a href="#sandbox-environment-preparation">Sandbox Environment Preparation</a></li>
+        <li><a href="#model-download-optional">Model Download (Optional)</a></li>
+        <li><a href="#basic-configuration">Basic Configuration</a></li>
+        <li><a href="#starting-the-service">Starting the Service</a></li>
       </ul>
     </li>
   </ul>
@@ -549,7 +544,7 @@ cp ~/shibing624/text2vec-base-chinese ~/codefuse-chatbot/embedding_models/
 
 <script type="application/javascript">
     if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js?2024-01-09')
+        navigator.serviceWorker.register('/sw.js?2024-01-23')
             .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
     }
 </script>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Contribution Guide · CodeFuse-AI</title>
+
+<link rel="canonical" href="/contribution/contribution-guide/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/contribution/contribution-guide/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/contribution/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Documentation</a></li>
+        
+          
+          <li><a href="/contribution"  class="active"><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ Contributing Guide</strong>
+          
+          <a class="sidebar-link current" href="/contribution/contribution-guide/">
+            
+              Contribution Guide
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/contribution/issue-report/">
+            
+              Issue Report
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/contribution/pull-request/">
+            
+              Pull Request
+            
+          </a>
+
+        <strong class="sidebar-section">❤️ Acknowledgments</strong>
+          
+          <a class="sidebar-link " href="/contribution/acknowledgements/">
+            
+              Acknowledgements
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Contribution Guide</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <p align="left">
+    <a href="/contribution/contribution-guide-zh">中文</a>&nbsp ｜ &nbsp<a>English&nbsp </a>
+</p>
+<p>Thank you for your interest in the Codefuse project. We warmly welcome any suggestions, opinions (including criticisms), comments, and contributions to the Codefuse project.</p>
+<p>Your suggestions, opinions, and comments on Codefuse can be directly submitted through GitHub Issues.</p>
+<p>There are many ways to participate in the Codefuse project and contribute to it: code implementation, test writing, process tool improvement, documentation enhancement, and more. We welcome any contributions and will add you to our list of contributors.</p>
+<p>Furthermore, with enough contributions, you may have the opportunity to become a Committer for Codefuse.</p>
+<p>For any questions, you can contact us for timely answers through various means including WeChat, Gitter (an instant messaging tool provided by GitHub), email, and more.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>If you are new to the Codefuse community, you can:</p>
+<ul>
+<li>Follow the Codefuse GitHub repository.</li>
+<li>Join related WeChat groups for Codefuse to ask questions at any time;</li>
+</ul>
+<p>Through the above methods, you can stay up-to-date with the development dynamics of the Codefuse project and express your opinions on topics of interest.</p>
+<h2 id="contributation-ways">Contributation Ways</h2>
+<p>This contribution guide is not just about writing code. We value and appreciate help in all areas. Here are some ways you can contribute:</p>
+<ul>
+<li>Documentation</li>
+<li>Issues</li>
+<li>Pull Requests (PR)</li>
+</ul>
+<h3 id="improve-documentation">Improve Documentation</h3>
+<p>Documentation is the main way for you to understand Codefuse and is also where we need the most help!</p>
+<p>By browsing the documentation, you can deepen your understanding of Codefuse and also help you grasp the features and technical details of Codefuse. If you find any issues with the documentation, please contact us in time;</p>
+<p>If you are interested in improving the quality of the documentation, whether it is revising an address of a page, correcting a link, or writing a better introductory document, we are very welcoming!</p>
+<p>Most of our documentation is written in markdown format. You can directly modify and submit documentation changes in the docs/ directory on GitHub. For submitting code changes, please refer to Pull Requests.</p>
+<h3 id="if-you-discover-a-bug-or-issue">If You Discover a Bug or Issue</h3>
+<p>If you discover a bug or issue, you can directly submit a new Issue through GitHub Issues, and someone will handle it regularly. For more details, see Issue Template.<a href="/contribution/issue-report">Issue Template</a></p>
+<p>You can also choose to read and analyze the code to fix it yourself (it is best to communicate with us before doing so, as someone might already be working on the same issue), and then submit a Pull Request.</p>
+<h3 id="modify-code-and-submit-a-pr-pull-request">Modify Code and Submit a PR (Pull Request)</h3>
+<p>You can download the code, compile, install, and deploy to try it out (you can refer to the compilation documentation to see if it works as you expected). If there are any issues, you can directly contact us, submit an Issue, or fix it yourself by reading and analyzing the source code. For more details, see<a href="/contribution/pull-request">How to Submit a PR.</a></p>
+<p>Whether it&rsquo;s fixing a bug or adding a feature, we warmly welcome it. If you wish to submit code to Doris, you need to fork the code repository to your project space on GitHub, create a new branch for your submitted code, add the original project as an upstream, and submit a PR. The method for submitting a PR can be referenced in the Pull Request documentation.</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
+
+  
+
+  
+    <a id="article-next-link"  data-first-page=true  href="/contribution/issue-report/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#contributation-ways">Contributation Ways</a>
+      <ul>
+        <li><a href="#improve-documentation">Improve Documentation</a></li>
+        <li><a href="#if-you-discover-a-bug-or-issue">If You Discover a Bug or Issue</a></li>
+        <li><a href="#modify-code-and-submit-a-pr-pull-request">Modify Code and Submit a PR (Pull Request)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-01-23')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

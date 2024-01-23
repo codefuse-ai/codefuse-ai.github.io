@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CodeFuse</title>
+    <title>CodeFuse-AI</title>
     <link>/zh/</link>
-    <description>Recent content on CodeFuse</description>
+    <description>Recent content on CodeFuse-AI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-CN</language>
     <atom:link href="/zh/index.xml" rel="self" type="application/rss+xml" />
@@ -12,7 +12,7 @@
       <link>/zh/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/zh/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/</guid>
-      <description>RoadMap 完整路线&#xA;Sandbox 环境 环境隔离的sandbox环境与代码执行 上传、下载文件 支持java执行环境 Vector Database &amp;amp; Retrieval task retrieval tool retrieval Prompt Management memory Management Multi Agent PRD需求文档、系分、接口设计 根据需求文档、系分、接口设计生产代码 自动测试、自动debugger 运维流程接入（ToolLearning） 全流程自动 基于fastchat接入LLM 基于sentencebert接入Text Embedding 向量加载速度提升 Connector 基于langchain的react模式 基于langchain完成tool检索 Web Crawl 通用能力 技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等 issue document SDK Library Document v0.0 Sandbox 环境 环境隔离的sandbox环境与代码执行 基于fastchat接入LLM 基于sentencebert接入Text Embedding Web Crawl 通用能力：技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等 v0.1 Sandbox 环境: 上传、下载文件 Vector Database &amp;amp; Retrieval task retrieval tool retrieval Connector 基于langchain的react模式 基于sentencebert接入Text Embedding: 向量加载速度提升 Done v0.</description>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp RoadMap 完整路线&#xA;Sandbox 环境 ✅ 环境隔离的sandbox环境与代码执行 ✅ 上传、下载文件 ✅ 支持java执行环境 Vector Database &amp;amp; Retrieval task retrieval ✅ tool retrieval ✅ Prompt Management ✅ memory Management ✅ Multi Agent ✅ PRD需求文档、系分、接口设计 ⬜ 根据需求文档、系分、接口设计生产代码 ⬜ 自动测试、自动debugger ⬜ 运维流程接入（ToolLearning）⬜ 全流程自动 ⬜ 基于fastchat接入LLM ✅ 基于sentencebert接入Text Embedding ✅ 向量加载速度提升 ✅ Connector ✅ 基于langchain的react模式 ✅ 基于langchain完成tool检索 ✅ Web Crawl 通用能力 ✅ 技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等 ✅ issue document ⬜ SDK Library Document ⬜ v0.0 Sandbox 环境 ✅ 环境隔离的sandbox环境与代码执行 ✅ 基于fastchat接入LLM ✅ 基于sentencebert接入Text Embedding ✅ Web Crawl 通用能力：技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等 ✅ v0.</description>
     </item>
     <item>
       <title>CodeFuse-ChatBot Development by Private Knowledge Augmentation</title>
@@ -78,6 +78,13 @@
       <description>Test-Agent Test-Agent</description>
     </item>
     <item>
+      <title>本地私有化&amp;大模型接口接入</title>
+      <link>/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/</guid>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp 本地私有化/大模型接口接入 依托于开源的 LLM 与 Embedding 模型，本项目可实现基于开源模型的离线私有部署。此外，本项目也支持 OpenAI API 的调用。&#xA;本地私有化模型接入 模型地址配置示例，model_config.py配置修改&#xA;# 建议：走huggingface接入，尽量使用chat模型，不要使用base，无法获取正确输出 # 注意：当llm_model_dict和VLLM_MODEL_DICT同时存在时，优先启动VLLM_MODEL_DICT中的模型配置 # llm_model_dict 配置接入示例如下 # 1、若把模型放到 ~/codefuse-chatbot/llm_models 路径下 # 若模型地址如下 model_dir: ~/codefuse-chatbot/llm_models/THUDM/chatglm-6b # 参考配置如下 llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;THUDM/chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;THUDM/chatglm-6b&amp;#34;, } # or 若模型地址如下 model_dir: ~/codefuse-chatbot/llm_models/chatglm-6b llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;chatglm-6b&amp;#34;, } # 2、若不想移动相关模型到 ~/codefuse-chatbot/llm_models # 同时删除 `模型路径重置` 以下的相关代码，具体见model_config.</description>
+    </item>
+    <item>
       <title>多智能体</title>
       <link>/zh/docs/%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -92,32 +99,46 @@
       <description>HuggingFace | 魔搭社区 | 产品主页 Hello World! This is CodeFuse!&#xA;CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs），涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。&#xA;我们非常有激情去构建创新的解决方案来支持全生命周期AI驱动的软件开发，如上图所示。同时，我们也诚邀志同道合的工程师和研究人员加入这个社区，共同构建和增强CodeFuse。</description>
     </item>
     <item>
+      <title>贡献指南</title>
+      <link>/zh/contribution/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/contribution/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp 非常感谢您对 Codefuse 项目感兴趣，我们非常欢迎您对 Codefuse 项目的各种建议、意见（包括批评）、评论和贡献。&#xA;您对 Codefuse 的各种建议、意见、评论可以直接通过 GitHub 的 Issues 提出。&#xA;参与 Codefuse 项目并为其作出贡献的方法有很多：代码实现、测试编写、流程工具改进、文档完善等等。任何贡献我们都会非常欢迎，并将您加入贡献者列表.&#xA;进一步，有了足够的贡献后，您还可以有机会成为 Codefuse 的 Committer。&#xA;任何问题，您都可以联系我们得到及时解答，联系方式包括微信、Gitter（GitHub提供的即时聊天工具）、邮件等等。&#xA;初次接触 初次来到 Codefuse 社区，您可以：&#xA;关注 Codefuse Github 代码库 加入 Codefuse 相关的微信群 随时提问； 通过以上方式及时了解 Codefuse 项目的开发动态并为您关注的话题发表意见。 贡献方式 这份贡献指南并不仅仅关于编写代码。我们重视并感激在各个领域的帮助。以下是一些您可以贡献的方式&#xA;文档 Issue PR 改进文档 文档是您了解 Codefuse 的最主要的方式，也是我们最需要帮助的地方！&#xA;浏览文档，可以加深您对 Codefuse 的了解，也可以帮助您理解 Codefuse 的功能和技术细节，如果您发现文档有问题，请及时联系我们；&#xA;如果您对改进文档的质量感兴趣，不论是修订一个页面的地址、更正一个链接、以及写一篇更优秀的入门文档，我们都非常欢迎！&#xA;我们的文档大多数是使用 markdown 格式编写的，您可以直接通过在 GitHub 中的 docs/ 中修改并提交文档变更。如果提交代码变更，可以参阅 Pull Request。&#xA;如果发现了一个 Bug 或问题 如果发现了一个 Bug 或问题，您可以直接通过 GitHub 的 Issues 提一个新的 Issue，我们会有人定期处理。详情见Issue模板</description>
+    </item>
+    <item>
       <title>快速开始</title>
       <link>/zh/docs/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/zh/docs/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</guid>
-      <description>🚀 快速使用 请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。&#xA;Docker安装、私有化LLM接入及相关启动问题见：快速使用明细&#xA;python 环境准备 推荐采用 conda 对 python 环境进行管理（可选） # 准备 conda 环境 conda create --name devopsgpt python=3.9 conda activate devopsgpt 安装相关依赖 cd codefuse-chatbot # python=3.9，notebook用最新即可，python=3.8用notebook=6.5.6 pip install -r requirements.txt 基础配置 # 修改服务启动的基础配置 cd configs cp model_config.py.example model_config.py cp server_config.py.example server_config.py # model_config#11~12 若需要使用openai接口，openai接口key os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xxx&amp;#34; # 可自行替换自己需要的api_base_url os.environ[&amp;#34;API_BASE_URL&amp;#34;] = &amp;#34;https://api.openai.com/v1&amp;#34; # vi model_config#LLM_MODEL 你需要选择的语言模型 LLM_MODEL = &amp;#34;gpt-3.5-turbo&amp;#34; LLM_MODELs = [&amp;#34;gpt-3.</description>
-    </item>
-    <item>
-      <title>配置</title>
-      <link>/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/</guid>
-      <description>本地私有化/大模型接口接入 依托于开源的 LLM 与 Embedding 模型，本项目可实现基于开源模型的离线私有部署。此外，本项目也支持 OpenAI API 的调用。&#xA;📜 目录 本地私有化模型接入 公开大模型接口接入 启动大模型服务 本地私有化模型接入 模型地址配置示例，model_config.py配置修改&#xA;# 建议：走huggingface接入，尽量使用chat模型，不要使用base，无法获取正确输出 # 注意：当llm_model_dict和VLLM_MODEL_DICT同时存在时，优先启动VLLM_MODEL_DICT中的模型配置 # llm_model_dict 配置接入示例如下 llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;THUDM/chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } # VLLM_MODEL_DICT 配置接入示例如下 VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;THUDM/chatglm-6b&amp;#34;, } 模型路径填写示例&#xA;# 1、若把模型放到 ~/codefuse-chatbot/llm_models 路径下 # 若模型地址如下 model_dir: ~/codefuse-chatbot/llm_models/THUDM/chatglm-6b # 参考配置如下 llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;THUDM/chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;THUDM/chatglm-6b&amp;#34;, } # or 若模型地址如下 model_dir: ~/codefuse-chatbot/llm_models/chatglm-6b llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;chatglm-6b&amp;#34;, } # 2、若不想移动相关模型到 ~/codefuse-chatbot/llm_models # 同时删除 `模型路径重置` 以下的相关代码，具体见model_config.</description>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp 🚀 快速使用 如需使用私有化模型部署，请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。&#xA;Docker安装、私有化LLM接入及相关启动问题见：快速使用明细&#xA;python 环境准备 推荐采用 conda 对 python 环境进行管理（可选） # 准备 conda 环境 conda create --name devopsgpt python=3.9 conda activate devopsgpt 安装相关依赖 cd codefuse-chatbot pip install -r requirements.txt 基础配置 # 修改服务启动的基础配置 cd configs cp model_config.py.example model_config.py cp server_config.py.example server_config.py # model_config#11~12 若需要使用openai接口，openai接口key os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xxx&amp;#34; # 可自行替换自己需要的api_base_url os.environ[&amp;#34;API_BASE_URL&amp;#34;] = &amp;#34;https://api.openai.com/v1&amp;#34; # vi model_config#LLM_MODEL 你需要选择的语言模型 LLM_MODEL = &amp;#34;gpt-3.</description>
     </item>
     <item>
       <title>启动明细</title>
       <link>/zh/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/zh/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/</guid>
-      <description>请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。&#xA;python 环境准备 推荐采用 conda 对 python 环境进行管理（可选） # 准备 conda 环境 conda create --name devopsgpt python=3.9 conda activate devopsgpt 安装相关依赖 cd codefuse-chatbot # python=3.9，notebook用最新即可，python=3.8用notebook=6.5.6 pip install -r requirements.txt 沙盒环境准备 windows Docker 安装： Docker Desktop for Windows 支持 64 位版本的 Windows 10 Pro，且必须开启 Hyper-V（若版本为 v1903 及以上则无需开启 Hyper-V），或者 64 位版本的 Windows 10 Home v1903 及以上版本。&#xA;【全面详细】Windows10 Docker安装详细教程 Docker 从入门到实践 Docker Desktop requires the Server service to be enabled 处理 安装wsl或者等报错提示 Linux Docker 安装： Linux 安装相对比较简单，请自行 baidu/google 相关安装</description>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp 如需使用私有化模型部署，请自行安装 nvidia 驱动程序。&#xA;python 环境准备 推荐采用 conda 对 python 环境进行管理（可选） # 准备 conda 环境 conda create --name devopsgpt python=3.9 conda activate devopsgpt 安装相关依赖 cd codefuse-chatbot # python=3.9，notebook用最新即可，python=3.8用notebook=6.5.6 pip install -r requirements.txt 沙盒环境准备 windows Docker 安装： Docker Desktop for Windows 支持 64 位版本的 Windows 10 Pro，且必须开启 Hyper-V（若版本为 v1903 及以上则无需开启 Hyper-V），或者 64 位版本的 Windows 10 Home v1903 及以上版本。&#xA;【全面详细】Windows10 Docker安装详细教程 Docker 从入门到实践 Docker Desktop requires the Server service to be enabled 处理 安装wsl或者等报错提示 Linux Docker 安装： Linux 安装相对比较简单，请自行 baidu/google 相关安装</description>
+    </item>
+    <item>
+      <title>如何提交Issue</title>
+      <link>/zh/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4issue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4issue/</guid>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp Issue Type Issue分为三种类型&#xA;Bug: 代码或者执行示例存在bug或缺少依赖导致无法正确执行 Documentation：文档表述存在争议、文档内容与代码不一致等 Feature：在当前代码基础继续演进的新功能 Issue Template Issue: Bug Template 提交Issue前的确认清单 要先确认是否查看 document、issue、discussion(github 功能) 等公开的文档信息&#xA;我搜索了Codefuse相关的所有文档。 我使用GitHub搜索寻找了一个类似的问题，但没有找到。 我为这个问题添加了一个非常描述性的标题。 系统信息 确认系统，如 mac -xx 、windwos-xx、linux-xx&#xA;代码版本 确认代码版本或者分支，master、release等&#xA;问题描述 描述您碰到的问题，想要实现的事情、或代码执行Bug&#xA;代码示例 附上你的执行代码和相关配置，以便能够快速介入进行复现&#xA;报错信息、日志 执行上述代码示例后的报错日志和相关信息&#xA;相关依赖的模块 以chatbot项目为例&#xA;connector codechat sandbox &amp;hellip; Issue: Documentation Template Issue with current documentation: 请帮忙指出当前文档中的问题、错别字或者令人困惑的地方&#xA;Idea or request for content 您觉得合理的文档表述方式应该是什么样的&#xA;Issue: Feature Template 提交Issue前的确认清单 要先确认是否查看 document、issue、discussion(github 功能) 等公开的文档信息&#xA;我搜索了Codefuse相关的所有文档。 我使用GitHub Issue搜索寻找了一个类似的问题，但没有找到。 我为这个问题添加了一个非常描述性的标题。 功能描述 描述这个功能作何用途</description>
+    </item>
+    <item>
+      <title>如何提交PR</title>
+      <link>/zh/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4pr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/zh/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4pr/</guid>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp Contribution Pre-Checklist 要先确认是否查看 document、issue、discussion(github 功能) 等公开的文档信息 找到你想处理的GitHub问题。如果不存在，创建一个问题或草案PR，并请求维护者进行检查。 检查相关的、相似的或重复的拉取请求。 创建一个草案拉取请求。 完成PR模板中的描述。 链接任何被你的PR解决的GitHub问题。 Description PR的描述信息，用简洁的语言表达PR完成的事情，具体规范见Commit 格式规范&#xA;Related Issue #xx if has&#xA;Test Code with Result 请提供相关的测试代码如果有必要的话&#xA;Commit 格式规范 Commit 分为“标题”和“内容”。原则上标题全部小写。内容首字母大写。&#xA;标题 commit message的标题：[&amp;lt;type&amp;gt;](&amp;lt;scope&amp;gt;) &amp;lt;subject&amp;gt; (#pr)&#xA;type 可选值 本次提交的类型，限定在以下类型（全小写）&#xA;fix：bug修复 feature：新增功能 feature-wip：开发中的功能，比如某功能的部分代码。 improvement：原有功能的优化和改进 style：代码风格调整 typo：代码或文档勘误 refactor：代码重构（不涉及功能变动） performance/optimize：性能优化 test：单元测试的添加或修复 deps：第三方依赖库的修改 community：社区相关的修改，如修改 Github Issue 模板等。 几点说明：&#xA;如在一次提交中出现多种类型，需增加多个类型。 如代码重构带来了性能提升，可以同时添加 [refactor][optimize] 不得出现如上所列类型之外的其他类型。如有必要，需要将新增类型添加到这个文档中。&#xA;scope 可选值 本次提交涉及的模块范围。因为功能模块繁多，在此仅罗列部分，后续根据需求不断完善。 以 chatbot的框架为例&#xA;connector codechat sandbox &amp;hellip; 几点说明：&#xA;尽量使用列表中已存在的选项。如需添加，请及时更新本文档。</description>
     </item>
     <item>
       <title>致谢</title>
-      <link>/zh/docs/%E8%87%B4%E8%B0%A2/</link>
+      <link>/zh/contribution/%E8%87%B4%E8%B0%A2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/zh/docs/%E8%87%B4%E8%B0%A2/</guid>
-      <description>CodeFuse-ai 主页基于docura构建，在此深深感谢他们的开源贡献！&#xA;ChatBot 项目基于langchain-chatchat和codebox-api，在此深深感谢他们的开源贡献！</description>
+      <guid>/zh/contribution/%E8%87%B4%E8%B0%A2/</guid>
+      <description>CodeFuse-ai 文档主页基于docura构建！&#xA;ChatBot 项目基于langchain-chatchat和codebox-api!&#xA;&amp;hellip;&amp;hellip;&#xA;在此深深感谢他们的开源贡献！</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Pull Request · CodeFuse-AI</title>
+
+<link rel="canonical" href="/contribution/pull-request/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/contribution/pull-request/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/contribution/%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4pr/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Documentation</a></li>
+        
+          
+          <li><a href="/contribution"  class="active"><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ Contributing Guide</strong>
+          
+          <a class="sidebar-link " href="/contribution/contribution-guide/">
+            
+              Contribution Guide
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/contribution/issue-report/">
+            
+              Issue Report
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/contribution/pull-request/">
+            
+              Pull Request
+            
+          </a>
+
+        <strong class="sidebar-section">❤️ Acknowledgments</strong>
+          
+          <a class="sidebar-link " href="/contribution/acknowledgements/">
+            
+              Acknowledgements
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Pull Request</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <p align="left">
+    <a href="/contribution/pull-request-zh">中文</a>&nbsp ｜ &nbsp<a>English&nbsp </a>
+</p>
+<h2 id="contribution">Contribution</h2>
+<h3 id="pre-checklist">Pre-Checklist</h3>
+<ul>
+<li>First, confirm whether you have checked the document, issue, discussion (GitHub features), or other publicly available documentation.</li>
+<li>Find the GitHub issue you want to address. If none exists, create an issue or draft PR and ask a Maintainer for a check</li>
+<li>Check for related, similar, or duplicate pull requests</li>
+<li>Create a draft pull request</li>
+<li>Complete the PR template for the description</li>
+<li>Link any GitHub issue(s) that are resolved by your PR</li>
+</ul>
+<h3 id="description">Description</h3>
+<p>A description of the PR should be articulated in concise language, highlighting the work completed by the PR. See specific standards at<a href="#Commit-Format-Specification">Commit Format Specification</a></p>
+<h3 id="related-issue">Related Issue</h3>
+<p>#xx if has</p>
+<h3 id="test-code-with-result">Test Code with Result</h3>
+<p>Please provide relevant test code when necessary.</p>
+<h2 id="commit-format-specification">Commit Format Specification</h2>
+<p>A commit consists of a &ldquo;title&rdquo; and a &ldquo;body.&rdquo; The title should generally be in lowercase, while the first letter of the body should be uppercase.</p>
+<h3 id="title">Title</h3>
+<p>The title of the commit message: <code>[&lt;type&gt;](&lt;scope&gt;) &lt;subject&gt; (#pr)</code></p>
+<h3 id="type---available-options">Type - Available Options</h3>
+<p>本次提交的类型，限定在以下类型（全小写）</p>
+<ul>
+<li>fix: Bug fixes</li>
+<li>feature: New features</li>
+<li>feature-wip: Features that are currently in development, such as partial code for a function.</li>
+<li>improvement: Optimizations and improvements to existing features</li>
+<li>style: Adjustments to code style</li>
+<li>typo: Typographical errors in code or documentation</li>
+<li>refactor: Code refactoring (without changing functionality)</li>
+<li>performance/optimize: Performance optimization</li>
+<li>test: Addition or fix of unit tests</li>
+<li>deps: Modifications to third-party dependencies</li>
+<li>community: Community-related changes, such as modifying Github Issue templates, etc.</li>
+</ul>
+<p>Please note:</p>
+<p>If multiple types occur in one commit, add multiple types.</p>
+<p>If code refactoring leads to performance improvement, both [refactor][optimize] can be added.</p>
+<p>Other types not listed above should not appear. If necessary, new types must be added to this document.</p>
+<h3 id="scope---available-options">Scope - Available Options</h3>
+<p>The scope of the modules involved in the current submission. Due to the multitude of functional modules, only a few are listed here, and this list will be updated continuously based on needs.</p>
+<p>For example, using a chatbot framework:
+connector
+codechat
+sandbox
+&hellip;</p>
+<p>Please note:</p>
+<p>Try to use options that are already listed. If you need to add new ones, please update this document promptly.</p>
+<h3 id="subject-content">Subject Content</h3>
+<p>The title should clearly indicate the main content of the current submission.</p>
+<h2 id="example">Example</h2>
+<p>comming soon</p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://doris.apache.org/zh-CN/community/how-to-contribute/commit-format-specification" target="_blank">doris-commit-format</a></p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
+
+  
+    <a id="article-prev-link" href="/contribution/issue-report/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/contribution/acknowledgements/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#contribution">Contribution</a>
+      <ul>
+        <li><a href="#pre-checklist">Pre-Checklist</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#related-issue">Related Issue</a></li>
+        <li><a href="#test-code-with-result">Test Code with Result</a></li>
+      </ul>
+    </li>
+    <li><a href="#commit-format-specification">Commit Format Specification</a>
+      <ul>
+        <li><a href="#title">Title</a></li>
+        <li><a href="#type---available-options">Type - Available Options</a></li>
+        <li><a href="#scope---available-options">Scope - Available Options</a></li>
+        <li><a href="#subject-content">Subject Content</a></li>
+      </ul>
+    </li>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-01-23')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

@@ -6,7 +6,7 @@
 <meta name="description" content="介绍主要功能">
 <meta name="author" content="codefuse-ai">
 
-<title>QuickStart · CodeFuse</title>
+<title>QuickStart · CodeFuse-AI</title>
 
 <link rel="canonical" href="/docs/quickstart/">
 
@@ -55,7 +55,7 @@
     <header id="site-header">
   
   <div id="site-header-brand">
-    <a href="/">CodeFuse</a>
+    <a href="/">CodeFuse-AI</a>
   </div>
 
   
@@ -103,6 +103,9 @@
         
           
           <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Documentation</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
         
       </ul>
     </nav>
@@ -160,9 +163,9 @@
 
         
           
-          <a class="sidebar-link " href="/docs/modelcache/">
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
             
-              ModelCache
+              CodeFuse-ModelCache
             
           </a>
 
@@ -208,9 +211,9 @@
 
         
           
-          <a class="sidebar-link " href="/docs/configurations/">
+          <a class="sidebar-link " href="/docs/llm-configuration/">
             
-              Configurations
+              LLM-Configuration
             
           </a>
 
@@ -219,14 +222,6 @@
           <a class="sidebar-link " href="/docs/chatbot-roadmap/">
             
               ChatBot-RoadMap
-            
-          </a>
-
-        <strong class="sidebar-section">❤️</strong>
-          
-          <a class="sidebar-link " href="/docs/acknowledgements/">
-            
-              Acknowledgements
             
           </a>
 
@@ -246,8 +241,13 @@
       <div id="article-content">
         
         
-        <h2 id="-quick-start">🚀 Quick Start</h2>
-<p>Please install the Nvidia driver yourself; this project has been tested on Python 3.9.18, CUDA 11.7, Windows, and X86 architecture macOS systems.</p>
+        <p align="left">
+    <a href="/docs/quickstart-zh">中文</a>&nbsp ｜ &nbsp<a>English&nbsp </a>
+</p>
+<h2 id="-quick-start">🚀 Quick Start</h2>
+<p>To deploy private models, please install the NVIDIA driver by yourself.
+This project has been tested on Python 3.9.18 and CUDA 11.7 environments, as well as on Windows and macOS systems with x86 architecture.
+For Docker installation, private LLM access, and related startup issues, see: <a href="/docs/start-detail">Start-detail&hellip;</a></p>
 <h3 id="preparation-of-python-environment">Preparation of Python environment</h3>
 <ul>
 <li>It is recommended to use conda to manage the python environment (optional)</li>
@@ -259,7 +259,6 @@
 <li>Install related dependencies</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> Codefuse-ChatBot
-</span></span><span class="line"><span class="cl"><span class="c1"># python=3.9，use notebook-latest，python=3.8 use notebook==6.5.5</span>
 </span></span><span class="line"><span class="cl">pip install -r requirements.txt
 </span></span></code></pre></div><h3 id="basic-configuration">Basic Configuration</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Modify the basic configuration for service startup</span>
@@ -267,37 +266,42 @@
 </span></span><span class="line"><span class="cl">cp model_config.py.example model_config.py
 </span></span><span class="line"><span class="cl">cp server_config.py.example server_config.py
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># model_config#11~12 If you need to use the openai interface, openai interface key</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># model_config#11~12 If you need to use the OpenAI interface, the OpenAI interface key</span>
 </span></span><span class="line"><span class="cl">os.environ<span class="o">[</span><span class="s2">&#34;OPENAI_API_KEY&#34;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;sk-xxx&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># You can replace the api_base_url yourself</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Replace with the api_base_url you need</span>
 </span></span><span class="line"><span class="cl">os.environ<span class="o">[</span><span class="s2">&#34;API_BASE_URL&#34;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;https://api.openai.com/v1&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#105 You need to choose the language model</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#LLM_MODEL The language model you need to choose</span>
 </span></span><span class="line"><span class="cl"><span class="nv">LLM_MODEL</span> <span class="o">=</span> <span class="s2">&#34;gpt-3.5-turbo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LLM_MODELs</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;gpt-3.5-turbo&#34;</span><span class="o">]</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#43 You need to choose the vector model</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#EMBEDDING_MODEL The private vector model you need to choose</span>
+</span></span><span class="line"><span class="cl"><span class="nv">EMBEDDING_ENGINE</span> <span class="o">=</span> <span class="s1">&#39;model&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">EMBEDDING_MODEL</span> <span class="o">=</span> <span class="s2">&#34;text2vec-base&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#25 Modify to your local path, if you can directly connect to huggingface, no modification is needed</span>
-</span></span><span class="line"><span class="cl"><span class="s2">&#34;text2vec-base&#34;</span>: <span class="s2">&#34;shibing624/text2vec-base-chinese&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="c1"># Example of vector model access, modify model_config#embedding_model_dict</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># If the model directory is:</span>
+</span></span><span class="line"><span class="cl">model_dir: ~/codefuse-chatbot/embedding_models/shibing624/text2vec-base-chinese
+</span></span><span class="line"><span class="cl"><span class="c1"># Configure as follows</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;text2vec-base&#34;</span>: <span class="s2">&#34;shibing624/text2vec-base-chinese&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi server_config#8~14, it is recommended to start the service using containers.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># vi server_config#8~14, It&#39;s recommended to use a container to start the service to prevent environment conflicts when installing other dependencies using the codeInterpreter feature</span>
 </span></span><span class="line"><span class="cl"><span class="nv">DOCKER_SERVICE</span> <span class="o">=</span> True
-</span></span><span class="line"><span class="cl"><span class="c1"># Whether to use container sandboxing is up to your specific requirements and preferences</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Whether to use a container sandbox</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SANDBOX_DO_REMOTE</span> <span class="o">=</span> True
-</span></span><span class="line"><span class="cl"><span class="c1"># Whether to use api-service to use chatbot</span>
-</span></span><span class="line"><span class="cl"><span class="nv">NO_REMOTE_API</span> <span class="o">=</span> True
 </span></span></code></pre></div><h3 id="start-the-service">Start the Service</h3>
 <p>By default, only webui related services are started, and fastchat is not started (optional).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># if use codellama-34b-int4, you should replace fastchat&#39;s gptq.py</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># If you need to support the codellama-34b-int4 model, you need to patch fastchat</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># cp examples/gptq.py ~/site-packages/fastchat/modules/gptq.py</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># dev_opsgpt/service/llm_api.py#258 =&gt; kwargs={&#34;gptq_wbits&#34;: 4},</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Modify dev_opsgpt/llm_api.py#258 to kwargs={&#34;gptq_wbits&#34;: 4},</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># start llm-service（可选）</span>
-</span></span><span class="line"><span class="cl">python dev_opsgpt/service/llm_api.py
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># After configuring server_config.py, you can start with just one click.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Start llm-service (optional)</span>
+</span></span><span class="line"><span class="cl">python dev_opsgpt/llm_api.py
+</span></span></code></pre></div><p>For more LLM access methods, see <a href="/docs/fastchat">Details&hellip;</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># After completing the server_config.py configuration, you can start with one click</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> examples
-</span></span><span class="line"><span class="cl">bash start_webui.sh
+</span></span><span class="line"><span class="cl">python start.py
 </span></span></code></pre></div>
       </div>
       
@@ -396,11 +400,10 @@
 
         
         
-      
 
 
 <footer id="article-footer">
-  <time id="article-last-updated" datetime="2024-01-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-09</time>
+  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
 
   
     <a id="article-prev-link" href="/docs/codefuse-query/"><i class="icon icon-prev icon-colored"></i> Prev</a>
@@ -495,7 +498,7 @@
 
 <script type="application/javascript">
     if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js?2024-01-09')
+        navigator.serviceWorker.register('/sw.js?2024-01-23')
             .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
     }
 </script>

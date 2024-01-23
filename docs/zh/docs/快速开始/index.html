@@ -6,7 +6,7 @@
 <meta name="description" content="介绍主要功能">
 <meta name="author" content="codefuse-ai">
 
-<title>快速开始 · CodeFuse</title>
+<title>快速开始 · CodeFuse-AI</title>
 
 <link rel="canonical" href="/zh/docs/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
 
@@ -51,7 +51,7 @@
     <header id="site-header">
   
   <div id="site-header-brand">
-    <a href="/">CodeFuse</a>
+    <a href="/">CodeFuse-AI</a>
   </div>
 
   
@@ -99,6 +99,9 @@
         
           
           <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Documentation</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
         
       </ul>
     </nav>
@@ -218,14 +221,6 @@
             
           </a>
 
-        <strong class="sidebar-section">❤️</strong>
-          
-          <a class="sidebar-link " href="/docs/%E8%87%B4%E8%B0%A2/">
-            
-              致谢
-            
-          </a>
-
         
   </div>
 </aside>
@@ -242,8 +237,11 @@
       <div id="article-content">
         
         
-        <h2 id="-快速使用">🚀 快速使用</h2>
-<p>请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。</p>
+        <p align="left">
+    <a>中文</a>&nbsp ｜ &nbsp<a href="/docs/quickstart">English&nbsp </a>
+</p>
+<h2 id="-快速使用">🚀 快速使用</h2>
+<p>如需使用私有化模型部署，请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。</p>
 <p>Docker安装、私有化LLM接入及相关启动问题见：<a href="/docs/start-detail-zh">快速使用明细</a></p>
 <h3 id="python-环境准备">python 环境准备</h3>
 <ul>
@@ -256,7 +254,6 @@
 <li>安装相关依赖</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> codefuse-chatbot
-</span></span><span class="line"><span class="cl"><span class="c1"># python=3.9，notebook用最新即可，python=3.8用notebook=6.5.6</span>
 </span></span><span class="line"><span class="cl">pip install -r requirements.txt
 </span></span></code></pre></div><h3 id="基础配置">基础配置</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 修改服务启动的基础配置</span>
@@ -277,26 +274,24 @@
 </span></span><span class="line"><span class="cl"><span class="nv">EMBEDDING_ENGINE</span> <span class="o">=</span> <span class="s1">&#39;model&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">EMBEDDING_MODEL</span> <span class="o">=</span> <span class="s2">&#34;text2vec-base&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi model_config#embedding_model_dict 修改成你的本地路径，如果能直接连接huggingface则无需修改</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 向量模型接入示例，修改 model_config#embedding_model_dict</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 若模型地址为：</span>
 </span></span><span class="line"><span class="cl">model_dir: ~/codefuse-chatbot/embedding_models/shibing624/text2vec-base-chinese
 </span></span><span class="line"><span class="cl"><span class="c1"># 配置如下</span>
-</span></span><span class="line"><span class="cl"><span class="s2">&#34;text2vec-base&#34;</span>: <span class="s2">&#34;shibing624/text2vec-base-chinese&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;text2vec-base&#34;</span>: <span class="s2">&#34;shibing624/text2vec-base-chinese&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># vi server_config#8~14, 推荐采用容器启动服务</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># vi server_config#8~14, 推荐采用容器启动服务，避免使用codeInterpreter功能时安装其它依赖导致环境冲突</span>
 </span></span><span class="line"><span class="cl"><span class="nv">DOCKER_SERVICE</span> <span class="o">=</span> True
 </span></span><span class="line"><span class="cl"><span class="c1"># 是否采用容器沙箱</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SANDBOX_DO_REMOTE</span> <span class="o">=</span> True
-</span></span><span class="line"><span class="cl"><span class="c1"># 是否采用api服务来进行</span>
-</span></span><span class="line"><span class="cl"><span class="nv">NO_REMOTE_API</span> <span class="o">=</span> True
 </span></span></code></pre></div><h3 id="启动服务">启动服务</h3>
 <p>默认只启动webui相关服务，未启动fastchat（可选）。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 若需要支撑codellama-34b-int4模型，需要给fastchat打一个补丁</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># cp examples/gptq.py ~/site-packages/fastchat/modules/gptq.py</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># dev_opsgpt/service/llm_api.py#258 修改为 kwargs={&#34;gptq_wbits&#34;: 4},</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># dev_opsgpt/llm_api.py#258 修改为 kwargs={&#34;gptq_wbits&#34;: 4},</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># start llm-service（可选）</span>
-</span></span><span class="line"><span class="cl">python dev_opsgpt/service/llm_api.py
+</span></span><span class="line"><span class="cl">python dev_opsgpt/llm_api.py
 </span></span></code></pre></div><p>更多LLM接入方法见<a href="/docs/fastchat-zh">详情&hellip;</a>
 <br></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 完成server_config.py配置后，可一键启动</span>
@@ -400,11 +395,10 @@
 
         
         
-      
 
 
 <footer id="article-footer">
-  <time id="article-last-updated" datetime="2024-01-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-09</time>
+  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
 
   
     <a id="article-prev-link" href="/docs/codefuse-query-zh/"><i class="icon icon-prev icon-colored"></i> Prev</a>
@@ -488,7 +482,7 @@
 
 <script type="application/javascript">
     if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js?2024-01-09')
+        navigator.serviceWorker.register('/sw.js?2024-01-23')
             .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
     }
 </script>

@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docs on CodeFuse</title>
+    <title>Docs on CodeFuse-AI</title>
     <link>/docs/</link>
-    <description>Recent content in Docs on CodeFuse</description>
+    <description>Recent content in Docs on CodeFuse-AI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Acknowledgements</title>
-      <link>/docs/acnowledgements/acknowledgements/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/docs/acnowledgements/acknowledgements/</guid>
-      <description>CodeFuse-ai 主页基于docura构建，在此深深感谢他们的开源贡献！&#xA;ChatBot 项目基于langchain-chatchat和codebox-api，在此深深感谢他们的开源贡献！</description>
-    </item>
     <item>
       <title>ChatBot-RoadMap</title>
       <link>/docs/chatbot-roadmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/docs/chatbot-roadmap/</guid>
-      <description>RoadMap 完整路线&#xA;Sandbox 环境 环境隔离的sandbox环境与代码执行 上传、下载文件 支持java执行环境 Vector Database &amp;amp; Retrieval task retrieval tool retrieval Prompt Management memory Management Multi Agent PRD需求文档、系分、接口设计 根据需求文档、系分、接口设计生产代码 自动测试、自动debugger 运维流程接入（ToolLearning） 全流程自动 基于fastchat接入LLM 基于sentencebert接入Text Embedding 向量加载速度提升 Connector 基于langchain的react模式 基于langchain完成tool检索 Web Crawl 通用能力 技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等 issue document SDK Library Document v0.0 Sandbox 环境 环境隔离的sandbox环境与代码执行 基于fastchat接入LLM 基于sentencebert接入Text Embedding Web Crawl 通用能力：技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等 v0.1 Sandbox 环境: 上传、下载文件 Vector Database &amp;amp; Retrieval task retrieval tool retrieval Connector 基于langchain的react模式 基于sentencebert接入Text Embedding: 向量加载速度提升 Done v0.</description>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp RoadMap Roadmap Overview&#xA;Sandbox Environment ✅ Isolated sandbox environment for code execution ✅ File upload and download ✅ Support for Java execution environment ⬜ Vector Database &amp;amp; Retrieval ✅ Task retrieval ✅ Tool retrieval ✅ Prompt Management ✅ Memory Management ✅ Multi Agent Framework ✅ PRD (Product Requirement Document), system analysis, interface design ⬜ Generate code based on requirement documents, system analysis, and interface design ⬜ Automated testing, automated debugger ⬜ Operations process integration (ToolLearning) ⬜ Fully automated end-to-end process ⬜ Integration with LLM based on fastchat ✅ Integration with Text Embedding based on sentencebert ✅ Improved vector loading speed ✅ Connector ✅ React Mode based on langchain ✅ Tool retrieval completed with langchain ✅ General Capability for Web Crawl ⬜ Technical documentation: Zhihu, CSDN, Alibaba Cloud Developer Forum, Tencent Cloud Developer Forum, etc.</description>
     </item>
     <item>
       <title>Codefuse-ChatBot Development by Private Knowledge Augmentation</title>
@@ -57,18 +50,18 @@
       <description>CodeFuse-Query CodeFuse-Query</description>
     </item>
     <item>
-      <title>Configurations</title>
-      <link>/docs/configurations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/docs/configurations/</guid>
-      <description>本地私有化/大模型接口接入 依托于开源的 LLM 与 Embedding 模型，本项目可实现基于开源模型的离线私有部署。此外，本项目也支持 OpenAI API 的调用。&#xA;📜 目录 本地私有化模型接入 公开大模型接口接入 启动大模型服务 本地私有化模型接入 模型地址配置示例，model_config.py配置修改&#xA;# 建议：走huggingface接入，尽量使用chat模型，不要使用base，无法获取正确输出 # 注意：当llm_model_dict和VLLM_MODEL_DICT同时存在时，优先启动VLLM_MODEL_DICT中的模型配置 # llm_model_dict 配置接入示例如下 llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;THUDM/chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } # VLLM_MODEL_DICT 配置接入示例如下 VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;THUDM/chatglm-6b&amp;#34;, } 模型路径填写示例&#xA;# 1、若把模型放到 ~/codefuse-chatbot/llm_models 路径下 # 若模型地址如下 model_dir: ~/codefuse-chatbot/llm_models/THUDM/chatglm-6b # 参考配置如下 llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;THUDM/chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;THUDM/chatglm-6b&amp;#34;, } # or 若模型地址如下 model_dir: ~/codefuse-chatbot/llm_models/chatglm-6b llm_model_dict = { &amp;#34;chatglm-6b&amp;#34;: { &amp;#34;local_model_path&amp;#34;: &amp;#34;chatglm-6b&amp;#34;, &amp;#34;api_base_url&amp;#34;: &amp;#34;http://localhost:8888/v1&amp;#34;, # &amp;#34;name&amp;#34;修改为fastchat服务中的&amp;#34;api_base_url&amp;#34; &amp;#34;api_key&amp;#34;: &amp;#34;EMPTY&amp;#34; } } VLLM_MODEL_DICT = { &amp;#39;chatglm2-6b&amp;#39;: &amp;#34;chatglm-6b&amp;#34;, } # 2、若不想移动相关模型到 ~/codefuse-chatbot/llm_models # 同时删除 `模型路径重置` 以下的相关代码，具体见model_config.</description>
-    </item>
-    <item>
       <title>FasterTransformer4CodeFuse</title>
       <link>/docs/fastertransformer4codefuse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/docs/fastertransformer4codefuse/</guid>
       <description>FasterTransformer4CodeFuse FasterTransformer4CodeFuse</description>
+    </item>
+    <item>
+      <title>LLM-Configuration</title>
+      <link>/docs/LLM-Configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/LLM-Configuration/</guid>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp Local Privatization/Large Model Interface Access Leveraging open-source LLMs (Large Language Models) and Embedding models, this project enables offline private deployment based on open-source models.&#xA;In addition, the project supports the invocation of OpenAI API.&#xA;Local Privatization Model Access Example of model address configuration, modification of the model_config.py configuration:&#xA;# Recommendation: Use Hugging Face models, preferably the chat models, and avoid using base models, which may not produce correct outputs.</description>
     </item>
     <item>
       <title>MFTCoder</title>
@@ -96,14 +89,14 @@
       <link>/docs/quickstart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/docs/quickstart/</guid>
-      <description>🚀 Quick Start Please install the Nvidia driver yourself; this project has been tested on Python 3.9.18, CUDA 11.7, Windows, and X86 architecture macOS systems.&#xA;Preparation of Python environment It is recommended to use conda to manage the python environment (optional) # Prepare conda environment conda create --name Codefusegpt python=3.9 conda activate Codefusegpt Install related dependencies cd Codefuse-ChatBot # python=3.9，use notebook-latest，python=3.8 use notebook==6.5.5 pip install -r requirements.txt Basic Configuration # Modify the basic configuration for service startup cd configs cp model_config.</description>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp 🚀 Quick Start To deploy private models, please install the NVIDIA driver by yourself. This project has been tested on Python 3.9.18 and CUDA 11.7 environments, as well as on Windows and macOS systems with x86 architecture. For Docker installation, private LLM access, and related startup issues, see: Start-detail&amp;hellip;&#xA;Preparation of Python environment It is recommended to use conda to manage the python environment (optional) # Prepare conda environment conda create --name Codefusegpt python=3.</description>
     </item>
     <item>
       <title>Start-Detail</title>
       <link>/docs/chatbot/start-detail/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/docs/chatbot/start-detail/</guid>
-      <description>请自行安装 nvidia 驱动程序，本项目已在 Python 3.9.18，CUDA 11.7 环境下，Windows、X86 架构的 macOS 系统中完成测试。&#xA;python 环境准备 推荐采用 conda 对 python 环境进行管理（可选） # 准备 conda 环境 conda create --name devopsgpt python=3.9 conda activate devopsgpt 安装相关依赖 cd codefuse-chatbot # python=3.9，notebook用最新即可，python=3.8用notebook=6.5.6 pip install -r requirements.txt 沙盒环境准备 windows Docker 安装： Docker Desktop for Windows 支持 64 位版本的 Windows 10 Pro，且必须开启 Hyper-V（若版本为 v1903 及以上则无需开启 Hyper-V），或者 64 位版本的 Windows 10 Home v1903 及以上版本。&#xA;【全面详细】Windows10 Docker安装详细教程 Docker 从入门到实践 Docker Desktop requires the Server service to be enabled 处理 安装wsl或者等报错提示 Linux Docker 安装： Linux 安装相对比较简单，请自行 baidu/google 相关安装</description>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp If you need to deploy a privatized model, please install the NVIDIA driver yourself.&#xA;Preparation of Python environment It is recommended to use conda to manage the python environment (optional) # Prepare conda environment conda create --name Codefusegpt python=3.9 conda activate Codefusegpt Install related dependencies cd Codefuse-ChatBot pip install -r requirements.txt Sandbox Environment Preparation Windows Docker installation: Docker Desktop for Windows supports 64-bit versions of Windows 10 Pro with Hyper-V enabled (Hyper-V is not required for versions v1903 and above), or 64-bit versions of Windows 10 Home v1903 and above.</description>
     </item>
     <item>
       <title>Test-Agent</title>
