@@ -3,6 +3,8 @@ theme: docura
 enableGitInfo: true
 
 showSidebar: true
+siderbar:
+  collapsible: true
 
 markup:
   highlight:
@@ -104,3 +106,9 @@ menu:
       identifier: docs
       pre: "<i class='icon icon-book'></i>"
       weight: 2
+
+    - url: /contribution
+      name: Contribution
+      identifier: contribution
+      pre: "<i class='icon icon-book'></i>"
+      weight: 3
