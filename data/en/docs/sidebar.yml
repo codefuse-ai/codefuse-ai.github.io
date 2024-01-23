@@ -8,7 +8,7 @@
     - title: CodeFuse-DevOps-Eval
     - title: CodeFuse-DevOps-Model
     - title: MFTCoder
-    - title: ModelCache
+    - title: CodeFuse-ModelCache
     - title: FasterTransformer4CodeFuse
     - title: Test-Agent
     - title: CodeFuse-Query
@@ -17,7 +17,7 @@
   pages:
     - title: QuickStart
     - title: Start-Detail
-    - title: Configurations
+    - title: LLM-Configuration
     - title: ChatBot-RoadMap
 - title: ❤️
   pages:

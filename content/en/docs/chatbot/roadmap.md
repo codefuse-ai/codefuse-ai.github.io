@@ -7,6 +7,11 @@ aliases:
 - "/docs/chatbot-roadmap"
 ---
 
+<p align="left">
+    <a href="/docs/chatbot-roadmap-zh">中文</a>&nbsp ｜ &nbsp<a>English&nbsp </a>
+</p>
+
+
 ## RoadMap
 
 <div align=center>
@@ -14,76 +19,76 @@ aliases:
 </div>
 <br>
 
+Roadmap Overview
 
-完整路线
-- [x] Sandbox 环境
-  - [x] 环境隔离的sandbox环境与代码执行
-  - [x] 上传、下载文件
-  - [ ] 支持java执行环境
-- [ ] Vector Database & Retrieval
-  - [x] task retrieval
-  - [x] tool retrieval
-- [ ] Prompt Management
-- [ ] memory Management
-- [ ] Multi Agent
-  - [ ] PRD需求文档、系分、接口设计
-  - [ ] 根据需求文档、系分、接口设计生产代码
-  - [ ] 自动测试、自动debugger
-  - [ ] 运维流程接入（ToolLearning）
-  - [ ] 全流程自动
-- [x] 基于fastchat接入LLM
-- [x] 基于sentencebert接入Text Embedding
-  - [x] 向量加载速度提升
-- [x] Connector
-  - [x] 基于langchain的react模式
-  - [x] 基于langchain完成tool检索
-- [ ] Web Crawl 通用能力
-  - [x] 技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等
-  - [ ] issue document
-  - [ ] SDK Library Document
+- [x] Sandbox Environment ✅
+  - [x] Isolated sandbox environment for code execution ✅
+  - [x] File upload and download ✅
+  - [ ] Support for Java execution environment ⬜
+- [x] Vector Database & Retrieval ✅
+  - [x] Task retrieval ✅
+  - [x] Tool retrieval ✅
+- [x] Prompt Management ✅
+- [x] Memory Management ✅
+- [x] Multi Agent Framework ✅
+  - [ ] PRD (Product Requirement Document), system analysis, interface design ⬜
+  - [ ] Generate code based on requirement documents, system analysis, and interface design ⬜
+  - [ ] Automated testing, automated debugger ⬜
+  - [ ] Operations process integration (ToolLearning) ⬜
+  - [ ] Fully automated end-to-end process ⬜
+- [x] Integration with LLM based on fastchat ✅
+- [x] Integration with Text Embedding based on sentencebert ✅
+- [x] Improved vector loading speed ✅
+- [x] Connector ✅
+  - [x] React Mode based on langchain ✅
+  - [x] Tool retrieval completed with langchain ✅
+- [ ] General Capability for Web Crawl ⬜
+  - [x] Technical documentation: Zhihu, CSDN, Alibaba Cloud Developer Forum, Tencent Cloud Developer Forum, etc. ✅
+  - [ ] Issue document ⬜
+  - [ ] SDK Library Document ⬜
 
-
-<br><br>
-
-- v0.0
-- [x] Sandbox 环境
-  - [x] 环境隔离的sandbox环境与代码执行
-- [x] 基于fastchat接入LLM
-- [x] 基于sentencebert接入Text Embedding
-- [x] Web Crawl 通用能力：技术文档: 知乎、csdn、阿里云开发者论坛、腾讯云开发者论坛等
-<br>
-- v0.1
-- [x] Sandbox 环境: 上传、下载文件
-- [x] Vector Database & Retrieval
-  - [x] task retrieval
-  - [x] tool retrieval
-- [x] Connector
-  - [x] 基于langchain的react模式
-- [x] 基于sentencebert接入Text Embedding: 向量加载速度提升
+v0.0
+- [x] Sandbox Environment ✅
+  - [x] Isolated sandbox environment for code execution ✅
+- [x] Integration with LLM based on fastchat ✅
+- [x] Integration with Text Embedding based on sentencebert ✅
+- [x] General Capability for Web Crawl: Technical documentation: Zhihu, CSDN, Alibaba Cloud Developer Forum, Tencent Cloud Developer Forum, etc. ✅
 
 Done
 <br>
 
-- v0.2
-- [ ] Prompt Management
-- [ ] memory Management
-- [ ] Vector Database & Retrieval
+v0.1 
+- [x] Sandbox Environment: File upload and download ✅
+- [x] Vector Database & Retrieval ✅
+  - [x] Task retrieval ✅
+  - [x] Tool retrieval ✅
+- [x] Connector ✅
+  - [x] React Mode based on langchain ✅
+- [x] Integration with Text Embedding based on sentencebert: Improved vector loading speed ✅
 
-DDL： 2024.01.31
+Done
 <br>
 
-- v0.3
-- [x] Sandbox 环境
-  - [ ] 支持java执行环境
-- [ ] Multi Agent
-  - [ ] PRD需求文档、系分、接口设计
-  - [ ] 根据需求文档、系分、接口设计生产代码
-  - [ ] 自动测试、自动debugger
-  - [ ] 运维流程接入（ToolLearning）
-  - [ ] 全流程自动
-- [ ] Web Crawl 通用能力
-  - [ ] issue document
-  - [ ] SDK Library Document
+v0.2
+- [x] Prompt Management ✅
+- [x] Memory Management ✅
+- [x] Vector Database & Retrieval  ✅
 
+Done
+<br>
+
+v0.3
+- [x] Sandbox Environment ✅
+  - [ ] Support for Java execution environment ⬜
+- [x] Multi Agent ✅
+  - [ ] PRD (Product Requirement Document), system analysis, interface design ⬜
+  - [ ] Generate code based on requirement documents, system analysis, and interface design ⬜
+  - [ ] Automated testing, automated debugger ⬜
+  - [ ] Operations process integration (ToolLearning) ⬜
+  - [ ] Fully automated end-to-end process ⬜
+- [x] General Capability for Web Crawl ✅
+  - [ ] Issue document ⬜
+  - [ ] SDK Library Document ⬜
+  
 DDL： 2024.12.31
 <br>
