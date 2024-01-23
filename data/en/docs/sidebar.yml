@@ -19,7 +19,10 @@
     - title: Start-Detail
     - title: LLM-Configuration
     - title: ChatBot-RoadMap
-- title: ❤️
+- title: ❤️ Contributing Guide and Acknowledgments
   pages:
+    - title: Contribution Guide
+    - title: Issue Report
+    - title: Pull Request
     - title: Acknowledgements
 

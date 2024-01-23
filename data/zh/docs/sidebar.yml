@@ -19,6 +19,9 @@
     - title: 启动明细
     - title: 本地私有化&大模型接口接入
     - title: ChatBot 技术路线
-- title: ❤️
+- title: ❤️ 贡献指南及致谢
   pages:
+    - title: 贡献指南
+    - title: 如何提交Issue
+    - title: 如何提交PR
     - title: 致谢
