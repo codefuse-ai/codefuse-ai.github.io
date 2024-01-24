@@ -9,7 +9,7 @@
     - title: CodeFuse-DevOps-Model-zh
     - title: MFTCoder-zh
     - title: CodeFuse-ModelCache-zh
-    - title: FasterTransformer4CodeFuse-zh
+    # - title: FasterTransformer4CodeFuse-zh
     - title: Test-Agent-zh
     - title: CodeFuse-Query-zh
 
@@ -19,10 +19,4 @@
     - title: 启动明细
     - title: 本地私有化&大模型接口接入
     - title: ChatBot 技术路线
-
-# - title: ❤️ 贡献指南及致谢
-#   pages:
-#     - title: 贡献指南
-#     - title: 如何提交Issue
-#     - title: 如何提交PR
-#     - title: 致谢
+    - title: CoAgent 框架

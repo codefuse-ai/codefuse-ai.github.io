@@ -1,14 +1,18 @@
 <style>
   .github-repos-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
   }
 
   .github-repo-tile {
-    flex: 0 1 30%; /*设置每个repo占据的宽度为30%，可以根据需要进行调整*/
+    display: flex;
+    flex-direction: column; /* 新增 - 使得子元素垂直排列 */
+    justify-content: space-between; /* 新增 - 在`description`和`github-buttons`之间增加空间 */
+    flex: 0 1 calc(30% - 60px); /* 修改宽度计算，减去左右 margin */
     text-align: center;
-    margin: 10px;
+    margin: 30px;
+    box-sizing: border-box; 
   }
 </style>
 

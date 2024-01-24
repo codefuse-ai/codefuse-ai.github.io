@@ -80,17 +80,37 @@ params:
       - name: DevOps-ChatBot
         repo: codefuse-ai/codefuse-chatbot
         icon: "<i class='icon icon-book'></i>"
-        description: The repository of the project
+        description: An intelligent assistant serving the entire software development lifecycle.
 
       - name: DevOps-Eval
         repo: codefuse-ai/codefuse-devops-eval
         icon: "<i class='icon icon-book'></i>"
-        description: The repository of the website
+        description: Industrial-first evaluation benchmark for LLMs in the DevOps/AIOps domain.
 
       - name: DevOps-Model
         repo: codefuse-ai/CodeFuse-DevOps-Model
         icon: "<i class='icon icon-book'></i>"
-        description: The repository of the project
+        description: A series of industrial-first LLMs for theDevOps domain. Asking it for any question in the DevOps domain!
+
+      - name: MFTCoder
+        repo: codefuse-ai/MFTCoder
+        icon: "<i class='icon icon-book'></i>"
+        description: High Accuracy and efficiency multi-task fine-tuning framework for Code LLMs
+
+      - name: CodeFuse-ModelCache
+        repo: codefuse-ai/CodeFuse-ModelCache
+        icon: "<i class='icon icon-book'></i>"
+        description: A LLM semantic caching system aiming to reducing response time via cached query-result pairs.
+
+      - name: Test-Agent
+        repo: codefuse-ai/Test-Agent
+        icon: "<i class='icon icon-book'></i>"
+        description: Agent that empowers software testing with LLMs; industrial-first in China
+
+      - name: CodeFuse-Query
+        repo: codefuse-ai/CodeFuse-Query
+        icon: "<i class='icon icon-book'></i>"
+        description: Query-Based Code Analysis Engine
 
 menu:
   main:
@@ -102,13 +122,19 @@ menu:
       weight: 1
 
     - url: /docs
-      name: Documentation
+      name: Overview
       identifier: docs
       pre: "<i class='icon icon-book'></i>"
       weight: 2
+
+    - url: /coagent
+      name: CoAgent
+      identifier: coagent
+      pre: "<i class='icon icon-book'></i>"
+      weight: 3
 
     - url: /contribution
       name: Contribution
       identifier: contribution
       pre: "<i class='icon icon-book'></i>"
-      weight: 3
+      weight: 4

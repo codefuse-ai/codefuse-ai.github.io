@@ -9,7 +9,7 @@
     - title: CodeFuse-DevOps-Model
     - title: MFTCoder
     - title: CodeFuse-ModelCache
-    - title: FasterTransformer4CodeFuse
+    # - title: FasterTransformer4CodeFuse
     - title: Test-Agent
     - title: CodeFuse-Query
 
@@ -19,11 +19,5 @@
     - title: Start-Detail
     - title: LLM-Configuration
     - title: ChatBot-RoadMap
+    - title: CoAgent
     
-# - title: ❤️ Contributing Guide and Acknowledgments
-#   pages:
-#     - title: Contribution Guide
-#     - title: Issue Report
-#     - title: Pull Request
-#     - title: Acknowledgements
-
