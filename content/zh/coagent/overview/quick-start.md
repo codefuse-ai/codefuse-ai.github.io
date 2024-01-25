@@ -81,6 +81,8 @@ output_message, output_memory = phase.step(query)
 print(output_memory.to_str_messages(return_all=True, content_key="parsed_output_list"))
 
 ```
+## 场景自定义
+见[如何自定义场景](/coagent/connector-zh)
 
 ## 场景介绍和使用
 

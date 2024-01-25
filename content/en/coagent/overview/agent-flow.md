@@ -7,44 +7,45 @@ aliases:
 ---
 
 
-
-## 核心Connector介绍
-为了便于大家理解整个 CoAgent 的链路，我们采取 Flow 的形式来详细介绍如何通过配置构建
+## Introduction to Core Connectors
+To facilitate everyone's understanding of the entire CoAgent link, we use a Flow format to detail how to build through configuration settings.
 
 <div align=center>
   <img src="/images/chatbot/agent-flow.png" alt="图片">
 </div>
 
 
-<br>下面，我们先介绍相关的核心组件<br>
+<br>Below, we will first introduce the related core components<br>
 
 ### Agent
-在Agent设计层面，我们提供了四种基本的Agent类型，对这些Agent进行Role的基础设定，可满足多种通用场景的交互和使用
-1. BaseAgent：提供基础问答、工具使用、代码执行的功能，根据Prompt格式实现 输入 => 输出
+At the design level of the Agent, we provide four basic types of Agents, which allows for the basic role settings of these Agents to meet the interaction and usage of a variety of common scenarios.
+1. BaseAgent: Provides basic question and answer, tool usage, and code execution functions. It implements Input => Output according to the Prompt format.
 
 <div align=center>
   <img src="/images/chatbot/BaseAgent.png" alt="图片" style="width: 500px;  height:auto;">
 </div>
 
-2. ExecutorAgent：对任务清单进行顺序执行，根据 User 或 上一个Agent编排的计划，完成相关任务
-3. ReactAgent：提供标准React的功能，根据问题实现当前任务
-4. SelectorAgent：提供选择Agent的功能，根据User 或 上一个 Agent的问题选择合适的Agent来进行回答.
+2. ExecutorAgent: Executes tasks in sequence from a task list based on the plan arranged by the User or the previous Agent, completing the related tasks.
+3. ReactAgent: Provides standard React functionality, based on the issue to perform the current task.
+4. electorAgent: Provides the functionality of choosing an Agent. 
 
-输出后将 message push 到 memory pool 之中，后续通过Memory Manager进行管理
+It selects the appropriate Agent to respond based on the question from the User or the previous Agent. After output, the message is pushed into the memory pool, which is subsequently managed by the Memory Manager.
 
 ### Chain
-基础链路：BaseChain，串联agent的交互，完成相关message和memory的管理
+Basic Chain: BaseChain, which connects the interaction of agents, completing the management of related messages and memory.
 
 ### Phase
-基础场景：BasePhase，串联chain的交互，完成相关message和memory的管理
+Basic Phase: BasePhase, which connects the interaction of chains, completing the management of related messages and memory.
 
 ### Prompt Manager
-Mutli-Agent链路中每一个agent的prompt创建
-- 通过对promtp_input_keys和promtp_output_keys对的简单设定，可以沿用预设 Prompt Context 创建逻辑，从而实现agent prompt快速配置
-- 也可以对prompt manager模块进行新的 key-context 设计，实现个性化的 Agent Prompt
+Creation of prompts for each agent in a Multi-Agent link:
+
+- By simply setting prompt_input_keys and prompt_output_keys, one can reuse the preset Prompt Context creation logic, thus achieving rapid configuration of the agent prompt.
+- The prompt manager module can also be redesigned with new key-context designs to implement a personalized Agent Prompt.
 
 ### Memory Manager
-主要用于 chat history 的管理，暂未完成
-- 将chat history在数据库进行读写管理，包括user input、 llm output、doc retrieval、code retrieval、search retrieval
-- 对 chat history 进行关键信息总结 summary context，作为 prompt context
-- 提供检索功能，检索 chat history 或者 summary context 中与问题相关信息，辅助问答
+Mainly used for the management of chat history, which is not yet completed:
+
+- Manages the reading and writing of chat history in the database, including user input, llm output, doc retrieval, code retrieval, search retrieval.
+- Summarizes key information from the chat history to form a summary context, which serves as prompt context.
+- Provides a search function to retrieve information related to the question from the chat history or the summary context, aiding in question and answer sessions.

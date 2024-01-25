@@ -6,4 +6,9 @@
 
 - title: Modules
   pages:
-    - title: Connector
+    - title: Connector-Agent
+    - title: Connector-Chain
+    - title: Connector-Phase
+    - title: Connector-Prompt
+    - title: Connector-Memory
+    - title: Customed Examples

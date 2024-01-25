@@ -5,6 +5,11 @@
     - title: Agent 编排
     - title: 快速开始
 
-- title: Modules
+- title: Connector
   pages:
-    - title: Connector 中文文档
+    - title: Connector Agent ZH
+    - title: Connector Chain ZH
+    - title: Connector Phase ZH
+    - title: Connector Prompt ZH
+    - title: Connector Memory ZH
+    - title: Customed Examples ZH
