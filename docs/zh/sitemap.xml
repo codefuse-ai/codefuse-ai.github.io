@@ -2,6 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/zh/coagent/agent-%E7%BC%96%E6%8E%92/</loc>
+    <lastmod>2024-01-24T19:45:27+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/agent-flow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/agent-%E7%BC%96%E6%8E%92/"
+                />
+  </url><url>
     <loc>/zh/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -27,8 +40,34 @@
                 href="/zh/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/"
                 />
   </url><url>
+    <loc>/zh/coagent/coagent-%E6%A6%82%E8%A7%88/</loc>
+    <lastmod>2024-01-24T19:45:27+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/coagent/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/coagent-%E6%A6%82%E8%A7%88/"
+                />
+  </url><url>
+    <loc>/zh/coagent/</loc>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/"
+                />
+  </url><url>
     <loc>/zh/</loc>
-    <lastmod>2024-01-23T20:52:15+08:00</lastmod>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -108,6 +147,71 @@
                 href="/zh/docs/codefuse-query-zh/"
                 />
   </url><url>
+    <loc>/zh/coagent/connector-agent-zh/</loc>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/connector-agent/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/connector-agent-zh/"
+                />
+  </url><url>
+    <loc>/zh/coagent/connector-chain-zh/</loc>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/connector-chain/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/connector-chain-zh/"
+                />
+  </url><url>
+    <loc>/zh/coagent/connector-memory-zh/</loc>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/connector-memory/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/connector-memory-zh/"
+                />
+  </url><url>
+    <loc>/zh/coagent/connector-phase-zh/</loc>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/connector-phase/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/connector-phase-zh/"
+                />
+  </url><url>
+    <loc>/zh/coagent/connector-prompt-zh/</loc>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/connector-prompt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/connector-prompt-zh/"
+                />
+  </url><url>
     <loc>/zh/contribution/</loc>
     <lastmod>2024-01-23T20:52:15+08:00</lastmod>
     <xhtml:link
@@ -121,8 +225,21 @@
                 href="/zh/contribution/"
                 />
   </url><url>
+    <loc>/zh/coagent/customed-examples-zh/</loc>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/customed-examples/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/customed-examples-zh/"
+                />
+  </url><url>
     <loc>/zh/docs/</loc>
-    <lastmod>2024-01-23T14:58:31+08:00</lastmod>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -160,6 +277,19 @@
                 href="/zh/docs/mftcoder-zh/"
                 />
   </url><url>
+    <loc>/zh/coagent/prompt-%E7%AE%A1%E7%90%86%E5%99%A8/</loc>
+    <lastmod>2024-01-25T20:11:49+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/prompt-manager/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/prompt-%E7%AE%A1%E7%90%86%E5%99%A8/"
+                />
+  </url><url>
     <loc>/zh/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -186,7 +316,7 @@
                 />
   </url><url>
     <loc>/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/</loc>
-    <lastmod>2024-01-23T14:58:31+08:00</lastmod>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -196,19 +326,6 @@
                 rel="alternate"
                 hreflang="en-CN"
                 href="/zh/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/"
-                />
-  </url><url>
-    <loc>/zh/docs/%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93/</loc>
-    <lastmod>2024-01-09T14:29:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="/multi-agent/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-CN"
-                href="/zh/docs/%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93/"
                 />
   </url><url>
     <loc>/zh/docs/zh_overview/</loc>
@@ -237,8 +354,21 @@
                 href="/zh/contribution/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97/"
                 />
   </url><url>
+    <loc>/zh/coagent/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</loc>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/coagent/quick-start/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/coagent/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/"
+                />
+  </url><url>
     <loc>/zh/docs/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</loc>
-    <lastmod>2024-01-23T14:58:31+08:00</lastmod>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -251,7 +381,7 @@
                 />
   </url><url>
     <loc>/zh/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/</loc>
-    <lastmod>2024-01-23T14:58:31+08:00</lastmod>
+    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"

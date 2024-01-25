@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse aims to develop Code Large Language Models (Code LLMs) to support and enhance full-lifecycle AI native sotware developing, covering crucial stages such as design requirements, coding, testing, building, deployment, operations, and insight analysis.">
+<meta name="author" content="codefuse-ai">
+
+<title>CoAgent · CodeFuse-AI</title>
+
+<link rel="canonical" href="/coagent/coagent/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/coagent/coagent/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/coagent/coagent-%E6%A6%82%E8%A7%88/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/coagent"  class="active"><i class='icon icon-book'></i>CoAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ CoAgent</strong>
+          
+          <a class="sidebar-link " href="/coagent/coagent-overview/">
+            
+              CoAgent Overview
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/agent-flow/">
+            
+              Agent Flow
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/prompt-manager/">
+            
+              Prompt Manager
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/quick-start/">
+            
+              Quick Start
+            
+          </a>
+
+        <strong class="sidebar-section">Modules</strong>
+          
+          <a class="sidebar-link " href="/coagent/connector-agent/">
+            
+              Connector-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/connector-chain/">
+            
+              Connector-Chain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/connector-phase/">
+            
+              Connector-Phase
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/connector-prompt/">
+            
+              Connector-Prompt
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/connector-memory/">
+            
+              Connector-Memory
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/customed-examples/">
+            
+              Customed Examples
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>CoAgent</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="简介">简介</h2>
+<p>To enhance the performance of large language models (LLMs) in terms of inference accuracy, the industry has seen various innovative approaches to utilizing LLMs. From the earliest Chain of Thought (CoT), Text of Thought (ToT), to Graph of Thought (GoT), these methods have continually expanded the capability boundaries of LLMs. In dealing with complex problems, we can use the ReAct process to select, invoke, and execute tool feedback, achieving multi-round tool usage and multi-step execution.</p>
+<p>However, for more complex scenarios, such as the development of intricate code, single-function LLM Agents are clearly insufficient. Thus, the community has begun to develop combinations of multiple Agents, such as projects focused on metaGPT, GPT-Engineer, chatDev in the development domain, and AutoGen projects focused on automating the construction of Agents and Agent dialogue.</p>
+<p>After in-depth analysis of these frameworks, it has been found that most Agent frameworks are highly coupled, with poor usability and extensibility. They achieve specific scenarios in preset environments, but expanding these scenarios is fraught with difficulty.</p>
+<p>Therefore, we aim to build an extensible, user-friendly Multi-Agent framework to support ChatBots in retrieving knowledge base information while assisting with various common tasks such as daily office work, data analysis, and development operations.</p>
+<p>This Multi-Agent framework project incorporates excellent design elements from multiple frameworks, such as the message pool from metaGPT and the agent selector from autogen.</p>
+<div align=center>
+  <img src="/images/chatbot/luban.png" alt="图片">
+</div>
+<p>The following modules will introduce the necessary components of the Multi Agent framework from five aspects:</p>
+<ul>
+<li>
+<p><strong>Agent Communication:</strong> In the Multi-Agent framework, ensuring effective information exchange among Agents is crucial for managing context and improving Q&amp;A efficiency.</p>
+<ul>
+<li>Follow a straightforward and intuitive chain-based dialogue principle, arranging Agents in a linear fashion to form an execution chain.</li>
+<li>Drawing from the Message Pool framework in metaGPT, Agents are allowed to push and subscribe to the Message Pool, making the chain more flexible. This is beneficial for fine-tuning the scenario of Prompt engineering but challenging to manage complex chain relationship analysis.</li>
+</ul>
+</li>
+<li>
+<p><strong>Standard Operation Process (SOP)</strong>: Standardizing the parsing and handling of LLM&rsquo;s generated results.</p>
+<ul>
+<li>Define the input and output scope of an Agent, assembling and parsing relevant Actions and Statuses to ensure the stability of the framework.</li>
+<li>Encapsulate a variety of fundamental Action execution modules, such as Tool Using, Planning, Coding, Direct Answering, final answer, etc., to meet the basic work requirements of an Agent.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plan and Executor</strong>: Enhance LLM&rsquo;s tool usage, Agent scheduling, and code generation. Several basic chains have been set up, for example:</p>
+<ul>
+<li>a. Single-round Q&amp;A, which can also be expanded to forms like CoT, ToT, GoT, etc.</li>
+<li>b. ReAct, a basic response decision-making process where the model sets SOP status to terminate the loop.</li>
+<li>c. Task Planning - Executor, where the task is completed and can end.</li>
+</ul>
+</li>
+<li>
+<p><strong>Long-short term memory Management</strong>: The key difference between Multi-Agent and single Agent is that Multi-Agent needs to handle a large amount of communication information, similar to the process of human teamwork collaboration. Add an Agent specifically responsible for content summarization (similar to a meeting assistant) to summarize long-term memories and provide more effective information to the next Agent, rather than passing all content to the next one.</p>
+</li>
+<li>
+<p><strong>Human-agent interaction</strong>: In the face of complex scenarios, human intervention is required in the Agent interaction process to provide feedback. Through the aforementioned Long-short term memory Management and Agent Communication processes, enable the LLM to accurately understand human intentions, thereby completing tasks more effectively.</p>
+</li>
+</ul>
+<p>In summary, these five elements together construct a Multi-Agent framework, ensuring closer and more efficient cooperation between Agents while also adapting to more complex task requirements and a variety of interaction scenarios. By combining multiple Agent chains to implement a complete and complex project launch scenario (Dev Phase), such as Demand Chain (CEO), Product Argument Chain (CPO, CFO, CTO), Engineer Group Chain (Selector, Developer1~N), QA Engineer Chain (Developer, Tester), Deploy Chain (Developer, Deployer).</p>
+<h2 id="模块分类">模块分类</h2>
+<ul>
+<li><a href="/coagent/connector">connector</a></li>
+<li>document_loaders</li>
+<li>embeddings</li>
+<li>llm_models</li>
+<li>orm</li>
+<li>sandbox</li>
+<li>service</li>
+<li>text_splitter</li>
+<li>tools</li>
+<li>utils</li>
+</ul>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-01-24"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-24</time>
+
+  
+
+  
+    <a id="article-next-link"  data-first-page=true  href="/coagent/agent-flow/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#模块分类">模块分类</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-01-25')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

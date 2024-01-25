@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coagents on CodeFuse-AI</title>
+    <link>/coagent/</link>
+    <description>Recent content in Coagents on CodeFuse-AI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <atom:link href="/coagent/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Flow</title>
+      <link>/coagent/agent-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/agent-flow/</guid>
+      <description>Introduction to Core Connectors To facilitate everyone&amp;rsquo;s understanding of the entire CoAgent link, we use a Flow format to detail how to build through configuration settings.&#xA;Below, we will first introduce the related core components&#xA;Agent At the design level of the Agent, we provide four basic types of Agents, which allows for the basic role settings of these Agents to meet the interaction and usage of a variety of common scenarios.</description>
+    </item>
+    <item>
+      <title>CoAgent</title>
+      <link>/coagent/coagent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/coagent/</guid>
+      <description>简介 To enhance the performance of large language models (LLMs) in terms of inference accuracy, the industry has seen various innovative approaches to utilizing LLMs. From the earliest Chain of Thought (CoT), Text of Thought (ToT), to Graph of Thought (GoT), these methods have continually expanded the capability boundaries of LLMs. In dealing with complex problems, we can use the ReAct process to select, invoke, and execute tool feedback, achieving multi-round tool usage and multi-step execution.</description>
+    </item>
+    <item>
+      <title>Connector Agent</title>
+      <link>/coagent/connector-agent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/connector-agent/</guid>
+      <description>快速构建一个Agent 首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动） from coagent.base_configs.env_config import JUPYTER_WORK_PATH, KB_ROOT_PATH&#xD;from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from coagent.connector.configs import AGETN_CONFIGS&#xD;from coagent.connector.agents import BaseAgent&#xD;from coagent.connector.schema import Message, load_role_configs&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34;&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; 配置相关 LLM 和 Embedding Model # LLM 和 Embedding Model 配置&#xD;llm_config = LLMConfig(&#xD;model_name=&amp;#34;gpt-3.5-turbo&amp;#34;, model_device=&amp;#34;cpu&amp;#34;,api_key=os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;], api_base_url=os.environ[&amp;#34;API_BASE_URL&amp;#34;], temperature=0.3&#xD;)&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=&amp;#34;text2vec-base-chinese&amp;#34;, embed_model_path=&amp;#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&amp;#34;&#xD;) 这里从已有的agent配置选一个role来做示例 # 从已有的配置中选择一个config，具体参数细节见下面&#xD;role_configs = load_role_configs(AGETN_CONFIGS)&#xD;agent_config = role_configs[&amp;#34;general_planner&amp;#34;]&#xD;# 生成agent实例&#xD;base_agent = BaseAgent(&#xD;role=agent_config.</description>
+    </item>
+    <item>
+      <title>Connector Chain</title>
+      <link>/coagent/connector-chain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/connector-chain/</guid>
+      <description>快速构建一个 agent chain 首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动） # 设置openai的api-key&#xD;import os, sys&#xD;import openai&#xD;import importlib&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xxxx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34;&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; 配置相关 LLM 和 Embedding Model # LLM 和 Embedding Model 配置&#xD;llm_config = LLMConfig(&#xD;model_name=&amp;#34;gpt-3.5-turbo&amp;#34;, model_device=&amp;#34;cpu&amp;#34;,api_key=os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;], api_base_url=os.environ[&amp;#34;API_BASE_URL&amp;#34;], temperature=0.3&#xD;)&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=&amp;#34;text2vec-base-chinese&amp;#34;, embed_model_path=&amp;#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&amp;#34;&#xD;) 这里从已有的agent配置选多个role组合成 agent chain from coagent.base_configs.env_config import JUPYTER_WORK_PATH, KB_ROOT_PATH&#xD;from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from coagent.</description>
+    </item>
+    <item>
+      <title>Connector Memory</title>
+      <link>/coagent/connector-memory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/connector-memory/</guid>
+      <description>Memory Manager 主要用于 chat history 的管理，暂未完成&#xA;将chat history在数据库进行读写管理，包括user input、 llm output、doc retrieval、code retrieval、search retrieval 对 chat history 进行关键信息总结 summary context，作为 prompt context 提供检索功能，检索 chat history 或者 summary context 中与问题相关信息，辅助问答 使用示例 创建 memory manager 实例 import os&#xD;import openai&#xD;from coagent.base_configs.env_config import KB_ROOT_PATH&#xD;from coagent.connector.memory_manager import BaseMemoryManager, LocalMemoryManager&#xD;from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from coagent.connector.schema import Message&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34;&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.</description>
+    </item>
+    <item>
+      <title>Connector Phase</title>
+      <link>/coagent/connector-phase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/connector-phase/</guid>
+      <description>快速构建一个 agent phase 首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动） from coagent.base_configs.env_config import JUPYTER_WORK_PATH, KB_ROOT_PATH&#xD;from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from coagent.connector.configs import AGETN_CONFIGS&#xD;from coagent.connector.phase import BasePhase&#xD;from coagent.connector.schema import Message, load_role_configs&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34;&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; 配置相关 LLM 和 Embedding Model # LLM 和 Embedding Model 配置&#xD;llm_config = LLMConfig(&#xD;model_name=&amp;#34;gpt-3.5-turbo&amp;#34;, model_device=&amp;#34;cpu&amp;#34;,api_key=os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;], api_base_url=os.environ[&amp;#34;API_BASE_URL&amp;#34;], temperature=0.3&#xD;)&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=&amp;#34;text2vec-base-chinese&amp;#34;, embed_model_path=&amp;#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&amp;#34;&#xD;) 这里从已有的 phase 配置中选一个 phase 来做示例 # log-level，print prompt和llm predict&#xD;os.</description>
+    </item>
+    <item>
+      <title>Connector Prompt</title>
+      <link>/coagent/connector-prompt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/connector-prompt/</guid>
+      <description>Prompt 的标准结构 在整个Prompt的整个结构中，我们需要去定义三个部分&#xA;Agent Profil Input Format Response Output Format #### Agent Profile&#xD;Agent Description ...&#xD;#### Input Format&#xD;**Origin Query:** the initial question or objective that the user wanted to achieve&#xD;**Context:** the current status and history of the tasks to determine if Origin Query has been achieved.&#xD;#### Response Output Format&#xD;**Action Status:** finished or continued&#xD;If it&amp;#39;s &amp;#39;finished&amp;#39;, the context can answer the origin query.&#xD;If it&amp;#39;s &amp;#39;continued&amp;#39;, the context cant answer the origin query.</description>
+    </item>
+    <item>
+      <title>Customed Examples</title>
+      <link>/coagent/customed-examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/customed-examples/</guid>
+      <description>如何创建你个性化的 agent phase 场景 下面通过 autogen 的 auto_feedback_from_code_execution 构建过来，来详细演示如何自定义一个 agent phase 的构建&#xA;设计你的prompt结构 import os, sys, requests&#xD;# from configs.model_config import *&#xD;from coagent.connector.phase import BasePhase&#xD;from coagent.connector.chains import BaseChain&#xD;from coagent.connector.schema import Message&#xD;from coagent.connector.configs import AGETN_CONFIGS, CHAIN_CONFIGS, PHASE_CONFIGS&#xD;import importlib&#xD;# update new agent configs&#xD;auto_feedback_from_code_execution_PROMPT = &amp;#34;&amp;#34;&amp;#34;#### Agent Profile&#xD;You are a helpful AI assistant. Solve tasks using your coding and language skills.&#xD;In the following cases, suggest python code (in a python coding block) or shell script (in a sh coding block) for the user to execute.</description>
+    </item>
+    <item>
+      <title>Prompt Manager</title>
+      <link>/coagent/prompt-manager/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/prompt-manager/</guid>
+      <description>提示管理器（Prompt Manager） 管理多智能体链路中的prompt创建&#xA;快速配置：采用预设的处理函数，用户仅需通过定义智能体的输入输出即可轻松配置，实现多智能体的prompt快速组装和配置。 自定义支持：允许用户自定义prompt内部各模块的处理逻辑，以达到个性化的智能体prompt实现。 Prompt预设模板结构 Agent Profile：此部分涉及到智能体的基础描述，包括但不限于代理的类型、功能和指令集。用户可以在这里设置智能体的基本属性，确保其行为与预期相符。 Context：上下文信息，给智能体做参考，帮助智能体更好的进行决策。 Tool Information：此部分为智能体提供了一套可用工具的清单，智能体可以根据当前的场景需求从中挑选合适的工具以辅助其执行任务。 Reference Documents：这里可以包含代理参考使用的文档或代码片段，以便于它在处理请求时能够参照相关资料。 Session Records：在进行多轮对话时，此部分会记录之前的交谈内容，确保智能体能够在上下文中保持连贯性。 Response Output Format：用户可以在此设置智能体的输出格式，以确保生成的响应满足特定的格式要求，包括结构、语法等。 Response：在与智能体的对话中，如果用户希望智能体继续某个话题或内容，可以在此模块中输入续写的上文。例如，在运用REACT模式时，可以在此区域内详细阐述智能体先前的行为和观察结果，以便于智能体构建连贯的后续响应。 Prompt自定义配置 Prompt模块参数 field_name：唯一的字段名称标识，必须提供。 function：指定如何处理输入数据的函数，必须提供。 title：定义模块的标题。若未提供，将自动生成一个标题，该标题通过把字段名称中的下划线替换为空格并将每个单词的首字母大写来构建。 description：提供模块的简要描述，位于模块最上方（标题下方）。默认为空，可选填。 is_context：标识该字段是否属于上下文模块的一部分。默认为True，意味着除非显式指定为False，否则都被视为上下文的一部分。 omit_if_empty：设定当模块内容为空时，是否在prompt中省略该模块，即不显示相应的模板标题和内容。默认为False，意味着即使内容为空也会显示标题。如果希望内容为空时省略模块，需显式设置为True。 Prompt配置示例 Prompt配置由一系列定义prompt模块的字典组成，这些模块将根据指定的参数和功能来处理输入数据并组织成一个完整的prompt。&#xA;在配置中，每个字典代表一个模块，其中包含相关的参数如 field_name, function_name, is_context, title, description, 和 omit_if_empty，用以控制模块的行为和呈现方式。&#xA;context_placeholder 字段用于标识上下文模板的位置，允许在prompt中插入动态内容。&#xA;[ {&amp;#34;field_name&amp;#34;: &amp;#39;agent_profile&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_agent_profile&amp;#39;, &amp;#34;is_context&amp;#34;: False}, {&amp;#34;field_name&amp;#34;: &amp;#39;context_placeholder&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;&amp;#39;, &amp;#34;is_context&amp;#34;: True}, {&amp;#34;field_name&amp;#34;: &amp;#39;tool_information&amp;#39;,&amp;#34;function_name&amp;#34;: &amp;#39;handle_tool_data&amp;#39;, &amp;#34;is_context&amp;#34;: True}, {&amp;#34;field_name&amp;#34;: &amp;#39;reference_documents&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_doc_info&amp;#39;}, {&amp;#34;field_name&amp;#34;: &amp;#39;session_records&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_session_records&amp;#39;}, {&amp;#34;field_name&amp;#34;: &amp;#39;task_records&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_task_records&amp;#39;}, {&amp;#34;field_name&amp;#34;: &amp;#39;output_format&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_output_format&amp;#39;, &amp;#39;title&amp;#39;: &amp;#39;Response Output Format&amp;#39;, &amp;#34;is_context&amp;#34;: False}, {&amp;#34;field_name&amp;#34;: &amp;#39;response&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_response&amp;#39;, &amp;#34;title&amp;#34;=&amp;#34;begin!</description>
+    </item>
+    <item>
+      <title>Quick Start</title>
+      <link>/coagent/quick-start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/quick-start/</guid>
+      <description>Quick Start First, set up the LLM configuration import os, sys&#xD;import openai&#xD;# llm config&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xxx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34; Next, configure the LLM settings and vector model from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;llm_config = LLMConfig(&#xD;model_name=&amp;#34;gpt-3.5-turbo&amp;#34;, model_device=&amp;#34;cpu&amp;#34;,api_key=os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;], api_base_url=os.environ[&amp;#34;API_BASE_URL&amp;#34;], temperature=0.3&#xD;)&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=&amp;#34;text2vec-base-chinese&amp;#34;, embed_model_path=&amp;#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&amp;#34;&#xD;) Finally, choose a pre-existing scenario to execute from coagent.tools import toLangchainTools, TOOL_DICT, TOOL_SETS&#xD;from coagent.</description>
+    </item>
+  </channel>
+</rss>

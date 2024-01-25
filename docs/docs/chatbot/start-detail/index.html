@@ -102,7 +102,10 @@
           <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
         
           
-          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Documentation</a></li>
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/coagent" ><i class='icon icon-book'></i>CoAgent</a></li>
         
           
           <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
@@ -166,14 +169,6 @@
           <a class="sidebar-link " href="/docs/codefuse-modelcache/">
             
               CodeFuse-ModelCache
-            
-          </a>
-
-        
-          
-          <a class="sidebar-link " href="/docs/fastertransformer4codefuse/">
-            
-              FasterTransformer4CodeFuse
             
           </a>
 
@@ -329,10 +324,10 @@ cp ~/shibing624/text2vec-base-chinese ~/codefuse-chatbot/embedding_models/
 <p>By default, only the webui-related services are started, and fastchat is not started (optional).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># If you need to support the codellama-34b-int4 model, you need to patch fastchat</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># cp examples/gptq.py ~/site-packages/fastchat/modules/gptq.py</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Modify dev_opsgpt/llm_api.py#258 to kwargs={&#34;gptq_wbits&#34;: 4},</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Modify examples/llm_api.py#258 to kwargs={&#34;gptq_wbits&#34;: 4},</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># start llm-service (optional)</span>
-</span></span><span class="line"><span class="cl">python dev_opsgpt/llm_api.py
+</span></span><span class="line"><span class="cl">python examples/llm_api.py
 </span></span></code></pre></div><p>For more LLM integration methods, see<a href="./fastchat.md">more details&hellip;</a>
 <br></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># After completing the server_config.py configuration, you can start with one click</span>
@@ -426,14 +421,6 @@ cp ~/shibing624/text2vec-base-chinese ~/codefuse-chatbot/embedding_models/
     
         
 
-        
-          
-        
-
-      
-    
-        
-
       
     
         
@@ -447,7 +434,7 @@ cp ~/shibing624/text2vec-base-chinese ~/codefuse-chatbot/embedding_models/
 
 
 <footer id="article-footer">
-  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
+  <time id="article-last-updated" datetime="2024-01-25"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-25</time>
 
   
     <a id="article-prev-link" href="/docs/quickstart/"><i class="icon icon-prev icon-colored"></i> Prev</a>
@@ -544,7 +531,7 @@ cp ~/shibing624/text2vec-base-chinese ~/codefuse-chatbot/embedding_models/
 
 <script type="application/javascript">
     if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js?2024-01-23')
+        navigator.serviceWorker.register('/sw.js?2024-01-25')
             .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
     }
 </script>

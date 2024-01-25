@@ -98,7 +98,10 @@
           <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
         
           
-          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Documentation</a></li>
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/coagent" ><i class='icon icon-book'></i>CoAgent</a></li>
         
           
           <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
@@ -162,14 +165,6 @@
           <a class="sidebar-link " href="/docs/codefuse-modelcache-zh/">
             
               CodeFuse-ModelCache-zh
-            
-          </a>
-
-        
-          
-          <a class="sidebar-link " href="/docs/fastertransformer4codefuse-zh/">
-            
-              FasterTransformer4CodeFuse-zh
             
           </a>
 
@@ -309,7 +304,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 若需要支撑qwen-72b-int4模型，需要给fastchat打一个补丁</span>
 </span></span><span class="line"><span class="cl">cp examples/gptq.py ~/site-packages/fastchat/modules/gptq.py
 </span></span><span class="line"><span class="cl"><span class="c1"># 量化需修改llm_api.py的配置</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># dev_opsgpt/llm_api.py#559 取消注释 kwargs[&#34;gptq_wbits&#34;] = 4</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># examples/llm_api.py#559 取消注释 kwargs[&#34;gptq_wbits&#34;] = 4</span>
 </span></span></code></pre></div><h2 id="公开大模型接口接入">公开大模型接口接入</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># model_config.py配置修改</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># ONLINE_LLM_MODEL</span>
@@ -495,14 +490,6 @@
     
         
 
-        
-          
-        
-
-      
-    
-        
-
       
     
         
@@ -516,7 +503,7 @@
 
 
 <footer id="article-footer">
-  <time id="article-last-updated" datetime="2024-01-23"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-23</time>
+  <time id="article-last-updated" datetime="2024-01-25"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-25</time>
 
   
     <a id="article-prev-link" href="/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/"><i class="icon icon-prev icon-colored"></i> Prev</a>
@@ -596,7 +583,7 @@
 
 <script type="application/javascript">
     if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js?2024-01-23')
+        navigator.serviceWorker.register('/sw.js?2024-01-25')
             .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
     }
 </script>

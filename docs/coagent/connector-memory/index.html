@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse aims to develop Code Large Language Models (Code LLMs) to support and enhance full-lifecycle AI native sotware developing, covering crucial stages such as design requirements, coding, testing, building, deployment, operations, and insight analysis.">
+<meta name="author" content="codefuse-ai">
+
+<title>Connector Memory · CodeFuse-AI</title>
+
+<link rel="canonical" href="/coagent/connector-memory/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/coagent/connector-memory/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/coagent/connector-memory-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/coagent"  class="active"><i class='icon icon-book'></i>CoAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ CoAgent</strong>
+          
+          <a class="sidebar-link " href="/coagent/coagent-overview/">
+            
+              CoAgent Overview
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/agent-flow/">
+            
+              Agent Flow
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/prompt-manager/">
+            
+              Prompt Manager
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/quick-start/">
+            
+              Quick Start
+            
+          </a>
+
+        <strong class="sidebar-section">Modules</strong>
+          
+          <a class="sidebar-link " href="/coagent/connector-agent/">
+            
+              Connector-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/connector-chain/">
+            
+              Connector-Chain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/connector-phase/">
+            
+              Connector-Phase
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/connector-prompt/">
+            
+              Connector-Prompt
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/coagent/connector-memory/">
+            
+              Connector-Memory
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/coagent/customed-examples/">
+            
+              Customed Examples
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Connector Memory</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="memory-manager">Memory Manager</h2>
+<p>主要用于 chat history 的管理，暂未完成</p>
+<ul>
+<li>将chat history在数据库进行读写管理，包括user input、 llm output、doc retrieval、code retrieval、search retrieval</li>
+<li>对 chat history 进行关键信息总结 summary context，作为 prompt context</li>
+<li>提供检索功能，检索 chat history 或者 summary context 中与问题相关信息，辅助问答</li>
+</ul>
+<h2 id="使用示例">使用示例</h2>
+<h3 id="创建-memory-manager-实例">创建 memory manager 实例</h3>
+<pre tabindex="0"><code>import os
+import openai
+
+from coagent.base_configs.env_config import KB_ROOT_PATH
+from coagent.connector.memory_manager import BaseMemoryManager, LocalMemoryManager
+from coagent.llm_models.llm_config import EmbedConfig, LLMConfig
+from coagent.connector.schema import Message
+
+os.environ[&#34;API_BASE_URL&#34;] = OPENAI_API_BASE
+os.environ[&#34;OPENAI_API_KEY&#34;] = &#34;sk-xx&#34;
+openai.api_key = &#34;sk-xxx&#34;
+# os.environ[&#34;OPENAI_PROXY&#34;] = &#34;socks5h://127.0.0.1:13659&#34;
+os.environ[&#34;DUCKDUCKGO_PROXY&#34;] = os.environ.get(&#34;DUCKDUCKGO_PROXY&#34;) or &#34;socks5://127.0.0.1:13659&#34;
+
+# LLM 和 Embedding Model 配置
+llm_config = LLMConfig(
+    model_name=&#34;gpt-3.5-turbo&#34;, model_device=&#34;cpu&#34;,api_key=os.environ[&#34;OPENAI_API_KEY&#34;], 
+    api_base_url=os.environ[&#34;API_BASE_URL&#34;], temperature=0.3
+    )
+embed_config = EmbedConfig(
+    embed_engine=&#34;model&#34;, embed_model=&#34;text2vec-base-chinese&#34;, 
+    embed_model_path=&#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&#34;
+    )
+
+# 
+phase_name = &#34;test&#34;
+memory_manager = LocalMemoryManager(
+            unique_name=phase_name, 
+            do_init=True, 
+            kb_root_path = KB_ROOT_PATH, 
+            embed_config=embed_config, 
+            llm_config=llm_config
+        )
+</code></pre><h3 id="支持message管理">支持Message管理</h3>
+<pre tabindex="0"><code>message1 = Message(
+    role_name=&#34;test1&#34;, role_type=&#34;user&#34;, input_query=&#34;hello&#34;, origin_query=&#34;hello&#34;,
+    parsed_output_list=[{&#34;input&#34;: &#34;hello&#34;}]
+)
+
+text = &#34;hi! how can I help you?&#34;
+message2 = Message(
+    role_name=&#34;test2&#34;, role_type=&#34;assistant&#34;, input_query=text, origin_query=text,
+    role_content=text, step_content=text, parsed_output_list=[{&#34;answer&#34;: text}]
+)
+
+text = &#34;they say hello and hi to each other&#34;
+message3 = Message(
+    role_name=&#34;test3&#34;, role_type=&#34;summary&#34;,
+    role_content=text, step_content=text,
+    parsed_output_list=[{&#34;summary&#34;: text}]
+    )
+</code></pre><h3 id="支持-memory-检索">支持 memory 检索</h3>
+<pre tabindex="0"><code># embedding retrieval test
+text = &#34;say hi, i want some help&#34;
+print(memory_manager.router_retrieval(text=text, datetime=&#34;2024-01-08 20:22:00&#34;, n=4, top_k=5, retrieval_type= &#34;datetime&#34;))
+print(memory_manager.router_retrieval(text=text, datetime=&#34;2024-01-08 20:22:00&#34;, n=4, top_k=5, retrieval_type= &#34;embedding&#34;))
+print(memory_manager.router_retrieval(text=text, datetime=&#34;2024-01-08 20:22:00&#34;, n=4, top_k=5, retrieval_type= &#34;text&#34;))
+</code></pre><h3 id="支持-memory-总结">支持 memory 总结</h3>
+<pre tabindex="0"><code># recursive_summary test
+print(memory_manager.recursive_summary(local_memory_manager.recall_memory.messages, split_n=1))
+</code></pre>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-01-25"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-01-25</time>
+
+  
+    <a id="article-prev-link" href="/coagent/connector-prompt/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/coagent/customed-examples/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#memory-manager">Memory Manager</a></li>
+    <li><a href="#使用示例">使用示例</a>
+      <ul>
+        <li><a href="#创建-memory-manager-实例">创建 memory manager 实例</a></li>
+        <li><a href="#支持message管理">支持Message管理</a></li>
+        <li><a href="#支持-memory-检索">支持 memory 检索</a></li>
+        <li><a href="#支持-memory-总结">支持 memory 总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-01-25')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

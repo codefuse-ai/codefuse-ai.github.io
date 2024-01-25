@@ -1,3 +1,13 @@
+---
+title: Prompt 管理器
+slug: Prompt 管理器
+url: "coagent/prompt-管理器"
+aliases:
+- "/coagent/prompt-管理器"
+- "/coagent/prompt-manager-zh"
+---
+
+
 ### 提示管理器（Prompt Manager）
 管理多智能体链路中的prompt创建
 - 快速配置：采用预设的处理函数，用户仅需通过定义智能体的输入输出即可轻松配置，实现多智能体的prompt快速组装和配置。

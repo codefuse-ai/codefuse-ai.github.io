@@ -97,7 +97,10 @@
           <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
         
           
-          <li><a href="/docs" ><i class='icon icon-book'></i>Documentation</a></li>
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/coagent" ><i class='icon icon-book'></i>CoAgent</a></li>
         
           
           <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
@@ -120,14 +123,18 @@
         <style>
   .github-repos-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
   }
 
   .github-repo-tile {
-    flex: 0 1 30%;  
+    display: flex;
+    flex-direction: column;  
+    justify-content: space-between;  
+    flex: 0 1 calc(30% - 60px);  
     text-align: center;
-    margin: 10px;
+    margin: 30px;
+    box-sizing: border-box; 
   }
 </style>
 
@@ -137,7 +144,7 @@
     <a href="https://github.com/codefuse-ai/codefuse-chatbot" target="_blank">
       <div><i class='icon icon-book'></i></div>
       <h3>DevOps-ChatBot</h3>
-      <p>The repository of the project</p>
+      <p>An intelligent assistant serving the entire software development lifecycle.</p>
     </a>
 
     <div class="github-buttons">
@@ -150,7 +157,7 @@
     <a href="https://github.com/codefuse-ai/codefuse-devops-eval" target="_blank">
       <div><i class='icon icon-book'></i></div>
       <h3>DevOps-Eval</h3>
-      <p>The repository of the website</p>
+      <p>Industrial-first evaluation benchmark for LLMs in the DevOps/AIOps domain.</p>
     </a>
 
     <div class="github-buttons">
@@ -163,12 +170,64 @@
     <a href="https://github.com/codefuse-ai/CodeFuse-DevOps-Model" target="_blank">
       <div><i class='icon icon-book'></i></div>
       <h3>DevOps-Model</h3>
-      <p>The repository of the project</p>
+      <p>A series of industrial-first LLMs for theDevOps domain. Asking it for any question in the DevOps domain!</p>
     </a>
 
     <div class="github-buttons">
       <a href="https://github.com/codefuse-ai/CodeFuse-DevOps-Model" class="github-button"  data-icon="octicon-star" data-show-count="true" aria-label="Star codefuse-ai/CodeFuse-DevOps-Model on GitHub">Star</a>
       <a href="https://github.com/codefuse-ai/CodeFuse-DevOps-Model/fork" class="github-button"  data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork codefuse-ai/CodeFuse-DevOps-Model on GitHub">Fork</a>
+    </div>
+  </div>
+
+  <div class="github-repo-tile">
+    <a href="https://github.com/codefuse-ai/MFTCoder" target="_blank">
+      <div><i class='icon icon-book'></i></div>
+      <h3>MFTCoder</h3>
+      <p>High Accuracy and efficiency multi-task fine-tuning framework for Code LLMs</p>
+    </a>
+
+    <div class="github-buttons">
+      <a href="https://github.com/codefuse-ai/MFTCoder" class="github-button"  data-icon="octicon-star" data-show-count="true" aria-label="Star codefuse-ai/MFTCoder on GitHub">Star</a>
+      <a href="https://github.com/codefuse-ai/MFTCoder/fork" class="github-button"  data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork codefuse-ai/MFTCoder on GitHub">Fork</a>
+    </div>
+  </div>
+
+  <div class="github-repo-tile">
+    <a href="https://github.com/codefuse-ai/CodeFuse-ModelCache" target="_blank">
+      <div><i class='icon icon-book'></i></div>
+      <h3>CodeFuse-ModelCache</h3>
+      <p>A LLM semantic caching system aiming to reducing response time via cached query-result pairs.</p>
+    </a>
+
+    <div class="github-buttons">
+      <a href="https://github.com/codefuse-ai/CodeFuse-ModelCache" class="github-button"  data-icon="octicon-star" data-show-count="true" aria-label="Star codefuse-ai/CodeFuse-ModelCache on GitHub">Star</a>
+      <a href="https://github.com/codefuse-ai/CodeFuse-ModelCache/fork" class="github-button"  data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork codefuse-ai/CodeFuse-ModelCache on GitHub">Fork</a>
+    </div>
+  </div>
+
+  <div class="github-repo-tile">
+    <a href="https://github.com/codefuse-ai/Test-Agent" target="_blank">
+      <div><i class='icon icon-book'></i></div>
+      <h3>Test-Agent</h3>
+      <p>Agent that empowers software testing with LLMs; industrial-first in China</p>
+    </a>
+
+    <div class="github-buttons">
+      <a href="https://github.com/codefuse-ai/Test-Agent" class="github-button"  data-icon="octicon-star" data-show-count="true" aria-label="Star codefuse-ai/Test-Agent on GitHub">Star</a>
+      <a href="https://github.com/codefuse-ai/Test-Agent/fork" class="github-button"  data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork codefuse-ai/Test-Agent on GitHub">Fork</a>
+    </div>
+  </div>
+
+  <div class="github-repo-tile">
+    <a href="https://github.com/codefuse-ai/CodeFuse-Query" target="_blank">
+      <div><i class='icon icon-book'></i></div>
+      <h3>CodeFuse-Query</h3>
+      <p>Query-Based Code Analysis Engine</p>
+    </a>
+
+    <div class="github-buttons">
+      <a href="https://github.com/codefuse-ai/CodeFuse-Query" class="github-button"  data-icon="octicon-star" data-show-count="true" aria-label="Star codefuse-ai/CodeFuse-Query on GitHub">Star</a>
+      <a href="https://github.com/codefuse-ai/CodeFuse-Query/fork" class="github-button"  data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork codefuse-ai/CodeFuse-Query on GitHub">Fork</a>
     </div>
   </div>
 
@@ -235,7 +294,7 @@
 
 <script type="application/javascript">
     if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js?2024-01-23')
+        navigator.serviceWorker.register('/sw.js?2024-01-25')
             .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
     }
 </script>

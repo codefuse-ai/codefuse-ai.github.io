@@ -3,6 +3,7 @@
   pages:
     - title: CoAgent 概览
     - title: Agent 编排
+    - title: Prompt 管理器
     - title: 快速开始
 
 - title: Connector
