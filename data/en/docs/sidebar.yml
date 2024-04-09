@@ -4,19 +4,84 @@
 
 - title: 📖 CodeFuse-AI Module
   pages:
+    - title: CodeFuse-Query
+    - title: MFTCoder
+    - title: CodeFuse-MFT-VLM
+    - title: Test-Agent
+    - title: CodeFuse-ModelCache
     - title: CodeFuse-ChatBot
+      # rename: quickstart # 用于title重命名，title作为跳转地址 docs/title
     - title: CodeFuse-DevOps-Eval
     - title: CodeFuse-DevOps-Model
-    - title: MFTCoder
-    - title: CodeFuse-ModelCache
-    # - title: FasterTransformer4CodeFuse
-    - title: Test-Agent
-    - title: CodeFuse-Query
+    - title: CodeFuse-Evalution
+
+- title: CodeFuse-Query
+  pages:
+    - title: codefuse-query-introduction
+      rename: Introduction
+    - title: codefuse-query-quickstart
+      rename: QuickStart
+    - title: codefuse-query-GodelLanguage
+      rename: GodelLanguage
+    - title: codefuse-query-toolchain
+      rename: Toolchain
+    - title: codefuse-query-usercase
+      rename: UserCase
+
+- title: MFTCoder
+  pages:
+    - title: mftcoder-introduction
+      rename: Introduction
+    - title: mftcoder-quickstart
+      rename: QuickStart
+    - title: mftcoder-accelerate
+      rename: Accelerate + DeepSpeed/FSDP Framework
+    - title: mftcoder-atorch
+      rename: Atorch Framework
+
+- title: CodeFuse-MFT-VLM
+  pages:
+    - title: codefuse-mft-vlm-quickstart
+      rename: QuickStart
+
+- title: 🌱 Test Agent
+  pages:
+    - title: test-agent-quickstart
+      rename: QuickStart
+
+- title: 🌱 CodeFuse-ModelCache
+  pages:
+    - title: CodeFuse-ModelCache-quickstart
+      rename: QuickStart
+    - title: CodeFuse-ModelCache-feature
+      rename: Feature
+    - title: CodeFuse-ModelCache-config
+      rename: Config
+    - title: CodeFuse-ModelCache-release
+      rename: Release Note
 
 - title: 🌱 CodeFuse-ChatBot
   pages:
-    - title: QuickStart
+    - title: CodeFuse-ChatBot-QuickStart
+      rename: QuickStart
     - title: Start-Detail
     - title: LLM-Configuration
     - title: ChatBot-RoadMap
     
+- title: 🌱 CodeFuse-DevOps-Model
+  pages:
+    - title: CodeFuse-DevOps-Model-Train
+      rename: TrainDetail
+    - title: CodeFuse-DevOps-Model-QuickStart
+      rename: QuickStart
+
+- title: 🌱 CodeFuse-DevOps-Eval
+  pages:
+    - title: Data
+    - title: CodeFuse-DevOps-Eval-QuickStart
+      rename: QuickStart
+
+- title: 🌱 CodeFuse-evalution
+  pages:
+    - title: CodeFuse-evalution-quickstart
+      rename: QuickStart
