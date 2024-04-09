@@ -8,6 +8,27 @@
     <language>en-US</language>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title></title>
+      <link>/docs/devops_eval/tool_learning_info/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/devops_eval/tool_learning_info/</guid>
+      <description>数据样例 在数据上我们完全兼容了 OpenAI Function Calling，具体格式如下：&#xA;Function Call的数据格式&#xA;Input Key Input Type Input Description functions List[Swagger] 工具集合 chatrounds List[chatround] 多轮对话数据 chatrounds的数据格式&#xA;Input Key Input Type Input Description role string 角色名称，包含三种类别，user、assistant、function name string 若role为function，则存在name字段，为function的名称 content string role的返回内容 function_call dict 工具调用 { &amp;#34;functions&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;get_fudan_university_scoreline&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;查询复旦大学往年分数线，例如：查询2020年复旦大学的分数线&amp;#34;, &amp;#34;parameters&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;object&amp;#34;, &amp;#34;properties&amp;#34;: { &amp;#34;year&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;string&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;年份，例如：2020，2019，2018&amp;#34; } }, &amp;#34;required&amp;#34;: [ &amp;#34;year&amp;#34; ] } } ], &amp;#34;chatrounds&amp;#34;: [ { &amp;#34;role&amp;#34;: &amp;#34;system&amp;#34;, &amp;#34;content&amp;#34;: &amp;#34;CodeFuse是一个面向研发领域的智能助手，旨在中立的、无害的帮助用户解决开发相关的问题，所有的回答均使用Markdown格式返回。\n你能利用许多工具和功能来完成给定的任务，在每一步中，你需要分析当前状态，并通过执行函数调用来确定下一步的行动方向。你可以进行多次尝试。如果你计划连续尝试不同的条件，请每次尝试一种条件。若给定了Finish函数,则以Finish调用结束，若没提供Finish函数，则以不带function_call的对话结束。&amp;#34; }, { &amp;#34;role&amp;#34;: &amp;#34;user&amp;#34;, &amp;#34;content&amp;#34;: &amp;#34;查询2020年复旦大学的分数线&amp;#34; }, { &amp;#34;role&amp;#34;: &amp;#34;assistant&amp;#34;, &amp;#34;content&amp;#34;: null, &amp;#34;function_call&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;get_fudan_university_scoreline&amp;#34;, &amp;#34;arguments&amp;#34;: &amp;#34;{\n \&amp;#34;year\&amp;#34;: \&amp;#34;2020\&amp;#34;\n}&amp;#34; } }, { &amp;#34;role&amp;#34;: &amp;#34;function&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;get_fudan_university_scoreline&amp;#34;, &amp;#34;content&amp;#34;: &amp;#34;{\n \&amp;#34;scoreline\&amp;#34;:{\n \&amp;#34;文科一批\&amp;#34;: 630, \n \&amp;#34;文科二批\&amp;#34;: 610, \n \&amp;#34;理科一批\&amp;#34;: 650, \n \&amp;#34;理科二批\&amp;#34;: 630 \n }\n}&amp;#34; }, { &amp;#34;role&amp;#34;: &amp;#34;assistant&amp;#34;, &amp;#34;content&amp;#34;: &amp;#34;2020年复旦大学的分数线如下：\n\n- 文科一批：630分\n- 文科二批：610分\n- 理科一批：650分\n- 理科二批：630分&amp;#34; } ] } 上述Function Call的数据样例为给定特定工具集后，用于回答用户查询某高校录取分数线的问题。</description>
+    </item>
+    <item>
+      <title></title>
+      <link>/docs/devops_eval/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/devops_eval/tutorial/</guid>
+      <description>Evaluate Tutorial 🚀 How to Evaluate If you need to test your own huggingface-formatted model, the overall steps are as follows:&#xA;Write the loader function for the model. Write the context_builder function for the model. Register the model in the configuration file. Run the testing script. If the model does not require any special processing after loading, and the input does not need to be converted to a specific format (e.</description>
+    </item>
+    <item>
+      <title>Abstract</title>
+      <link>/docs/abstract/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/abstract/</guid>
+      <description>Abstract With the increasing popularity of large-scale software development, the demand for scalable and adaptable static code analysis techniques is growing. Traditional static analysis tools such as Clang Static Analyzer (CSA) or PMD have shown good results in checking programming rules or style issues. However, these tools are often designed for specific objectives and are unable to meet the diverse and changing needs of modern software development environments. These needs may relate to Quality of Service (QoS), various programming languages, different algorithmic requirements, and various performance needs.</description>
+    </item>
+    <item>
       <title>Acknowledgements</title>
       <link>/contribution/acknowledgements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -20,6 +41,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/coagent/agent-flow/</guid>
       <description>Introduction to Core Connectors To facilitate everyone&amp;rsquo;s understanding of the entire CoAgent link, we use a Flow format to detail how to build through configuration settings.&#xA;Below, we will first introduce the related core components&#xA;Agent At the design level of the Agent, we provide four basic types of Agents, which allows for the basic role settings of these Agents to meet the interaction and usage of a variety of common scenarios.</description>
+    </item>
+    <item>
+      <title>Agent Flow</title>
+      <link>/muagent/agent-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/agent-flow/</guid>
+      <description>Introduction to Core Connectors To facilitate everyone&amp;rsquo;s understanding of the entire muagent link, we adopt the Flow format to introduce in detail how to build through configuration&#xA;Below, we first introduce the related core components&#xA;Agent On the design level of the Agent, we provide four basic types of Agents, with Role settings for these Agents that can meet the interactions and uses of various common scenarios:&#xA;BaseAgent: Provides basic question answering, tool usage, and code execution functions, and realizes input =&amp;gt; output according to the Prompt format.</description>
     </item>
     <item>
       <title>ChatBot-RoadMap</title>
@@ -43,11 +71,25 @@
       <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp This project is an open-source AI intelligent assistant, specifically designed for the entire lifecycle of software development, covering design, coding, testing, deployment, and operations. Through knowledge retrieval, tool utilization, and sandbox execution, Codefuse-ChatBot can not only answer professional questions you encounter during the development process but also coordinate multiple independent, dispersed platforms through a conversational interface.&#xA;📜 Contents 🤝 Introduction 🧭 Technical Route 🤝 Introduction 💡 The aim of this project is to construct an AI intelligent assistant for the entire lifecycle of software development, covering design, coding, testing, deployment, and operations, through Retrieval Augmented Generation (RAG), Tool Learning, and sandbox environments.</description>
     </item>
     <item>
+      <title>Codefuse-ChatBot Development by Private Knowledge Augmentation</title>
+      <link>/docs/overview/codefuse-chatbot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/codefuse-chatbot/</guid>
+      <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp This project is an open-source AI intelligent assistant, specifically designed for the entire lifecycle of software development, covering design, coding, testing, deployment, and operations. Through knowledge retrieval, tool utilization, and sandbox execution, Codefuse-ChatBot can not only answer professional questions you encounter during the development process but also coordinate multiple independent, dispersed platforms through a conversational interface.&#xA;📜 Contents 🤝 Introduction 🧭 Technical Route 🤝 Introduction 💡 The aim of this project is to construct an AI intelligent assistant for the entire lifecycle of software development, covering design, coding, testing, deployment, and operations, through Retrieval Augmented Generation (RAG), Tool Learning, and sandbox environments.</description>
+    </item>
+    <item>
       <title>codefuse-devops-eval</title>
       <link>/docs/codefuse-devops-eval/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/docs/codefuse-devops-eval/</guid>
       <description>Comming soon</description>
+    </item>
+    <item>
+      <title>codefuse-devops-eval</title>
+      <link>/docs/overview/codefuse-devops-eval/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/codefuse-devops-eval/</guid>
+      <description>DevOps-Eval is a comprehensive evaluation suite specifically designed for foundation models in the DevOps field. We hope DevOps-Eval could help developers, especially in the DevOps field, track the progress and analyze the important strengths/shortcomings of their models.&#xA;📚 This repo contains questions and exercises related to DevOps, including the AIOps, ToolLearning;&#xA;💥️ There are currently 7486 multiple-choice questions spanning 8 diverse general categories, as shown below.&#xA;🔥 There are a total of 2840 samples in the AIOps subcategory, covering scenarios such as log parsing, time series anomaly detection, time series classification, time series forecasting, and root cause analysis.</description>
     </item>
     <item>
       <title>codefuse-devops-model</title>
@@ -57,11 +99,32 @@
       <description>Comming soon</description>
     </item>
     <item>
+      <title>codefuse-devops-model</title>
+      <link>/docs/overview/codefuse-devops-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/codefuse-devops-model/</guid>
+      <description>codeFuse-devops-model DevOps-Model is a large language model for the Chinese DevOps field jointly released by Ant Group and Peking University. By collecting professional data related to the DevOps domain and conducting additional training and alignment on the model, a large model has been produced to help engineers enhance efficiency throughout the entire development and operations lifecycle. This fills the current gap in large models within the DevOps domain, with the aim to provide solutions to any problems by asking DevOps-Model!</description>
+    </item>
+    <item>
+      <title>CodeFuse-MFT-VLM</title>
+      <link>/docs/overview/codefuse-mft-vlm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/codefuse-mft-vlm/</guid>
+      <description>CodeFuse-VLM CodeFuse-VLM is a Multimodal LLM(MLLM) framework that provides users with multiple vision encoders, multimodal alignment adapters, and LLMs. Through CodeFuse-VLM framework, users are able to customize their own MLLM model to adapt their own tasks. As more and more models are published on Huggingface community, there will be more open-source vision encoders and LLMs. Each of these models has their own specialties, e.g. Code-LLama is good at code-related tasks but has poor performance for Chinese tasks.</description>
+    </item>
+    <item>
       <title>CodeFuse-ModelCache</title>
       <link>/docs/codefuse-modelcache/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/docs/codefuse-modelcache/</guid>
       <description>CodeFuse-ModelCache CodeFuse-ModelCache</description>
+    </item>
+    <item>
+      <title>CodeFuse-ModelCache</title>
+      <link>/docs/overview/codefuse-modelcache/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/codefuse-modelcache/</guid>
+      <description>中文 | English Contents news Introduction Modules Acknowledgements Contributing news 🔥🔥[2023.12.10] we integrate LLM embedding frameworks such as &amp;rsquo;llmEmb&amp;rsquo;, &amp;lsquo;ONNX&amp;rsquo;, &amp;lsquo;PaddleNLP&amp;rsquo;, &amp;lsquo;FastText&amp;rsquo;, alone with the image embedding framework &amp;rsquo;timm&amp;rsquo;, to bolster embedding functionality. 🔥🔥[2023.11.20] codefuse-ModelCache has integrated local storage, such as sqlite and faiss, providing users with the convenience of quickly initiating tests. [2023.08.26] codefuse-ModelCache&amp;hellip; Introduction Codefuse-ModelCache is a semantic cache for large language models (LLMs). By caching pre-generated model results, it reduces response time for similar requests and improves user experience.</description>
     </item>
     <item>
       <title>CodeFuse-Query</title>
@@ -71,11 +134,32 @@
       <description>CodeFuse-Query CodeFuse-Query</description>
     </item>
     <item>
+      <title>CodeFuse-Query</title>
+      <link>/docs/overview/codefuse-query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/codefuse-query/</guid>
+      <description>CodeFuse-Query With the increasing popularity of large-scale software development, the demand for scalable and adaptable static code analysis techniques is growing. Traditional static analysis tools such as Clang Static Analyzer (CSA) or PMD have shown good results in checking programming rules or style issues. However, these tools are often designed for specific objectives and are unable to meet the diverse and changing needs of modern software development environments. These needs may relate to Quality of Service (QoS), various programming languages, different algorithmic requirements, and various performance needs.</description>
+    </item>
+    <item>
+      <title>CodeFuseEval: Multi-tasking Evaluation Benchmark for Code Large Language Model</title>
+      <link>/docs/codefuse-evalution/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-evalution/</guid>
+      <description>CodeFuseEval: Multi-tasking Evaluation Benchmark for Code Large Language Model 简体中文｜&#xD;CodeFuseEval on ModelScope｜&#xD;CodeFuseEval on Hugging Face&#xD;CodeFuseEval is a Code Generation benchmark that combines the multi-tasking scenarios of CodeFuse Model with the benchmarks of HumanEval-x and MBPP. This benchmark is designed to evaluate the performance of models in various multi-tasking tasks, including code completion, code generation from natural language, test case generation, cross-language code translation, and code generation from Chinese commands, among others.</description>
+    </item>
+    <item>
       <title>Connector Agent</title>
       <link>/coagent/connector-agent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/coagent/connector-agent/</guid>
       <description>快速构建一个Agent 首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动） from coagent.base_configs.env_config import JUPYTER_WORK_PATH, KB_ROOT_PATH&#xD;from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from coagent.connector.configs import AGETN_CONFIGS&#xD;from coagent.connector.agents import BaseAgent&#xD;from coagent.connector.schema import Message, load_role_configs&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34;&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; 配置相关 LLM 和 Embedding Model # LLM 和 Embedding Model 配置&#xD;llm_config = LLMConfig(&#xD;model_name=&amp;#34;gpt-3.5-turbo&amp;#34;, model_device=&amp;#34;cpu&amp;#34;,api_key=os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;], api_base_url=os.environ[&amp;#34;API_BASE_URL&amp;#34;], temperature=0.3&#xD;)&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=&amp;#34;text2vec-base-chinese&amp;#34;, embed_model_path=&amp;#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&amp;#34;&#xD;) 这里从已有的agent配置选一个role来做示例 # 从已有的配置中选择一个config，具体参数细节见下面&#xD;role_configs = load_role_configs(AGETN_CONFIGS)&#xD;agent_config = role_configs[&amp;#34;general_planner&amp;#34;]&#xD;# 生成agent实例&#xD;base_agent = BaseAgent(&#xD;role=agent_config.</description>
+    </item>
+    <item>
+      <title>Connector Agent</title>
+      <link>/muagent/connector-agent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/connector-agent/</guid>
+      <description>Quickly Build an Agent First, add an OpenAI configuration, or a model with a similar interface to OpenAI (launched through fastchat) import os, sys&#xD;api_key = &amp;#34;sk-xxx&amp;#34;&#xD;api_base_url= &amp;#34;https://api.openai.com/v1&amp;#34;&#xD;model_name = &amp;#34;gpt-3.5-turbo&amp;#34;&#xD;embed_model = &amp;#34;{{embed_model_name}}&amp;#34;&#xD;embed_model_path = &amp;#34;{{embed_model_path}}&amp;#34;&#xD;#&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; Then Set LLM Configuration and Vector Model Configuration Configure related LLM and Embedding Model from muagent.base_configs.env_config import JUPYTER_WORK_PATH&#xD;from muagent.connector.agents import BaseAgent, ReactAgent, ExecutorAgent, SelectorAgent&#xD;from muagent.</description>
     </item>
     <item>
       <title>Connector Chain</title>
@@ -85,11 +169,25 @@
       <description>快速构建一个 agent chain 首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动） # 设置openai的api-key&#xD;import os, sys&#xD;import openai&#xD;import importlib&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xxxx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34;&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; 配置相关 LLM 和 Embedding Model # LLM 和 Embedding Model 配置&#xD;llm_config = LLMConfig(&#xD;model_name=&amp;#34;gpt-3.5-turbo&amp;#34;, model_device=&amp;#34;cpu&amp;#34;,api_key=os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;], api_base_url=os.environ[&amp;#34;API_BASE_URL&amp;#34;], temperature=0.3&#xD;)&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=&amp;#34;text2vec-base-chinese&amp;#34;, embed_model_path=&amp;#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&amp;#34;&#xD;) 这里从已有的agent配置选多个role组合成 agent chain from coagent.base_configs.env_config import JUPYTER_WORK_PATH, KB_ROOT_PATH&#xD;from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from coagent.</description>
     </item>
     <item>
+      <title>Connector Chain</title>
+      <link>/muagent/connector-chain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/connector-chain/</guid>
+      <description>Quickly Build an Agent First, add an OpenAI configuration, or a model with a similar interface to OpenAI (launched through fastchat) import os, sys&#xD;api_key = &amp;#34;sk-xxx&amp;#34;&#xD;api_base_url= &amp;#34;https://api.openai.com/v1&amp;#34;&#xD;model_name = &amp;#34;gpt-3.5-turbo&amp;#34;&#xD;embed_model = &amp;#34;{{embed_model_name}}&amp;#34;&#xD;embed_model_path = &amp;#34;{{embed_model_path}}&amp;#34;&#xD;#&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; Then Set LLM Configuration and Vector Model Configuration Configure related LLM and Embedding Model&#xA;from muagent.base_configs.env_config import JUPYTER_WORK_PATH&#xD;from muagent.connector.agents import BaseAgent, ReactAgent, ExecutorAgent, SelectorAgent&#xD;from muagent.</description>
+    </item>
+    <item>
       <title>Connector Memory</title>
       <link>/coagent/connector-memory/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/coagent/connector-memory/</guid>
       <description>Memory Manager 主要用于 chat history 的管理，暂未完成&#xA;将chat history在数据库进行读写管理，包括user input、 llm output、doc retrieval、code retrieval、search retrieval 对 chat history 进行关键信息总结 summary context，作为 prompt context 提供检索功能，检索 chat history 或者 summary context 中与问题相关信息，辅助问答 使用示例 创建 memory manager 实例 import os&#xD;import openai&#xD;from coagent.base_configs.env_config import KB_ROOT_PATH&#xD;from coagent.connector.memory_manager import BaseMemoryManager, LocalMemoryManager&#xD;from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from coagent.connector.schema import Message&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34;&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.</description>
+    </item>
+    <item>
+      <title>Connector Memory</title>
+      <link>/muagent/connector-memory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/connector-memory/</guid>
+      <description>Memory Manager Primarily used for managing chat history, not yet completed&#xA;Read and write chat history in the database, including user input, llm output, doc retrieval, code retrieval, search retrieval. Summarize key information from the chat history into a summary context, serving as a prompt context. Provide a search function to retrieve information related to the question from chat history or summary context, aiding in Q&amp;amp;A. Usage Example Create memory manager instance import os&#xD;import openai&#xD;from coagent.</description>
     </item>
     <item>
       <title>Connector Phase</title>
@@ -99,11 +197,25 @@
       <description>快速构建一个 agent phase 首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动） from coagent.base_configs.env_config import JUPYTER_WORK_PATH, KB_ROOT_PATH&#xD;from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from coagent.connector.configs import AGETN_CONFIGS&#xD;from coagent.connector.phase import BasePhase&#xD;from coagent.connector.schema import Message, load_role_configs&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34;&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; 配置相关 LLM 和 Embedding Model # LLM 和 Embedding Model 配置&#xD;llm_config = LLMConfig(&#xD;model_name=&amp;#34;gpt-3.5-turbo&amp;#34;, model_device=&amp;#34;cpu&amp;#34;,api_key=os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;], api_base_url=os.environ[&amp;#34;API_BASE_URL&amp;#34;], temperature=0.3&#xD;)&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=&amp;#34;text2vec-base-chinese&amp;#34;, embed_model_path=&amp;#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&amp;#34;&#xD;) 这里从已有的 phase 配置中选一个 phase 来做示例 # log-level，print prompt和llm predict&#xD;os.</description>
     </item>
     <item>
+      <title>Connector Phase</title>
+      <link>/muagent/connector-phase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/connector-phase/</guid>
+      <description>Quickly Build an Agent Phase First, add OpenAI configuration, which can be models with similar interfaces to OpenAI (triggered via fastchat). import os, sys&#xD;api_key = &amp;#34;sk-xxx&amp;#34;&#xD;api_base_url= &amp;#34;https://api.openai.com/v1&amp;#34;&#xD;model_name = &amp;#34;gpt-3.5-turbo&amp;#34;&#xD;embed_model = &amp;#34;{{embed_model_name}}&amp;#34;&#xD;embed_model_path = &amp;#34;{{embed_model_path}}&amp;#34;&#xD;#&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; Then Set LLM Configuration and Vector Model Configuration Configure related LLM and Embedding Model. from muagent.base_configs.env_config import JUPYTER_WORK_PATH&#xD;from muagent.connector.agents import BaseAgent, ReactAgent, ExecutorAgent, SelectorAgent&#xD;from muagent.</description>
+    </item>
+    <item>
       <title>Connector Prompt</title>
       <link>/coagent/connector-prompt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/coagent/connector-prompt/</guid>
       <description>Prompt 的标准结构 在整个Prompt的整个结构中，我们需要去定义三个部分&#xA;Agent Profil Input Format Response Output Format #### Agent Profile&#xD;Agent Description ...&#xD;#### Input Format&#xD;**Origin Query:** the initial question or objective that the user wanted to achieve&#xD;**Context:** the current status and history of the tasks to determine if Origin Query has been achieved.&#xD;#### Response Output Format&#xD;**Action Status:** finished or continued&#xD;If it&amp;#39;s &amp;#39;finished&amp;#39;, the context can answer the origin query.&#xD;If it&amp;#39;s &amp;#39;continued&amp;#39;, the context cant answer the origin query.</description>
+    </item>
+    <item>
+      <title>Connector Prompt</title>
+      <link>/muagent/connector-prompt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/connector-prompt/</guid>
+      <description>Prompt Manager Managing prompt creation in multi-agent linkages&#xA;Quick Configuration: Utilizing preset processing functions, users can easily configure by simply defining the inputs and outputs of the agents, enabling fast assembly and configuration of multi-agent prompts. Customization Support: Allows users to customize the internal processing logic of each module within the prompt to achieve personalized implementation of the agent prompt. Preset Template Structure for Prompts Agent Profile: This section involves the basic description of the agent, including but not limited to the type of agent, its functions, and command set.</description>
     </item>
     <item>
       <title>Contribution Guide</title>
@@ -113,11 +225,53 @@
       <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp Thank you for your interest in the Codefuse project. We warmly welcome any suggestions, opinions (including criticisms), comments, and contributions to the Codefuse project.&#xA;Your suggestions, opinions, and comments on Codefuse can be directly submitted through GitHub Issues.&#xA;There are many ways to participate in the Codefuse project and contribute to it: code implementation, test writing, process tool improvement, documentation enhancement, and more. We welcome any contributions and will add you to our list of contributors.</description>
     </item>
     <item>
+      <title>Custom Retrieval</title>
+      <link>/muagent/custom-retrieval/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/custom-retrieval/</guid>
+      <description>Basic Introduction Doc Retrieval is the document vector database, which is the most mainstream method for knowledge base construction nowadays. It uses Text Embedding models to vectorize documents and stores them in a vector database. In the future, we will also support querying based on knowledge graph and automatically extracting entities and relationships through large models to explore various complex relationships in data.&#xA;Code Retrieval LLM faces challenges in tasks such as code generation, repair, and component understanding, including lagging code training data and the inability to perceive the dependency structure of code context.</description>
+    </item>
+    <item>
+      <title>Custom Tool</title>
+      <link>/muagent/custom-tool/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/custom-tool/</guid>
+      <description>Introduction In MuAgent, it also supports the registration of Tools by Agents. By registering the BaseToolModel class with Python and writing&#xA;Tool_name Tool_description ToolInputArgs ToolOutputArgs run and other relevant properties and methods, the quick integration of tools can be achieved. It also supports the direct use of the langchain Tool interface. For example, functions like the aforementioned XXRetrieval can also be registered as a Tool, to be ultimately called by an LLM.</description>
+    </item>
+    <item>
       <title>Customed Examples</title>
       <link>/coagent/customed-examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/coagent/customed-examples/</guid>
       <description>如何创建你个性化的 agent phase 场景 下面通过 autogen 的 auto_feedback_from_code_execution 构建过来，来详细演示如何自定义一个 agent phase 的构建&#xA;设计你的prompt结构 import os, sys, requests&#xD;# from configs.model_config import *&#xD;from coagent.connector.phase import BasePhase&#xD;from coagent.connector.chains import BaseChain&#xD;from coagent.connector.schema import Message&#xD;from coagent.connector.configs import AGETN_CONFIGS, CHAIN_CONFIGS, PHASE_CONFIGS&#xD;import importlib&#xD;# update new agent configs&#xD;auto_feedback_from_code_execution_PROMPT = &amp;#34;&amp;#34;&amp;#34;#### Agent Profile&#xD;You are a helpful AI assistant. Solve tasks using your coding and language skills.&#xD;In the following cases, suggest python code (in a python coding block) or shell script (in a sh coding block) for the user to execute.</description>
+    </item>
+    <item>
+      <title>Customed Examples</title>
+      <link>/muagent/custom-examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/custom-examples/</guid>
+      <description>How to Create Your Personalized Agent Phase Scenario Below we will use a code repository to demonstrate the automatic generation of API documentation from code, detailing how to customize the construction of an agent phase.&#xA;Design Your Prompt Structure codeGenDocGroup_PROMPT, create group Agent Prompt # update new agent configs&#xD;codeGenDocGroup_PROMPT = &amp;#34;&amp;#34;&amp;#34;#### Agent Profile&#xD;Your goal is to response according the Context Data&amp;#39;s information with the role that will best facilitate a solution, taking into account all relevant context (Context) provided.</description>
+    </item>
+    <item>
+      <title>Data</title>
+      <link>/docs/data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/data/</guid>
+      <description>⏬ Data Download Method 1: Download the zip file (you can also simply open the following link with the browser): wget https://huggingface.co/datasets/codefuse-admin/devopseval-exam/resolve/main/devopseval-exam.zip then unzip it and you may load the data with pandas: import os import pandas as pd File_Dir=&amp;#34;devopseval-exam&amp;#34; test_df=pd.read_csv(os.path.join(File_Dir,&amp;#34;test&amp;#34;,&amp;#34;UnitTesting.csv&amp;#34;)) Method 2: Directly load the dataset using Hugging Face datasets: from datasets import load_dataset dataset=load_dataset(r&amp;#34;DevOps-Eval/devopseval-exam&amp;#34;,name=&amp;#34;UnitTesting&amp;#34;) print(dataset[&amp;#39;val&amp;#39;][0]) # {&amp;#34;id&amp;#34;: 1, &amp;#34;question&amp;#34;: &amp;#34;单元测试应该覆盖以下哪些方面？&amp;#34;, &amp;#34;A&amp;#34;: &amp;#34;正常路径&amp;#34;, &amp;#34;B&amp;#34;: &amp;#34;异常路径&amp;#34;, &amp;#34;C&amp;#34;: &amp;#34;边界值条件&amp;#34;，&amp;#34;D&amp;#34;: 所有以上，&amp;#34;answer&amp;#34;: &amp;#34;D&amp;#34;, &amp;#34;explanation&amp;#34;: &amp;#34;&amp;#34;} ``` 👀 Notes To facilitate usage, we have organized the category name handlers and English/Chinese names corresponding to 55 subcategories.</description>
+    </item>
+    <item>
+      <title>Embedding Config</title>
+      <link>/muagent/embedding-model-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/embedding-model-config/</guid>
+      <description>Prepare Relevant Parameters First, add the OpenAI configuration; this could also be a model similar to the OpenAI interface (launched via fastchat).&#xA;import os, sys&#xD;api_key = &amp;#34;sk-xxx&amp;#34;&#xD;api_base_url= &amp;#34;https://api.openai.com/v1&amp;#34;&#xD;embed_model = &amp;#34;{{embed_model_name}}&amp;#34;&#xD;embed_model_path = &amp;#34;{{embed_model_path}}&amp;#34; Build LLM Config Constructing with a local model file from muagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=embed_model, embed_model_path=embed_model_path&#xD;) Constructing via OpenAI from muagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;openai&amp;#34;, api_key=api_key, api_base_url=api_base_url,&#xD;) Customizing and inputting langchain embeddings from muagent.</description>
+    </item>
+    <item>
+      <title>Evaluate</title>
+      <link>/docs/codefuse-devops-eval-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-devops-eval-quickstart/</guid>
+      <description>🚀 How to Evaluate If you need to test your own huggingface-formatted model, the overall steps are as follows:&#xA;Write the loader function for the model. Write the context_builder function for the model. Register the model in the configuration file. Run the testing script. If the model does not require any special processing after loading, and the input does not need to be converted to a specific format (e.g. chatml format or other human-bot formats), you can directly proceed to step 4 to initiate the testing.</description>
     </item>
     <item>
       <title>FasterTransformer4CodeFuse</title>
@@ -127,11 +281,60 @@
       <description>FasterTransformer4CodeFuse FasterTransformer4CodeFuse</description>
     </item>
     <item>
+      <title>FasterTransformer4CodeFuse</title>
+      <link>/docs/overview/fastertransformer4codefuse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/fastertransformer4codefuse/</guid>
+      <description>FasterTransformer4CodeFuse FasterTransformer4CodeFuse</description>
+    </item>
+    <item>
+      <title>Feature</title>
+      <link>/docs/codefuse-modelcache-feature/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-modelcache-feature/</guid>
+      <description>From a functional standpoint, to address Huggingface network issues and improve inference speed, local inference capabilities for embeddings have been added. Given some limitations in the SQLAlchemy framework, we have rewritten the relational database interaction module for more flexible database operations. In practice, large model products need to interface with multiple users and models; thus, support for multi-tenancy has been added to ModelCache, as well as preliminary compatibility with system commands and multi-turn conversations.</description>
+    </item>
+    <item>
+      <title>GodelLanguage</title>
+      <link>/docs/codefuse-query-godellanguage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-query-godellanguage/</guid>
+      <description>GödelScript Query Language Index GödelScript Basic Concepts and Syntax Introduction Basic Program Structure Fundamental Types and Compiler Built-in Functions Functions Statements Schema Database Trait Import Query Ungrounded Error: Unassigned/Unbound Error Query Examples Java Python JavaScript XML Go Query Debugging and Optimization Tips Schema Arguments Causing Excessively Large Cartesian Products Multiple Layers of for Causing Excessively Large Cartesian Products Avoid Misusing @inline and Strategies for Necessary Inline Optimization Using Query Scripts on a Local Machine Basic Concepts and Syntax of GödelScript Introduction // script fn hello(greeting: string) -&amp;gt; bool { return greeting = &amp;#34;hello world!</description>
+    </item>
+    <item>
+      <title>How to better configure your cache</title>
+      <link>/docs/codefuse-modelcache-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-modelcache-config/</guid>
+      <description>Environment Dependencies Python version: 3.8 or higher To install dependencies: pip install requirements.txt Service Startup Before starting the service, the following environment configurations should be performed: Install relational database MySQL, import SQL to create tables, SQL file: reference_doc/create_table.sql Install vector database Milvus Add database access information to the configuration files, which are: modelcache/config/milvus_config.ini modelcache/config/mysql_config.ini Download offline model bin files, refer to: https://huggingface.co/shibing624/text2vec-base-chinese/tree/main, and place the downloaded bin files into the model/text2vec-base-chinese folder Start the backend service using the flask4modelcache.</description>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <link>/docs/codefuse-query-introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-query-introduction/</guid>
+      <description>Introduction CodeFuse-Query is a code data platform that supports structured analysis of various programming languages. The core idea is to transform all code into data using various language parsers and to store this data in a structured format within a code database. Data analysis is then performed according to business needs using a custom query language, as shown in the diagram below: 2.1 Architecture of CodeFuse-Query Overall, the CodeFuse-Query code data platform is divided into three main parts: the code data model, the code query DSL (Domain-Specific Language), and platform productization services.</description>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <link>/docs/mftcoder-introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/mftcoder-introduction/</guid>
+      <description>Introduction High Accuracy and efficiency Multi-task Fine-tuning framework for Code LLMs.&#xA;MFTCoder is an open-source project of CodeFuse for accurate and efficient Multi-task Fine-tuning(MFT) on Large Language Models(LLMs), especially on Code-LLMs(large language model for code tasks). Moreover, we open source Code LLM models and code-related datasets along with the MFTCoder framework.&#xA;In MFTCoder, we released two codebases for finetuning Large Language Models:&#xA;MFTCoder-accelerate is a framework with accelerate and DeepSpeed/FSDP. All tech-stacks are open-source and vibrant.</description>
+    </item>
+    <item>
       <title>Issue Report</title>
       <link>/contribution/issue-report/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/contribution/issue-report/</guid>
       <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp Issue Type Issues can be categorized into three types:&#xA;Bug: Issues where code or execution examples contain bugs or lack dependencies, resulting in incorrect execution. Documentation: Discrepancies in documentation, inconsistencies between documentation content and code, etc. Feature: New functionalities that evolve from the current codebase. Issue Template Issue: Bug Template Checklist before submitting an issue Please confirm that you have checked the document, issues, discussions (GitHub feature), and other publicly available documentation.</description>
+    </item>
+    <item>
+      <title>LLM Config</title>
+      <link>/muagent/llm-model-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/llm-model-config/</guid>
+      <description>Prepare Relevant Parameters First, add the OpenAI configuration, or you can use another model similar to the OpenAI interface (launched through fastchat).&#xA;import os, sys&#xD;api_key = &amp;#34;sk-xxx&amp;#34;&#xD;api_base_url= &amp;#34;https://api.openai.com/v1&amp;#34;&#xD;model_name = &amp;#34;gpt-3.5-turbo&amp;#34; Build LLM Config By passing the class openai from muagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;llm_config = LLMConfig(&#xD;model_name=model_name, api_key=api_key, api_base_url=api_base_url, temperature=0.3,&#xD;stop=&amp;#34;**Observation:**&amp;#34;&#xD;) Customizing and inputting langchain LLM from muagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from langchain.llms.base import BaseLLM, LLM&#xD;class CustomizedModel(LLM):&#xD;repetition_penalty = 1.</description>
     </item>
     <item>
       <title>LLM-Configuration</title>
@@ -148,11 +351,46 @@
       <description>MFTCoder MFTCoder</description>
     </item>
     <item>
+      <title>MFTCoder Training: Atorch Framework</title>
+      <link>/docs/mftcoder-atorch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/mftcoder-atorch/</guid>
+      <description>[中文] [English]&#xA;1. Updates 🔥 MFTCoder supports fine-tuning of the GPTNeoX model under the Atorch framework.&#xA;🔥 MFTCoder supports both fully supervised fine-tuning.&#xA;🔥 MFTCoder supports LoRA using the Atorch Framework.&#xA;2. Data Format 2.1 Training Data Format The training data is in a uniformed JSONL format, in which each line of data has the following JSON format. The &amp;ldquo;chat_rounds&amp;rdquo; field is required, and other fields can be added or removed based on the specific need.</description>
+    </item>
+    <item>
+      <title>MFTCoder-accelerate: Training Framework with Accelerate and DeepSpeed/FSDP</title>
+      <link>/docs/mftcoder-accelerate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/mftcoder-accelerate/</guid>
+      <description>[中文] [English]&#xA;1. Updates 🔥 MFTCoder-accelerate supports Full-parameters/LoRA using accelerate + FSDP Framework;&#xA;🔥 MFTCoder-accelerate supports MFT/SFT on more new mainstream open-source base models: mistral, mixtral-8x7b(Mixture of Experts), deepseek, chatglm3;&#xA;🔥 MFTCoder-accelerate supports Self-Paced Loss for Convergence Balance;&#xA;🔥 MFTCoder-accelerate supports Full-parameters/QLoRA/LoRA using accelerate + DeepSpeed Framework;&#xA;🔥 MFTCoder-accelerate supports Multitask Fine-Tuning(MFT), which is able to balance diffenrent tasks in data level.&#xA;🔥 MFTCoder-accelerate supports finetuning most of mainstream open-source base models: codellama, llama2, llama, starcoder, codegeex2, chatglm2, qwen.</description>
+    </item>
+    <item>
+      <title>MFTCoder: High Accuracy and Efficiency Multi-task Fine-Tuning Framework</title>
+      <link>/docs/overview/mftcoder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/mftcoder/</guid>
+      <description>🤗 HuggingFace • 🤖 ModelScope [中文] [English]&#xA;Contents News Articles Introduction Requirements Training Models Datasets Star History News 🔥🔥🔥 [2024/01/17] We released MFTCoder v0.3.0, mainly for MFTCoder-accelerate. It now supports new models like Mixtral(MoE), DeepSeek-coder, chatglm3. It supports FSDP as an option. It also supports Self-paced Loss as a solution for convergence balance in Multitask Fine-tuning.&#xA;🔥🔥🔥 [2024/01/17] CodeFuse-DeepSeek-33B has been released, achieving a pass@1 (greedy decoding) score of 78.</description>
+    </item>
+    <item>
+      <title>MuAgent</title>
+      <link>/muagent/muagent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/muagent/muagent/</guid>
+      <description>Introduction To enhance the performance of large models in terms of inference accuracy, various innovative Large Language Model (LLM) playbooks have emerged in the industry. From the earliest Chain of Thought (CoT) and Thread of Thought (ToT) to Games on Tracks (GoT), these methods have continually expanded the capability boundaries of LLMs. When handling complex problems, we can select, invoke and execute tool feedback through the ReAct process, while realizing multi-round tool use and multi-step execution.</description>
+    </item>
+    <item>
       <title>overview</title>
       <link>/docs/en_overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/docs/en_overview/</guid>
       <description>HuggingFace | ModelScope Hello World! This is CodeFuse! CodeFuse aims to develop Code Large Language Models (Code LLMs) to support and enhance full-lifecycle AI native sotware developing, covering crucial stages such as design requirements, coding, testing, building, deployment, operations, and insight analysis.&#xA;We are passionating about creating innovative open-source solutions that empower developers throughout the software development process as shown above. We also encourage engineers and researchers within this community to join us in co-constructing/improving CodeFuse.</description>
+    </item>
+    <item>
+      <title>Prompt Manager</title>
+      <link>/coagent/prompt-manager/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/coagent/prompt-manager/</guid>
+      <description>提示管理器（Prompt Manager） 管理多智能体链路中的prompt创建&#xA;快速配置：采用预设的处理函数，用户仅需通过定义智能体的输入输出即可轻松配置，实现多智能体的prompt快速组装和配置。 自定义支持：允许用户自定义prompt内部各模块的处理逻辑，以达到个性化的智能体prompt实现。 Prompt预设模板结构 Agent Profile：此部分涉及到智能体的基础描述，包括但不限于代理的类型、功能和指令集。用户可以在这里设置智能体的基本属性，确保其行为与预期相符。 Context：上下文信息，给智能体做参考，帮助智能体更好的进行决策。 Tool Information：此部分为智能体提供了一套可用工具的清单，智能体可以根据当前的场景需求从中挑选合适的工具以辅助其执行任务。 Reference Documents：这里可以包含代理参考使用的文档或代码片段，以便于它在处理请求时能够参照相关资料。 Session Records：在进行多轮对话时，此部分会记录之前的交谈内容，确保智能体能够在上下文中保持连贯性。 Response Output Format：用户可以在此设置智能体的输出格式，以确保生成的响应满足特定的格式要求，包括结构、语法等。 Response：在与智能体的对话中，如果用户希望智能体继续某个话题或内容，可以在此模块中输入续写的上文。例如，在运用REACT模式时，可以在此区域内详细阐述智能体先前的行为和观察结果，以便于智能体构建连贯的后续响应。 Prompt自定义配置 Prompt模块参数 field_name：唯一的字段名称标识，必须提供。 function：指定如何处理输入数据的函数，必须提供。 title：定义模块的标题。若未提供，将自动生成一个标题，该标题通过把字段名称中的下划线替换为空格并将每个单词的首字母大写来构建。 description：提供模块的简要描述，位于模块最上方（标题下方）。默认为空，可选填。 is_context：标识该字段是否属于上下文模块的一部分。默认为True，意味着除非显式指定为False，否则都被视为上下文的一部分。 omit_if_empty：设定当模块内容为空时，是否在prompt中省略该模块，即不显示相应的模板标题和内容。默认为False，意味着即使内容为空也会显示标题。如果希望内容为空时省略模块，需显式设置为True。 Prompt配置示例 Prompt配置由一系列定义prompt模块的字典组成，这些模块将根据指定的参数和功能来处理输入数据并组织成一个完整的prompt。&#xA;在配置中，每个字典代表一个模块，其中包含相关的参数如 field_name, function_name, is_context, title, description, 和 omit_if_empty，用以控制模块的行为和呈现方式。&#xA;context_placeholder 字段用于标识上下文模板的位置，允许在prompt中插入动态内容。&#xA;[ {&amp;#34;field_name&amp;#34;: &amp;#39;agent_profile&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_agent_profile&amp;#39;, &amp;#34;is_context&amp;#34;: False}, {&amp;#34;field_name&amp;#34;: &amp;#39;context_placeholder&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;&amp;#39;, &amp;#34;is_context&amp;#34;: True}, {&amp;#34;field_name&amp;#34;: &amp;#39;tool_information&amp;#39;,&amp;#34;function_name&amp;#34;: &amp;#39;handle_tool_data&amp;#39;, &amp;#34;is_context&amp;#34;: True}, {&amp;#34;field_name&amp;#34;: &amp;#39;reference_documents&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_doc_info&amp;#39;}, {&amp;#34;field_name&amp;#34;: &amp;#39;session_records&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_session_records&amp;#39;}, {&amp;#34;field_name&amp;#34;: &amp;#39;task_records&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_task_records&amp;#39;}, {&amp;#34;field_name&amp;#34;: &amp;#39;output_format&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_output_format&amp;#39;, &amp;#39;title&amp;#39;: &amp;#39;Response Output Format&amp;#39;, &amp;#34;is_context&amp;#34;: False}, {&amp;#34;field_name&amp;#34;: &amp;#39;response&amp;#39;, &amp;#34;function_name&amp;#34;: &amp;#39;handle_response&amp;#39;, &amp;#34;title&amp;#34;=&amp;#34;begin!</description>
     </item>
     <item>
       <title>Prompt Manager</title>
@@ -176,11 +414,74 @@
       <description>Quick Start First, set up the LLM configuration import os, sys&#xD;import openai&#xD;# llm config&#xD;os.environ[&amp;#34;API_BASE_URL&amp;#34;] = OPENAI_API_BASE&#xD;os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;] = &amp;#34;sk-xxx&amp;#34;&#xD;openai.api_key = &amp;#34;sk-xxx&amp;#34;&#xD;# os.environ[&amp;#34;OPENAI_PROXY&amp;#34;] = &amp;#34;socks5h://127.0.0.1:13659&amp;#34; Next, configure the LLM settings and vector model from coagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;llm_config = LLMConfig(&#xD;model_name=&amp;#34;gpt-3.5-turbo&amp;#34;, model_device=&amp;#34;cpu&amp;#34;,api_key=os.environ[&amp;#34;OPENAI_API_KEY&amp;#34;], api_base_url=os.environ[&amp;#34;API_BASE_URL&amp;#34;], temperature=0.3&#xD;)&#xD;embed_config = EmbedConfig(&#xD;embed_engine=&amp;#34;model&amp;#34;, embed_model=&amp;#34;text2vec-base-chinese&amp;#34;, embed_model_path=&amp;#34;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/embedding_models/text2vec-base-chinese&amp;#34;&#xD;) Finally, choose a pre-existing scenario to execute from coagent.tools import toLangchainTools, TOOL_DICT, TOOL_SETS&#xD;from coagent.</description>
     </item>
     <item>
-      <title>QuickStart</title>
-      <link>/docs/quickstart/</link>
+      <title>Quick Start</title>
+      <link>/muagent/quick-start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/docs/quickstart/</guid>
+      <guid>/muagent/quick-start/</guid>
+      <description>Quick Start For a complete example, see examples/muagent_examples&#xA;First, prepare the relevant configuration information import os, sys&#xD;api_key = &amp;#34;sk-xxx&amp;#34;&#xD;api_base_url= &amp;#34;https://api.openai.com/v1&amp;#34;&#xD;model_name = &amp;#34;gpt-3.5-turbo&amp;#34;&#xD;embed_model = &amp;#34;{{embed_model_name}}&amp;#34;&#xD;embed_model_path = &amp;#34;{{embed_model_path}}&amp;#34;&#xD;#&#xD;os.environ[&amp;#34;DUCKDUCKGO_PROXY&amp;#34;] = os.environ.get(&amp;#34;DUCKDUCKGO_PROXY&amp;#34;) or &amp;#34;socks5://127.0.0.1:13659&amp;#34; Then, set up LLM configuration and Embedding model configuration from muagent.base_configs.env_config import JUPYTER_WORK_PATH&#xD;from muagent.tools import toLangchainTools, TOOL_DICT, TOOL_SETS&#xD;from muagent.llm_models.llm_config import EmbedConfig, LLMConfig&#xD;from muagent.connector.phase import BasePhase&#xD;from muagent.connector.schema import Message&#xD;llm_config = LLMConfig(&#xD;model_name=model_name, api_key=api_key, api_base_url=api_base_url, temperature=0.</description>
+    </item>
+    <item>
+      <title>QuickStart</title>
+      <link>/docs/codefuse-chatbot-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-chatbot-quickstart/</guid>
       <description>中文&amp;nbsp ｜ &amp;nbspEnglish&amp;nbsp 🚀 Quick Start To deploy private models, please install the NVIDIA driver by yourself. This project has been tested on Python 3.9.18 and CUDA 11.7 environments, as well as on Windows and macOS systems with x86 architecture. For Docker installation, private LLM access, and related startup issues, see: Start-detail&amp;hellip;&#xA;Preparation of Python environment It is recommended to use conda to manage the python environment (optional) # Prepare conda environment conda create --name Codefusegpt python=3.</description>
+    </item>
+    <item>
+      <title>QuickStart</title>
+      <link>/docs/codefuse-evalution-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-evalution-quickstart/</guid>
+      <description>Generation environment： CodeFuse-13B: Python 3.8 or above,PyTorch 1.12 or above, with a recommendation for 2.0 or above, Transformers 4.24.0 or above ,CUDA 11.4 or above (for GPU users and flash-attention users, this option should be considered).&#xA;CodeFuse-CodeLlama-34B:python&amp;gt;=3.8,pytorch&amp;gt;=2.0.0,transformers==4.32.0,Sentencepiece,CUDA 11.&#xA;Evaluation Environment The evaluation of the generated codes involves compiling and running in multiple programming languages. The versions of the programming language environments and packages we use are as follows:&#xA;Dependency Version Python 3.</description>
+    </item>
+    <item>
+      <title>QuickStart</title>
+      <link>/docs/codefuse-mft-vlm/quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-mft-vlm/quickstart/</guid>
+      <description>Contents Install Datasets Multimodal Alignment Visual Instruction Tuning Evaluation Install Please run sh init_env.sh&#xA;Datasets Here&amp;rsquo;s the table of datasets we used to train CodeFuse-VLM-14B:&#xA;Dataset Task Type Number of Samples synthdog-en OCR 800,000 synthdog-zh OCR 800,000 cc3m(downsampled) Image Caption 600,000 cc3m(downsampled) Image Caption 600,000 SBU Image Caption 850,000 Visual Genome VQA (Downsampled) Visual Question Answer(VQA) 500,000 Visual Genome Region descriptions (Downsampled) Reference Grouding 500,000 Visual Genome objects (Downsampled) Grounded Caption 500,000 OCR VQA (Downsampled) OCR and VQA 500,000 Please download these datasets on their own official websites.</description>
+    </item>
+    <item>
+      <title>QuickStart</title>
+      <link>/docs/codefuse-modelcache-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-modelcache-quickstart/</guid>
+      <description>ModelCache is easy to use, and you can build a cache testing demo in just one step.&#xA;Quick Start Building a Cache The default interface for Cache is shown below:&#xA;class Cache:&#xD;# it should be called when start the cache system&#xD;def __init__(self):&#xD;self.has_init = False&#xD;self.cache_enable_func = None&#xD;self.embedding_func = None&#xD;self.post_process_messages_func = None&#xD;self.config = Config() Before creating a ModelCache, consider the following questions:&#xA;How will you generate embedding vectors for queries?</description>
+    </item>
+    <item>
+      <title>QuickStart</title>
+      <link>/docs/codefuse-query-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-query-quickstart/</guid>
+      <description>Installation, Configuration, and Running Hardware and Software Requirements Hardware: 4C8G&#xA;Environment Requirements: Java 1.8 and Python 3.8 or above runtime environments. Please ensure Java and Python executables are available.&#xA;Sparrow Installation Steps and Guidance The CodeFuse-Query download package is a zip archive that contains tools, scripts, and various files specific to CodeFuse-Query. If you do not have a CodeFuse-Query license, downloading this archive indicates your agreement with the CodeFuse-Query Terms and Conditions.</description>
+    </item>
+    <item>
+      <title>QuickStart</title>
+      <link>/docs/codefuse-devops-model-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-devops-model-quickstart/</guid>
+      <description>Dependency Installation Please install the packages listed in the requirements.txt file from the GitHub address first. You can refer to the following code:&#xA;pip install -r requirements.txt Model Download Model download information is as follows:&#xA;🤗 Huggingface Address&#xA;- Base Model Aligned Model 7B DevOps-Model-7B-Base DevOps-Model-7B-Chat 14B DevOps-Model-14B-Base DevOps-Model-14B-Chat 🤖 ModelScope Address&#xA;- Base Model Aligned Model 7B DevOps-Model-7B-Base DevOps-Model-7B-Chat 14B DevOps-Model-14B-Base DevOps-Model-14B-Chat Find the version of the Chat model you want to download; currently, 7B and 14B models are provided.</description>
+    </item>
+    <item>
+      <title>QuickStart</title>
+      <link>/docs/mftcoder-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/mftcoder-quickstart/</guid>
+      <description>Requirements To begin, ensure that you have successfully installed CUDA (version &amp;gt;= 11.4, preferably 11.7) along with the necessary drivers. Additionally, make sure you have installed torch (version 2.0.1).&#xA;Next, we have provided an init_env.sh script to simplify the installation of required packages. Execute the following command to run the script:&#xA;sh init_env.sh We highly recommend training with flash attention(version &amp;gt;= 2.1.0, preferably 2.3.6), please refer to the following link for installation instructions: https://github.</description>
+    </item>
+    <item>
+      <title>QuickStart</title>
+      <link>/docs/test-agent-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/test-agent-quickstart/</guid>
+      <description>QuickStart Prerequisites Model Download You can get detailed information about the model and download the model files from modelscope or huggingface. Please note: 需要注意的是： If you download the model through modelscope, refer to the download instructions: Download Instructions; If you download the model through huggingface, please make sure you have proper access to huggingface.&#xA;Environment Installation python&amp;gt;=3.8 transformers==4.33.2 git clone https://github.com/codefuse-ai/Test-Agent cd Test-Agent pip install -r requirements.txt Before starting to run the TestGPT-7B model, please ensure that your execution environment has about 14GB of VRAM.</description>
+    </item>
+    <item>
+      <title>Release Note</title>
+      <link>/docs/codefuse-modelcache-release/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-modelcache-release/</guid>
+      <description>时间 功能 版本号 20230430 Completed GPTCache research, open-source process running through OpenAI interface, single-node form 无 20230509 1. Completed technology selection and upstream/downstream interaction scheme&#xA;2. Redeveloped database module, replaced SQLAlchemy framework&#xA;3. Refactored llm_handler module, compatible with codegpt, adapted codegpt model parameters&#x9;数 V0.1.0 20230519 1. Dynamically selected codegpt service mode based on environment&#xA;2. Capability for local model loading and pre-loading&#xA;3. Added dynamic loading capability for local paths based on environment V0.</description>
     </item>
     <item>
       <title>Start-Detail</title>
@@ -195,6 +496,34 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/docs/test-agent/</guid>
       <description>Test-Agent Test-Agent</description>
+    </item>
+    <item>
+      <title>Test-Agent: Your AI Test Assistant</title>
+      <link>/docs/overview/test-agent-your-ai-test-assistant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/overview/test-agent-your-ai-test-assistant/</guid>
+      <description>Local Mac M1 Experience Moda Experience Moda Model Access Link：ModelScope TestGPT-7B What is Test Agent? (Introduction) Test Agent aims to build an &amp;ldquo;intelligent agent&amp;rdquo; in the testing domain, integrating large models with engineering technologies in the quality domain to promote the generational upgrade of quality technology. We look forward to collaborating with community members to create innovative solutions in the testing domain, establish a 24-hour online testing assistant service, and make testing as smooth as silk.</description>
+    </item>
+    <item>
+      <title>Toolchain</title>
+      <link>/docs/codefuse-query-toolchain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-query-toolchain/</guid>
+      <description>Developing Plugins (VSCode) Installation Install from VSCode marketplace (Recommand) VSCode Extension&#xA;Install from local via VSIX pack Download the plugin. Manually install from vsix: Or use the command directly from the terminal to install: code --install-extension [extension vsix file path] Environment Preparation Sparrow CLI, refer to Section 3 Installation, Configuration, and Running. Extension Features This extension provides the following feature modules:&#xA;COREF AST Viewer Gödel Language Server Gödel Language Runner COREF AST Viewer The following features need to be enabled in the extension settings.</description>
+    </item>
+    <item>
+      <title>Train Detail</title>
+      <link>/docs/codefuse-devops-model-train/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-devops-model-train/</guid>
+      <description>Training Process According to the literature review, it is known that most domain models are based on conversational models and undergo knowledge infusion through Supervised Fine-Tuning (SFT). However, the QA corpus required for SFT fine-tuning largely comes from ChatGPT generation, which may not fully cover domain knowledge.&#xA;Therefore, the DevOps-Model adopts a pre-training plus training followed by SFT fine-tuning approach, as illustrated in Figure 2.1. We believe that for large domain models, additional pre-training is necessary.</description>
+    </item>
+    <item>
+      <title>User Case</title>
+      <link>/docs/codefuse-query-usercase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/codefuse-query-usercase/</guid>
+      <description>Use Cases Querying Code Features A developer wants to know which String type variables are used in Repo A, so he writes a Gödel script as follows and submits it to the CodeFuse-Query system for results.&#xA;// script use coref::java::* fn out(var: string) -&amp;gt; bool { for(v in Variable(JavaDB::load(&amp;#34;coref_java_src.db&amp;#34;))) { if (v.getType().getName() = &amp;#34;String&amp;#34; &amp;amp;&amp;amp; var = v.getName()) { return true } } } fn main() { output(out()) } Similar needs: querying for classes, functions, variables, return values, call graphs, class inheritance, etc.</description>
     </item>
   </channel>
 </rss>

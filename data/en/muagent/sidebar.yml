@@ -1,0 +1,33 @@
+- title: ❤️ MuAgent
+  pages:
+    - title: MuAgent Overview
+    - title: Agent Flow
+    - title: Quick Start
+
+
+- title: Modules
+  pages:
+    - title: Connector Agent
+      rename: Agent Builder
+    - title: Connector Chain
+      rename: Chain Builder
+    - title: Connector Phase
+      rename: Phase Builder
+    - title: Connector Prompt
+      rename: Create Prompt
+    - title: Connector Memory
+      rename: Memory Builder
+    - title: Custom Examples
+
+- title: llm_models
+  pages:
+    - title: LLM Model Config
+    - title: Embedding Model Config
+
+- title: Tools
+  pages:
+    - title: Custom tool
+
+- title: Retrieval
+  pages:
+    - title: Custom retrieval

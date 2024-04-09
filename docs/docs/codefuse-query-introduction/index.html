@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Introduction · CodeFuse-AI</title>
+
+<link rel="canonical" href="/docs/codefuse-query-introduction/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/zh/docs/codefuse-query-introduction-zh/">中文</a></li>
+          
+          <li role="menuitem"><a href="/docs/codefuse-query-introduction/">English</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link current" href="/docs/codefuse-query-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage/">
+            
+              GodelLanguage
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain/">
+            
+              Toolchain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase/">
+            
+              UserCase
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate/">
+            
+              Accelerate &#43; DeepSpeed/FSDP Framework
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch/">
+            
+              Atorch Framework
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature/">
+            
+              Feature
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config/">
+            
+              Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release/">
+            
+              Release Note
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/llm-configuration/">
+            
+              LLM-Configuration
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train/">
+            
+              TrainDetail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/data/">
+            
+              Data
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Introduction</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="introduction">Introduction</h1>
+<p>CodeFuse-Query is a code data platform that supports structured analysis of various programming languages. The core idea is to transform all code into data using various language parsers and to store this data in a structured format within a code database. Data analysis is then performed according to business needs using a custom query language, as shown in the diagram below:
+<img src="/images/codefuse-query/introduction01.png" alt="image.png"></p>
+<h2 id="21-architecture-of-codefuse-query">2.1 Architecture of CodeFuse-Query</h2>
+<p>Overall, the CodeFuse-Query code data platform is divided into three main parts: the code data model, the code query DSL (Domain-Specific Language), and platform productization services. The main workflow is illustrated in the following diagram:
+<img src="/images/codefuse-query/introduction02.png" alt="image.png"></p>
+<h3 id="code-datafication-and-standardization-coref">Code Datafication and Standardization: COREF</h3>
+<p>We have defined a model for code datafication and standardization called COREF, which requires all code to be converted to this model through various language extractors.
+COREF mainly includes the following information:
+<strong>COREF</strong> = AST (Abstract Syntax Tree) + ASG (Abstract Semantic Graph) + CFG (Control Flow Graph) + PDG (Program Dependency Graph) + Call Graph + Class Hierarchy + Documentation (Documentation/Commentary Information)
+Note: As the computational complexity of each type of information varies, not all languages&rsquo; COREF information includes all of the above. The basic information mainly includes AST, ASG, Call Graph, Class Hierarchy, and Documentation, while other information (CFG and PDG) is still under development and will be gradually supported.</p>
+<h3 id="code-query-dsl">Code Query DSL</h3>
+<p>Based on the generated COREF code data, CodeFuse-Query uses a custom DSL language called <strong>Gödel</strong> for querying, thereby fulfilling code analysis requirements.
+Gödel is a logic-based reasoning language, whose underlying implementation is based on the logical reasoning language Datalog. By describing &ldquo;facts&rdquo; and &ldquo;rules,&rdquo; the program can continuously derive new facts. Gödel is also a declarative language, focusing more on describing &ldquo;what is needed&rdquo; and leaving the implementation to the computational engine.
+Since code has already been converted to relational data (COREF data stored in the form of relational tables), one might wonder why not use SQL directly, or use an SDK instead of learning a new DSL language. Because Datalog&rsquo;s computation is monotonic and terminating. Simply put, Datalog sacrifices expressiveness to achieve higher performance, and Gödel inherits this feature.</p>
+<ul>
+<li>Compared to SDKs, Gödel&rsquo;s main advantage is its ease of learning and use. As a declarative language, users do not need to focus on intermediate computations and can simply describe their needs as they would with SQL.</li>
+<li>Compared to SQL, Gödel&rsquo;s advantages are stronger descriptive capabilities and faster computation speed, for example, describing recursive algorithms and multi-table joint queries, which are difficult for SQL.</li>
+</ul>
+<h3 id="platformization-and-productization">Platformization and Productization</h3>
+<p>CodeFuse-Query includes the <strong>Sparrow CLI</strong> and the online service <strong>Query Centre</strong>. Sparrow CLI contains all components and dependencies, such as extractors, data models, compilers, etc., and users can completely generate and query code data locally using Sparrow CLI (for how to use Sparrow CLI, please see Section 3: Installation, Configuration, Running). If users have online query needs, they can use the Query Centre to experiment.</p>
+<h2 id="22-languages-supported-by-codefuse-query-for-analysis">2.2 Languages Supported by CodeFuse-Query for Analysis</h2>
+<p>As of October 31, 2023, CodeFuse-Query supports data analysis for 11 programming languages. Among these, support for 5 languages (Java, JavaScript, TypeScript, XML, Go) is very mature, while support for the remaining 6 languages (Objective-C, C++, Python3, Swift, SQL, Properties) is in beta and has room for further improvement. The specific support status is shown in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Status</th>
+<th>Number of Nodes in the COREF Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java</td>
+<td>Mature</td>
+<td>162</td>
+</tr>
+<tr>
+<td>XML</td>
+<td>Mature</td>
+<td>12</td>
+</tr>
+<tr>
+<td>TS/JS</td>
+<td>Mature</td>
+<td>392</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>Mature</td>
+<td>40</td>
+</tr>
+<tr>
+<td>OC/C++</td>
+<td>Beta</td>
+<td>53/397</td>
+</tr>
+<tr>
+<td>Python3</td>
+<td>Beta</td>
+<td>93</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>Beta</td>
+<td>248</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>Beta</td>
+<td>750</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>Beta</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>Note: The maturity level of the language status above is determined based on the types of information included in COREF and the actual implementation. Except for OC/C++, all languages support complete AST information and Documentation. For example, COREF for Java also supports ASG, Call Graph, Class Hierarchy, and some CFG information.</p>
+<h2 id="23-use-cases-of-codefuse-query">2.3 Use Cases of CodeFuse-Query</h2>
+<h3 id="querying-code-features">Querying Code Features</h3>
+<p>A developer wants to know which String type variables are used in Repo A, so they write a Gödel script as follows and submit it to the CodeFuse-Query system for results.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// script
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">use</span><span class="w"> </span><span class="n">coref</span>::<span class="n">java</span>::<span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">out</span><span class="p">(</span><span class="n">var</span>: <span class="nc">string</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">bool</span> <span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">Variable</span><span class="p">(</span><span class="n">JavaDB</span>::<span class="n">load</span><span class="p">(</span><span class="s">&#34;coref_java_src.db&#34;</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">getType</span><span class="p">().</span><span class="n">getName</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;String&#34;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">getName</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">output</span><span class="p">(</span><span class="n">out</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Similar needs: Queries for classes, functions, variables, return values, call graphs, class inheritance, etc.</p>
+<h3 id="outputting-static-analysis-capabilities">Outputting Static Analysis Capabilities</h3>
+<p>A security team member sets up <strong>a system</strong> to cross-verify that log data and code data are consistent. To complete a certain analysis task, they plan to derive static data D1 through Gödel queries, merge with dynamic data D2, and combine analysis to reach conclusion C. After verifying the technical feasibility on CodeFuse-Query, they integrate the system using the standard API provided by CodeFuse-Query.
+Similar needs: Using static analysis as a system checkpoint, improving testing efficiency, merging the analyzed data into a documentation.</p>
+<h3 id="code-rule-checker">Code Rule Checker</h3>
+<p>A team lead finds that the team often introduces similar bugs, Bug A, <strong>and decides to establish a code rule and its checker</strong> to be applied during CodeReview. After writing an analysis query on the CodeFuse-Query platform and testing that it meets requirements, they codify the query as a code rule and roll it out to the CodeReview/CI phase. Since then, this bug has never occurred again.
+Similar needs: Writing static defect scanning rules to intercept code risks.</p>
+<h3 id="analyzing-code-characteristics">Analyzing Code Characteristics</h3>
+<p>A developer from the R&amp;D department wants to know the current proportion of Spring and Spring Boot projects in the code repository to quantify the promotion of the new framework. By writing a Gödel Query to describe different project analysis features, they <strong>queried 110,000 code repositories at once</strong> and obtained all the code data after a few dozen minutes, happily moving on to their KPIs.
+Similar needs: Application profiling, code profiling, architectural analysis.</p>
+<h3 id="getting-statistical-data">Getting Statistical Data</h3>
+<p>A researcher finds that traditional code complexity metrics struggle to accurately measure the complexity of the code. Inspired by international advanced experiences and a moment of insight, they design a set of complexity metrics and algorithms. After implementing it with Gödel and finding it already highly performant with little optimization, they quickly apply it to over 10 languages and more than 110,000 repositories. They now have an in-depth understanding of the overall complexity of the code repositories, unlike before when they had to parse the code and analyze the syntax tree themselves, <strong>which is so much more convenient</strong>.
+Similar needs: Code statistics, code metrics, algorithm design, academic research.</p>
+<h3 id="architectural-analysis">Architectural Analysis</h3>
+<p>An architect recently promoted a new message middleware based on txt files, and existing analysis platforms couldn&rsquo;t support analyzing dependencies in such systems. By quickly modeling the message format with Gödel, they soon obtain the dependency relationships between different components in the system.
+Similar needs: System overview, architecture governance, lineage analysis.</p>
+<h3 id="model-validation">Model Validation</h3>
+<p>A developer designs a system that requires users to play games before claiming coupons. They describe <strong>the model&rsquo;s validation logic</strong> with Gödel, then use the CodeFuse-Query system to <strong>ensure that both current and future system implementations</strong> fully comply with the model. No longer worried about potential financial losses from the game!
+Similar needs: System verification, network validation, permission verification.</p>
+<h2 id="24-application-areas-of-codefuse-query">2.4 Application Areas of CodeFuse-Query</h2>
+<p>Currently, CodeFuse-Query at Ant Group already supports <strong>CodeFuse large language model data cleaning</strong>, <strong>code metrics evaluation</strong>, <strong>R&amp;D risk control</strong>, <strong>privacy security analysis</strong>, <strong>code intelligence</strong>, <strong>terminal package size management</strong>, and other scenarios with implemented applications, serving over a million monthly calls.
+<img src="/images/codefuse-query/introduction03.png" alt="image.png"></p>
+<h3 id="high-quality-code-data-cleaning---codefuse-large-code-model">High-Quality Code Data Cleaning - CodeFuse Large Code Model</h3>
+<p>The CodeFuse Large Code Model is a model by Ant Group for handling code-related issues and has been open-sourced. For the CodeFuse large language model, the quality of the training data directly affects the model&rsquo;s inference results. Low-quality code data can directly contaminate the language model&rsquo;s output, for example: the model might learn incorrect code patterns, generating erroneous code; if the data only contains code in a single programming language, the model might not adapt well to code in other languages.
+To control the quality of code data entering the model and thereby improve the model&rsquo;s inferencing capabilities, we have drawn upon the Ant Group program analysis team&rsquo;s years of practical experience coupled with industry consensus to clarify the definition of high-quality code. We have also implemented automated, large-scale code data cleaning using existing program analysis technologies.
+CodeFuse-Query provides the following data cleaning capabilities for the CodeFuse Large Code Model:</p>
+<ul>
+<li>High-quality code data cleaning: Clean code data, including vulnerability scanning for 7 languages (Python, Java, JavaScript, TypeScript, Go, C, C++), filtering by language type/star number, filtering out data with 0 valid lines of code, etc. We have currently accumulated about <strong>2TB</strong> of cleaned code data from GitHub and internally at Ant Group.</li>
+<li>Code Profiling: Implements high-performance, multi-dimensional automatic tagging for large-scale code, supporting <strong>10</strong> languages (Java, Scala, Kotlin, JavaScript, JSX, TypeScript, TSX, Vue, Python, Go), <strong>77</strong> common tags, <strong>40</strong> Ant-specific tags, totaling <strong>117</strong> tags. The current auto-tagging performance can reach <strong>40MB/s</strong>.</li>
+<li>Other Atomic Abilities
+<ul>
+<li>Advanced code feature extraction, including extraction of AST (Abstract Syntax Tree), DFG (Data Flow Graph), etc. The AST information has been used for SFT training with about 97% accuracy.</li>
+<li>Code snippet identification, used for extracting code from text data, convenient for formatting or adding Markdown:
+<ul>
+<li>Text extraction of code: Extracting code block information from text, parsing main languages, function and class definitions, only verifying a binary problem, that is, verifying whether the text contains code blocks with about 83% accuracy.</li>
+<li>Identifying the programming language of a code snippet: Identifying the programming language of any code snippet, supporting 30+ languages, with about 80% accuracy.</li>
+</ul>
+</li>
+<li>Code comment pair extraction: Supports extracting method-level comment-code pair information, covering <strong>15</strong> most popular languages on GitHub, used for Text To Code/Code To Text SFT training.</li>
+</ul>
+</li>
+</ul>
+<h3 id="code-data-metrics---guangmu">Code Data Metrics - Guangmu</h3>
+<p>Guangmu is an internal product at Ant Group aimed at different R&amp;D personnel and team managers, providing objective data and analysis results to assess code capabilities.
+Guangmu offers individual code capability assessment reports, daily code capability metric data analysis, team code capability management, and code excellence award displays, all aimed at helping Ant Group&rsquo;s R&amp;D engineers continuously improve code quality, reduce code debt, and enhance R&amp;D efficiency in the long run.
+CodeFuse-Query provides Guangmu with two types of capabilities:</p>
+<ul>
+<li>Code Evaluation Metrics: Code complexity, code annotation rate, standard development volume, etc.</li>
+<li>Code Excellence Metrics: Code reuse degree.</li>
+</ul>
+<h3 id="change-analysis---youku-server-side-rd-efficiency">Change Analysis - Youku Server-Side R&amp;D Efficiency</h3>
+<p>The Youku Quality Assurance team started exploring server-side precision testing in 2023. After six months of technical sedimentation and system building, they established a precision testing system capable of <strong>change content identification, change impact analysis, testing capability recommendation, and test coverage assessment</strong>.
+In this process, CodeFuse-Query can provide capabilities including:</p>
+<ul>
+<li>Analyzing the impacted objects based on code change content (file + line number): methods, entry points (HTTP entry, HSF entry), call routes (all call routes from the entry to the changed method), database operations (tables, types of operations).</li>
+<li>Enhancing the effectiveness and readiness of change analysis impact by combining the precise analysis capabilities of online dynamic call routes (method routes) and CodeFuse-Query static analysis call routes.</li>
+</ul>
+<p>To date, Youku has integrated all core applications through CodeFuse-Query and based on static analysis data collection, has built a complete server-side code and traffic knowledge base.</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-evalution/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/codefuse-query-quickstart/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-architecture-of-codefuse-query">2.1 Architecture of CodeFuse-Query</a>
+      <ul>
+        <li><a href="#code-datafication-and-standardization-coref">Code Datafication and Standardization: COREF</a></li>
+        <li><a href="#code-query-dsl">Code Query DSL</a></li>
+        <li><a href="#platformization-and-productization">Platformization and Productization</a></li>
+      </ul>
+    </li>
+    <li><a href="#22-languages-supported-by-codefuse-query-for-analysis">2.2 Languages Supported by CodeFuse-Query for Analysis</a></li>
+    <li><a href="#23-use-cases-of-codefuse-query">2.3 Use Cases of CodeFuse-Query</a>
+      <ul>
+        <li><a href="#querying-code-features">Querying Code Features</a></li>
+        <li><a href="#outputting-static-analysis-capabilities">Outputting Static Analysis Capabilities</a></li>
+        <li><a href="#code-rule-checker">Code Rule Checker</a></li>
+        <li><a href="#analyzing-code-characteristics">Analyzing Code Characteristics</a></li>
+        <li><a href="#getting-statistical-data">Getting Statistical Data</a></li>
+        <li><a href="#architectural-analysis">Architectural Analysis</a></li>
+        <li><a href="#model-validation">Model Validation</a></li>
+      </ul>
+    </li>
+    <li><a href="#24-application-areas-of-codefuse-query">2.4 Application Areas of CodeFuse-Query</a>
+      <ul>
+        <li><a href="#high-quality-code-data-cleaning---codefuse-large-code-model">High-Quality Code Data Cleaning - CodeFuse Large Code Model</a></li>
+        <li><a href="#code-data-metrics---guangmu">Code Data Metrics - Guangmu</a></li>
+        <li><a href="#change-analysis---youku-server-side-rd-efficiency">Change Analysis - Youku Server-Side R&amp;D Efficiency</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

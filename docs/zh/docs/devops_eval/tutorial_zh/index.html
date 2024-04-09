@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs）， 涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。">
+<meta name="author" content="codefuse-ai">
+
+<title> · CodeFuse-AI</title>
+
+<link rel="canonical" href="/zh/docs/devops_eval/tutorial_zh/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">中文</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI 整体介绍</strong>
+          
+          <a class="sidebar-link " href="/docs/%E6%A6%82%E8%A7%88/">
+            
+              概览
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI 模块</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-zh/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-zh/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-zh/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent-zh/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-zh/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-zh/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-zh/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-zh/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-zh/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction-zh/">
+            
+              基本介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage-zh/">
+            
+              查询语言介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain-zh/">
+            
+              VSCode插件
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase-zh/">
+            
+              用户案例
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction-zh/">
+            
+              基本介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate-zh/">
+            
+              Accelerate &#43; DeepSpeed/FSDP 框架篇
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch-zh/">
+            
+              Atorch框架篇
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature-zh/">
+            
+              功能特性
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config-zh/">
+            
+              最佳配置
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release-zh/">
+            
+              版本记录
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/">
+            
+              启动明细
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/">
+            
+              本地私有化&amp;大模型接口接入
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/">
+            
+              ChatBot 技术路线
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train-zh/">
+            
+              训练解析
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D/">
+            
+              数据介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1></h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="数据集评测教程">数据集评测教程</h2>
+<h2 id="-如何进行测试">🚀 如何进行测试</h2>
+<p>如果需要在自己的 huggingface 格式的模型上进行测试的话，总的步骤分为如下几步:</p>
+<ol>
+<li>编写 Model 的 loader 函数</li>
+<li>编写 Model 的 context_builder 函数</li>
+<li>注册模型到配置文件中</li>
+<li>执行测试脚本
+如果模型在加载进来后不需要特殊的处理，而且输入也不需要转换为特定的格式（e.g. chatml 格式或者其他的 human-bot 格式），请直接跳转到第四步直接发起测试。</li>
+</ol>
+<h4 id="1-编写-loader-函数">1. 编写 loader 函数</h4>
+<p>如果模型在加载进来还需要做一些额外的处理（e.g. tokenizer 调整），需要去 <code>src.context_builder.context_builder_family.py</code> 中继承 <code>ModelAndTokenizerLoader</code> 类来覆写对应的 <code>load_model</code> 和 <code>load_tokenizer</code> 函数，具体可以参照以下示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">QwenModelAndTokenizerLoader</span><span class="p">(</span><span class="n">ModelAndTokenizerLoader</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">generation_config</span> <span class="o">=</span> <span class="n">GenerationConfig</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">model</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">load_tokenizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tokenizer</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">load_tokenizer</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="c1"># read generation config</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span> <span class="o">+</span> <span class="s1">&#39;/generation_config.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">generation_config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span> <span class="o">=</span> <span class="n">generation_config</span><span class="p">[</span><span class="s1">&#39;pad_token_id&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token_id</span> <span class="o">=</span> <span class="n">generation_config</span><span class="p">[</span><span class="s1">&#39;eos_token_id&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">tokenizer</span>
+</span></span></code></pre></div><h4 id="2-编写-model-的-context_builder-函数">2. 编写 Model 的 context_builder 函数</h4>
+<p>如果输入需要转换为特定的格式（e.g. chatml 格式或者其他的 human-bot 格式），则需要去 <code>src.context_builder.context_builder_family</code> 中继承 ContextBuilder 类来覆写 make_context 函数，这个函数是用来将输入转换格式为对应需要的输出的，一个示例如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">QwenChatContextBuilder</span><span class="p">(</span><span class="n">ContextBuilder</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">make_context</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tokenizer</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">system</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;you are a helpful assistant&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  model: PretrainedModel
+</span></span></span><span class="line"><span class="cl"><span class="s1">  tokenizer: PretrainedTokenzier
+</span></span></span><span class="line"><span class="cl"><span class="s1">  query: Input string
+</span></span></span><span class="line"><span class="cl"><span class="s1">  system: System prompt if needed
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">im_start</span><span class="p">,</span> <span class="n">im_end</span> <span class="o">=</span> <span class="s2">&#34;&lt;|im_start|&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;|im_end|&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">im_start_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">im_start_id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">im_end_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">im_end_id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nl_tokens</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">_tokenize_str</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">role</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">role</span><span class="p">,</span> <span class="n">allowed_special</span><span class="o">=</span><span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span> <span class="o">+</span> <span class="n">nl_tokens</span> <span class="o">+</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">allowed_special</span><span class="o">=</span><span class="nb">set</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">system_text</span><span class="p">,</span> <span class="n">system_tokens_part</span> <span class="o">=</span> <span class="n">_tokenize_str</span><span class="p">(</span><span class="s2">&#34;system&#34;</span><span class="p">,</span> <span class="n">system</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">system_tokens</span> <span class="o">=</span> <span class="n">im_start_tokens</span> <span class="o">+</span> <span class="n">system_tokens_part</span> <span class="o">+</span> <span class="n">im_end_tokens</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">raw_text</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">context_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">context_tokens</span> <span class="o">=</span> <span class="n">system_tokens</span> <span class="o">+</span> <span class="n">context_tokens</span>
+</span></span><span class="line"><span class="cl">        <span class="n">raw_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">im_start</span><span class="si">}{</span><span class="n">system_text</span><span class="si">}{</span><span class="n">im_end</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="n">raw_text</span>
+</span></span><span class="line"><span class="cl">        <span class="n">context_tokens</span> <span class="o">+=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nl_tokens</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="n">im_start_tokens</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="n">_tokenize_str</span><span class="p">(</span><span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="n">query</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="n">im_end_tokens</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="n">nl_tokens</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="n">im_start_tokens</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;assistant&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span> <span class="n">nl_tokens</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">raw_text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="si">{</span><span class="n">im_start</span><span class="si">}</span><span class="s2">user</span><span class="se">\n</span><span class="si">{</span><span class="n">query</span><span class="si">}{</span><span class="n">im_end</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">im_start</span><span class="si">}</span><span class="s2">assistant</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">raw_text</span><span class="p">,</span> <span class="n">context_tokens</span>
+</span></span></code></pre></div><h4 id="3-注册模型到配置文件中">3. 注册模型到配置文件中</h4>
+<p>去 conf 中的 <code>model_conf.json</code>，注册对应的模型名和这个模型将要使用的 loader 和 context_builder，其中 loader 和 context_builder 写第一步和第二步中自定义的类名就可以，示例如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Qwen-Chat&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;loader&#34;</span><span class="p">:</span> <span class="s2">&#34;QwenModelAndTokenizerLoader&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;context_builder&#34;</span><span class="p">:</span> <span class="s2">&#34;QwenChatContextBuilder&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="4-执行测试脚本">4. 执行测试脚本</h4>
+<p>直接运行以下代码发起测试</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl"><span class="c1"># model_path: 要测试的模型路径</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># model_name: 模型配置文件对应的模型命名，默认为 Default ，代表走默认的 loader 和 context_builder</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># model_conf_path: 模型配置文件的地址，一般就为 conf 路径下的 devopseval_dataset_fp.json</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># eval_dataset_list: 要测试的数据集名称，默认 all，全部测试，如果需要测试单个或者多个，用 # 符号链接，示例：dataset1#dataset2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># eval_dataset_fp_conf_path: 数据集配置地址</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># eval_dataset_type: 测试哪种类型，只支持默认 test 类型的测试集</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># data_path: 评测数据集地址，填写下载数据集后的地址就可以</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># k_shot: 支持 0-5，代表 few-shot 会给模型前缀加的示例数量</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">python src/run_eval.py <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--model_path path_to_model <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--model_name model_name_in_conf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--model_conf_path path_to_model_conf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--eval_dataset_list all <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--eval_dataset_fp_conf_path path_to_dataset_conf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--eval_dataset_type <span class="nb">test</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data_path path_to_downloaded_devops_eval_data <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--k_shot <span class="m">0</span>
+</span></span></code></pre></div><p>举个🌰：比如评测数据集下载到了 <code>folder1</code>，代码放在了 <code>folder2</code>，模型在 <code>folder3</code>，模型不需要自定义 loader 和 context_builder，需要测试所有的数据集的 zero-shot 得分，那可以按照以下脚本发起测试：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl">python folder2/src/run_eval.py <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--model_path folder3 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--model_name Default <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--model_conf_path folder1/conf/model_conf.json <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--eval_dataset_list all <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--eval_dataset_fp_conf_path folder1/conf/devopseval_dataset_fp.json <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--eval_dataset_type <span class="nb">test</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data_path folder2 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--k_shot <span class="m">0</span>
+</span></span></code></pre></div><br>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-evalution-quickstart-zh/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据集评测教程">数据集评测教程</a></li>
+    <li><a href="#-如何进行测试">🚀 如何进行测试</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

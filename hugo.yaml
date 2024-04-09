@@ -77,40 +77,91 @@ params:
 
     repositories:
 
-      - name: DevOps-ChatBot
-        repo: codefuse-ai/codefuse-chatbot
-        icon: "<i class='icon icon-book'></i>"
-        description: An intelligent assistant serving the entire software development lifecycle.
+    # - name: CodeFuse-Query
+    #   repo: codefuse-ai/CodeFuse-Query
+    #   icon: "<i class='fas fa-file-alt fa-8x'></i>"
+    #   description: Query-Based Code Analysis Engine
 
-      - name: DevOps-Eval
-        repo: codefuse-ai/codefuse-devops-eval
-        icon: "<i class='icon icon-book'></i>"
-        description: Industrial-first evaluation benchmark for LLMs in the DevOps/AIOps domain.
+    # - name: MFTCoder
+    #   repo: codefuse-ai/MFTCoder
+    #   icon: "<i class='fas fa-code fa-8x'></i>"
+    #   description: High Accuracy and efficiency multi-task fine-tuning framework for Code LLMs
 
-      - name: DevOps-Model
-        repo: codefuse-ai/CodeFuse-DevOps-Model
-        icon: "<i class='icon icon-book'></i>"
-        description: A series of industrial-first LLMs for theDevOps domain. Asking it for any question in the DevOps domain!
+    # - name: Test-Agent
+    #   repo: codefuse-ai/Test-Agent
+    #   icon: "<i class='fas fa-vial fa-8x'></i>"
+    #   description: Agent that empowers software testing with LLMs; industrial-first in China
 
-      - name: MFTCoder
-        repo: codefuse-ai/MFTCoder
-        icon: "<i class='icon icon-book'></i>"
-        description: High Accuracy and efficiency multi-task fine-tuning framework for Code LLMs
+    # - name: CodeFuse-ModelCache
+    #   repo: codefuse-ai/CodeFuse-ModelCache
+    #   icon: "<i class='fas fa-server fa-8x'></i>"
+    #   description: A LLM semantic caching system aiming to reducing response time via cached query-result pairs.
 
-      - name: CodeFuse-ModelCache
-        repo: codefuse-ai/CodeFuse-ModelCache
-        icon: "<i class='icon icon-book'></i>"
-        description: A LLM semantic caching system aiming to reducing response time via cached query-result pairs.
+    #   repo: codefuse-ai/codefuse-chatbot
+    #   icon: "<i class='fas fa-network-wired fa-8x'></i>"
+    #   description: An intelligent assistant serving the entire software development lifecycle.
 
-      - name: Test-Agent
-        repo: codefuse-ai/Test-Agent
-        icon: "<i class='icon icon-book'></i>"
-        description: Agent that empowers software testing with LLMs; industrial-first in China
+    # - name: DevOps-Eval
+    #   repo: codefuse-ai/codefuse-devops-eval
+    #   icon: "<i class='fas fa-network-wired fa-8x'></i>"
+    #   description: Industrial-first evaluation benchmark for LLMs in the DevOps/AIOps domain.
 
-      - name: CodeFuse-Query
-        repo: codefuse-ai/CodeFuse-Query
-        icon: "<i class='icon icon-book'></i>"
-        description: Query-Based Code Analysis Engine
+    # - name: DevOps-Model
+    #   repo: codefuse-ai/CodeFuse-DevOps-Model
+    #   icon: "<i class='fas fa-network-wired fa-8x'></i>"
+    #   description: A series of industrial-first LLMs for the DevOps domain.
+
+    # - name :Codefuse-evaluation
+    #   repo: codefuse-ai/codefuse-evaluation
+    #   icon: "<i class='fas fa-chart-line fa-8x'></i>"
+    #   description: Industrial-level evaluation benchmarks for Coding LLMs in the full life-cycle of AI native software developing
+
+
+    - name: CodeFuse-Query
+      icon: "<i class='fas fa-file-alt fa-8x'></i>"
+      description: Query-Based Code Analysis Engine
+      repos:
+        - repo: CodeFuse-Query
+
+    - name: MFTCoder
+      repos:
+        - repo: MFTCoder
+          description: High Accuracy and efficiency multi-task fine-tuning framework for Code LLMs
+        - repo: CodeFuse-MFT-VLM
+          description: An intelligent assistant serving the entire software development lifecycle.
+      icon: "<i class='fas fa-code fa-8x'></i>"
+      description: High Accuracy and efficiency multi-task fine-tuning framework for Code LLMs
+
+    - name: Test-Agent
+      repos:
+        - repo: Test-Agent
+      icon: "<i class='fas fa-vial fa-8x'></i>"
+      description: Agent that empowers software testing with LLMs; industrial-first in China
+
+    - name: CodeFuse-ModelCache
+      repos:
+        - repo: CodeFuse-ModelCache
+      icon: "<i class='fas fa-server fa-8x'></i>"
+      description: A LLM semantic caching system aiming to reducing response time via cached query-result pairs.
+
+    - name: DevOps-Series
+      description: An intelligent assistant serving the entire software development lifecycle.
+      icon: "<i class='fas fa-network-wired fa-8x'></i>"
+      repos: 
+        - repo: codefuse-chatbot
+          description: An intelligent assistant serving the entire software development lifecycle.
+
+        - repo: codefuse-devops-eval
+          description: Industrial-first evaluation benchmark for LLMs in the DevOps/AIOps domain.
+
+        - repo: CodeFuse-DevOps-Model
+          description: A series of industrial-first LLMs for the DevOps domain.
+
+    - name: Codefuse-evaluation
+      icon: "<i class='fas fa-chart-line fa-8x'></i>"
+      description: Industrial-level evaluation benchmarks for Coding LLMs in the full life-cycle of AI native software developing
+      repos: 
+      - repo: codefuse-evaluation
 
 menu:
   main:
@@ -127,9 +178,9 @@ menu:
       pre: "<i class='icon icon-book'></i>"
       weight: 2
 
-    - url: /coagent
-      name: CoAgent
-      identifier: coagent
+    - url: /muagent
+      name: MuAgent
+      identifier: muagent
       pre: "<i class='icon icon-book'></i>"
       weight: 3
 

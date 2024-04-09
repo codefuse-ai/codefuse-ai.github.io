@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Test-Agent: Your AI Test Assistant · CodeFuse-AI</title>
+
+<link rel="canonical" href="/docs/overview/test-agent-your-ai-test-assistant/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/overview/test-agent-your-ai-test-assistant/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/docs/overview/test-agent-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage/">
+            
+              GodelLanguage
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain/">
+            
+              Toolchain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase/">
+            
+              UserCase
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate/">
+            
+              Accelerate &#43; DeepSpeed/FSDP Framework
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch/">
+            
+              Atorch Framework
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature/">
+            
+              Feature
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config/">
+            
+              Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release/">
+            
+              Release Note
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/llm-configuration/">
+            
+              LLM-Configuration
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train/">
+            
+              TrainDetail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/data/">
+            
+              Data
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Test-Agent: Your AI Test Assistant</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h3 id="local-mac-m1-experience">Local Mac M1 Experience</h3>
+<p><img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/8dba860f-c1bb-49d5-b9dd-a58e541562a6" alt="图片"></p>
+<h3 id="moda-experience">Moda Experience</h3>
+<p>Moda Model Access Link：<a href="https://modelscope.cn/models/codefuse-ai/TestGPT-7B/summary" target="_blank">ModelScope TestGPT-7B</a>
+<img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/0e50b258-44f9-4dc6-8e30-0a01cf62d02b" alt="MS"></p>
+<h2 id="what-is-test-agent-introduction">What is Test Agent? (Introduction)</h2>
+<p><strong>Test Agent</strong> aims to build an &ldquo;intelligent agent&rdquo; in the testing domain, integrating large models with engineering technologies in the quality domain to promote the generational upgrade of quality technology. We look forward to collaborating with community members to create innovative solutions in the testing domain, establish a 24-hour online testing assistant service, and make testing as smooth as silk.</p>
+<h2 id="current-features-features">Current Features (Features)</h2>
+<ul>
+<li><strong>Model</strong>: This release open-sources the TestGPT-7B model for the testing domain. The model is based on CodeLlama-7B and has been fine-tuned for related downstream tasks:
+<ul>
+<li><strong>Multilingual Test Case Generation (Java/Python/Javascript)</strong>: This has always been an area of great interest to both academia and industry, with new products and tools like EvoSuite, Randoop, SmartUnit, etc., constantly being incubated. However, traditional test case generation has pain points that are difficult to address. Test case generation based on large models is superior to traditional tools in terms of readability, completeness of test scenarios, and multilingual support. This update focuses on multilingual test case generation, initially including Java, Python, and Javascript, and will gradually introduce Go, C++, and other languages in future releases.</li>
+<li><strong>Test Case Assert Completion</strong>: Analyzing the current state of test cases, we found that a certain proportion of existing test cases in the code repositories do not contain Asserts. Test cases without Asserts may pass during regression but fail to detect issues. Therefore, we expanded the scenario of automatic completion of test case Asserts. With this model capability, combined with the right engineering support, it&rsquo;s possible to perform batch automatic completion for the entire test case repository, intelligently raising the quality level of the project.</li>
+</ul>
+</li>
+<li><strong>Engineering Framework</strong>: Local model quick release and experience engineering framework
+<ul>
+<li>ChatBot page</li>
+<li>Quick model launch</li>
+<li>Private deployment, localized GPT large model interactions with your data and environment, no risk of data leakage, 100% safe.</li>
+</ul>
+</li>
+</ul>
+<p><strong>We will continue to iterate on the model and engineering capabilities:</strong></p>
+<ul>
+<li>Continuously adding more exciting test domain application scenarios, such as domain knowledge Q&amp;A, test scenario analysis, etc.</li>
+<li>Supporting the open copilot engineering framework focused on testing scenarios, such as intelligent embedding of testing domain knowledge, a common tool API system, intelligent testing Agent, and more, so stay tuned!</li>
+<li>Expanding from a 7B base to 13B and 34B models gradually. Stay tuned!</li>
+</ul>
+<h2 id="the-most-powerful-7b-test-domain-large-model-model">The Most Powerful 7B Test Domain Large Model (Model)</h2>
+<p>Currently, within TestAgent, we default to using the TestGPT-7B model. Compared to existing open-source models, the TestGPT-7B model leads the industry in case execution pass rate (pass@1) and test scenario coverage (average number of test scenarios).
+The core capability evaluation results of the TestGPT-7B model are as follows:</p>
+<p>Multilingual Test Case Generation For the three supported languages of the model: Java, Python, and Javascript, the Pass@1 evaluation results are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Java pass@1</th>
+<th>Java Average number of test scenarios</th>
+<th>Python pass@1</th>
+<th>Python Average number of test scenarios</th>
+<th>Javascript pass@1</th>
+<th>Javascript Average number of test scenarios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TestGPT-7B</td>
+<td>48.6%</td>
+<td>4.37</td>
+<td>35.67%</td>
+<td>3.56</td>
+<td>36%</td>
+<td>2.76</td>
+</tr>
+<tr>
+<td>CodeLlama-13B-Instruct</td>
+<td>40.54%</td>
+<td>1.08</td>
+<td>30.57%</td>
+<td>1.65</td>
+<td>31.7%</td>
+<td>3.13</td>
+</tr>
+<tr>
+<td>Qwen-14B-Chat</td>
+<td>10.81%</td>
+<td>2.78</td>
+<td>15.9%</td>
+<td>1.32</td>
+<td>9.15%</td>
+<td>4.22</td>
+</tr>
+<tr>
+<td>Baichuan2-13B-Chat</td>
+<td>13.5%</td>
+<td>2.24</td>
+<td>12.7%</td>
+<td>2.12</td>
+<td>6.1%</td>
+<td>3.31</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Test Case Assert Completion
+Currently, the model supports Assert completion for Java cases, and the Pass@1 evaluation</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>pass@1</th>
+<th>Percentage of strong validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codefuse-TestGPT-7B</td>
+<td>71.1%</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="engineering-architecture">Engineering Architecture</h2>
+<p><img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/1b61beff-df59-4ab3-843c-266413c8dbc4" alt="JG"></p>
+<p>The clarion call for large models has been sounded, and large models in the testing domain are continuously evolving. With the rich world knowledge accumulated during the pre-training process, they have demonstrated extraordinary reasoning and decision-making abilities in complex interactive environments.</p>
+<p>Despite significant achievements of the foundational models in the testing domain, there are still some limitations. Testing tasks in specific domains often require specialized tools or domain knowledge. For instance, foundational models can complete tasks such as single-instance test code generation and test text generation through pre-trained knowledge, but when dealing with complex integrated test case generation, domain-specific case creation, and interactions with test process pipelines, more specialized tools and domain knowledge are necessary. Therefore, integrating specialized tools with foundational models can fully harness their respective strengths. Specialized tools can address insufficiencies in model timeliness, enhance professional knowledge, and improve interpretability and robustness. On the other hand, foundational models possess human-like reasoning and planning abilities, capable of understanding complex data and scenarios, and interacting with the real world.</p>
+<p>Building upon the open model engineering deployment and ChatBot foundation in this release, we will continue to invest deeply in the open-source testing domain. Collaborating with community developers who share similar interests, we aim to create the most advanced engineering system for tools in the testing domain, an intelligent testing assistant, and open-source testing engineering!</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-evalution-quickstart/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#local-mac-m1-experience">Local Mac M1 Experience</a></li>
+        <li><a href="#moda-experience">Moda Experience</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-is-test-agent-introduction">What is Test Agent? (Introduction)</a></li>
+    <li><a href="#current-features-features">Current Features (Features)</a></li>
+    <li><a href="#the-most-powerful-7b-test-domain-large-model-model">The Most Powerful 7B Test Domain Large Model (Model)</a></li>
+    <li><a href="#engineering-architecture">Engineering Architecture</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

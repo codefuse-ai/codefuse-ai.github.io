@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs）， 涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。">
+<meta name="author" content="codefuse-ai">
+
+<title>自定义 Tool 接入 · CodeFuse-AI</title>
+
+<link rel="canonical" href="/zh/muagent/custom-tool-zh/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/muagent/custom-tool/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/muagent/custom-tool-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent"  class="active"><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ MuAgent</strong>
+          
+          <a class="sidebar-link " href="/muagent/muagent-%E6%A6%82%E8%A7%88/">
+            
+              MuAgent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/agent-%E7%BC%96%E6%8E%92/">
+            
+              Agents Flow
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">Connector</strong>
+          
+          <a class="sidebar-link " href="/muagent/connector-agent-zh/">
+            
+              Agent构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-chain-zh/">
+            
+              Chain构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-phase-zh/">
+            
+              Phase构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-prompt-zh/">
+            
+              Prompt编写
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-memory-zh/">
+            
+              Memory构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/custom-examples-zh/">
+            
+              自定义示例
+            
+          </a>
+
+        <strong class="sidebar-section">llm_models</strong>
+          
+          <a class="sidebar-link " href="/muagent/llm-model-config-zh/">
+            
+              LLM 配置
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/embedding-model-config-zh/">
+            
+              Embedding 配置
+            
+          </a>
+
+        <strong class="sidebar-section">Tools</strong>
+          
+          <a class="sidebar-link current" href="/muagent/custom-tool-zh/">
+            
+              自定义 Tool
+            
+          </a>
+
+        <strong class="sidebar-section">Retrieval</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-retrieval-zh/">
+            
+              自定义 Retrieval
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>自定义 Tool 接入</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="基本介绍">基本介绍</h2>
+<p>在MuAgent中也支持Agent完成Tool的注册，通过Python注册模板BaseToolModel类，编写</p>
+<ul>
+<li>Tool_nam</li>
+<li>Tool_descriptio</li>
+<li>ToolInputArgs</li>
+<li>ToolOutputArgs</li>
+<li>run</li>
+</ul>
+<p>等相关属性和方法即可实现工具的快速接入，同时支持langchain Tool接口的直接使用。 例如像上述 XXRetrieval 的功能也可以注册为Tool，最终由LLM执行调用。</p>
+<h2 id="basetool-结构">BaseTool 结构</h2>
+<pre tabindex="0"><code>from langchain.agents import Tool
+from pydantic import BaseModel, Field
+from typing import List, Dict
+import json
+
+
+class BaseToolModel:
+    name = &#34;BaseToolModel&#34;
+    description = &#34;Tool Description&#34;
+
+    class ToolInputArgs(BaseModel):
+        &#34;&#34;&#34;
+        Input for MoveFileTool.
+        Tips:
+            default control Required, e.g.  key1 is not Required/key2 is Required
+        &#34;&#34;&#34;
+
+        key1: str = Field(default=None, description=&#34;hello world!&#34;)
+        key2: str = Field(..., description=&#34;hello world!!&#34;)
+
+    class ToolOutputArgs(BaseModel):
+        &#34;&#34;&#34;
+        Input for MoveFileTool.
+        Tips:
+            default control Required, e.g.  key1 is not Required/key2 is Required
+        &#34;&#34;&#34;
+
+        key1: str = Field(default=None, description=&#34;hello world!&#34;)
+        key2: str = Field(..., description=&#34;hello world!!&#34;)
+
+    @classmethod
+    def run(cls, tool_input_args: ToolInputArgs) -&gt; ToolOutputArgs:
+        &#34;&#34;&#34;excute your tool!&#34;&#34;&#34;
+        pass
+</code></pre><h2 id="注册示例">注册示例</h2>
+<pre tabindex="0"><code>from pydantic import BaseModel, Field
+from typing import List, Dict
+import requests
+from loguru import logger
+
+from .base_tool import BaseToolModel
+
+class Multiplier(BaseToolModel):
+    &#34;&#34;&#34;
+    Tips:
+        default control Required, e.g.  key1 is not Required/key2 is Required
+    &#34;&#34;&#34;
+
+    name: str = &#34;Multiplier&#34;
+    description: str = &#34;&#34;&#34;useful for when you need to multiply two numbers together. \
+    The input to this tool should be a comma separated list of numbers of length two, representing the two numbers you want to multiply together. \
+    For example, `1,2` would be the input if you wanted to multiply 1 by 2.&#34;&#34;&#34;
+
+    class ToolInputArgs(BaseModel):
+        &#34;&#34;&#34;Input for Multiplier.&#34;&#34;&#34;
+
+        # key: str = Field(..., description=&#34;用户在高德地图官网申请web服务API类型KEY&#34;)
+        a: int = Field(..., description=&#34;num a&#34;)
+        b: int = Field(..., description=&#34;num b&#34;)
+
+    class ToolOutputArgs(BaseModel):
+        &#34;&#34;&#34;Output for Multiplier.&#34;&#34;&#34;
+
+        res: int = Field(..., description=&#34;the result of two nums&#34;)
+    
+    @staticmethod
+    def run(a, b):
+        return a * b
+</code></pre><h2 id="使用示例">使用示例</h2>
+<pre tabindex="0"><code>from langchain.tools import StructuredTool
+from muagent.tools import (
+    WeatherInfo, Multiplier, toLangchainTools,
+    TOOL_DICT, TOOL_SETS
+)
+
+# 函数执行
+tools =  [
+    StructuredTool(
+            name=Multiplier.name,
+            func=Multiplier.run,
+            description=Multiplier.description,
+            args_schema=Multiplier.ToolInputArgs,
+        ), 
+        StructuredTool(
+            name=WeatherInfo.name,
+            func=WeatherInfo.run,
+            description=WeatherInfo.description,
+            args_schema=WeatherInfo.ToolInputArgs,
+        )
+        ]
+
+tools = toLangchainTools([TOOL_DICT[&#34;Multiplier&#34;]])
+
+# tool run 测试
+print(tools[0].func(1,2))
+</code></pre>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/muagent/embedding-model-config-zh/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/muagent/custom-retrieval-zh/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本介绍">基本介绍</a></li>
+    <li><a href="#basetool-结构">BaseTool 结构</a></li>
+    <li><a href="#注册示例">注册示例</a></li>
+    <li><a href="#使用示例">使用示例</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

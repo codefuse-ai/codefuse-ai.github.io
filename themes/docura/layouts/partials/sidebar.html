@@ -19,6 +19,8 @@
           <a class="sidebar-link {{ if $isActivePage }}current{{ end }}" href="{{ $href }}">
             {{ if and (eq $index 0) $group.replaceFirstPageTitle }}
               {{ $group.replaceFirstPageTitle }}
+            {{ else if $page.rename}}
+              {{ $page.rename }}
             {{ else }}
               {{ $page.title }}
             {{ end }}
@@ -29,6 +31,8 @@
           <a class="sidebar-link {{ if $isActivePage }}current{{ end }}" href="{{ $href }}">
             {{ if and (eq $index 0) $group.replaceFirstPageTitle }}
               {{ $group.replaceFirstPageTitle }}
+            {{ else if $page.rename}}
+              {{ $page.rename }}
             {{ else }}
               {{ $page.title }}
             {{ end }}
