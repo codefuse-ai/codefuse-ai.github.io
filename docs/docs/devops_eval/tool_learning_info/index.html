@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse aims to develop Code Large Language Models (Code LLMs) to support and enhance full-lifecycle AI native sotware developing, covering crucial stages such as design requirements, coding, testing, building, deployment, operations, and insight analysis.">
+<meta name="author" content="codefuse-ai">
+
+<title> · CodeFuse-AI</title>
+
+<link rel="canonical" href="/docs/devops_eval/tool_learning_info/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">English</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage/">
+            
+              GodelLanguage
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain/">
+            
+              Toolchain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase/">
+            
+              UserCase
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate/">
+            
+              Accelerate &#43; DeepSpeed/FSDP Framework
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch/">
+            
+              Atorch Framework
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature/">
+            
+              Feature
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config/">
+            
+              Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release/">
+            
+              Release Note
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/llm-configuration/">
+            
+              LLM-Configuration
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train/">
+            
+              TrainDetail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/data/">
+            
+              Data
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1></h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h3 id="数据样例">数据样例</h3>
+<p>在数据上我们完全兼容了 OpenAI Function Calling，具体格式如下：</p>
+<p><strong>Function Call的数据格式</strong></p>
+<table>
+<thead>
+<tr>
+<th>Input Key</th>
+<th>Input Type</th>
+<th>Input Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>functions</td>
+<td>List[Swagger]</td>
+<td>工具集合</td>
+</tr>
+<tr>
+<td>chatrounds</td>
+<td>List[chatround]</td>
+<td>多轮对话数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>chatrounds的数据格式</strong></p>
+<table>
+<thead>
+<tr>
+<th>Input Key</th>
+<th>Input Type</th>
+<th>Input Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role</td>
+<td>string</td>
+<td>角色名称，包含三种类别，user、assistant、function</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>若role为function，则存在name字段，为function的名称</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>role的返回内容</td>
+</tr>
+<tr>
+<td>function_call</td>
+<td>dict</td>
+<td>工具调用</td>
+</tr>
+</tbody>
+</table>
+<pre tabindex="0"><code>{
+    &#34;functions&#34;:
+    [
+        {
+            &#34;name&#34;: &#34;get_fudan_university_scoreline&#34;,
+            &#34;description&#34;: &#34;查询复旦大学往年分数线，例如：查询2020年复旦大学的分数线&#34;,
+            &#34;parameters&#34;:
+            {
+                &#34;type&#34;: &#34;object&#34;,
+                &#34;properties&#34;:
+                {
+                    &#34;year&#34;:
+                    {
+                        &#34;type&#34;: &#34;string&#34;,
+                        &#34;description&#34;: &#34;年份，例如：2020，2019，2018&#34;
+                    }
+                },
+                &#34;required&#34;:
+                [
+                    &#34;year&#34;
+                ]
+            }
+        }
+    ],
+    &#34;chatrounds&#34;:
+    [
+        {
+            &#34;role&#34;: &#34;system&#34;,
+            &#34;content&#34;: &#34;CodeFuse是一个面向研发领域的智能助手，旨在中立的、无害的帮助用户解决开发相关的问题，所有的回答均使用Markdown格式返回。\n你能利用许多工具和功能来完成给定的任务，在每一步中，你需要分析当前状态，并通过执行函数调用来确定下一步的行动方向。你可以进行多次尝试。如果你计划连续尝试不同的条件，请每次尝试一种条件。若给定了Finish函数,则以Finish调用结束，若没提供Finish函数，则以不带function_call的对话结束。&#34;
+        },
+        {
+            &#34;role&#34;: &#34;user&#34;,
+            &#34;content&#34;: &#34;查询2020年复旦大学的分数线&#34;
+        },
+        {
+            &#34;role&#34;: &#34;assistant&#34;,
+            &#34;content&#34;: null,
+            &#34;function_call&#34;:
+            {
+                &#34;name&#34;: &#34;get_fudan_university_scoreline&#34;,
+                &#34;arguments&#34;: &#34;{\n  \&#34;year\&#34;: \&#34;2020\&#34;\n}&#34;
+            }
+        },
+        {
+            &#34;role&#34;: &#34;function&#34;,
+            &#34;name&#34;: &#34;get_fudan_university_scoreline&#34;,
+            &#34;content&#34;: &#34;{\n    \&#34;scoreline\&#34;:{\n        \&#34;文科一批\&#34;: 630,    \n        \&#34;文科二批\&#34;: 610,  \n        \&#34;理科一批\&#34;: 650,  \n        \&#34;理科二批\&#34;: 630  \n    }\n}&#34;
+        },
+        {
+            &#34;role&#34;: &#34;assistant&#34;,
+            &#34;content&#34;: &#34;2020年复旦大学的分数线如下：\n\n- 文科一批：630分\n- 文科二批：610分\n- 理科一批：650分\n- 理科二批：630分&#34;
+        }
+    ]
+}
+</code></pre><p>上述Function Call的数据样例为给定特定工具集后，用于回答用户查询某高校录取分数线的问题。</p>
+<h3 id="评测指标">评测指标</h3>
+<p>由于一般通用模型无法具备工具调用的能力，因此在进行Tool Learn-Eval评测之前需要对通用模型进行微调，先让模型学会工具使用的基本范式</p>
+<p>下面，我们定义了几种评估工具使用的指标：</p>
+<img src="/images/devops_eval/toolLearning_performance_metrics.png" style="width: 60%;" id="title-icon">
+<p>②③④⑤的和为1，代表工具调用失败的总数，⑤工具幻觉是工具名识别失败的一种特殊情况</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-evalution-quickstart/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#数据样例">数据样例</a></li>
+        <li><a href="#评测指标">评测指标</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

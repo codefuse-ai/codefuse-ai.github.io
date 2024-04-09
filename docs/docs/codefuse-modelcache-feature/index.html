@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Feature · CodeFuse-AI</title>
+
+<link rel="canonical" href="/docs/codefuse-modelcache-feature/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/codefuse-modelcache-feature/">English</a></li>
+          
+          <li role="menuitem"><a href="/docs/codefuse-modelcache-feature-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage/">
+            
+              GodelLanguage
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain/">
+            
+              Toolchain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase/">
+            
+              UserCase
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate/">
+            
+              Accelerate &#43; DeepSpeed/FSDP Framework
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch/">
+            
+              Atorch Framework
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/docs/codefuse-modelcache-feature/">
+            
+              Feature
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config/">
+            
+              Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release/">
+            
+              Release Note
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/llm-configuration/">
+            
+              LLM-Configuration
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train/">
+            
+              TrainDetail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/data/">
+            
+              Data
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Feature</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <p>From a functional standpoint, to address Huggingface network issues and improve inference speed, local inference capabilities for embeddings have been added. Given some limitations in the SQLAlchemy framework, we have rewritten the relational database interaction module for more flexible database operations. In practice, large model products need to interface with multiple users and models; thus, support for multi-tenancy has been added to ModelCache, as well as preliminary compatibility with system commands and multi-turn conversations.</p>
+<p>Below is a feature comparison table for ModelCache and GPTCache modules:</p>
+<table>
+  <tr>
+    <th rowspan="2">Module</th>
+    <th rowspan="2">Function</th>
+  </tr>
+  <tr>
+    <th>ModelCache</th>
+    <th>GPTCache</th>
+  </tr>
+  <tr>
+    <td rowspan="2">Basic Interface</td>
+    <td>Data query interface</td>
+    <td class="checkmark">&#9745; </td>
+    <td class="checkmark">&#9745; </td>
+  </tr>
+  <tr>
+    <td>Data writing interface</td>
+    <td class="checkmark">&#9745; </td>
+    <td class="checkmark">&#9745; </td>
+  </tr>
+  <tr>
+    <td rowspan="3">Embedding</td>
+    <td>Embedding model configuration</td>
+    <td class="checkmark">&#9745; </td>
+    <td class="checkmark">&#9745; </td>
+  </tr>
+  <tr>
+    <td>Large model embedding layer</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>BERT model long text processing</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Large model invocation</td>
+    <td>Decoupling from large models</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Local loading of embedding model</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Data isolation</td>
+    <td>Model data isolation</td>
+    <td class="checkmark">&#9745; </td>
+    <td class="checkmark">&#9745; </td>
+  </tr>
+  <tr>
+    <td>Hyperparameter isolation</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="3">Databases</td>
+    <td>MySQL</td>
+    <td class="checkmark">&#9745; </td>
+    <td class="checkmark">&#9745; </td>
+  </tr>
+  <tr>
+    <td>Milvus</td>
+    <td class="checkmark">&#9745; </td>
+    <td class="checkmark">&#9745; </td>
+  </tr>
+  <tr>
+    <td>OceanBase</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="3">Session management</td>
+    <td>Single-turn dialogue</td>
+    <td class="checkmark">&#9745; </td>
+    <td class="checkmark">&#9745; </td>
+  </tr>
+  <tr>
+    <td>System commands</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Multi-turn dialogue</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Data management</td>
+    <td>Data persistence</td>
+    <td class="checkmark">&#9745; </td>
+    <td class="checkmark">&#9745; </td>
+  </tr>
+  <tr>
+    <td>One-click cache clearance</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Tenant management</td>
+    <td>Support for multi-tenancy</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Milvus multi-collection capability</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Other</td>
+    <td>Long-short dialogue distinction</td>
+    <td class="checkmark">&#9745; </td>
+    <td></td>
+  </tr>
+</table>
+<h2 id="core-features">Core Features</h2>
+<p>In ModelCache, the main ideas of GPTCache are carried forward, including a series of core modules: adapter, embedding, similarity, and data_manager. The adapter module&rsquo;s main function is to handle the business logic for various tasks and connect modules like embedding, similarity, and data_manager; the embedding module is responsible for converting text into semantic vector representations, transforming user queries into vectors for recall or storage; the rank module ranks and evaluates the similarity of recalled vectors; the data_manager module manages the database. To better industrialize, we&rsquo;ve made architectural and functional upgrades as follows:</p>
+<ul>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Architectural Adjustment (Lightweight Integration): Embedded in large model products in a cache mode similar to Redis, it provides semantic caching capabilities without interfering with LLM invocation and security audits, adaptable toall large model services.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Multiple Model Loading Schemes:</p>
+<ul>
+<li>Support for loading local embedding models to resolve Huggingface connectivity issues.</li>
+<li>Support for loading various pre-trained model embedding layers.</li>
+</ul>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Data Isolation Capabilities:</p>
+<ul>
+<li>Environmental Isolation: Depending on the environment, different database configurations can be pulled to achieve isolation (development, staging, production).</li>
+<li>Multi-Tenant Data Isolation: Dynamically create collections according to the model to isolate data, addressing data isolation issues for multiple models/services in large model products.</li>
+</ul>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Support for System Commands: Using concatenation to solve system command issues within the prompt paradigm.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Distinguishing Long and Short Texts: Long texts pose more challenges to similarity assessment, so the differentiation between long and short texts has been enhanced, allowing separate configuration of judgment thresholds.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Performance Optimization for Milvus: Adjusting Milvus&rsquo;s consistency_level to &ldquo;Session&rdquo; level for better performance.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Data Management Capabilities:</p>
+<ul>
+<li>One-click cache clearing ability for data management after model upgrades.</li>
+<li>Recall hit queries for subsequent data analysis and model iteration reference.</li>
+<li>Asynchronous log write-back capability for data analysis and statistics.</li>
+<li>Added model fields and data statistics fields for feature expansion.</li>
+<li>Future features that will continue to be built upon include:</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> Data isolation based on hyperparameters.</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> System prompt partitioned storage capability to improve the accuracy and efficiency of similarity matching.</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> More versatile embedding models and similarity evaluation algorithms.</p>
+</li>
+</ul>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-modelcache-quickstart/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/codefuse-modelcache-config/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#core-features">Core Features</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs）， 涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。">
+<meta name="author" content="codefuse-ai">
+
+<title>LLM 配置 · CodeFuse-AI</title>
+
+<link rel="canonical" href="/zh/muagent/llm-model-config-zh/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/muagent/llm-model-config/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/muagent/llm-model-config-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent"  class="active"><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ MuAgent</strong>
+          
+          <a class="sidebar-link " href="/muagent/muagent-%E6%A6%82%E8%A7%88/">
+            
+              MuAgent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/agent-%E7%BC%96%E6%8E%92/">
+            
+              Agents Flow
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">Connector</strong>
+          
+          <a class="sidebar-link " href="/muagent/connector-agent-zh/">
+            
+              Agent构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-chain-zh/">
+            
+              Chain构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-phase-zh/">
+            
+              Phase构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-prompt-zh/">
+            
+              Prompt编写
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-memory-zh/">
+            
+              Memory构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/custom-examples-zh/">
+            
+              自定义示例
+            
+          </a>
+
+        <strong class="sidebar-section">llm_models</strong>
+          
+          <a class="sidebar-link current" href="/muagent/llm-model-config-zh/">
+            
+              LLM 配置
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/embedding-model-config-zh/">
+            
+              Embedding 配置
+            
+          </a>
+
+        <strong class="sidebar-section">Tools</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-tool-zh/">
+            
+              自定义 Tool
+            
+          </a>
+
+        <strong class="sidebar-section">Retrieval</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-retrieval-zh/">
+            
+              自定义 Retrieval
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>LLM 配置</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="准备相关参数">准备相关参数</h2>
+<p>首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动）</p>
+<pre tabindex="0"><code>import os, sys
+
+api_key = &#34;sk-xxx&#34;
+api_base_url= &#34;https://api.openai.com/v1&#34;
+model_name = &#34;gpt-3.5-turbo&#34;
+</code></pre><h2 id="构建llm-config">构建LLM Config</h2>
+<ul>
+<li>通过调用 类openai 传入</li>
+</ul>
+<pre tabindex="0"><code>from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
+llm_config = LLMConfig(
+    model_name=model_name, api_key=api_key,  api_base_url=api_base_url, temperature=0.3,
+    stop=&#34;**Observation:**&#34;
+)
+</code></pre><ul>
+<li>自定义 langchain LLM 传入</li>
+</ul>
+<pre tabindex="0"><code>from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
+from langchain.llms.base import BaseLLM, LLM
+
+class CustomizedModel(LLM):
+        repetition_penalty = 1.1
+        temperature = 0.2
+        top_k = 40
+        top_p = 0.9
+
+        def predict(self, prompt: str, stop: Optional[List[str]] = None) -&gt; str:
+            return self._call(prompt, stop)
+
+        def _call(self, prompt: str,
+                  stop: Optional[List[str]] = None) -&gt; str:
+            &#34;&#34;&#34;_call
+            &#34;&#34;&#34;
+            return &#34;&#34;
+
+llm = CustomizedModel()
+llm_config = LLMConfig(
+    llm=llm
+)
+</code></pre>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/muagent/custom-examples-zh/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/muagent/embedding-model-config-zh/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#准备相关参数">准备相关参数</a></li>
+    <li><a href="#构建llm-config">构建LLM Config</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

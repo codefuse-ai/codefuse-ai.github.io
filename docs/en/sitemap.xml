@@ -2,6 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/docs/devops_eval/tool_learning_info/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+  </url><url>
+    <loc>/docs/devops_eval/tutorial/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+  </url><url>
+    <loc>/docs/abstract/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/codefuse-query/1_abstract/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/abstract/"
+                />
+  </url><url>
     <loc>/contribution/acknowledgements/</loc>
     <lastmod>2024-01-23T20:52:15+08:00</lastmod>
     <xhtml:link
@@ -26,6 +45,19 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/coagent/agent-flow/"
+                />
+  </url><url>
+    <loc>/muagent/agent-flow/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/agent-%E7%BC%96%E6%8E%92/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/agent-flow/"
                 />
   </url><url>
     <loc>/categories/</loc>
@@ -67,7 +99,7 @@
                 />
   </url><url>
     <loc>/coagent/</loc>
-    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <lastmod>2024-01-25T21:08:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-CN"
@@ -80,7 +112,7 @@
                 />
   </url><url>
     <loc>/</loc>
-    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-CN"
@@ -105,6 +137,19 @@
                 href="/docs/codefuse-chatbot/"
                 />
   </url><url>
+    <loc>/docs/overview/codefuse-chatbot/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/codefuse-chatbot-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/codefuse-chatbot/"
+                />
+  </url><url>
     <loc>/docs/codefuse-devops-eval/</loc>
     <lastmod>2024-01-09T14:29:00+08:00</lastmod>
     <xhtml:link
@@ -116,6 +161,19 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/docs/codefuse-devops-eval/"
+                />
+  </url><url>
+    <loc>/docs/overview/codefuse-devops-eval/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/codefuse-devops-eval-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/codefuse-devops-eval/"
                 />
   </url><url>
     <loc>/docs/codefuse-devops-model/</loc>
@@ -131,6 +189,32 @@
                 href="/docs/codefuse-devops-model/"
                 />
   </url><url>
+    <loc>/docs/overview/codefuse-devops-model/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/codefuse-devops-model-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/codefuse-devops-model/"
+                />
+  </url><url>
+    <loc>/docs/overview/codefuse-mft-vlm/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/codefuse-mft-vlm/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/codefuse-mft-vlm/"
+                />
+  </url><url>
     <loc>/docs/codefuse-modelcache/</loc>
     <lastmod>2024-01-09T14:29:00+08:00</lastmod>
     <xhtml:link
@@ -142,6 +226,19 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/docs/codefuse-modelcache/"
+                />
+  </url><url>
+    <loc>/docs/overview/codefuse-modelcache/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/codefuse-modelcache-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/codefuse-modelcache/"
                 />
   </url><url>
     <loc>/docs/codefuse-query/</loc>
@@ -157,6 +254,32 @@
                 href="/docs/codefuse-query/"
                 />
   </url><url>
+    <loc>/docs/overview/codefuse-query/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/codefuse-query-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/codefuse-query/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-evalution/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/b10.codefuse-evalution/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-evalution/"
+                />
+  </url><url>
     <loc>/coagent/connector-agent/</loc>
     <lastmod>2024-01-25T20:54:37+08:00</lastmod>
     <xhtml:link
@@ -168,6 +291,19 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/coagent/connector-agent/"
+                />
+  </url><url>
+    <loc>/muagent/connector-agent/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/connector-agent-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/connector-agent/"
                 />
   </url><url>
     <loc>/coagent/connector-chain/</loc>
@@ -183,6 +319,19 @@
                 href="/coagent/connector-chain/"
                 />
   </url><url>
+    <loc>/muagent/connector-chain/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/connector-chain-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/connector-chain/"
+                />
+  </url><url>
     <loc>/coagent/connector-memory/</loc>
     <lastmod>2024-01-25T20:54:37+08:00</lastmod>
     <xhtml:link
@@ -194,6 +343,19 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/coagent/connector-memory/"
+                />
+  </url><url>
+    <loc>/muagent/connector-memory/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/connector-memory-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/connector-memory/"
                 />
   </url><url>
     <loc>/coagent/connector-phase/</loc>
@@ -209,6 +371,19 @@
                 href="/coagent/connector-phase/"
                 />
   </url><url>
+    <loc>/muagent/connector-phase/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/connector-phase-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/connector-phase/"
+                />
+  </url><url>
     <loc>/coagent/connector-prompt/</loc>
     <lastmod>2024-01-25T20:54:37+08:00</lastmod>
     <xhtml:link
@@ -220,6 +395,19 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/coagent/connector-prompt/"
+                />
+  </url><url>
+    <loc>/muagent/connector-prompt/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/connector-prompt-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/connector-prompt/"
                 />
   </url><url>
     <loc>/contribution/contribution-guide/</loc>
@@ -236,7 +424,7 @@
                 />
   </url><url>
     <loc>/contribution/</loc>
-    <lastmod>2024-01-23T20:52:15+08:00</lastmod>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-CN"
@@ -246,6 +434,32 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/contribution/"
+                />
+  </url><url>
+    <loc>/muagent/custom-retrieval/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/custom-retrieval-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/custom-retrieval/"
+                />
+  </url><url>
+    <loc>/muagent/custom-tool/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/custom-tool-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/custom-tool/"
                 />
   </url><url>
     <loc>/coagent/customed-examples/</loc>
@@ -261,8 +475,34 @@
                 href="/coagent/customed-examples/"
                 />
   </url><url>
+    <loc>/muagent/custom-examples/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/custom-examples-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/custom-examples/"
+                />
+  </url><url>
+    <loc>/docs/data/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/data/"
+                />
+  </url><url>
     <loc>/docs/</loc>
-    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-CN"
@@ -272,6 +512,32 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/docs/"
+                />
+  </url><url>
+    <loc>/muagent/embedding-model-config/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/embedding-model-config-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/embedding-model-config/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-devops-eval-quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/codefuse-devops-eval-quickstart-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-devops-eval-quickstart/"
                 />
   </url><url>
     <loc>/docs/fastertransformer4codefuse/</loc>
@@ -287,6 +553,84 @@
                 href="/docs/fastertransformer4codefuse/"
                 />
   </url><url>
+    <loc>/docs/overview/fastertransformer4codefuse/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/fastertransformer4codefuse-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/fastertransformer4codefuse/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-modelcache-feature/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-modelcache-feature-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-modelcache-feature/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-query-godellanguage/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-query-godellanguage-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-query-godellanguage/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-modelcache-config/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-modelcache-config-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-modelcache-config/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-query-introduction/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/codefuse-query-introduction-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-query-introduction/"
+                />
+  </url><url>
+    <loc>/docs/mftcoder-introduction/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/mftcoder-introduction-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/mftcoder-introduction/"
+                />
+  </url><url>
     <loc>/contribution/issue-report/</loc>
     <lastmod>2024-01-23T20:52:15+08:00</lastmod>
     <xhtml:link
@@ -298,6 +642,19 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/contribution/issue-report/"
+                />
+  </url><url>
+    <loc>/muagent/llm-model-config/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/llm-model-config-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/llm-model-config/"
                 />
   </url><url>
     <loc>/docs/LLM-Configuration/</loc>
@@ -326,6 +683,71 @@
                 href="/docs/mftcoder/"
                 />
   </url><url>
+    <loc>/docs/mftcoder-atorch/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/mftcoder-atorch-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/mftcoder-atorch/"
+                />
+  </url><url>
+    <loc>/docs/mftcoder-accelerate/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/mftcoder-accelerate-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/mftcoder-accelerate/"
+                />
+  </url><url>
+    <loc>/docs/overview/mftcoder/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/mftcoder-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/mftcoder/"
+                />
+  </url><url>
+    <loc>/muagent/muagent/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/muagent-%E6%A6%82%E8%A7%88/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/muagent/"
+                />
+  </url><url>
+    <loc>/muagent/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/muagent/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/muagent/"
+                />
+  </url><url>
     <loc>/docs/en_overview/</loc>
     <lastmod>2024-01-09T14:29:00+08:00</lastmod>
     <xhtml:link
@@ -340,6 +762,7 @@
                 />
   </url><url>
     <loc>/coagent/prompt-manager/</loc>
+    <lastmod>2024-01-25T21:08:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-CN"
@@ -351,8 +774,11 @@
                 href="/coagent/prompt-manager/"
                 />
   </url><url>
+    <loc>/coagent/prompt-manager/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+  </url><url>
     <loc>/contribution/pull-request/</loc>
-    <lastmod>2024-01-23T20:52:15+08:00</lastmod>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-CN"
@@ -377,18 +803,125 @@
                 href="/coagent/quick-start/"
                 />
   </url><url>
-    <loc>/docs/quickstart/</loc>
-    <lastmod>2024-01-25T20:54:37+08:00</lastmod>
+    <loc>/muagent/quick-start/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-CN"
-                href="/zh/docs/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/"
+                href="/zh/muagent/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="/docs/quickstart/"
+                href="/muagent/quick-start/"
                 />
+  </url><url>
+    <loc>/docs/codefuse-chatbot-quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/codefuse-chatbot-quickstart-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-chatbot-quickstart/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-evalution-quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/codefuse-evalution-quickstart-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-evalution-quickstart/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-mft-vlm/quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/codefuse-mft-vlm/%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-mft-vlm/quickstart/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-modelcache-quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-modelcache-quickstart-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-modelcache-quickstart/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-query-quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-query-quickstart-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-query-quickstart/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-devops-model-quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-devops-model-quickstart-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-devops-model-quickstart/"
+                />
+  </url><url>
+    <loc>/docs/mftcoder-quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/mftcoder-quickstart-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/mftcoder-quickstart/"
+                />
+  </url><url>
+    <loc>/docs/test-agent-quickstart/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/test-agent-quickstart-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/test-agent-quickstart/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-modelcache-release/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
   </url><url>
     <loc>/docs/chatbot/start-detail/</loc>
     <lastmod>2024-01-25T20:54:37+08:00</lastmod>
@@ -426,6 +959,58 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="/docs/test-agent/"
+                />
+  </url><url>
+    <loc>/docs/overview/test-agent-your-ai-test-assistant/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/zh/docs/overview/test-agent-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/overview/test-agent-your-ai-test-assistant/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-query-toolchain/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-query-toolchain-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-query-toolchain/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-devops-model-train/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-devops-model-train-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-devops-model-train/"
+                />
+  </url><url>
+    <loc>/docs/codefuse-query-usercase/</loc>
+    <lastmod>2024-04-09T13:54:32+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-CN"
+                href="/docs/codefuse-query-usercase-zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="/docs/codefuse-query-usercase/"
                 />
   </url>
 </urlset>

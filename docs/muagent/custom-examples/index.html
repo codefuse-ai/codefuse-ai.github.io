@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse aims to develop Code Large Language Models (Code LLMs) to support and enhance full-lifecycle AI native sotware developing, covering crucial stages such as design requirements, coding, testing, building, deployment, operations, and insight analysis.">
+<meta name="author" content="codefuse-ai">
+
+<title>Customed Examples · CodeFuse-AI</title>
+
+<link rel="canonical" href="/muagent/custom-examples/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/muagent/custom-examples/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/muagent/custom-examples-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent"  class="active"><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ MuAgent</strong>
+          
+          <a class="sidebar-link " href="/muagent/muagent-overview/">
+            
+              MuAgent Overview
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/agent-flow/">
+            
+              Agent Flow
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/quick-start/">
+            
+              Quick Start
+            
+          </a>
+
+        <strong class="sidebar-section">Modules</strong>
+          
+          <a class="sidebar-link " href="/muagent/connector-agent/">
+            
+              Agent Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-chain/">
+            
+              Chain Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-phase/">
+            
+              Phase Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-prompt/">
+            
+              Create Prompt
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-memory/">
+            
+              Memory Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/muagent/custom-examples/">
+            
+              Custom Examples
+            
+          </a>
+
+        <strong class="sidebar-section">llm_models</strong>
+          
+          <a class="sidebar-link " href="/muagent/llm-model-config/">
+            
+              LLM Model Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/embedding-model-config/">
+            
+              Embedding Model Config
+            
+          </a>
+
+        <strong class="sidebar-section">Tools</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-tool/">
+            
+              Custom tool
+            
+          </a>
+
+        <strong class="sidebar-section">Retrieval</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-retrieval/">
+            
+              Custom retrieval
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Customed Examples</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="how-to-create-your-personalized-agent-phase-scenario">How to Create Your Personalized Agent Phase Scenario</h2>
+<p>Below we will use a code repository to demonstrate the automatic generation of API documentation from code, detailing how to customize the construction of an agent phase.</p>
+<h3 id="design-your-prompt-structure">Design Your Prompt Structure</h3>
+<ul>
+<li>codeGenDocGroup_PROMPT, create group Agent Prompt</li>
+</ul>
+<pre tabindex="0"><code># update new agent configs
+codeGenDocGroup_PROMPT = &#34;&#34;&#34;#### Agent Profile
+
+Your goal is to response according the Context Data&#39;s information with the role that will best facilitate a solution, taking into account all relevant context (Context) provided.
+
+When you need to select the appropriate role for handling a user&#39;s query, carefully read the provided role names, role descriptions and tool list.
+
+#### Input Format
+
+#### Response Output Format
+
+**Code Path:** Extract the paths for the class/method/function that need to be addressed from the context
+
+**Role:** Select the role from agent names
+&#34;&#34;&#34;
+</code></pre><ul>
+<li>classGenDoc_PROMPT, create class code to api doc Prompt</li>
+</ul>
+<pre tabindex="0"><code>classGenDoc_PROMPT = &#34;&#34;&#34;#### Agent Profile
+As an advanced code documentation generator, you are proficient in translating class definitions into comprehensive documentation with a focus on instantiation parameters. 
+Your specific task is to parse the given code snippet of a class, extract information regarding its instantiation parameters.
+
+#### Input Format
+
+**Current_Vertex:** Provide the code vertex of the function or method.
+
+**Code Snippet:** Provide the full class definition, including the constructor and any parameters it may require for instantiation.
+
+#### Response Output Format
+**Class Base:** Specify the base class or interface from which the current class extends, if any.
+
+**Class Description:** Offer a brief description of the class&#39;s purpose and functionality.
+
+**Init Parameters:** List each parameter from construct. For each parameter, provide:
+    - `param`: The parameter name
+    - `param_description`: A concise explanation of the parameter&#39;s purpose.
+    - `param_type`: The data type of the parameter, if explicitly defined.
+
+    ```json
+    [
+        {
+            &#34;param&#34;: &#34;parameter_name&#34;,
+            &#34;param_description&#34;: &#34;A brief description of what this parameter is used for.&#34;,
+            &#34;param_type&#34;: &#34;The data type of the parameter&#34;
+        },
+        ...
+    ]
+    ```
+
+        
+    If no parameter for construct, return 
+    ```json
+    []
+    ```
+&#34;&#34;&#34;
+</code></pre><ul>
+<li>funcGenDoc_PROMPT，create function code to api doc Prompt</li>
+</ul>
+<pre tabindex="0"><code>funcGenDoc_PROMPT = &#34;&#34;&#34;#### Agent Profile
+You are a high-level code documentation assistant, skilled at extracting information from function/method code into detailed and well-structured documentation.
+
+
+#### Input Format
+**Code Path:** Provide the code path of the function or method you wish to document. 
+This name will be used to identify and extract the relevant details from the code snippet provided.
+
+**Current_Vertex:** Provide the code vertex of the function or method.
+
+**Code Snippet:** A segment of code that contains the function or method to be documented.
+
+#### Response Output Format
+
+**Class Description:** Offer a brief description of the method(function)&#39;s purpose and functionality.
+
+**Parameters:** Extract parameter for the specific function/method Code from Code Snippet. For parameter, provide:
+    - `param`: The parameter name
+    - `param_description`: A concise explanation of the parameter&#39;s purpose.
+    - `param_type`: The data type of the parameter, if explicitly defined.
+    ```json
+    [
+        {
+            &#34;param&#34;: &#34;parameter_name&#34;,
+            &#34;param_description&#34;: &#34;A brief description of what this parameter is used for.&#34;,
+            &#34;param_type&#34;: &#34;The data type of the parameter&#34;
+        },
+        ...
+    ]
+    ```
+
+    If no parameter for function/method, return 
+    ```json
+    []
+    ```
+
+**Return Value Description:** Describe what the function/method returns upon completion.
+
+**Return Type:** Indicate the type of data the function/method returns (e.g., string, integer, object, void).
+&#34;&#34;&#34;
+</code></pre><h3 id="import-packages-and-basic-configuration-parameters">Import Packages and Basic Configuration Parameters</h3>
+<ul>
+<li>First, add openai configuration or similar interfaces to models such as openai (launched via fastchat)</li>
+</ul>
+<pre tabindex="0"><code>import os, sys
+from muagent.base_configs.env_config import CB_ROOT_PATH
+from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
+from muagent.connector.phase import BasePhase
+from muagent.connector.agents import BaseAgent, SelectorAgent
+from muagent.connector.chains import BaseChain
+from muagent.connector.schema import Message, Role, ChainConfig
+from muagent.codechat.codebase_handler.codebase_handler import CodeBaseHandler
+from loguru import logger
+from muagent.tools import CodeRetrievalSingle
+
+
+api_key = &#34;sk-xxx&#34;
+api_base_url= &#34;https://api.openai.com/v1&#34;
+model_name = &#34;gpt-3.5-turbo&#34;
+embed_model = &#34;{{embed_model_name}}&#34;
+embed_model_path = &#34;{{embed_model_path}}&#34;
+#
+os.environ[&#34;DUCKDUCKGO_PROXY&#34;] = os.environ.get(&#34;DUCKDUCKGO_PROXY&#34;) or &#34;socks5://127.0.0.1:13659&#34;
+</code></pre><h3 id="defining-a-new-agent-class">Defining a New Agent Class</h3>
+<p>For custom key-value information</p>
+<pre tabindex="0"><code>class CodeGenDocer(BaseAgent):
+    def start_action_step(self, message: Message) -&gt; Message:
+        &#39;&#39;&#39;do action before agent predict &#39;&#39;&#39;
+        # Retrieve code snippets and node information based on the question
+        action_json = CodeRetrievalSingle.run(message.code_engine_name, message.input_query, llm_config=self.llm_config, 
+                                              embed_config=self.embed_config, local_graph_path=message.local_graph_path, use_nh=message.use_nh,search_type=&#34;tag&#34;)
+        current_vertex = action_json[&#39;vertex&#39;]
+        message.customed_kargs[&#34;Code Snippet&#34;] = action_json[&#34;code&#34;]
+        message.customed_kargs[&#39;Current_Vertex&#39;] = current_vertex
+        return message
+    
+</code></pre><h3 id="preparing-llm--embedding">Preparing LLM &amp; Embedding</h3>
+<pre tabindex="0"><code>llm_config = LLMConfig(
+    model_name=&#34;gpt-4&#34;, api_key=api_key,  api_base_url=api_base_url, temperature=0.3
+)
+embed_config = EmbedConfig(
+    embed_engine=&#34;model&#34;, embed_model=embed_model, embed_model_path=embed_model_path
+)
+</code></pre><h3 id="codebase-loading">Codebase Loading</h3>
+<pre tabindex="0"><code># initialize codebase
+# delete codebase
+codebase_name = &#39;client_nebula&#39;
+code_path = &#34;D://chromeDownloads/devopschat-bot/client_v2/client&#34;
+use_nh = True
+do_interpret = False
+cbh = CodeBaseHandler(codebase_name, code_path, crawl_type=&#39;dir&#39;, use_nh=use_nh, local_graph_path=CB_ROOT_PATH,
+                      llm_config=llm_config, embed_config=embed_config)
+cbh.delete_codebase(codebase_name=codebase_name)
+# load codebase
+cbh = CodeBaseHandler(codebase_name, code_path, crawl_type=&#39;dir&#39;, use_nh=use_nh, local_graph_path=CB_ROOT_PATH,
+                      llm_config=llm_config, embed_config=embed_config)
+cbh.import_code(do_interpret=do_interpret)
+</code></pre><h3 id="then-construct-a-phase-instance-and-begin-execution">Then Construct a Phase Instance and Begin Execution</h3>
+<pre tabindex="0"><code># log-level, print prompt, and llm predict
+os.environ[&#34;log_verbose&#34;] = &#34;1&#34;
+
+funcGenDoc_role = Role(role_type=&#34;assistant&#34;, role_name=&#34;funcGenDoc_role&#34;, prompt=funcGenDoc_PROMPT)
+funcGenDoc = CodeGenDocer(
+    role=funcGenDoc_role,
+    chat_turn=1,
+    llm_config=llm_config, embed_config=embed_config,
+)
+
+classGenDoc_role = Role(role_type=&#34;assistant&#34;, role_name=&#34;classGenDoc_role&#34;, prompt=classGenDoc_PROMPT)
+classGenDoc = CodeGenDocer(
+    role=classGenDoc_role,
+    chat_turn=1,
+    llm_config=llm_config, embed_config=embed_config,
+)
+
+codeGenDocGroup_role = Role(role_type=&#34;assistant&#34;, role_name=&#34;codeGenDocGroup_role&#34;, prompt=codeGenDocGroup_PROMPT)
+codeGenDocGroup = SelectorAgent(
+    role=codeGenDocGroup_role,
+    chat_turn=1,
+    llm_config=llm_config, embed_config=embed_config,
+    group_agents=[funcGenDoc, classGenDoc]
+)
+
+chain_config = ChainConfig(
+    chain_name=&#34;codeGenDocGroup_chain&#34;, agents=[codeGenDocGroup.role.role_name,], 
+    chat_turn=1)
+chain = BaseChain(
+    chainConfig=chain_config, agents=[codeGenDocGroup], 
+    llm_config=llm_config, embed_config=embed_config,
+)
+
+phase = BasePhase(
+    phase_name=&#34;codeGenDocGroup_phase&#34;, chains=[chain],
+    embed_config=embed_config, llm_config=llm_config
+)
+</code></pre><h3 id="start-to-generate-api-docs-from-code">start to generate api docs from code</h3>
+<pre tabindex="0"><code># Initialize based on the previous loading process
+cbh = CodeBaseHandler(codebase_name, code_path, crawl_type=&#39;dir&#39;, use_nh=use_nh, local_graph_path=CB_ROOT_PATH,
+                      llm_config=llm_config, embed_config=embed_config)
+cbh.search_vertices(vertex_type=&#34;method&#34;)
+# Begin transforming code into API documentation structure
+for vertex_type in [&#34;class&#34;, &#34;method&#34;]:
+    vertices = cbh.search_vertices(vertex_type=vertex_type)
+    logger.info(f&#34;vertices={vertices}&#34;)
+    # round-1
+    docs = []
+    for vertex in vertices:
+        vertex = vertex.split(&#34;-&#34;)[0] # &#39;-&#39; is the delimiter for method parameters
+        query_content = f&#34;Generate documentation for {vertex_type} node {vertex}&#34;
+        query = Message(
+            role_name=&#34;human&#34;, role_type=&#34;user&#34;, input_query=query_content,
+            code_engine_name=codebase_name, score_threshold=1.0, top_k=3, cb_search_type=&#34;tag&#34;, use_nh=use_nh,
+            local_graph_path=CB_ROOT_PATH,
+            )
+        output_message, output_memory = phase.step(query, reinit_memory=True)
+        # print(output_memory.to_str_messages(return_all=True, content_key=&#34;parsed_output_list&#34;))
+        docs.append(output_memory.get_spec_parserd_output())
+        os.makedirs(f&#34;{CB_ROOT_PATH}/docs&#34;, exist_ok=True)
+        with open(f&#34;{CB_ROOT_PATH}/docs/raw_{vertex_type}.json&#34;, &#34;w&#34;) as f:
+            json.dump(docs, f)
+
+
+# Convert the generated document information into markdown text
+from muagent.utils.code2doc_util import *
+import json
+with open(f&#34;/home/user/code_base/docs/raw_method.json&#34;, &#34;r&#34;) as f:
+    method_raw_data = json.load(f)
+
+    
+with open(f&#34;/home/user/code_base/docs/raw_class.json&#34;, &#34;r&#34;) as f:
+    class_raw_data = json.load(f)
+    
+method_data = method_info_decode(method_raw_data)
+class_data = class_info_decode(class_raw_data)
+method_mds = encode2md(method_data, method_text_md)
+class_mds = encode2md(class_data, class_text_md)
+
+docs_dict = {}
+for k,v in class_mds.items():
+    method_textmds = method_mds.get(k, [])
+    for vv in v:
+        # Theoretically, there should only be one
+        text_md = vv
+    for method_textmd in method_textmds:
+        text_md += &#34;\n&lt;br&gt;&#34; + method_textmd
+    docs_dict.setdefault(k, []).append(text_md)
+    
+    with open(f&#34;/home/user/code_base/docs/{k}.md&#34;, &#34;w&#34;) as f:
+        f.write(text_md)
+</code></pre>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/muagent/connector-memory/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/muagent/llm-model-config/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-create-your-personalized-agent-phase-scenario">How to Create Your Personalized Agent Phase Scenario</a>
+      <ul>
+        <li><a href="#design-your-prompt-structure">Design Your Prompt Structure</a></li>
+        <li><a href="#import-packages-and-basic-configuration-parameters">Import Packages and Basic Configuration Parameters</a></li>
+        <li><a href="#defining-a-new-agent-class">Defining a New Agent Class</a></li>
+        <li><a href="#preparing-llm--embedding">Preparing LLM &amp; Embedding</a></li>
+        <li><a href="#codebase-loading">Codebase Loading</a></li>
+        <li><a href="#then-construct-a-phase-instance-and-begin-execution">Then Construct a Phase Instance and Begin Execution</a></li>
+        <li><a href="#start-to-generate-api-docs-from-code">start to generate api docs from code</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

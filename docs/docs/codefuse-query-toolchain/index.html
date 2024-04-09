@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Toolchain · CodeFuse-AI</title>
+
+<link rel="canonical" href="/docs/codefuse-query-toolchain/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/codefuse-query-toolchain/">English</a></li>
+          
+          <li role="menuitem"><a href="/docs/codefuse-query-toolchain-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage/">
+            
+              GodelLanguage
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/docs/codefuse-query-toolchain/">
+            
+              Toolchain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase/">
+            
+              UserCase
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate/">
+            
+              Accelerate &#43; DeepSpeed/FSDP Framework
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch/">
+            
+              Atorch Framework
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature/">
+            
+              Feature
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config/">
+            
+              Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release/">
+            
+              Release Note
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/llm-configuration/">
+            
+              LLM-Configuration
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train/">
+            
+              TrainDetail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/data/">
+            
+              Data
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Toolchain</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="developing-plugins-vscode">Developing Plugins (VSCode)</h1>
+<h2 id="installation">Installation</h2>
+<h3 id="install-from-vscode-marketplace-recommand">Install from VSCode marketplace (Recommand)</h3>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=CodeFuse-Query.codefuse-query-extension" target="_blank">VSCode Extension</a></p>
+<h3 id="install-from-local-via-vsix-pack">Install from local via VSIX pack</h3>
+<ol>
+<li>Download the plugin.</li>
+<li>Manually install from vsix:
+<img src="/images/codefuse-query/toolchain01.png" alt="image.png"></li>
+<li>Or use the command directly from the terminal to install:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">code --install-extension <span class="o">[</span>extension vsix file path<span class="o">]</span>
+</span></span></code></pre></div><h2 id="environment-preparation">Environment Preparation</h2>
+<ul>
+<li>Sparrow CLI, refer to Section 3 Installation, Configuration, and Running.</li>
+</ul>
+<h2 id="extension-features">Extension Features</h2>
+<p>This extension provides the following feature modules:</p>
+<ul>
+<li>COREF AST Viewer</li>
+<li>Gödel Language Server</li>
+<li>Gödel Language Runner</li>
+</ul>
+<h3 id="coref-ast-viewer">COREF AST Viewer</h3>
+<p>The following features need to be enabled in the extension settings. Currently, it only supports the Java language.</p>
+<h4 id="convert-java-files-into-tree-like-coref-nodes">Convert Java Files into Tree-Like COREF Nodes</h4>
+<p><img src="/images/codefuse-query/toolchain02.gif" alt=""></p>
+<h4 id="locate-coref-nodes-and-code-positions-interactively">Locate COREF Nodes and Code Positions Interactively</h4>
+<p><img src="/images/codefuse-query/toolchain03.gif" alt=""></p>
+<h4 id="view-node-apis-and-copy-nodes-in-lib-api-viewer">View Node APIs and Copy Nodes in Lib API Viewer</h4>
+<p><img src="/images/codefuse-query/toolchain04.gif" alt=""></p>
+<h4 id="lib-api-viewer-querying-and-copying-usage">Lib API Viewer: Querying and Copying Usage</h4>
+<p><img src="/images/codefuse-query/toolchain05.gif" alt=""></p>
+<h3 id="gödel-language-server-features">Gödel Language Server Features</h3>
+<p>The following features need to be enabled after setting up the extension. Syntax highlighting is still available without setting related items.</p>
+<h4 id="error-information-tips">Error Information Tips</h4>
+<p>Error information automatically updates with code changes.
+<img src="/images/codefuse-query/toolchain06.gif" alt=""></p>
+<h4 id="symbol-information-tips-and-completion">Symbol Information Tips and Completion</h4>
+<p>Completion suggestions that include local variables and global symbols. Keywords provide corresponding usage examples; global symbol information offers more detailed internal information, such as member variables, member methods, and static methods.</p>
+<p><img src="/images/codefuse-query/toolchain07.gif" alt=""></p>
+<ul>
+<li>Keyword completion and usage example tips</li>
+<li>Local variable type information and symbol completion</li>
+<li><code>.</code> followed by symbol information and completion</li>
+<li><code>::</code> followed by symbol information and completion</li>
+<li>Annotation usage example tips</li>
+<li>Global symbol type information (internal structure, member methods, static methods)</li>
+</ul>
+<h4 id="go-to-definition">Go to Definition</h4>
+<p>You can jump to definitions with a right-click or <code>ctrl</code>/<code>command</code>+<code>left click</code> to go directly to the exact symbol definition location.</p>
+<p><img src="/images/codefuse-query/toolchain08.gif" alt=""></p>
+<h4 id="code-snippets-snippets">Code Snippets (Snippets)</h4>
+<p>The extension provides some code snippets to quickly write Gödel 1.0/script code.</p>
+<p><img src="/images/codefuse-query/toolchain09.gif" alt=""></p>
+<h3 id="gödelscript-runner">GödelScript Runner</h3>
+<p>Use after setting the Sparrow CLI path in the extension. The database needs to be loaded before running the script. For how to generate a database, refer to Section 3.4, Running, in the data extraction part.</p>
+<h4 id="running-scripts">Running Scripts</h4>
+<p><img src="/images/codefuse-query/toolchain10.gif" alt="panel.gif">
+There are four different script running buttons provided:</p>
+<ol>
+<li>Right-click to execute at the script you want to run.</li>
+<li>Choose <code>Run GödelScript</code> on the extension <code>GodelScript Runner</code> panel.</li>
+<li>Choose <code>Run</code> on the extension <code>GodelScript Runner Setting</code> panel.</li>
+<li>Click the run button at the top right of the extension <code>GodelScript Runner Setting</code> panel.</li>
+</ol>
+<h4 id="database-folder-loading">Database Folder Loading</h4>
+<ol>
+<li>Right-click at the script you want to run and choose the folder containing the database to load.</li>
+<li>Choose <code>Load Database Directory</code> on the extension <code>GodelScript Runner</code> panel.</li>
+<li>Choose <code>Database</code> on the extension <code>GodelScript Runner Setting</code> panel.</li>
+<li>Click the database load button at the top right of the extension <code>GodelScript Runner Setting</code> panel.</li>
+</ol>
+<h2 id="extension-settings">Extension Settings</h2>
+<h3 id="coref-ast-viewer-settings">COREF AST Viewer Settings</h3>
+<ul>
+<li><code>corefASTViewer.sparrowCliRoot</code>
+<ul>
+<li>Specify the root directory of Sparrow CLI, referring to Section 3 of the installation part.</li>
+</ul>
+</li>
+</ul>
+<h3 id="gödel-language-server-settings">Gödel Language Server Settings</h3>
+<p>When the extension starts, a prompt will pop up if any one of the following two items is not set. Clicking the <code>configure</code> button will redirect to the respective configuration page.</p>
+<ul>
+<li><code>godelScript.executablePath</code>
+<ul>
+<li>Used to specify the executable path of GödelScript, default is empty. Please replace with the actual absolute path of the GödelScript executable when needed.</li>
+<li>If Sparrow CLI is already downloaded, then the GödelScript executable file is <code>[sparrow cli root]/godel-script/usr/bin/godel</code>.</li>
+</ul>
+</li>
+<li><code>godelScript.libraryDirectoryPath</code>
+<ul>
+<li>Used to specify the library folder path of GödelScript, default is empty. Please replace with the absolute path of the GödelScript library folder when needed.</li>
+<li>If Sparrow CLI is already downloaded, then the library folder path is <code>[sparrow cli root]/lib-1.0</code>.</li>
+</ul>
+</li>
+</ul>
+<h1 id="smart-assistant">Smart Assistant</h1>
+<p>Stay tuned for the opening!</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-query-godellanguage/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/codefuse-query-usercase/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#install-from-vscode-marketplace-recommand">Install from VSCode marketplace (Recommand)</a></li>
+        <li><a href="#install-from-local-via-vsix-pack">Install from local via VSIX pack</a></li>
+      </ul>
+    </li>
+    <li><a href="#environment-preparation">Environment Preparation</a></li>
+    <li><a href="#extension-features">Extension Features</a>
+      <ul>
+        <li><a href="#coref-ast-viewer">COREF AST Viewer</a></li>
+        <li><a href="#gödel-language-server-features">Gödel Language Server Features</a></li>
+        <li><a href="#gödelscript-runner">GödelScript Runner</a></li>
+      </ul>
+    </li>
+    <li><a href="#extension-settings">Extension Settings</a>
+      <ul>
+        <li><a href="#coref-ast-viewer-settings">COREF AST Viewer Settings</a></li>
+        <li><a href="#gödel-language-server-settings">Gödel Language Server Settings</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

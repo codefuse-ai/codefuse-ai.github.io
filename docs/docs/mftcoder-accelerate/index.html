@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>MFTCoder-accelerate: Training Framework with Accelerate and DeepSpeed/FSDP · CodeFuse-AI</title>
+
+<link rel="canonical" href="/docs/mftcoder-accelerate/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/mftcoder-accelerate/">English</a></li>
+          
+          <li role="menuitem"><a href="/docs/mftcoder-accelerate-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage/">
+            
+              GodelLanguage
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain/">
+            
+              Toolchain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase/">
+            
+              UserCase
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/docs/mftcoder-accelerate/">
+            
+              Accelerate &#43; DeepSpeed/FSDP Framework
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch/">
+            
+              Atorch Framework
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature/">
+            
+              Feature
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config/">
+            
+              Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release/">
+            
+              Release Note
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/llm-configuration/">
+            
+              LLM-Configuration
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train/">
+            
+              TrainDetail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/data/">
+            
+              Data
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>MFTCoder-accelerate: Training Framework with Accelerate and DeepSpeed/FSDP</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <p><a href="https://huggingface.co/codefuse-ai"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Huggingface%20Repo-green.svg" alt="Generic badge" target="_blank"></a>
+<a href="https://github.com/codefuse-ai/MFTCoder/blob/main/LICENSE" target="_blank">
+<img alt="GitHub" src="https://img.shields.io/github/license/huggingface/transformers.svg?color=blue">
+</a></p>
+<p><a href="/docs/mftcoder-accelerate-zh">[中文]</a> [<strong>English</strong>]</p>
+<h2 id="1-updates">1. Updates</h2>
+<p>🔥 MFTCoder-accelerate supports Full-parameters/LoRA using accelerate + FSDP Framework;</p>
+<p>🔥 MFTCoder-accelerate supports MFT/SFT on more new mainstream open-source base models: mistral, mixtral-8x7b(Mixture of Experts), deepseek, chatglm3;</p>
+<p>🔥 MFTCoder-accelerate supports Self-Paced Loss for Convergence Balance;</p>
+<p>🔥 MFTCoder-accelerate supports Full-parameters/QLoRA/LoRA using accelerate + DeepSpeed Framework;</p>
+<p>🔥 MFTCoder-accelerate supports Multitask Fine-Tuning(MFT), which is able to balance diffenrent tasks in data level.</p>
+<p>🔥 MFTCoder-accelerate supports finetuning most of mainstream open-source base models: codellama, llama2, llama, starcoder, codegeex2, chatglm2, qwen.</p>
+<h2 id="2-data-format">2. Data Format</h2>
+<h3 id="21-training-data-format">2.1 Training Data Format</h3>
+<p>The training data is required to be a uniformed JSONL format, in which each line of data has the following &ldquo;chatML&rdquo;-style JSON format. The &ldquo;chat_rounds&rdquo; field is required, and other fields can be added or removed based on specific needs.
+The reason why we selected &ldquo;chatML&rdquo; style as our training and inference data format is that &ldquo;chatML&rdquo; style is compatible with both &ldquo;conversation&rdquo; and &ldquo;instruction/response&rdquo; scenarios.</p>
+<p>For the keys of roles in &ldquo;chat_rounds&rdquo;, you could use &ldquo;system/human/bot&rdquo; tuple or &ldquo;system/user/assistant&rdquo; tuple.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data_name&#34;</span><span class="p">:</span><span class="s2">&#34;code-helper&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;chat_rounds&#34;</span><span class="p">:[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;system&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;You are a expert in coding and help answer code questions&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;human&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;Write a python function of quick sort&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;bot&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;Below is the function of quick sort: ...&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;human&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;Explain the code&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;bot&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;OK, this code ...&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="22-default-inference-data-format">2.2 Default Inference Data Format</h3>
+<p>Inference data format is the real string format consumed by tokenizers and then LLMs. It is also the string format to which the training data is converted before tokenization.
+The default inference data format contains strings concatenated by conversation data(system, human and bot contents) in the training data format.
+It is used as the data &ldquo;seen&rdquo;(before tokenization) by the model in training process.
+It is used as input during the inference process as well.
+Here is an example format of the inference string:</p>
+<pre tabindex="0"><code>&#34;&#34;&#34;
+&lt;s&gt;system
+System instruction
+&lt;s&gt;human
+User 1st round input
+&lt;s&gt;bot
+Assistant 1st round output{EOS_TOKEN}
+&lt;s&gt;human
+User 2nd round input
+&lt;s&gt;bot
+Assistant 2nd round output{EOS_TOKEN}
+...
+...
+...
+&lt;s&gt;human
+User nth round input
+&lt;s&gt;bot
+{Assistant output to be genreated}{EOS_TOKEN}
+&#34;&#34;&#34;
+</code></pre><p>When applying inference, you always make your input string end with <code>&lt;s&gt;bot\n</code> to request the model generating answers.</p>
+<h2 id="3-model-training">3. Model Training</h2>
+<p>Currently, the &ldquo;MFTCoder-accelerate&rdquo; codebase supports Full-parameters/LoRA/QLoR along with Multi-Task FineTuning(MFT).
+In theory, this project can be used to train any publicly available model in the HuggingFace Format.</p>
+<p>Here are some excellent pre-trained models weights available on Huggingface that can be finetuned with this codebase:</p>
+<p>🤗 <a href="https://huggingface.co/codellama/CodeLlama-34b-Python-hf" target="_blank">Latest code pre-trained SOTA, CodeLlama-34b-Python</a> : code-llama-34b, code-llama-34b-python, a new SOTA base model.</p>
+<p>🤗 <a href="https://huggingface.co/bigcode/starcoder" target="_blank">Best 10B level pre-trained Code LLM, Starcoder:</a> wizardCoder-15B, PanGu-coder2, and other previous SOTA were trained on it.</p>
+<p>🤗 <a href="https://huggingface.co/Qwen/Qwen-7B" target="_blank">Multilingual powerhouse, Qwen-7b</a>: Suitable for multilingual tasks, including Chinese tasks, for instruction fine-tuning.</p>
+<p><strong>mftcoder_accelerate directory structure</strong></p>
+<pre tabindex="0"><code>mftcoder_accelerate
+       |
+       src
+          configs
+          |
+          data
+          |
+          model
+          |
+          *pefts*
+          |
+          tokenizer
+          |
+          utils
+       |
+       evals
+</code></pre><p>我们将训练中使用的各种组件抽取出来，以便后续的扩展和优化， 详见<code>src</code>目录下的实现。</p>
+<p>训练入口文件是<code>mftcoder_accelerate/src/pefts/mft_accelerate.py</code></p>
+<p>参数配置存储在<code>mftcoder_accelerate/src/configs</code>目录下，方便统一管理和更改。</p>
+<p><strong><em>所以，在你开启训练之前，请进入src目录</em></strong></p>
+<pre tabindex="0"><code>cd mftcoder_accelerate/src
+</code></pre><p>You can find the implementations in the <code>mftcoder_accelerate/src</code> directory.
+The entry directory for fine-tuning training is <code>mftcoder_accelerate/src</code>, and the entry file for training is <code>mftcoder_accelerate/src/pefts/mft_accelerate.py</code>.
+Configurations are stored in the <code>mftcoder_accelerate/src/configs</code> directory for easy management and modification.</p>
+<p><strong><em>As a result, before you start training, you should first change your dir by</em></strong></p>
+<pre tabindex="0"><code>cd mftcoder_accelerate/src
+</code></pre><h3 id="31-tokenization">3.1 Tokenization</h3>
+<p>During training, we concatenate multi-turn dialogues into the following format (also known as the inference data format mentioned before) and then tokenize it.</p>
+<p>In default format, <code>&lt;s&gt;human\n</code> starts the user&rsquo;s input (i.e., prompt),<code>&lt;s&gt;bot\n</code> starts the assistant&rsquo;s output (i.e., response)</p>
+<p><code>{EOS_TOKEN}</code> represents the proper eos_token.
+We have different eos_tokens in <code>src/pefts/model_mapping.py</code> which fits different base models.</p>
+<p>Here is a visionable example of the training data after formatting:</p>
+<pre tabindex="0"><code>f&#34;&lt;s&gt;human\n{input1}&lt;s&gt;bot\n{target1}{EOS_TOKEN}\n&lt;s&gt;human\n{input2}&lt;s&gt;bot\ntarget2{EOS_TOKEN}\n&#34;
+</code></pre><p>During the calculation of loss, we use a <code>loss mask</code> to ensure that the loss from the input part does not contribute to parameter updates. Only the loss from the <code>target{EOS_TOKEN}</code> part is used for updating parameters.
+This approach takes full advantage of the benefits of model parallelism, making training more efficient. It also leverages the characteristic of decoder-only models with left-to-right attention.
+By including all target parts from multiple turns in a single training iteration, the training process becomes more efficient.</p>
+<h3 id="32-loraqlora">3.2 LoRA/QLoRA</h3>
+<h4 id="intro">Intro</h4>
+<p>You can refer to the Lora paper for details about LoRA：<a href="https://arxiv.org/pdf/2106.09685.pdf" target="_blank">LORA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS</a></p>
+<p>You can refer to the Qlora paper for details about QLoRA：<a href="https://arxiv.org/pdf/2305.14314.pdf" target="_blank">QLORA: Efficient Finetuning of Quantized LLMs</a></p>
+<p>QLoRA (Quantized LoRA) is a method that combines 4-bit nf4 quantization and additional adapters to achieve a balance between reducing GPU memory consumption and approaching the performance of full-parameter fine-tuning.</p>
+<p>According to the QLoRA paper, this method enables fine-tuning of a 33B model on a single V100 GPU while achieving performance close to that of full-parameter fine-tuning.</p>
+<p>To perform LoRA/QLoRA fine-tuning, you can execute the following command:</p>
+<h4 id="launch-via-deepspeed">Launch via Deepspeed</h4>
+<p>DeepSpeed config in accelerate_ds_config.yaml.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">accelerate launch --config_file accelerate_ds_config.yaml pefts/mft_accelerate.py --train_config configs/xxx_train_config.json --distributed_type <span class="s2">&#34;DeepSpeed&#34;</span> 
+</span></span></code></pre></div><p>or
+DeepSpeed config in command line arguments</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sh ds_single_launch.sh
+</span></span></code></pre></div><h4 id="launch-via-fsdp">Launch via FSDP</h4>
+<p>FSDP config in accelerate_fsdp_config.yaml.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">accelerate launch --config_file accelerate_fsdp_config.yaml pefts/mft_accelerate.py --train_config configs/xxx_train_config.json --distributed_type <span class="s2">&#34;FSDP&#34;</span>
+</span></span></code></pre></div><p>or
+FSDP config in command line arguments</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sh ds_single_launch.sh
+</span></span></code></pre></div><h4 id="traing-arguments">Traing Arguments</h4>
+<p>All arguments allowed in ***_train_config.josn are defined in <code>arguments.py</code>.</p>
+<p>Frequently used arguments are provided in <code>configs/***_train_config</code> and explained as follows. You can modify these parameters according to your needs:</p>
+<ul>
+<li>
+<p><strong>load_raw_dataset</strong>:  Need to be true at present. Only JSONL format is supported.</p>
+</li>
+<li>
+<p><strong>data_paths</strong>: Input data paths in a String of list format, e.g., &ldquo;[path1,path2,path3]&rdquo;. Each path represents a task directory and each task directory contains one or more JSONL data files.</p>
+</li>
+<li>
+<p><strong>output_dir</strong>: Training output directory to store checkpoints, Lora adapter, etc.</p>
+</li>
+<li>
+<p><strong>tb_dir</strong>: TensorBoard directory to store logs, metrics, etc.</p>
+</li>
+<li>
+<p><strong>model_type</strong>: Type of the model to train, e.g., &ldquo;mixtral | llama | starcoder | chatglm2 | qwen | gpt_neox&rdquo;.</p>
+</li>
+<li>
+<p><strong>attn_implementation</strong>: &ldquo;flash_attention_2&rdquo; or &ldquo;eager&rdquo; or &ldquo;sdpa&rdquo;, worked when model is supported by transformers officially</p>
+</li>
+<li>
+<p><strong>peft_type</strong>: null or  &ldquo;lora&rdquo; or &ldquo;qlora&rdquo;. null for full-params training</p>
+</li>
+<li>
+<p><strong>lora_rank</strong>: Rank value for Lora.</p>
+</li>
+<li>
+<p><strong>lora_alpha</strong>: Alpha value for Lora.</p>
+</li>
+<li>
+<p><strong>lora_dropout</strong>: Dropout rate for Lora.</p>
+</li>
+<li>
+<p><strong>target_modules</strong>: List of target modules in lora, we have default values if None</p>
+</li>
+<li>
+<p><strong>quantization</strong>: &ldquo;4bit&rdquo; for QLoRA/ null for LoRA and Full-params training.</p>
+</li>
+<li>
+<p><strong>pretrained_model_path</strong>: Local/Shared disk path or model name on HuggingFace for the pre-trained model.</p>
+</li>
+<li>
+<p><strong>weighted_loss_mode</strong>: Loss weighting method for multitask training. &ldquo;case3&rdquo; is recommended at present, &ldquo;self-paced&rdquo; is supported but need tuning of hyperparameters.</p>
+</li>
+<li>
+<p><strong>padding_mode</strong>: The way tokenized data is set. &ldquo;padding&rdquo; means padding for each sample to seq_length, &ldquo;pack&rdquo; means putting samples into seq_length as many as possible.</p>
+</li>
+<li>
+<p><strong>num_train_epochs</strong>: Number of training epochs.</p>
+</li>
+<li>
+<p><strong>per_device_train_batch_size</strong>: Batch size per GPU for training.</p>
+</li>
+<li>
+<p><strong>per_device_eval_batch_size</strong>: Batch size per GPU for evaluation.</p>
+</li>
+<li>
+<p><strong>gradient_accumulation_steps</strong>: Number of gradient accumulation steps. Global batch size is calculated as num_gpus * per_device_train_batch_size * gradient_accumulation_steps.</p>
+</li>
+<li>
+<p><strong>learning_rate</strong>: Initial Learning rate. For full-parameter fine-tuning, it is recommended to use a smaller value such as 1e-5 or 5e-6. For QLoRA, a larger learning rate is generally used, such as 1e-4 or 2e-4.</p>
+</li>
+<li>
+<p><strong>min_lr</strong>: Minimum learning rate. Usually set to one-tenth of the learning rate.</p>
+</li>
+<li>
+<p><strong>seq_length</strong>: Maximum input sequence length during training.</p>
+</li>
+<li>
+<p><strong>log_interval</strong>: Log training loss every <code>log_interval</code> steps.</p>
+</li>
+<li>
+<p><strong>checkpointing_steps</strong>: Save a checkpoint every <code>checkpointing_steps</code> steps.</p>
+</li>
+<li>
+<p><strong>evaluation_steps</strong>: Evaluate on the validation set every <code>evaluation_steps</code> steps.</p>
+</li>
+<li>
+<p><strong>early_stopping</strong>: Enable early stopping or not.</p>
+</li>
+<li>
+<p><strong>early_stopping_stall_num</strong>: Number of evaluation points without improvement which triggers early stopping.</p>
+</li>
+<li>
+<p><strong>lr_scheduler_type</strong>: Type of learning rate scheduler. &ldquo;cosine&rdquo; is a good choice already.</p>
+</li>
+<li>
+<p><strong>num_warmup_steps</strong>: Number of warm-up steps to gradually increase the learning rate.</p>
+</li>
+<li>
+<p><strong>seed</strong>: Random seed for reproducibility.</p>
+</li>
+<li>
+<p><strong>saving_limit</strong>: ckpt saving limit num, must be set in Full-parameter training.</p>
+</li>
+<li>
+<p><strong>role_markers</strong>: {&ldquo;system&rdquo;: &ldquo;&lt;s&gt;system\n&rdquo;, &ldquo;user&rdquo;: &ldquo;&lt;s&gt;human\n&rdquo;, &ldquo;assistant&rdquo;: &ldquo;&lt;s&gt;bot\n} as default(null). You could set your preferred role_markers as the templates startting &ldquo;system&rdquo;, &ldquo;user&rdquo; and &ldquo;assistant&rdquo;. e.g. {&ldquo;system&rdquo;: &ldquo;### System:\n&rdquo;, &ldquo;user&rdquo;: &ldquo;### Instruction:\n&rdquo;, &ldquo;assistant&rdquo;: &ldquo;### Response:\n&rdquo;}</p>
+</li>
+</ul>
+<h2 id="4-model-usage">4. Model Usage</h2>
+<h3 id="41-merge-adaptor-weights">4.1 Merge Adaptor weights</h3>
+<p>Using LoRA or QLoRA for training, this project only saves the weights and configuration files of the adapters.
+To merge the adapter weights with the base model:</p>
+<pre tabindex="0"><code>python pefts/merge_base_and_lora_to_hf.py \
+    --base_model_or_path model_path \
+    --adaptor_path lora_adapter_path \
+    --model_type model_type \
+    --merged_output_path output_path
+</code></pre><h3 id="42-inference-demo">4.2 Inference demo</h3>
+<p>Here is the script for inference on models trained by MFTCoder since v0.3.0, which is compatible with most HuggingFace models:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AutoTokenizer</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">AutoModelForCausalLM</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&#34;codefuse-ai/CodeFuse-Deepseek-33B&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">padding_side</span><span class="o">=</span><span class="s2">&#34;left&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token_id</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">convert_tokens_to_ids</span><span class="p">(</span><span class="s2">&#34;&lt;｜end▁of▁sentence｜&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token_id</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HUMAN_ROLE_START_TAG</span> <span class="o">=</span> <span class="s2">&#34;&lt;s&gt;human</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">BOT_ROLE_START_TAG</span> <span class="o">=</span> <span class="s2">&#34;&lt;s&gt;bot</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;write a python function of quick sort.&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">HUMAN_ROLE_START_TAG</span><span class="si">}{</span><span class="n">text</span><span class="si">}{</span><span class="n">BOT_ROLE_START_TAG</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_special_tokens</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&#34;input_ids&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">attention_mask</span><span class="o">=</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&#34;attention_mask&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top_p</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">eos_token_id</span><span class="o">=</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token_id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pad_token_id</span><span class="o">=</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">pad_token_id</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gen_text</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">batch_decode</span><span class="p">(</span><span class="n">outputs</span><span class="p">[:,</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&#34;input_ids&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">gen_text</span><span class="p">)</span>
+</span></span></code></pre></div><p>Indeed, the parameters top_p, temperature, repetition_penalty, do_sample, etc., have a significant impact on the model&rsquo;s generation output.
+You can modify these parameters based on your specific use case.</p>
+<p>In code generation scenarios, if you are using the sampling mode (do_sample=True), the following parameter settings can yield good results for the Pass@1 metric:</p>
+<p>top_p: Set a higher value, such as 0.95, to retain highly probable generated words. This helps ensure more accurate and fluent generation results.</p>
+<p>temperature: Set a lower value, such as 0.1, to reduce randomness. Lower temperature values make the generation output more deterministic.</p>
+<p>These parameter combinations can control the diversity of the generated outputs while maintaining naturalness. Additionally, you can adjust other related parameters, such as repetition_penalty, to reduce repetition in the generated results.</p>
+<p>If you choose the non-sampling mode (do_sample=False), you can consider the following parameter settings:</p>
+<p>beam_num: Set a smaller value such as 1 or 3. <code>beam_num=1</code> represents greedy decoding, which selects the most probable single generated word. <code>beam_num=3</code> represents beam search mode, which considers multiple potential generation paths and chooses the best path among them.</p>
+<h2 id="5-faq">5. FAQ</h2>
+<h4 id="q1what-should-i-do-when-cuda-oom-happens">Q1：What should I do when cuda OOM happens？</h4>
+<p>If OOM happened，you can reduce parameters such as per_device_train_batch_size and seq_length. Since you are dealing with large models (6B, 13B, 34B, 70B, etc.), you are already using gradient checkpointing technology by default, which significantly reduces GPU memory consumption.
+However, this may slightly slow down the training speed.</p>
+<h4 id="q2install-packages">Q2：install packages</h4>
+<p>Please refer to init_env.sh and requirements.txt
+We highly recommend you install Flash Attention 2 (flash_attn&gt;=2.1.0, 2.3.6 used by us) first to get memory-efficient and fast training.</p>
+<h4 id="q3how-should-i-specify-the-gpus-for-training">Q3：How should I specify the GPUs for training？</h4>
+<p>You can specify the visiable GPUs as below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span>0,1 accelerate launch --config_file accelerate_ds_config.yaml pefts/mft_accelerate.py --train_config configs/xxx_train_config.json
+</span></span></code></pre></div><h4 id="q4whats-is-a-recommended-distributed-training">Q4：Whats is a recommended Distributed Training?</h4>
+<p>For LoRA/QLoRA, we recommend DeepSpeed(ZeRO2) as the underlying framework, because it is easy and stable to use, moreover it is more compatable for different settings.
+And FSDP does not support Quantization(integer type in training).</p>
+<p>For Full-parameter finetuning, FSDP is usually faster, and may help you with very large models by sharding parameters and gradients.</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/mftcoder-quickstart/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/mftcoder-atorch/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-updates">1. Updates</a></li>
+    <li><a href="#2-data-format">2. Data Format</a>
+      <ul>
+        <li><a href="#21-training-data-format">2.1 Training Data Format</a></li>
+        <li><a href="#22-default-inference-data-format">2.2 Default Inference Data Format</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-model-training">3. Model Training</a>
+      <ul>
+        <li><a href="#31-tokenization">3.1 Tokenization</a></li>
+        <li><a href="#32-loraqlora">3.2 LoRA/QLoRA</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-model-usage">4. Model Usage</a>
+      <ul>
+        <li><a href="#41-merge-adaptor-weights">4.1 Merge Adaptor weights</a></li>
+        <li><a href="#42-inference-demo">4.2 Inference demo</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-faq">5. FAQ</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

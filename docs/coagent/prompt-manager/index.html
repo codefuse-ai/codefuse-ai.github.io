@@ -50,6 +50,7 @@
   
   
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   </head>
   <body>
     <header id="site-header">
@@ -81,11 +82,7 @@
       </button>
       <ul role="menu" class="dropdown-menu">
         
-          
-          <li role="menuitem"><a href="/coagent/prompt-manager/">English</a></li>
-          
-          <li role="menuitem"><a href="/zh/coagent/prompt-%E7%AE%A1%E7%90%86%E5%99%A8/">中文</a></li>
-          
+          <li role="menuitem"><a href="#">English</a></li>
         
       </ul>
     </div>
@@ -105,7 +102,7 @@
           <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
         
           
-          <li><a href="/coagent"  class="active"><i class='icon icon-book'></i>CoAgent</a></li>
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
         
           
           <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
@@ -124,17 +121,17 @@
     <aside id="sidebar">
   <span class="btn-close"><i class="icon icon-close"></i></span>
 
-  <div class="sticky"><strong class="sidebar-section">❤️ CoAgent</strong>
+  <div class="sticky"><strong class="sidebar-section">❤️ MuAgent</strong>
           
-          <a class="sidebar-link " href="/coagent/coagent-overview/">
+          <a class="sidebar-link " href="/muagent/muagent-overview/">
             
-              CoAgent Overview
+              MuAgent Overview
             
           </a>
 
         
           
-          <a class="sidebar-link " href="/coagent/agent-flow/">
+          <a class="sidebar-link " href="/muagent/agent-flow/">
             
               Agent Flow
             
@@ -142,15 +139,7 @@
 
         
           
-          <a class="sidebar-link current" href="/coagent/prompt-manager/">
-            
-              Prompt Manager
-            
-          </a>
-
-        
-          
-          <a class="sidebar-link " href="/coagent/quick-start/">
+          <a class="sidebar-link " href="/muagent/quick-start/">
             
               Quick Start
             
@@ -158,49 +147,81 @@
 
         <strong class="sidebar-section">Modules</strong>
           
-          <a class="sidebar-link " href="/coagent/connector-agent/">
+          <a class="sidebar-link " href="/muagent/connector-agent/">
             
-              Connector-Agent
-            
-          </a>
-
-        
-          
-          <a class="sidebar-link " href="/coagent/connector-chain/">
-            
-              Connector-Chain
+              Agent Builder
             
           </a>
 
         
           
-          <a class="sidebar-link " href="/coagent/connector-phase/">
+          <a class="sidebar-link " href="/muagent/connector-chain/">
             
-              Connector-Phase
-            
-          </a>
-
-        
-          
-          <a class="sidebar-link " href="/coagent/connector-prompt/">
-            
-              Connector-Prompt
+              Chain Builder
             
           </a>
 
         
           
-          <a class="sidebar-link " href="/coagent/connector-memory/">
+          <a class="sidebar-link " href="/muagent/connector-phase/">
             
-              Connector-Memory
+              Phase Builder
             
           </a>
 
         
           
-          <a class="sidebar-link " href="/coagent/customed-examples/">
+          <a class="sidebar-link " href="/muagent/connector-prompt/">
             
-              Customed Examples
+              Create Prompt
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-memory/">
+            
+              Memory Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/custom-examples/">
+            
+              Custom Examples
+            
+          </a>
+
+        <strong class="sidebar-section">llm_models</strong>
+          
+          <a class="sidebar-link " href="/muagent/llm-model-config/">
+            
+              LLM Model Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/embedding-model-config/">
+            
+              Embedding Model Config
+            
+          </a>
+
+        <strong class="sidebar-section">Tools</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-tool/">
+            
+              Custom tool
+            
+          </a>
+
+        <strong class="sidebar-section">Retrieval</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-retrieval/">
+            
+              Custom retrieval
             
           </a>
 
@@ -306,6 +327,10 @@
     
         
 
+        
+          
+        
+
       
     
         
@@ -314,20 +339,89 @@
           
         
 
-        
-        
       
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
 
 
 <footer id="article-footer">
-  <time id="article-last-updated" datetime="0001-01-01"><i class="icon icon-calendar"></i>&nbsp;Last updated: 0001-01-01</time>
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
 
   
-    <a id="article-prev-link" href="/coagent/agent-flow/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+    <a id="article-prev-link" href="/muagent/custom-retrieval/"><i class="icon icon-prev icon-colored"></i> Prev</a>
   
 
-  
-    <a id="article-next-link"  href="/coagent/quick-start/">Next <i class="icon icon-next icon-colored"></i></a>
   
 </footer>
     </article>
@@ -416,7 +510,7 @@
 
 <script type="application/javascript">
     if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js?2024-01-25')
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
             .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
     }
 </script>

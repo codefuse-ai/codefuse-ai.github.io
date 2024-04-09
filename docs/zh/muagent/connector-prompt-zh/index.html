@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs）， 涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。">
+<meta name="author" content="codefuse-ai">
+
+<title>Connector Prompt · CodeFuse-AI</title>
+
+<link rel="canonical" href="/zh/muagent/connector-prompt-zh/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/muagent/connector-prompt/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/muagent/connector-prompt-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent"  class="active"><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ MuAgent</strong>
+          
+          <a class="sidebar-link " href="/muagent/muagent-%E6%A6%82%E8%A7%88/">
+            
+              MuAgent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/agent-%E7%BC%96%E6%8E%92/">
+            
+              Agents Flow
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">Connector</strong>
+          
+          <a class="sidebar-link " href="/muagent/connector-agent-zh/">
+            
+              Agent构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-chain-zh/">
+            
+              Chain构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-phase-zh/">
+            
+              Phase构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/muagent/connector-prompt-zh/">
+            
+              Prompt编写
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-memory-zh/">
+            
+              Memory构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/custom-examples-zh/">
+            
+              自定义示例
+            
+          </a>
+
+        <strong class="sidebar-section">llm_models</strong>
+          
+          <a class="sidebar-link " href="/muagent/llm-model-config-zh/">
+            
+              LLM 配置
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/embedding-model-config-zh/">
+            
+              Embedding 配置
+            
+          </a>
+
+        <strong class="sidebar-section">Tools</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-tool-zh/">
+            
+              自定义 Tool
+            
+          </a>
+
+        <strong class="sidebar-section">Retrieval</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-retrieval-zh/">
+            
+              自定义 Retrieval
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Connector Prompt</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="提示管理器prompt-manager">提示管理器（Prompt Manager）</h2>
+<p>管理多智能体链路中的prompt创建</p>
+<ul>
+<li>快速配置：采用预设的处理函数，用户仅需通过定义智能体的输入输出即可轻松配置，实现多智能体的prompt快速组装和配置。</li>
+<li>自定义支持：允许用户自定义prompt内部各模块的处理逻辑，以达到个性化的智能体prompt实现。</li>
+</ul>
+<h3 id="prompt预设模板结构">Prompt预设模板结构</h3>
+<ul>
+<li>Agent Profile：此部分涉及到智能体的基础描述，包括但不限于代理的类型、功能和指令集。用户可以在这里设置智能体的基本属性，确保其行为与预期相符。</li>
+<li>Context：上下文信息，给智能体做参考，帮助智能体更好的进行决策。
+<ul>
+<li>Tool Information：此部分为智能体提供了一套可用工具的清单，智能体可以根据当前的场景需求从中挑选合适的工具以辅助其执行任务。</li>
+<li>Reference Documents：这里可以包含代理参考使用的文档或代码片段，以便于它在处理请求时能够参照相关资料。</li>
+<li>Session Records：在进行多轮对话时，此部分会记录之前的交谈内容，确保智能体能够在上下文中保持连贯性。</li>
+</ul>
+</li>
+<li>Response Output Format：用户可以在此设置智能体的输出格式，以确保生成的响应满足特定的格式要求，包括结构、语法等。</li>
+</ul>
+<h2 id="prompt-的标准结构">Prompt 的标准结构</h2>
+<p>在整个Prompt的整个结构中，我们需要去定义三个部分</p>
+<ul>
+<li>Agent Profil</li>
+<li>Input Format</li>
+<li>Response Output Format</li>
+</ul>
+<pre tabindex="0"><code>#### Agent Profile
+
+Agent Description ...
+
+#### Input Format
+
+**Origin Query:** the initial question or objective that the user wanted to achieve
+
+**Context:** the current status and history of the tasks to determine if Origin Query has been achieved.
+
+#### Response Output Format
+**Action Status:** finished or continued
+If it&#39;s &#39;finished&#39;, the context can answer the origin query.
+If it&#39;s &#39;continued&#39;, the context cant answer the origin query.
+
+**REASON:** Justify the decision of choosing &#39;finished&#39; and &#39;continued&#39; by evaluating the progress step by step.
+Consider all relevant information. If the tasks were aimed at an ongoing process, assess whether it has reached a satisfactory conclusion.
+</code></pre><p>其中，我们整合了部分 <code>Input Format</code> 的通用操作，内置了一部分字段和操作流程,形成通用的配置化操作。</p>
+<p>未来我们会也会进一步将 Agent Profile和Response Output Format的部分，实现可配置化操作，降低Prompt编写难度</p>
+<h3 id="自定义-agent">自定义 Agent</h3>
+<ul>
+<li>有自定义字段需求，根据实际需求完成构造</li>
+</ul>
+<pre tabindex="0"><code>class CodeGenDocer(BaseAgent):
+
+    def start_action_step(self, message: Message) -&gt; Message:
+        &#39;&#39;&#39;do action before agent predict &#39;&#39;&#39;
+        # 根据问题获取代码片段和节点信息
+        action_json = CodeRetrievalSingle.run(message.code_engine_name, message.input_query, llm_config=self.llm_config, 
+                                              embed_config=self.embed_config, local_graph_path=message.local_graph_path, use_nh=message.use_nh,search_type=&#34;tag&#34;)
+        current_vertex = action_json[&#39;vertex&#39;]
+        message.customed_kargs[&#34;Code Snippet&#34;] = action_json[&#34;code&#34;]
+        message.customed_kargs[&#39;Current_Vertex&#39;] = current_vertex
+        return message
+    
+</code></pre><h3 id="pre_print-功能">pre_print 功能</h3>
+<p>在我们构建phase、chain或者agent之后，可以通过函数的预打印功能，实现agents链路确认，避免在执行后才发现问题，可提前进行debug</p>
+<pre tabindex="0"><code>from muagent.base_configs.env_config import JUPYTER_WORK_PATH
+from muagent.connector.agents import BaseAgent, ReactAgent, ExecutorAgent, SelectorAgent
+from muagent.connector.chains import BaseChain
+from muagent.connector.schema import Role, Message, ChainConfig
+from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
+from muagent.tools import toLangchainTools, TOOL_DICT, TOOL_SETS
+
+
+import os, sys
+
+api_key = &#34;sk-xxx&#34;
+api_base_url= &#34;https://api.openai.com/v1&#34;
+model_name = &#34;gpt-3.5-turbo&#34;
+embed_model = &#34;{{embed_model_name}}&#34;
+embed_model_path = &#34;{{embed_model_path}}&#34;
+#
+os.environ[&#34;DUCKDUCKGO_PROXY&#34;] = os.environ.get(&#34;DUCKDUCKGO_PROXY&#34;) or &#34;socks5://127.0.0.1:13659&#34;
+
+llm_config = LLMConfig(
+    model_name=&#34;gpt-4&#34;, api_key=api_key,  api_base_url=api_base_url, temperature=0.3
+)
+embed_config = EmbedConfig(
+    embed_engine=&#34;model&#34;, embed_model=embed_model, embed_model_path=embed_model_path
+)
+
+phase_name = &#34;baseGroupPhase&#34;
+phase = BasePhase(
+    phase_name, embed_config=embed_config, llm_config=llm_config, 
+)
+
+phase.pre_print(query)
+</code></pre><p>这里采用预定义好的链路，自定义case可见<a href="/muagent/customed-examples-zh">customed_example</a>
+<br></p>
+<pre tabindex="0"><code>&gt;&gt;&gt; 完整信息确认 muagent.connector.configs中进行确认
+
+##########################
+&lt;&lt;&lt;&lt;baseGroup&#39;s prompt&gt;&gt;&gt;&gt;
+##########################
+
+### Agent Profile
+Your goal is to response according the Context Data&#39;s information with the role that will best facilitate a solution, taking into account all relevant context (Context) provided.
+When you need to select the appropriate role for handling a user&#39;s query, carefully read the provided role names, role descriptions and tool list.
+ATTENTION: response carefully referenced &#34;Response Output Format&#34; in format.
+
+### Tool Information
+
+### Agent Infomation
+        Please ensure your selection is one of the listed roles. Available roles for selection:
+        &#34;role name: tool_react
+role description:  Agent Profile,When interacting with users, your role is to respond in a helpful and accurate manner using the tools available. Follow the steps below to ensure efficient and effective use of the tools.,Please note that all the tools you can use are listed below. You can only choose from these tools for use. ,If there are no suitable tools, please do not invent any tools. Just let the user know that you do not have suitable tools to use.,ATTENTION: The Action Status field ensures that the tools or code mentioned in the Action can be parsed smoothly. Please make sure not to omit the Action Status field when replying.,&#34;
+&#34;role name: code_react
+role description:  Agent Profile,When users need help with coding, your role is to provide precise and effective guidance.,Write the code step by step, showing only the part necessary to solve the current problem. Each reply should contain only the code required for the current step.,&#34;
+        Please ensure select the Role from agent names, such as tool_react, code_react
+
+### Context Data
+
+#### Reference Documents
+
+#### Session Records
+
+#### Current Plan
+
+### Response Output Format
+**Thoughts:** think the reason step by step about why you selecte one role
+**Role:** Select the role from agent names.
+
+### Begin!!!
+
+###################
+&lt;&lt;&lt;&lt;LLM PREDICT&gt;&gt;&gt;&gt;
+###################
+
+**Thoughts:**
+**Role:**
+
+
+###########################
+&lt;&lt;&lt;&lt;tool_react&#39;s prompt&gt;&gt;&gt;&gt;
+###########################
+### Agent Profile
+When interacting with users, your role is to respond in a helpful and accurate manner using the tools available. Follow the steps below to ensure efficient and effective use of the tools.
+Please note that all the tools you can use are listed below. You can only choose from these tools for use.
+If there are no suitable tools, please do not invent any tools. Just let the user know that you do not have suitable tools to use.
+ATTENTION: The Action Status field ensures that the tools or code mentioned in the Action can be parsed smoothly. Please make sure not to omit the Action Status field when replying.
+
+### Tool Information
+
+### Context Data
+
+#### Reference Documents
+
+#### Session Records
+
+#### Task Records
+
+### Response Output Format
+**Thoughts:** According the previous observations, plan the approach for using the tool effectively.
+...
+
+### Begin!!!
+
+###################
+&lt;&lt;&lt;&lt;LLM PREDICT&gt;&gt;&gt;&gt;
+###################
+**Thoughts:**
+**Action Status:**
+**Action:**
+**Observation:**
+**Thoughts:**
+**Action Status:**
+**Action:**
+
+###########################
+&lt;&lt;&lt;&lt;code_react&#39;s prompt&gt;&gt;&gt;&gt;
+###########################
+### Agent Profile
+When users need help with coding, your role is to provide precise and effective guidance.
+Write the code step by step, showing only the part necessary to solve the current problem. Each reply should contain only the code required for the current step.
+
+### Context Data
+
+#### Reference Documents
+
+#### Session Records
+
+### Response Output Format
+
+**Thoughts:** According the previous context, solve the problem step by step, only displaying the thought process necessary for the current step of solving the problem,
+outline the plan for executing this step.
+
+**Action Status:** Set to &#39;stopped&#39; or &#39;code_executing&#39;.
+If it&#39;s &#39;stopped&#39;, the action is to provide the final answer to the session records and executed steps.
+If it&#39;s &#39;code_executing&#39;, the action is to write the code.
+...
+
+### Begin!!!
+
+###################
+&lt;&lt;&lt;&lt;LLM PREDICT&gt;&gt;&gt;&gt;
+###################
+
+**Thoughts:**
+**Action Status:**
+**Action:**
+**Observation:**
+**Thoughts:**
+**Action Status:**
+**Action:**
+</code></pre>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/muagent/connector-phase-zh/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/muagent/connector-memory-zh/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#提示管理器prompt-manager">提示管理器（Prompt Manager）</a>
+      <ul>
+        <li><a href="#prompt预设模板结构">Prompt预设模板结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#prompt-的标准结构">Prompt 的标准结构</a>
+      <ul>
+        <li><a href="#自定义-agent">自定义 Agent</a></li>
+        <li><a href="#pre_print-功能">pre_print 功能</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

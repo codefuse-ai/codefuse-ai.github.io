@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>QuickStart · CodeFuse-AI</title>
+
+<link rel="canonical" href="/docs/test-agent-quickstart/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/test-agent-quickstart/">English</a></li>
+          
+          <li role="menuitem"><a href="/docs/test-agent-quickstart-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage/">
+            
+              GodelLanguage
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain/">
+            
+              Toolchain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase/">
+            
+              UserCase
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate/">
+            
+              Accelerate &#43; DeepSpeed/FSDP Framework
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch/">
+            
+              Atorch Framework
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link current" href="/docs/test-agent-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature/">
+            
+              Feature
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config/">
+            
+              Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release/">
+            
+              Release Note
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/llm-configuration/">
+            
+              LLM-Configuration
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train/">
+            
+              TrainDetail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/data/">
+            
+              Data
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>QuickStart</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="quickstart">QuickStart</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<h4 id="model-download">Model Download</h4>
+<p>You can get detailed information about the model and download the model files from <a href="https://modelscope.cn/models/codefuse-ai/TestGPT-7B">modelscope</a> or <a href="https://huggingface.co/codefuse-ai/TestGPT-7B" target="_blank">huggingface</a>.
+Please note:
+需要注意的是：
+If you download the model through modelscope, refer to the download instructions: <a href="(https://www.modelscope.cn/docs/%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E8%BD%BD#%E4%BD%BF%E7%94%A8Git%E4%B8%8B%E8%BD%BD%E6%A8%A1%E5%9E%8B)">Download Instructions</a>;
+If you download the model through huggingface, please make sure you have proper access to huggingface.</p>
+<h4 id="environment-installation">Environment Installation</h4>
+<ul>
+<li>python&gt;=3.8</li>
+<li>transformers==4.33.2</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">git clone https://github.com/codefuse-ai/Test-Agent
+</span></span><span class="line"><span class="cl">cd Test-Agent
+</span></span><span class="line"><span class="cl">pip install -r requirements.txt
+</span></span></code></pre></div><p>Before starting to run the TestGPT-7B model, please ensure that your execution environment has about 14GB of VRAM.</p>
+<h3 id="starting-the-service">Starting the Service</h3>
+<p>The project provides the ability to quickly set up a web UI for a more intuitive display of model interactions and effects. We can use a few simple commands to wake up the front-end page and call the model capabilities in real time. In the project directory, start the following services in order:</p>
+<p>1.<strong>Start controller</strong>
+<img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/e68ce187-c9f1-4ce8-9d59-ff9d8348d0ac" alt="controller">
+python3 -m chat.server.controller</p>
+<p>2.<strong>Start model worker</strong>
+<img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/073e4e79-4005-4c98-87f7-0eaa0b2b1e22" alt="work">
+python3 -m chat.server.model_worker &ndash;model-path models/TestGPT-7B &ndash;device mps</p>
+<p>(models/TestGPT-7B is the actual model file path)</p>
+<p>For the launch method, you can choose from several configuration options as needed:</p>
+<ul>
+<li>&ndash;device mps for enabling GPU acceleration on Mac computers (Apple Silicon or AMD GPUs);</li>
+<li>&ndash;device xpu for enabling acceleration on Intel XPU (Intel Data Center and Arc A-Series GPUs):
+<ul>
+<li>Install  <a href="https://intel.github.io/intel-extension-for-pytorch/xpu/latest/tutorials/installation.html" target="_blank">Intel Extension for PyTorch</a></li>
+<li>Set the OneAPI environment variable: source /opt/intel/oneapi/setvars.sh</li>
+</ul>
+</li>
+<li>&ndash;device npu for enabling acceleration on Huawei AI processors;
+<ul>
+<li>Install <a href="https://github.com/Ascend/pytorch" target="_blank">Ascend PyTorch Adapter</a></li>
+<li>设置CANN环境变量：source /usr/local/Ascend/ascend-toolkit/set_env.sh</li>
+</ul>
+</li>
+<li>&ndash;device cpu for running using only CPU, no GPU needed;</li>
+<li>&ndash;num-gpus 2 to specify the option of running GPUs concurrently.</li>
+</ul>
+<ol start="3">
+<li><strong>Start the web service</strong>
+python3 -m chat.server.gradio_testgpt
+<img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/340dae35-573b-4046-a3e8-e87a91453601" alt="web">
+Once the service is ready, you can open the local web service address http://0.0.0.0:7860 and see the complete front-end page. At the bottom of the page, there are two examples: 【Single-test Generation】 and 【Assert Completion】. After clicking the button, a sample text will be automatically generated in the input box. Clicking the Send button will trigger the model to run. After waiting patiently for a while (running time depends on the performance of your machine), you can see the complete answer.
+<img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/fd24274c-729b-4ce7-8763-a083b39300fb" alt="demo"></li>
+</ol>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-mft-vlm-quickstart/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/codefuse-modelcache-quickstart/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#quickstart">QuickStart</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#starting-the-service">Starting the Service</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

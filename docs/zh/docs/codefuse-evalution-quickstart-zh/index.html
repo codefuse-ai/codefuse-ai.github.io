@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>快速使用 · CodeFuse-AI</title>
+
+<link rel="canonical" href="/zh/docs/codefuse-evalution-quickstart-zh/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/codefuse-evalution-quickstart/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/docs/codefuse-evalution-quickstart-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI 整体介绍</strong>
+          
+          <a class="sidebar-link " href="/docs/%E6%A6%82%E8%A7%88/">
+            
+              概览
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI 模块</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-zh/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-zh/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-zh/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent-zh/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-zh/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-zh/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-zh/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-zh/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-zh/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction-zh/">
+            
+              基本介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage-zh/">
+            
+              查询语言介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain-zh/">
+            
+              VSCode插件
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase-zh/">
+            
+              用户案例
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction-zh/">
+            
+              基本介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate-zh/">
+            
+              Accelerate &#43; DeepSpeed/FSDP 框架篇
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch-zh/">
+            
+              Atorch框架篇
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature-zh/">
+            
+              功能特性
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config-zh/">
+            
+              最佳配置
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release-zh/">
+            
+              版本记录
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/">
+            
+              启动明细
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/">
+            
+              本地私有化&amp;大模型接口接入
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/">
+            
+              ChatBot 技术路线
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train-zh/">
+            
+              训练解析
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D/">
+            
+              数据介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link current" href="/docs/codefuse-evalution-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>快速使用</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="推理环境">推理环境：</h2>
+<p>CodeFuse-13B: python 3.8及以上版本，pytorch 2.0及以上版本，transformers 4.24.0及以上版本，CUDA 11.4及以上；</p>
+<p>CodeFuse-CodeLlama-34B: python 3.8及以上版本，pytorch2.0及以上版本，transformers==4.32.0 ，Sentencepiece，CUDA 11.4及以上。</p>
+<h2 id="评测执行环境">评测执行环境</h2>
+<p>评测生成的代码需要使用多种语言编译、运行。我们使用的各编程语言依赖及所用包的版本如下：</p>
+<table>
+<thead>
+<tr>
+<th>依赖</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>3.10.9</td>
+</tr>
+<tr>
+<td>JDK</td>
+<td>18.0.2.1</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>16.14.0</td>
+</tr>
+<tr>
+<td>js-md5</td>
+<td>0.7.3</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>11</td>
+</tr>
+<tr>
+<td>g++</td>
+<td>7.5.0</td>
+</tr>
+<tr>
+<td>Boost</td>
+<td>1.75.0</td>
+</tr>
+<tr>
+<td>OpenSSL</td>
+<td>3.0.0</td>
+</tr>
+<tr>
+<td>go</td>
+<td>1.18.4</td>
+</tr>
+<tr>
+<td>cargo</td>
+<td>1.71.1</td>
+</tr>
+</tbody>
+</table>
+<p>为了省去使用者配置这些语言环境的麻烦，我们构建了一个Docker镜像，并在其中配置了所需要的环境，你可以按照下面的指令拉取使用</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker pull registry.cn-hangzhou.aliyuncs.com/codefuse/codefuseeval:latest
+</span></span></code></pre></div><p>如果您熟悉Dockerfile，也可以从<code>codefuseEval/docker/Dockerfile</code>构建镜像，或者修改之以定制自己的配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> codefuseEval/docker
+</span></span><span class="line"><span class="cl">docker build <span class="o">[</span>OPTIONS<span class="o">]</span> .
+</span></span></code></pre></div><p>获取镜像后，使用如下命令创建容器：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -it --gpus all --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>&lt;LOCAL PATH&gt;,target<span class="o">=</span>&lt;PATH IN CONTAINER&gt; <span class="o">[</span>OPTIONS<span class="o">]</span> &lt;IMAGE NAME:TAG&gt;
+</span></span></code></pre></div><h2 id="检查推理结果指令">检查推理结果指令</h2>
+<p>我们提供脚本来检查所提供代码 LLM 的结果。请使用以下脚本检查相应的推理结果。</p>
+<pre tabindex="0"><code>bash codefuseEval/script/check_reference.sh codefuseEval/result/CodeFuse-CodeLlama-34B/humaneval_result_python.jsonl humaneval_python
+bash codefuseEval/script/check_reference.sh codefuseEval/result/CodeFuse-13B/humaneval_result_python.jsonl humaneval_python 
+</code></pre><h2 id="如何使用codefuseeval">如何使用CodeFuseEval</h2>
+<ol>
+<li>下载模型并更新 ckpt config.json 中的当前模型信息。 主要更新对应型号和版本中的「path」参数。</li>
+<li>运行以下生成命令以生成结果。</li>
+</ol>
+<pre tabindex="0"><code>bash codefuseEval/script/generation.sh MODELNAME MODELVERSION EVALDATASET OUTFILE 
+
+eg:
+bash codefuseEval/script/generation.sh CodeFuse-13B v1 humaneval_python result/test.jsonl
+</code></pre><ol start="3">
+<li>运行以下评估命令来评估相应模型版本的生成结果。</li>
+</ol>
+<pre tabindex="0"><code>bash codefuseEval/script/evaluation.sh &lt;RESULT_FILE&gt; &lt;METRIC&gt; &lt;PROBLEM_FILE&gt;
+eg: 
+bash codefuseEval/script/evaluation.sh codefuseEval/result/test.jsonl pass@k humaneval_python
+</code></pre><h2 id="评测说明">评测说明</h2>
+<p>我们推荐使用给定的<a href="#%E8%AF%84%E6%B5%8B%E7%8E%AF%E5%A2%83">评测环境</a>进行评测。在评测前，将生成的代码以如下JSON列表形式存储：</p>
+<pre tabindex="0"><code>{&#34;task_id&#34;: &#34;../..&#34;, &#34;generation: &#34;...&#34;}
+{&#34;task_id&#34;: &#34;../..&#34;, &#34;generation: &#34;...&#34;}
+...
+</code></pre><h3 id="评测数据集">评测数据集</h3>
+<p>样本使用JSON列表格式存储在<code>codefuseEval/data</code>中,根据用户所需的下游任务情况，每条样本包含</p>
+<ul>
+<li><code>task_id</code>: 题目的目标语言与ID。语言为[&ldquo;Python&rdquo;, &ldquo;Java&rdquo;, &ldquo;JavaScript&rdquo;, &ldquo;CPP&rdquo;, &ldquo;Go&rdquo;]中之一。</li>
+<li><code>prompt</code>: 函数声明与描述，用于代码生成。</li>
+<li><code>declaration</code>: 仅有函数声明，用于代码翻译。</li>
+<li><code>canonical_solution</code>: 手写的示例解答。</li>
+<li><code>test</code>: 隐藏测例，用于评测。</li>
+<li><code>example_test</code>: 公共测试样本，用于评估生成代码。</li>
+<li><code>prompt_text</code>: prompt文本情况。</li>
+<li><code>prompt_explain</code>: prompt信息说明。</li>
+<li><code>func_title</code>: 生成函数头信息。</li>
+<li><code>prompt_text_chinese</code>: 中文prompt信息。</li>
+</ul>
+<h3 id="评测指标">评测指标</h3>
+<p>除了目前提供的<a href="https://arxiv.org/abs/2107.03374">Codex</a> 中提出的无偏 pass@k 指标之外，我们还将huggingface开源的相关指标与<a href="https://arxiv.org/abs/2009.10297" target="_blank">CodeBLEU</a>提出的相似性指标进行集成。
+目前建议用户主要使用的指标如下：</p>
+<ul>
+<li><code>codebleu</code>: codebleu相似性评测指标。</li>
+<li><code>pass@k</code>: 无偏pass@k的评测指标。</li>
+<li><code>bleu</code>: 文本相似性指标bleu</li>
+<li><code>bleurt</code>: 文本语义相似性指标bleurt</li>
+<li><code>total_time_cost</code>: 基于被评数据集、模型推理总耗时</li>
+<li><code>Average time cost</code>: 基于被评数据集单个任务、模型推理平均耗时</li>
+</ul>
+<h3 id="评测命令">评测命令：</h3>
+<pre tabindex="0"><code>bash codefuseEval/script/evaluation.sh &lt;RESULT_FILE&gt; &lt;METRIC&gt; &lt;PROBLEM_FILE&gt; &lt;TEST_GROUDTRUTH&gt;
+eg: 
+bash codefuseEval/script/evaluation.sh codefuseEval/result/test.jsonl pass@k humaneval_python 
+</code></pre><p>并在本仓库的根目录下使用如下指令（<font color='red'>请谨慎执行，生成的代码可能有极低概率产生意外行为。在<a href="execution.py">execution.py</a>中查看警告并取消执行代码的注释，风险自负</font>）：</p>
+<p>同时我们当前提供如下的标志位，可以直接将测试数据集中的示例解答作为生成答案带入进行测试。</p>
+<ul>
+<li><code>TEST_GROUDTRUTH</code> 取值为True或False</li>
+</ul>
+<p>当TEST_GROUDTRUTH为True时，开启self-test模式，将读取PROBLEM_FILE，将示例解答作为生成答案代入进行测试。
+TEST_GROUDTRUTH为False时，开启评测模式，读取RESULT_FILE和将读取PROBLEM_FILE，将生成答案代入进行测试</p>
+<h2 id="更多信息">更多信息</h2>
+<h3 id="使用自己的数据集评估自己的模型">使用自己的数据集评估自己的模型</h3>
+<p>如果你想用自己的数据集评估自己的模型，可以参考以下步骤：</p>
+<ol>
+<li>注册自己的数据集</li>
+</ol>
+<ul>
+<li>下载评估数据集并存储在<code>codefuseEval/data</code>或其他目录中。 数据集必须是jsonl格式。</li>
+<li>针对于数据集路径、数据集任务模式task_mode和使用数据集后生成结果的代码语言情况，需要在<code>codefuseEval/util.py</code>中的<code>EVAL_DATASET</code>、<code>DATASET_SUPPORT</code>和<code>DATASET_LANGUAGE</code>变量中进行设置。</li>
+</ul>
+<ol start="2">
+<li>注册你的评测模型</li>
+</ol>
+<ul>
+<li>下载评估模型并存储在<code>codefuseEval/model</code>或其他目录中。</li>
+<li>在<code>codefuseEval/processor</code>包中编写评估模型处理器代码。</li>
+</ul>
+<h4 id="处理适配器">处理适配器</h4>
+<p>我们设计了一个名为Processor的基础结构，用户可以自己根据推理模型的情况创建自己需要的处理器, 主要目的是为了处理不同模型的区别情况进行处理，主要需要完成3个抽象函数：</p>
+<pre tabindex="0"><code>load_model_tokenizer: 由于模型加载参数的区别以及tokenizer的终止符的区别，模型需要使用不同的参数进行适配加载，当前函数主要是为了帮助用户加载适配不同的模型
+process_before：由于prompt根据用户不同的选择评测任务的类型或不同模型来适配不同的prompt样式，因此抽取出process_before函数主要用来帮助用户处理prompt
+process_after：由于模型生成结果多样性，为了适配评测框架，方便生成结果数据可以拼接成合适的用例进行自动化运行，当前函数主要是根据任务类型和数据集情况，处理生成结果适配评测数据集和结果进行评测
+</code></pre><p>您可以在<code>codefuseEval/processor/base.py</code>中查看<code>BaseProcessor</code>情况，创建自己模型的处理器，并实现上述函数功能</p>
+<ul>
+<li>在<code>ckpt_config.json</code>中设置信息模型。 举例如下</li>
+</ul>
+<pre tabindex="0"><code>{
+  &#34;CodeFuse-13B&#34;: {     //模型名称
+    &#34;v1&#34;: {             //模型版本
+      &#34;path&#34;: &#34;/mnt/model/CodeFuse13B-evol-instruction-4K/&#34;,       // 模型路径
+      &#34;processor_class&#34;: &#34;codefuseEval.process.codefuse13b.Codefuse13BProcessor&#34;,  // 模型处理器路径
+      &#34;tokenizer&#34;: {                 // 将prompt token化时tokenizer传入的参数
+        &#34;truncation&#34;: true,
+        &#34;padding&#34;: true,
+        &#34;max_length&#34;: 600
+      },
+      &#34;generation_config&#34;: {        //生成配置参数
+        &#34;greedy&#34;: {                 //如果是JsonObject，当前配置的是解码策略，可以通过设置下方「decode_mode」参数来加载生成配置参数中定义的不同的解码策略。
+          &#34;do_sample&#34;: false,
+          &#34;num_beams&#34;: 1,
+          &#34;max_new_tokens&#34;: 512
+        },
+        &#34;beams&#34;: {
+          &#34;do_sample&#34;: false,
+          &#34;num_beams&#34;: 5,
+          &#34;max_new_tokens&#34;: 600,
+          &#34;num_return_sequences&#34;: 1
+        },
+        &#34;dosample&#34;: {
+          &#34;da_sample&#34;: true
+        },
+        &#34;temperature&#34;: 0.2,          //如果不是 JsonObject，它是一个默认参数，我们将在 Generation_config 中设置默认值。 你可以通过读取解码策略中同名参数的方式覆盖当前参数的默认值。
+        &#34;max_new_tokens&#34;: 600,
+        &#34;num_return_sequences&#34;: 1,
+        &#34;top_p&#34;: 0.9,
+        &#34;num_beams&#34;: 1,
+        &#34;do_sample&#34;: true         
+      },
+      &#34;batch_size&#34;: 1,            // 单次生成的batch size大小
+      &#34;sample_num&#34;: 1,            // 单条评测数据生成的样本数
+      &#34;decode_mode&#34;: &#34;beams&#34;      // 选择在 Generation_config 中定义的解码模式
+    }
+  }
+</code></pre><h3 id="检查数据集命令">检查数据集命令</h3>
+<p>为了检查评估数据集提供的参考值是否正确，我们提供以下命令来检查数据集，针对于已经集成的数据集情况，检查数据集的命令如下所示</p>
+<p>代码补全</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash codefuseEval/script/check_dataset.sh humaneval_python
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bash codefuseEval/script/check_dataset.sh humaneval_java
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bash codefuseEval/script/check_dataset.sh humaneval_js
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bash codefuseEval/script/check_dataset.sh humaneval_rust
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bash codefuseEval/script/check_dataset.sh humaneval_go
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bash codefuseEval/script/check_dataset.sh humaneval_cpp
+</span></span></code></pre></div><p>自然语言生成代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash codefuseEval/script/check_dataset.sh mbpp
+</span></span></code></pre></div><p>代码翻译</p>
+<pre tabindex="0"><code>bash codefuseEval/script/check_dataset.sh codeTrans_python_to_java
+
+bash codefuseEval/script/check_dataset.sh codeTrans_python_to_cpp
+
+bash codefuseEval/script/check_dataset.sh codeTrans_cpp_to_java
+
+bash codefuseEval/script/check_dataset.sh codeTrans_cpp_to_python
+
+bash codefuseEval/script/check_dataset.sh codeTrans_java_to_python
+
+bash codefuseEval/script/check_dataset.sh codeTrans_java_to_cpp
+</code></pre><p>科学计算</p>
+<pre tabindex="0"><code>bash codefuseEval/script/check_dataset.sh codeCompletion_matplotlib
+
+bash codefuseEval/script/check_dataset.sh codeCompletion_numpy
+
+bash codefuseEval/script/check_dataset.sh codeCompletion_pandas
+
+bash codefuseEval/script/check_dataset.sh codeCompletion_pytorch
+
+bash codefuseEval/script/check_dataset.sh codeCompletion_scipy
+
+bash codefuseEval/script/check_dataset.sh codeCompletion_sklearn
+
+bash codefuseEval/script/check_dataset.sh codeCompletion_tensorflow
+
+bash codefuseEval/script/check_dataset.sh codeInsertion_matplotlib
+
+bash codefuseEval/script/check_dataset.sh codeInsertion_numpy
+
+bash codefuseEval/script/check_dataset.sh codeInsertion_pandas
+
+bash codefuseEval/script/check_dataset.sh codeInsertion_pytorch
+
+bash codefuseEval/script/check_dataset.sh codeInsertion_scipy
+
+bash codefuseEval/script/check_dataset.sh codeInsertion_sklearn
+
+bash codefuseEval/script/check_dataset.sh codeInsertion_tensorflow
+</code></pre>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-devops-eval-quickstart-zh/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#推理环境">推理环境：</a></li>
+    <li><a href="#评测执行环境">评测执行环境</a></li>
+    <li><a href="#检查推理结果指令">检查推理结果指令</a></li>
+    <li><a href="#如何使用codefuseeval">如何使用CodeFuseEval</a></li>
+    <li><a href="#评测说明">评测说明</a>
+      <ul>
+        <li><a href="#评测数据集">评测数据集</a></li>
+        <li><a href="#评测指标">评测指标</a></li>
+        <li><a href="#评测命令">评测命令：</a></li>
+      </ul>
+    </li>
+    <li><a href="#更多信息">更多信息</a>
+      <ul>
+        <li><a href="#使用自己的数据集评估自己的模型">使用自己的数据集评估自己的模型</a></li>
+        <li><a href="#检查数据集命令">检查数据集命令</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

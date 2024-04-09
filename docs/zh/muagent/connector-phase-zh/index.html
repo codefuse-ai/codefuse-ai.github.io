@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse的使命是开发专门设计用于支持整个软件开发生命周期的大型代码语言模型（Code LLMs）， 涵盖设计、需求、编码、测试、部署、运维等关键阶段。我们致力于打造创新的解决方案，让软件开发者们在研发的过程中如丝般顺滑。">
+<meta name="author" content="codefuse-ai">
+
+<title>Connector Phase · CodeFuse-AI</title>
+
+<link rel="canonical" href="/zh/muagent/connector-phase-zh/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/muagent/connector-phase/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/muagent/connector-phase-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent"  class="active"><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ MuAgent</strong>
+          
+          <a class="sidebar-link " href="/muagent/muagent-%E6%A6%82%E8%A7%88/">
+            
+              MuAgent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/agent-%E7%BC%96%E6%8E%92/">
+            
+              Agents Flow
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">Connector</strong>
+          
+          <a class="sidebar-link " href="/muagent/connector-agent-zh/">
+            
+              Agent构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-chain-zh/">
+            
+              Chain构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/muagent/connector-phase-zh/">
+            
+              Phase构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-prompt-zh/">
+            
+              Prompt编写
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-memory-zh/">
+            
+              Memory构建
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/custom-examples-zh/">
+            
+              自定义示例
+            
+          </a>
+
+        <strong class="sidebar-section">llm_models</strong>
+          
+          <a class="sidebar-link " href="/muagent/llm-model-config-zh/">
+            
+              LLM 配置
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/embedding-model-config-zh/">
+            
+              Embedding 配置
+            
+          </a>
+
+        <strong class="sidebar-section">Tools</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-tool-zh/">
+            
+              自定义 Tool
+            
+          </a>
+
+        <strong class="sidebar-section">Retrieval</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-retrieval-zh/">
+            
+              自定义 Retrieval
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Connector Phase</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="快速构建一个agent-phase">快速构建一个Agent Phase</h2>
+<ul>
+<li>首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动）</li>
+</ul>
+<pre tabindex="0"><code>import os, sys
+
+api_key = &#34;sk-xxx&#34;
+api_base_url= &#34;https://api.openai.com/v1&#34;
+model_name = &#34;gpt-3.5-turbo&#34;
+embed_model = &#34;{{embed_model_name}}&#34;
+embed_model_path = &#34;{{embed_model_path}}&#34;
+#
+os.environ[&#34;DUCKDUCKGO_PROXY&#34;] = os.environ.get(&#34;DUCKDUCKGO_PROXY&#34;) or &#34;socks5://127.0.0.1:13659&#34;
+</code></pre><h3 id="然后设置llm配置和向量模型配置">然后设置LLM配置和向量模型配置</h3>
+<ul>
+<li>配置相关 LLM 和 Embedding Model</li>
+</ul>
+<pre tabindex="0"><code>from muagent.base_configs.env_config import JUPYTER_WORK_PATH
+from muagent.connector.agents import BaseAgent, ReactAgent, ExecutorAgent, SelectorAgent
+from muagent.connector.chains import BaseChain
+from muagent.connector.schema import Role, Message, ChainConfig
+from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
+from muagent.tools import toLangchainTools, TOOL_DICT, TOOL_SETS
+
+
+llm_config = LLMConfig(
+    model_name=model_name, api_key=api_key,  api_base_url=api_base_url, temperature=0.3,
+    stop=&#34;**Observation:**&#34;
+)
+
+embed_config = EmbedConfig(
+    embed_engine=&#34;model&#34;, embed_model=embed_model, embed_model_path=embed_model_path
+)
+</code></pre><h3 id="agent-配置">Agent 配置</h3>
+<ul>
+<li>定义两个react agent，进行实际任务执行</li>
+</ul>
+<pre tabindex="0"><code># 这里采用了预定义的prompt，也可以参考上述prompt完成编写
+from muagent.connector.configs.prompts import REACT_CODE_PROMPT, REACT_TOOL_PROMPT
+# 定义了基于react的tool agent
+tool_role = Role(role_type=&#34;assistant&#34;, role_name=&#34;tool_reacter&#34;, prompt=REACT_TOOL_PROMPT)
+tool_react_agent = ReactAgent(
+    role=tool_role,
+    task=&#34;&#34;,
+    chat_turn=3,
+    focus_agents=[],
+    focus_message_keys=[],
+    llm_config=llm_config, embed_config=embed_config,
+)
+
+# 定义了基于react的code agent
+code_role = Role(role_type=&#34;assistant&#34;, role_name=&#34;code_reacter&#34;, prompt=REACT_CODE_PROMPT)
+code_react_agent = ReactAgent(
+    role=code_role,
+    task=&#34;&#34;,
+    chat_turn=3,
+    focus_agents=[],
+    focus_message_keys=[],
+    llm_config=llm_config, embed_config=embed_config,
+)
+</code></pre><ul>
+<li>定义groupAgent，用于agent选择</li>
+</ul>
+<pre tabindex="0"><code>prompt = &#34;&#34;&#34;#### Agent Profile
+
+Your goal is to response according the Context Data&#39;s information with the role that will best facilitate a solution, taking into account all relevant context (Context) provided.
+
+When you need to select the appropriate role for handling a user&#39;s query, carefully read the provided role names, role descriptions and tool list.
+
+ATTENTION: response carefully referenced &#34;Response Output Format&#34; in format.
+
+#### Response Output Format
+
+**Thoughts:** think the reason step by step about why you selecte one role
+
+**Role:** Select the role from agent names.
+&#34;&#34;&#34;
+
+# 定义了一个groupAgent
+role = Role(role_type=&#34;assistant&#34;, role_name=&#34;qaer&#34;, prompt=prompt)
+base_agent = SelectorAgent(
+    role=role,
+    task=&#34;&#34;,
+    chat_turn=3,
+    focus_agents=[],
+    focus_message_keys=[],
+    llm_config=llm_config, embed_config=embed_config,
+    group_agents=[tool_react_agent, code_react_agent]
+)
+</code></pre><h3 id="chain-配置">Chain 配置</h3>
+<pre tabindex="0"><code>chain_config = ChainConfig(chain_name=&#34;group_chain&#34;, agents=[base_agent.role.role_name], chat_turn=1)
+base_chain = BaseChain(
+    chainConfig=chain_config, agents=[base_agent], 
+    llm_config=llm_config, embed_config=embed_config,
+)
+</code></pre><h3 id="phase-配置">Phase 配置</h3>
+<pre tabindex="0"><code>base_phase = BasePhase(
+    phase_name=&#34;group_phase&#34;, chains=[base_chain],
+    embed_config=embed_config, llm_config=llm_config
+)
+</code></pre><h3 id="开始实际问答">开始实际问答</h3>
+<ul>
+<li>开始执行</li>
+</ul>
+<pre tabindex="0"><code># if you want to analyze a data.csv, please put the csv file into a jupyter_work_path (or your defined path)
+import shutil
+source_file = &#39;D://project/gitlab/llm/external/ant_code/Codefuse-chatbot/jupyter_work/employee_data.csv&#39;
+shutil.copy(source_file, JUPYTER_WORK_PATH)
+
+question = &#34;确认本地是否存在employee_data.csv，并查看它有哪些列和数据类型;然后画柱状图&#34;
+query = Message(
+    user_name=&#34;test&#34;, role_type=&#34;user&#34;, role_name=&#34;user&#34;, input_query=question,
+    tools=tools,
+)
+
+# base_phase.pre_print(query)
+output_message, output_memory = base_phase.step(query)
+print(output_message.input_query)
+print(output_message.role_content)
+print(output_memory.to_str_messages(return_all=True, content_key=&#34;parsed_output_list&#34;))
+</code></pre><h2 id="phase-参数配置">Phase 参数配置</h2>
+<table>
+<thead>
+<tr>
+<th>Config Key Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>phase_name</td>
+<td>String</td>
+<td>场景名称</td>
+</tr>
+<tr>
+<td>chains</td>
+<td>List[Chain]</td>
+<td>chain列表，按顺序执行</td>
+</tr>
+<tr>
+<td>llm_config</td>
+<td>LLMConfig</td>
+<td>大语言模型配置</td>
+</tr>
+<tr>
+<td>embed_config</td>
+<td>EmbedConfig</td>
+<td>向量模型配置</td>
+</tr>
+<tr>
+<td>sandbox_server</td>
+<td>Dict</td>
+<td>沙盒环境即notebook启动配置</td>
+</tr>
+<tr>
+<td>jupyter_work_path</td>
+<td>str</td>
+<td>沙盒环境的工作目录</td>
+</tr>
+<tr>
+<td>kb_root_path</td>
+<td>str</td>
+<td>memory的存储路径</td>
+</tr>
+<tr>
+<td>log_verbose</td>
+<td>str</td>
+<td>agent prompt&amp;predict的日志打印级别</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/muagent/connector-chain-zh/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/muagent/connector-prompt-zh/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#快速构建一个agent-phase">快速构建一个Agent Phase</a>
+      <ul>
+        <li><a href="#然后设置llm配置和向量模型配置">然后设置LLM配置和向量模型配置</a></li>
+        <li><a href="#agent-配置">Agent 配置</a></li>
+        <li><a href="#chain-配置">Chain 配置</a></li>
+        <li><a href="#phase-配置">Phase 配置</a></li>
+        <li><a href="#开始实际问答">开始实际问答</a></li>
+      </ul>
+    </li>
+    <li><a href="#phase-参数配置">Phase 参数配置</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

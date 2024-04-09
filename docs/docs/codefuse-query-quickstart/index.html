@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>QuickStart · CodeFuse-AI</title>
+
+<link rel="canonical" href="/docs/codefuse-query-quickstart/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/codefuse-query-quickstart/">English</a></li>
+          
+          <li role="menuitem"><a href="/docs/codefuse-query-quickstart-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI Overview</strong>
+          
+          <a class="sidebar-link " href="/docs/overview/">
+            
+              overview
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI Module</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/test-agent/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/docs/codefuse-query-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage/">
+            
+              GodelLanguage
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain/">
+            
+              Toolchain
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase/">
+            
+              UserCase
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction/">
+            
+              Introduction
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate/">
+            
+              Accelerate &#43; DeepSpeed/FSDP Framework
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch/">
+            
+              Atorch Framework
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature/">
+            
+              Feature
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config/">
+            
+              Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release/">
+            
+              Release Note
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/start-detail/">
+            
+              Start-Detail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/llm-configuration/">
+            
+              LLM-Configuration
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-roadmap/">
+            
+              ChatBot-RoadMap
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train/">
+            
+              TrainDetail
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/data/">
+            
+              Data
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart/">
+            
+              QuickStart
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>QuickStart</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="installation-configuration-and-running">Installation, Configuration, and Running</h1>
+<h2 id="hardware-and-software-requirements">Hardware and Software Requirements</h2>
+<ul>
+<li>
+<p>Hardware: 4C8G</p>
+</li>
+<li>
+<p>Environment Requirements: Java 1.8 and Python 3.8 or above runtime environments. Please ensure Java and Python executables are available.</p>
+</li>
+</ul>
+<h2 id="sparrow-installation-steps-and-guidance">Sparrow Installation Steps and Guidance</h2>
+<ul>
+<li>The CodeFuse-Query download package is a zip archive that contains tools, scripts, and various files specific to CodeFuse-Query. If you do not have a CodeFuse-Query license, downloading this archive indicates your agreement with the <a href="../LICENSE">CodeFuse-Query Terms and Conditions</a>.</li>
+<li>CodeFuse-Query is currently only supported on Mac and Linux systems. The download links are: (currently, only a sample is given, the official download link will be provided after open-source release)
+<ul>
+<li>Mac: <a href="https://github.com/codefuse-ai/CodeFuse-Query/releases/tag/2.0.0" target="_blank">CodeFuse-Query 2.0.0</a></li>
+<li>Linux: <a href="https://github.com/codefuse-ai/CodeFuse-Query/releases/tag/2.0.0" target="_blank">CodeFuse-Query 2.0.0</a></li>
+</ul>
+</li>
+<li>You should always use the CodeFuse-Query bundle to ensure version compatibility.</li>
+</ul>
+<h3 id="tips">Tips:</h3>
+<ul>
+<li>On Mac systems, directly downloading the package may prompt a verification for the developer.</li>
+</ul>
+<p><img src="/images/codefuse-query/macos_cannot_open_godel.png" alt="image.png"></p>
+<ul>
+<li>You can modify the verification in the security settings.</li>
+</ul>
+<p><img src="/images/codefuse-query/security_allow_godel_run.png" alt="image.png"></p>
+<ul>
+<li>
+<p>Click &ldquo;Allow Anyway.&rdquo;</p>
+</li>
+<li>
+<p>For detailed steps, please refer to the <a href="https://support.apple.com/zh-cn/HT202491" target="_blank">Mac Official Documentation: How to safely open an app on your Mac</a></p>
+</li>
+<li>
+<p>Or use the <code>xattr -d com.apple.quarantine</code> command to remove the external attribute assigned to CodeFuse-Query by macOS.</p>
+</li>
+<li>
+<p><code>xattr -d com.apple.quarantine</code> is a command-line instruction used to delete a file&rsquo;s <code>com.apple.quarantine</code> extended attribute. This attribute is used by the macOS system to mark files or applications downloaded from external sources to ensure security.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">xattr</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">apple</span><span class="p">.</span><span class="na">quarantine</span><span class="w"> </span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="w">
+</span></span></span></code></pre></div><h2 id="configuring-and-initializing-the-codefuse-query-development-environment">Configuring and Initializing the CodeFuse-Query Development Environment</h2>
+<ul>
+<li>
+<p>Unzip using the command line or by simply clicking to unzip.</p>
+</li>
+<li>
+<p>You need to have Java 8 and Python 3.8 or higher runtime environments.</p>
+</li>
+<li>
+<p>After unzipping CodeFuse-Query, you can run the Sparrow process by running the executable in the following ways:</p>
+</li>
+<li>
+<p>By executing <code>&lt;extraction-root&gt;/sparrow-cli/sparrow</code>, where <code>&lt;extraction-root&gt;</code> is the folder where you extracted the CodeFuse-Query package.</p>
+</li>
+<li>
+<p>By adding <code>&lt;extraction-root&gt;/sparrow-cli</code> to your PATH, so you can directly run the executable <code>sparrow</code>.</p>
+</li>
+</ul>
+<p>At this point, you can execute the <code>sparrow</code> command.</p>
+<h2 id="running">Running</h2>
+<h3 id="execution-steps">Execution Steps</h3>
+<ul>
+<li>
+<p>Confirm the source code directory you need to query.</p>
+</li>
+<li>
+<p>Extract code data from the source code.</p>
+</li>
+<li>
+<p>Write a Gödel script based on the code data to obtain the desired code data.</p>
+</li>
+<li>
+<p>For how to write Gödel scripts, refer to <a href="./4_godelscript_language.md">GödelScript Query Language</a></p>
+</li>
+</ul>
+<h3 id="execution-example">Execution Example</h3>
+<h4 id="data-extraction">Data Extraction</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">extraction</span><span class="o">-</span><span class="n">root</span><span class="o">&gt;/</span><span class="n">sparrow</span><span class="o">-</span><span class="n">cli</span><span class="o">/</span><span class="n">sparrow</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">&lt;</span><span class="n">src</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">lang</span><span class="w"> </span><span class="o">&lt;</span><span class="n">language</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="n">output</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>
+<p><code>&lt;output&gt;</code>: The output directory for the code data extracted from the codebase, referred to as <code>&lt;database&gt;</code> later.</p>
+</li>
+<li>
+<p><code>&lt;language&gt;</code>: The language of the code to be extracted, fill in &ldquo;java&rdquo; for analyzing Java.</p>
+</li>
+<li>
+<p><code>&lt;src&gt;</code>: The source code directory to be scanned.</p>
+</li>
+<li>
+<p>In the data extraction step, you obtain the database <code>&lt;database&gt;</code> required for executing the script.</p>
+</li>
+</ul>
+<h4 id="writing-gödel-scripts">Writing Gödel Scripts</h4>
+<ul>
+<li>
+<p>Assuming you have the following Gödel script to get all Java method names from a specified repository:</p>
+</li>
+<li>
+<p>For specific Gödel script writing, refer to <a href="./4_godelscript_language.md">GödelScript Query Language</a></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// script</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">use</span><span class="w"> </span><span class="n">coref</span><span class="p">::</span><span class="n">java</span><span class="p">::</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Define the global Java database</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">fn</span><span class="w"> </span><span class="nf">default_db</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">JavaDB</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">JavaDB</span><span class="p">::</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;coref_java_src.db&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Iterate over all methods, get the method name, output limit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">fn</span><span class="w"> </span><span class="nf">getFunctionName</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">string</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="p">(</span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">default_db</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">Method</span><span class="p">(</span><span class="n">db</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">method</span><span class="p">.</span><span class="na">getName</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">output</span><span class="p">(</span><span class="n">getFunctionName</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="script-execution">Script Execution</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">extraction</span><span class="o">-</span><span class="n">root</span><span class="o">&gt;/</span><span class="n">sparrow</span><span class="o">-</span><span class="n">cli</span><span class="o">/</span><span class="n">sparrow</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="n">database</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">gdl</span><span class="w"> </span><span class="o">&lt;</span><span class="n">gdl_path</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="n">output</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>
+<p><code>&lt;database&gt;</code>: The code data extracted from the codebase to be scanned, consistent with <code>&lt;output&gt;</code> above.</p>
+</li>
+<li>
+<p><code>&lt;gdl_path&gt;</code>: The path where the Gödel script is located, fill in the directory path, and it will execute all files ending with <code>.gdl</code> in that directory in sequence.</p>
+</li>
+<li>
+<p><code>&lt;output&gt;</code>: The output directory path, the result of executing xxx.gdl will be stored in <code>&lt;output&gt;/xxx.json</code> in JSON format.</p>
+</li>
+<li>
+<p>You can verify if the script executed correctly by checking the data file.</p>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<p>Suppose there is the following Java code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorld</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">HelloWorld</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HelloWorld</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">getHello</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">world</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">getWorld</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hello</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">world</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getHello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Hello&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getWorld</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;World&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">sparrow</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">&lt;</span><span class="n">example</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">lang</span><span class="w"> </span><span class="n">java</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sparrow</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="w"> </span><span class="o">-</span><span class="n">gdl</span><span class="w"> </span><span class="n">example</span><span class="p">.</span><span class="na">gdl</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>
+<p><code>&lt;example&gt;</code> is the directory where the given Java file is stored.</p>
+</li>
+<li>
+<p>example.gdl is the given Gödel script sample, saved in the current directory.</p>
+</li>
+<li>
+<p>After execution, you can find the example.json file in the current directory.</p>
+</li>
+</ul>
+<p>The corresponding script output JSON file content is as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">[</span><span class="p">{</span><span class="s">&#34;name&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;getHello&#34;</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="s">&#34;name&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;getWorld&#34;</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="s">&#34;name&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;main&#34;</span><span class="p">}</span><span class="o">]</span><span class="w">
+</span></span></span></code></pre></div>
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-query-introduction/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/codefuse-query-godellanguage/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hardware-and-software-requirements">Hardware and Software Requirements</a></li>
+    <li><a href="#sparrow-installation-steps-and-guidance">Sparrow Installation Steps and Guidance</a>
+      <ul>
+        <li><a href="#tips">Tips:</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuring-and-initializing-the-codefuse-query-development-environment">Configuring and Initializing the CodeFuse-Query Development Environment</a></li>
+    <li><a href="#running">Running</a>
+      <ul>
+        <li><a href="#execution-steps">Execution Steps</a></li>
+        <li><a href="#execution-example">Execution Example</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

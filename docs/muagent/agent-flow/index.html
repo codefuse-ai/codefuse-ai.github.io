@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CodeFuse aims to develop Code Large Language Models (Code LLMs) to support and enhance full-lifecycle AI native sotware developing, covering crucial stages such as design requirements, coding, testing, building, deployment, operations, and insight analysis.">
+<meta name="author" content="codefuse-ai">
+
+<title>Agent Flow · CodeFuse-AI</title>
+
+<link rel="canonical" href="/muagent/agent-flow/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/scss/component/docsearch.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/muagent/agent-flow/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/muagent/agent-%E7%BC%96%E6%8E%92/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs" ><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent"  class="active"><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">❤️ MuAgent</strong>
+          
+          <a class="sidebar-link " href="/muagent/muagent-overview/">
+            
+              MuAgent Overview
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/muagent/agent-flow/">
+            
+              Agent Flow
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/quick-start/">
+            
+              Quick Start
+            
+          </a>
+
+        <strong class="sidebar-section">Modules</strong>
+          
+          <a class="sidebar-link " href="/muagent/connector-agent/">
+            
+              Agent Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-chain/">
+            
+              Chain Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-phase/">
+            
+              Phase Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-prompt/">
+            
+              Create Prompt
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/connector-memory/">
+            
+              Memory Builder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/custom-examples/">
+            
+              Custom Examples
+            
+          </a>
+
+        <strong class="sidebar-section">llm_models</strong>
+          
+          <a class="sidebar-link " href="/muagent/llm-model-config/">
+            
+              LLM Model Config
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/muagent/embedding-model-config/">
+            
+              Embedding Model Config
+            
+          </a>
+
+        <strong class="sidebar-section">Tools</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-tool/">
+            
+              Custom tool
+            
+          </a>
+
+        <strong class="sidebar-section">Retrieval</strong>
+          
+          <a class="sidebar-link " href="/muagent/custom-retrieval/">
+            
+              Custom retrieval
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Agent Flow</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h2 id="introduction-to-core-connectors">Introduction to Core Connectors</h2>
+<p>To facilitate everyone&rsquo;s understanding of the entire muagent link, we adopt the Flow format to introduce in detail how to build through configuration</p>
+<div align=center>
+  <img src="/images/muagent/agent-flow.png" alt="图片">
+</div>
+<p><br>Below, we first introduce the related core components<br></p>
+<h3 id="agent">Agent</h3>
+<p>On the design level of the Agent, we provide four basic types of Agents, with Role settings for these Agents that can meet the interactions and uses of various common scenarios:</p>
+<ol>
+<li>BaseAgent: Provides basic question answering, tool usage, and code execution functions, and realizes input =&gt; output according to the Prompt format.</li>
+<li>ReactAgent: Provides standard React functionality, accomplishing current tasks based on questions.</li>
+<li>ExecutorAgent: Performs sequential execution of task lists, completing related tasks according to plans arranged by the User or the previous Agent.</li>
+<li>SelectorAgent: Provides the function of selecting an Agent, choosing the appropriate Agent to respond according to the question from the User or the previous Agent. After output, the message is pushed into the memory pool, which will later be managed by the Memory Manager.</li>
+</ol>
+<p>It selects the appropriate Agent to respond based on the question from the User or the previous Agent. After output, the message is pushed into the memory pool, which is subsequently managed by the Memory Manager.</p>
+<h3 id="chain">Chain</h3>
+<p>Basic Chain: BaseChain, connects the interactions of agents, manages the related messages and memory.</p>
+<h3 id="phase">Phase</h3>
+<p>Basic Phase: BasePhase, connects the interactions of chains, and manages the related messages and memory.</p>
+<h3 id="prompt-manager">Prompt Manager</h3>
+<p>The prompt creation for each agent in the Mutli-Agent link:</p>
+<ul>
+<li>By setting simple prompt_input_keys and prompt_output_keys, the preset Prompt Context creation logic can be followed to quickly configure the agent prompt.</li>
+<li>It is also possible to design a new key-context in the prompt manager module, achieving personalized Agent Prompt.</li>
+</ul>
+<h3 id="memory-manager">Memory Manager</h3>
+<p>Mainly used for the management of chat history:</p>
+<ul>
+<li>Manages the reading and writing of chat history in a database, including user input, llm output, doc retrieval, code retrieval, search retrieval.</li>
+<li>Summarizes the key information in chat history to create a summary context, which serves as a prompt context.</li>
+<li>Provides a retrieval function to search for information related to the question in the chat history or summary context, assisting with question answering.</li>
+</ul>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/muagent/muagent-overview/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/muagent/quick-start/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-core-connectors">Introduction to Core Connectors</a>
+      <ul>
+        <li><a href="#agent">Agent</a></li>
+        <li><a href="#chain">Chain</a></li>
+        <li><a href="#phase">Phase</a></li>
+        <li><a href="#prompt-manager">Prompt Manager</a></li>
+        <li><a href="#memory-manager">Memory Manager</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="介绍主要功能">
+<meta name="author" content="codefuse-ai">
+
+<title>Test-Agent: 您的智能测试助理 · CodeFuse-AI</title>
+
+<link rel="canonical" href="/zh/docs/overview/test-agent-zh/">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/base.css" integrity="">
+
+
+
+<link rel="stylesheet" href="/scss/theme/default.css" integrity="">
+
+
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxx"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-xxxx');
+</script>
+
+
+  
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">CodeFuse-AI</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          
+          <li role="menuitem"><a href="/docs/overview/test-agent-your-ai-test-assistant/">English</a></li>
+          
+          <li role="menuitem"><a href="/zh/docs/overview/test-agent-zh/">中文</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Overview</a></li>
+        
+          
+          <li><a href="/muagent" ><i class='icon icon-book'></i>MuAgent</a></li>
+        
+          
+          <li><a href="/contribution" ><i class='icon icon-book'></i>Contribution</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    <aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><strong class="sidebar-section">📖 CodeFuse-AI 整体介绍</strong>
+          
+          <a class="sidebar-link " href="/docs/%E6%A6%82%E8%A7%88/">
+            
+              概览
+            
+          </a>
+
+        <strong class="sidebar-section">📖 CodeFuse-AI 模块</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-zh/">
+            
+              CodeFuse-Query
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-zh/">
+            
+              MFTCoder
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-zh/">
+            
+              CodeFuse-MFT-VLM
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link current" href="/docs/test-agent-zh/">
+            
+              Test-Agent
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-zh/">
+            
+              CodeFuse-ModelCache
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-zh/">
+            
+              CodeFuse-ChatBot
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-zh/">
+            
+              CodeFuse-DevOps-Eval
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-zh/">
+            
+              CodeFuse-DevOps-Model
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-zh/">
+            
+              CodeFuse-Evalution
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-Query</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-introduction-zh/">
+            
+              基本介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-godellanguage-zh/">
+            
+              查询语言介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-toolchain-zh/">
+            
+              VSCode插件
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-query-usercase-zh/">
+            
+              用户案例
+            
+          </a>
+
+        <strong class="sidebar-section">MFTCoder</strong>
+          
+          <a class="sidebar-link " href="/docs/mftcoder-introduction-zh/">
+            
+              基本介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-accelerate-zh/">
+            
+              Accelerate &#43; DeepSpeed/FSDP 框架篇
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/mftcoder-atorch-zh/">
+            
+              Atorch框架篇
+            
+          </a>
+
+        <strong class="sidebar-section">CodeFuse-MFT-VLM</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-mft-vlm-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 Test Agent</strong>
+          
+          <a class="sidebar-link " href="/docs/test-agent-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ModelCache</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-feature-zh/">
+            
+              功能特性
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-config-zh/">
+            
+              最佳配置
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-modelcache-release-zh/">
+            
+              版本记录
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-ChatBot</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-chatbot-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/%E5%90%AF%E5%8A%A8%E6%98%8E%E7%BB%86/">
+            
+              启动明细
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E5%8C%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A5%E5%8F%A3%E6%8E%A5%E5%85%A5/">
+            
+              本地私有化&amp;大模型接口接入
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/chatbot-%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/">
+            
+              ChatBot 技术路线
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Model</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-train-zh/">
+            
+              训练解析
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-model-quickstart-zh/">
+            
+              快速使用
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-DevOps-Eval</strong>
+          
+          <a class="sidebar-link " href="/docs/%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D/">
+            
+              数据介绍
+            
+          </a>
+
+        
+          
+          <a class="sidebar-link " href="/docs/codefuse-devops-eval-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        <strong class="sidebar-section">🌱 CodeFuse-evalution</strong>
+          
+          <a class="sidebar-link " href="/docs/codefuse-evalution-quickstart-zh/">
+            
+              快速开始
+            
+          </a>
+
+        
+  </div>
+</aside>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  
+</nav>
+      <header id="article-header">
+  <h1>Test-Agent: 您的智能测试助理</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h3 id="本地mac-m1体验效果">本地Mac M1体验效果</h3>
+<p><img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/8dba860f-c1bb-49d5-b9dd-a58e541562a6" alt="图片"></p>
+<h3 id="魔搭体验效果">魔搭体验效果</h3>
+<p>魔搭模型访问链接：<a href="https://modelscope.cn/models/codefuse-ai/TestGPT-7B/summary" target="_blank">ModelScope TestGPT-7B</a>
+<img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/0e50b258-44f9-4dc6-8e30-0a01cf62d02b" alt="MS"></p>
+<h2 id="什么是test-agentintroduction">什么是Test Agent？（Introduction）</h2>
+<p><strong>Test Agent</strong> 旨在构建测试领域的“智能体”，融合大模型和质量领域工程化技术，促进质量技术代系升级。我们期望和社区成员一起合作，打造创新的测试领域解决方案，构建24小时在线的测试助理服务，让测试如丝般顺滑。</p>
+<h2 id="本期特性features">本期特性（Features）</h2>
+<ul>
+<li>
+<p><strong>模型</strong> 本期我们开源了测试领域模型TestGPT-7B。模型以CodeLlama-7B为基座，进行了相关下游任务的微调：</p>
+<ul>
+<li><strong>多语言测试用例生成（Java/Python/Javascript）</strong> 一直以来都是学术界和工业界非常关注的领域，近年来不断有新产品或工具孵化出来，如EvoSuite、Randoop、SmartUnit等。然而传统的用例生成存在其难以解决的痛点问题，基于大模型的测试用例生成在测试用例可读性、测试场景完整度、多语言支持方面都优于传统用例生成工具。本次重点支持了多语言测试用例生成，在我们本次开源的版本中首先包含了Java、Python、Javascript的测试用例生成能力，下一版本中逐步开放Go、C++等语言。</li>
+<li><strong>测试用例Assert补全</strong>  对当前测试用例现状的分析与探查时，我们发现代码仓库中存在一定比例的存量测试用例中未包含Assert。没有Assert的测试用例虽然能够在回归过程中执行通过，却无法发现问题。因此我们拓展了测试用例Assert自动补全这一场景。通过该模型能力，结合一定的工程化配套，可以实现对全库测试用例的批量自动补全，智能提升项目质量水位。</li>
+</ul>
+</li>
+<li>
+<p><strong>工程框架</strong> 本地模型快速发布和体验工程化框架</p>
+<ul>
+<li>ChatBot页面</li>
+<li>模型快速启动</li>
+<li>私有化部署，本地化的GPT大模型与您的数据和环境进行交互，无数据泄露风险，100%安全</li>
+</ul>
+</li>
+</ul>
+<p><strong>后续我们会持续迭代模型和工程化能力：</strong></p>
+<ul>
+<li>不断加入更多令人激动的测试域应用场景，如领域知识问答、测试场景分析等</li>
+<li>支撑面向测试场景的copilot 工程框架开放，如测试领域知识智能embedding、测试通用工具API体系、智能测试Agent等，敬请期待！</li>
+<li>以7B为基础，逐步扩展至13B、34B模型。欢迎关注！</li>
+</ul>
+<h2 id="性能最强的7b测试领域大模型model">性能最强的7B测试领域大模型（Model）</h2>
+<p>目前在TestAgent中，我们默认使用了TestGPT-7B模型。与当前已有开源模型相比，<strong>TestGPT-7B模型在用例执行通过率（pass@1）、用例场景覆盖（平均测试场景数）上都处于业界领先水平。</strong>
+TestGPT-7B模型核心能力的评测结果如下：</p>
+<ul>
+<li>多语言测试用例生成
+针对模型支持的三种语言：Java、Python、Javascript，Pass@1评测结果如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Java pass@1</th>
+<th>Java Average number of test scenarios</th>
+<th>Python pass@1</th>
+<th>Python Average number of test scenarios</th>
+<th>Javascript pass@1</th>
+<th>Javascript Average number of test scenarios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TestGPT-7B</td>
+<td>48.6%</td>
+<td>4.37</td>
+<td>35.67%</td>
+<td>3.56</td>
+<td>36%</td>
+<td>2.76</td>
+</tr>
+<tr>
+<td>CodeLlama-13B-Instruct</td>
+<td>40.54%</td>
+<td>1.08</td>
+<td>30.57%</td>
+<td>1.65</td>
+<td>31.7%</td>
+<td>3.13</td>
+</tr>
+<tr>
+<td>Qwen-14B-Chat</td>
+<td>10.81%</td>
+<td>2.78</td>
+<td>15.9%</td>
+<td>1.32</td>
+<td>9.15%</td>
+<td>4.22</td>
+</tr>
+<tr>
+<td>Baichuan2-13B-Chat</td>
+<td>13.5%</td>
+<td>2.24</td>
+<td>12.7%</td>
+<td>2.12</td>
+<td>6.1%</td>
+<td>3.31</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>测试用例Assert补全
+目前模型支持Java用例的Assert补全，Pass@1评测结果如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>pass@1</th>
+<th>Percentage of strong validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codefuse-TestGPT-7B</td>
+<td>71.1%</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="工程架构engineering-architecture">工程架构（Engineering Architecture）</h2>
+<p><img src="https://github.com/codefuse-ai/Test-Agent/assets/103973989/1b61beff-df59-4ab3-843c-266413c8dbc4" alt="JG"></p>
+<p>大模型的号角已经吹响，测试领域大模型也在不断进化中，通过预训练过程中积累的丰富世界知识，在复杂交互环境中展现出了非凡的推理与决策能力。</p>
+<p>尽管在测试领域中基础模型取得了显著的成果，但仍然存在一些局限性，特定领域的测试任务通常需要专业化的工具或领域知识来解决。例如，基础模型可以通过预训练知识完成单次测试代码生成和测试文本生成等任务，但处理复杂的集成用例生成、特定领域用例生成和测试流程pipeline交互等问题时，需要更专业的工具和领域知识。因此将专用工具与基础模型整合在一起，可以充分发挥它们各自的优势。专用工具可以解决模型时效性不足、增强专业知识、提高可解释性和鲁棒性的问题。而基础模型则具备类人的推理规划能力，可以理解复杂的数据和场景，并与现实世界进行交互。</p>
+<p>在本期开放模型工程化部署和ChatBot基础上，我们将继续在测试开源领域深耕投入。协同社区志趣相投开发者们，一起打造测试领域最领先的Tools工程体系、智能测试助理和测试开源工程！</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+      
+    
+        
+
+        
+          
+        
+
+        
+        
+      
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2024-04-09"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2024-04-09</time>
+
+  
+    <a id="article-prev-link" href="/docs/codefuse-mft-vlm-zh/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+    <a id="article-next-link"  href="/docs/codefuse-modelcache-zh/">Next <i class="icon icon-next icon-colored"></i></a>
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#本地mac-m1体验效果">本地Mac M1体验效果</a></li>
+        <li><a href="#魔搭体验效果">魔搭体验效果</a></li>
+      </ul>
+    </li>
+    <li><a href="#什么是test-agentintroduction">什么是Test Agent？（Introduction）</a></li>
+    <li><a href="#本期特性features">本期特性（Features）</a></li>
+    <li><a href="#性能最强的7b测试领域大模型model">性能最强的7B测试领域大模型（Model）</a></li>
+    <li><a href="#工程架构engineering-architecture">工程架构（Engineering Architecture）</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://github.com/codefuse-ai" target="_blank">
+      <i class="icon icon-copyright"></i> 2023-2024 codefuse-ai
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/codefuse-ai" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2024-04-09')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>
