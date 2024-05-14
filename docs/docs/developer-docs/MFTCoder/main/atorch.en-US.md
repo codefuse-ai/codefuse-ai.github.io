@@ -12,8 +12,9 @@ toc: content
 
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-green.svg)](https://huggingface.co/codefuse-ai)&nbsp;
 <a href="https://github.com/codefuse-ai/MFTCoder/blob/main/LICENSE">
-<img alt="GitHub" src="https://img.shields.io/github/license/huggingface/transformers.svg?color=blue">
+    <img alt="GitHub" src="https://img.shields.io/github/license/huggingface/transformers.svg?color=blue">
 </a>
+
 
 ## 1. Updates
 
@@ -24,48 +25,45 @@ toc: content
 🔥 MFTCoder supports LoRA using the Atorch Framework.
 
 ## 2. Data Format
-
 ### 2.1 Training Data Format
-
-The training data is in a uniformed JSONL format, in which each line of data has the following JSON format. The "chat_rounds" field is required, and other fields can be added or removed based on the specific need.
+The training data is in a uniformed JSONL format, in which each line of data has the following JSON format. The "chat_rounds" field is required, and other fields can be added or removed based on the specific need. 
 
 ```json
 {
-  "id": 0,
-  "data_name": "code-helper",
-  "chat_rounds": [
-    {
-      "role": "system",
-      "content": "You are a expert in coding and help answer code questions",
-      "chat_round_id": 0
-    },
-    {
-      "role": "human",
-      "content": "Write a python function of quick sort",
-      "chat_round_id": 1
-    },
-    {
-      "role": "bot",
-      "content": "Below is the function of quick sort: ...",
-      "chat_round_id": 1
-    },
-    {
-      "role": "human",
-      "content": "Explain the code",
-      "chat_round_id": 2
-    },
-    {
-      "role": "bot",
-      "content": "OK, this code ...",
-      "chat_round_id": 2
-    }
-  ]
+    "id":0,
+    "data_name":"code-helper",
+    "chat_rounds":[
+        {
+            "role": "system",
+            "content": "You are a expert in coding and help answer code questions",
+            "chat_round_id": 0
+        },
+        {
+            "role": "human",
+            "content": "Write a python function of quick sort", 
+            "chat_round_id": 1
+        },
+        {
+            "role": "bot",
+            "content": "Below is the function of quick sort: ...", 
+            "chat_round_id": 1
+        },
+        {
+            "role": "human",
+            "content": "Explain the code", 
+            "chat_round_id": 2
+        },
+        {
+            "role": "bot",
+            "content": "OK, this code ...", 
+            "chat_round_id": 2
+        }
+    ]
 }
 ```
 
 ### 2.2 Inference Data Format
-
-The inference data contains strings concatenated by conversation data(system, human and bot contents) in the training data format.
+The inference data contains strings concatenated by conversation data(system, human and bot contents) in the training data format. 
 It is used as the data "seen"(before tokenization) by the model in training process.
 It is used as input during the inference process as well.
 Here is an example format of the concatenated string:
@@ -84,58 +82,46 @@ Here is an example format of the concatenated string:
 <|role_start|>bot<|role_end|>{Bot output to be genreated}</s>
 """
 ```
-
 When applying inference, you always make your input string end with "<|role_start|>bot<|role_end|>" to request the model generating answers.
 
 ## 3. Model Training
-
 Currently, the "MFTCoder/mft_atorch" code repository supports fully instruction fine-tuning, and LoRA instruction fine-tuning. Only the training of the GPTNeoX model is supported. In theory, the pretrained weights of the GPTNeoX model available on HuggingFace can be used for training within this project.
 
-We have extracted various components used in training to facilitate future extension and optimization. Please refer to the implementation in the main directory for more details. The entry directory for fine-tuning training is `train/`, and the entry file for training is `train/run_train.py`. The parameter configurations are stored in the launch scripts such as `train/run_gpt_*.sh`, making it easier to manage and modify them uniformly.
+We have extracted various components used in training to facilitate future extension and optimization. Please refer to the implementation in the main directory for more details. The entry directory for fine-tuning training is ```train/```, and the entry file for training is ```train/run_train.py```. The parameter configurations are stored in the launch scripts such as ```train/run_gpt_*.sh```, making it easier to manage and modify them uniformly.
 
 ### 3.1 Tokenization
-
 During training, we concatenate multi-turn dialogues into the following format (also known as the inference data format mentioned earlier) and then tokenize it. In this format, <|role_start|>human<|role_end|> represents the human input (i.e., prompt), <|role_start|>bot<|role_end|> represents the bot output, and </s> represents the eos_token.
 You can modify and replace the eos_token based on different models' requirements.
 
 Here is an example of the concatenated format with prompts:
-
 ```
 "<|role_start|>human<|role_end|>input1</s>target1</s>input2</s>target2</s>...
 ```
-
-During the calculation of loss, we use a `loss mask` to ensure that the loss from the input part does not contribute to the parameter updates. Only the loss from the `target</s>` part is used for updating parameters.
-This approach takes full advantage of the benefits of model parallelism, making training more efficient. It also leverages the characteristic of decoder-only models with left-to-right attention.
+During the calculation of loss, we use a ```loss mask``` to ensure that the loss from the input part does not contribute to the parameter updates. Only the loss from the ```target</s>``` part is used for updating parameters.
+This approach takes full advantage of the benefits of model parallelism, making training more efficient. It also leverages the characteristic of decoder-only models with left-to-right attention. 
 By including all target parts from multiple turns in a single training iteration, the training process becomes more efficient.
 
 ### 3.2 Fully Supervised Fine-Tuning (SFT)
-
 To perform fully SFT, you can execute the following command:
-
 ```bash
 sh run_gpt_mft.sh 10 1 8 5
 ```
-
 Please note that the four parameters after the launch script have the following meanings:
-
 - The first parameter is the per GPU batch size.
 - The second parameter is the number of tensor parallelism (currently only supports 1).
 - The third parameter is the number of data parallelism, which should match the number of GPUs used.
-- The fourth parameter is the number of training epochs.
+- The fourth parameter is the number of training epochs. 
 
 For other training modes, the same four parameters need to be configured in the launch script.
 
 ### 3.3 LoRA Supervised Fine-Tuning
-
 To perform LoRA SFT, you can execute the following command:
-
 ```bash
 sh run_gpt_mft_peft.sh 10 1 8 5
 ```
 
 ### 3.4 Parameter Explanations
-
-The main parameter explanations for the `train/run_gpt_*.sh` are as follows. You can modify these parameters according to your needs:
+The main parameter explanations for the ```train/run_gpt_*.sh``` are as follows. You can modify these parameters according to your needs:
 
 - **tokenize_mode**: Need to be 'sft' at present.
 
@@ -153,13 +139,13 @@ The main parameter explanations for the `train/run_gpt_*.sh` are as follows. You
 
 - **peft_type**: Currently only supports lora.
 
-- **pretrained_model_path**: Local directory of the pre-trained model.
+- **pretrained_model_path**: Local directory of the pre-trained model. 
 
 - **total_train_batch_size**: The total batch size for training across all GPUs, calculated automatically based on per gpu batch size entered in the script.
 
 - **per_device_valid_batch_size**: The batch size for evaluation on each GPU, calculated automatically based on per gpu batch size entered in the script.
 
-- **gradient_accumulation_steps**: Number of gradient accumulation steps. Global batch size = num*gpus * per*device_train_batch_size * gradient_accumulation_steps.
+- **gradient_accumulation_steps**: Number of gradient accumulation steps. Global batch size = num_gpus * per_device_train_batch_size * gradient_accumulation_steps.
 
 - **checkpoint_activations**: Enable if running out of GPU memory. Trades time for space by not caching activation states, resulting in two forward passes to save memory.
 
@@ -199,17 +185,14 @@ The main parameter explanations for the `train/run_gpt_*.sh` are as follows. You
 ## 4. Model Usage
 
 ### 4.1 Merge Adaptor weights
-
-Using LoRA or QLoRA for training, this project only saves the weights and configuration files of the adapters.
-To merge the adapter weights with the base model, see `src/pefts/merge_base_and_lora_to_hf.py`
+Using LoRA or QLoRA for training, this project only saves the weights and configuration files of the adapters. 
+To merge the adapter weights with the base model, see ```src/pefts/merge_base_and_lora_to_hf.py```
 
 ### 4.2 Inference demo
-
 Here is the script for inference on our trained models, which is compatible with most Hugging Face models:
-
 ```python
 from transformers import (
-    AutoTokenizer,
+    AutoTokenizer, 
     AutoModelForCausalLM,
 )
 tokenizer = AutoTokenizer.from_pretrained(mode_name_or_path, trust_remote_code=True, use_fast=False, legacy=False)
@@ -238,7 +221,7 @@ gen_text = tokenizer.batch_decode(outputs[:, inputs["input_ids"].shape[1]:], ski
 print(gen_text)
 ```
 
-Indeed, the parameters top_p, temperature, repetition_penalty, do_sample, etc., have a significant impact on the model's generation output.
+Indeed, the parameters top_p, temperature, repetition_penalty, do_sample, etc., have a significant impact on the model's generation output. 
 You can modify these parameters based on your specific use case.
 
 In code generation scenarios, if you are using the sampling mode (do_sample=True), the following parameter settings can yield good results for the Pass@1 metric:
@@ -251,10 +234,8 @@ These parameter combinations can control the diversity of the generated outputs 
 
 If you choose the non-sampling mode (do_sample=False), you can consider the following parameter settings:
 
-beam_num: Set a smaller value such as 1 or 3. `beam_num=1` represents greedy decoding, which selects the most probable single generated word. `beam_num=3` represents beam search mode, which considers multiple potential generation paths and chooses the best path among them.
+beam_num: Set a smaller value such as 1 or 3. ```beam_num=1``` represents greedy decoding, which selects the most probable single generated word. ```beam_num=3``` represents beam search mode, which considers multiple potential generation paths and chooses the best path among them.
 
 ## 5. FAQ
-
 ### Q1：What should I do when cuda OOM happens？
-
 If OOM (Out of Memory) occurs, you can mitigate it by reducing parameters such as per GPU batch size (the first argument when starting the training script) and seq_length. You can also set gradient_checkpointing=true, which significantly reduces memory usage but may slow down the training speed.

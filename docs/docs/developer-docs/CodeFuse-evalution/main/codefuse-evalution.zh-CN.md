@@ -24,6 +24,6 @@ toc: content
   </p>
 </div>
 
-CodeFuseEval 在 HumanEval-x、MBPP 的基准上，结合 CodeFuse 大模型多任务场景，开发的编程领域多任务的评测基准， 可用于评估模型在代码补全，自然语言生成代码，测试用例生成、跨语言代码翻译，中文指令生成代码等多类任务的性能。持续开放中，敬请期待！
+CodeFuseEval在HumanEval-x、MBPP的基准上，结合CodeFuse大模型多任务场景，开发的编程领域多任务的评测基准， 可用于评估模型在代码补全，自然语言生成代码，测试用例生成、跨语言代码翻译，中文指令生成代码等多类任务的性能。持续开放中，敬请期待！
 
 ![img](https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*7CZtSpgj3K4AAAAAAAAAAAAADlHYAQ/original)

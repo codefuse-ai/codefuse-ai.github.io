@@ -8,8 +8,7 @@ toc: content
 ---
 
 ## 准备相关参数
-
-首先增加 openai 配置，也可以是其它类似于 openai 接口的模型（通过 fastchat 启动）
+首先增加openai配置，也可以是其它类似于openai接口的模型（通过fastchat启动）
 
 ```
 import os, sys
@@ -19,10 +18,9 @@ api_base_url= "https://api.openai.com/v1"
 model_name = "gpt-3.5-turbo"
 ```
 
-## 构建 LLM Config
 
-- 通过调用 类 openai 传入
-
+## 构建LLM Config
+- 通过调用 类openai 传入
 ```
 from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
 llm_config = LLMConfig(
@@ -32,7 +30,6 @@ llm_config = LLMConfig(
 ```
 
 - 自定义 langchain LLM 传入
-
 ```
 from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
 from langchain.llms.base import BaseLLM, LLM

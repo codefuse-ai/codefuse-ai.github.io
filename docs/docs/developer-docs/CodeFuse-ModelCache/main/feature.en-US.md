@@ -14,6 +14,9 @@ From a functional standpoint, to address Huggingface network issues and improve 
 
 Below is a feature comparison table for ModelCache and GPTCache modules:
 
+
+
+
 <table>
   <tr>
     <th rowspan="2">Module</th>
@@ -136,33 +139,30 @@ Below is a feature comparison table for ModelCache and GPTCache modules:
 </table>
 
 ## Core Features
-
 In ModelCache, the main ideas of GPTCache are carried forward, including a series of core modules: adapter, embedding, similarity, and data_manager. The adapter module's main function is to handle the business logic for various tasks and connect modules like embedding, similarity, and data_manager; the embedding module is responsible for converting text into semantic vector representations, transforming user queries into vectors for recall or storage; the rank module ranks and evaluates the similarity of recalled vectors; the data_manager module manages the database. To better industrialize, we've made architectural and functional upgrades as follows:
 
 - [x] Architectural Adjustment (Lightweight Integration): Embedded in large model products in a cache mode similar to Redis, it provides semantic caching capabilities without interfering with LLM invocation and security audits, adaptable toall large model services.
 
-- [x] Multiple Model Loading Schemes:
+- [x]  Multiple Model Loading Schemes:
+    - Support for loading local embedding models to resolve Huggingface connectivity issues.
+    - Support for loading various pre-trained model embedding layers.
 
-  - Support for loading local embedding models to resolve Huggingface connectivity issues.
-  - Support for loading various pre-trained model embedding layers.
+- [x]  Data Isolation Capabilities:
+    - Environmental Isolation: Depending on the environment, different database configurations can be pulled to achieve isolation (development, staging, production).
+    - Multi-Tenant Data Isolation: Dynamically create collections according to the model to isolate data, addressing data isolation issues for multiple models/services in large model products.
 
-- [x] Data Isolation Capabilities:
+- [x]  Support for System Commands: Using concatenation to solve system command issues within the prompt paradigm.
 
-  - Environmental Isolation: Depending on the environment, different database configurations can be pulled to achieve isolation (development, staging, production).
-  - Multi-Tenant Data Isolation: Dynamically create collections according to the model to isolate data, addressing data isolation issues for multiple models/services in large model products.
+- [x]  Distinguishing Long and Short Texts: Long texts pose more challenges to similarity assessment, so the differentiation between long and short texts has been enhanced, allowing separate configuration of judgment thresholds.
 
-- [x] Support for System Commands: Using concatenation to solve system command issues within the prompt paradigm.
+- [x]  Performance Optimization for Milvus: Adjusting Milvus's consistency_level to "Session" level for better performance.
 
-- [x] Distinguishing Long and Short Texts: Long texts pose more challenges to similarity assessment, so the differentiation between long and short texts has been enhanced, allowing separate configuration of judgment thresholds.
-
-- [x] Performance Optimization for Milvus: Adjusting Milvus's consistency_level to "Session" level for better performance.
-
-- [x] Data Management Capabilities:
-  - One-click cache clearing ability for data management after model upgrades.
-  - Recall hit queries for subsequent data analysis and model iteration reference.
-  - Asynchronous log write-back capability for data analysis and statistics.
-  - Added model fields and data statistics fields for feature expansion.
-  - Future features that will continue to be built upon include:
+- [x]  Data Management Capabilities:
+    - One-click cache clearing ability for data management after model upgrades.
+    - Recall hit queries for subsequent data analysis and model iteration reference.
+    - Asynchronous log write-back capability for data analysis and statistics.
+    - Added model fields and data statistics fields for feature expansion.
+    - Future features that will continue to be built upon include:
 - [ ] Data isolation based on hyperparameters.
 - [ ] System prompt partitioned storage capability to improve the accuracy and efficiency of similarity matching.
 - [ ] More versatile embedding models and similarity evaluation algorithms.

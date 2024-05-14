@@ -12,7 +12,7 @@ toc: content
 
 # 安装、配置、运行
 
-## 硬件和软件要求
+## 硬件和软件要求 
 
 - 硬件：4C8G
 
@@ -22,13 +22,13 @@ toc: content
 
 - CodeFuse-Query 下载包是一个 zip 存档，其中包含工具、脚本和各种特定于 CodeFuse-Query 的文件。如果您没有 CodeFuse-Query 许可证，那么下载此存档即表示您同意 [CodeFuse-Query 条款和条件](./LICENSE)。
 - 目前仅支持 mac，linux 系统下使用 CodeFuse-Query，下载地址为:（目前仅给出示例，开源后给出正式下载地址）
-  - mac: [CodeFuse-Query 2.0.0](https://github.com/codefuse-ai/CodeFuse-Query/releases/tag/2.0.0)
-  - linux: [CodeFuse-Query 2.0.0](https://github.com/codefuse-ai/CodeFuse-Query/releases/tag/2.0.0)
+   - mac: [CodeFuse-Query 2.0.0](https://github.com/codefuse-ai/CodeFuse-Query/releases/tag/2.0.0)
+   - linux: [CodeFuse-Query 2.0.0](https://github.com/codefuse-ai/CodeFuse-Query/releases/tag/2.0.0)
 - 您应该始终使用 CodeFuse-Query 捆绑包，确保版本兼容性
 
 ### Tips：
 
-- mac 系统下直接下载软件包会提示需要验证开发者
+- mac系统下直接下载软件包会提示需要验证开发者
 
 ![image.png](https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*0_0lSbOt4vEAAAAAAAAAAAAADlHYAQ/original)
 
@@ -38,7 +38,7 @@ toc: content
 
 - 点击仍然允许
 
-- 详细步骤可参照：[Mac 官方文档: 如何在 Mac 上安全地打开 App](https://support.apple.com/zh-cn/HT202491)
+- 详细步骤可参照：[Mac 官方文档: 如何在 Mac 上安全地打开 App](https://support.apple.com/zh-cn/HT202491) 
 
 - 或使用`xattr -d com.apple.quarantine`命令，删除 CodeFuse-Query 被 macOS 赋予的外部属性
 
@@ -56,7 +56,7 @@ xattr -d com.apple.quarantine path/to/file
 
 - CodeFuse-Query 解压后，您可以通过以下几种方式运行可执行文件来运行 sparrow 进程：
 
-- 通过执行 `<extraction-root>/sparrow-cli/sparrow`，其中 `<extraction-root>` 是提取 CodeFuse-Query 包的文件夹。
+- 通过执行 `<extraction-root>/sparrow-cli/sparrow`，其中 `<extraction-root>` 是提取CodeFuse-Query包的文件夹。
 
 - 通过添加 `<extraction-root>/sparrow-cli` 到您的 PATH，以便您可以直接运行可执行文件 sparrow。
 
@@ -77,7 +77,6 @@ xattr -d com.apple.quarantine path/to/file
 ### 执行样例
 
 #### 数据抽取
-
 ```java
 <extraction-root>/sparrow-cli/sparrow database create -s <src> -lang <language> -o <output>
 ```
@@ -90,7 +89,7 @@ xattr -d com.apple.quarantine path/to/file
 
 - 在数据抽取步骤，获得脚本执行需要的数据库 `<database>`
 
-#### 编写 godel 脚本
+#### 编写godel脚本
 
 - 假设具备如下 godel 脚本, 获取指定仓库的所有 java 方法名
 
@@ -123,7 +122,6 @@ fn main() {
 ```
 
 #### 脚本执行
-
 ```java
 <extraction-root>/sparrow-cli/sparrow query run -d <database> -gdl <gdl_path> -o <output>
 ```
@@ -138,7 +136,7 @@ fn main() {
 
 #### 例子
 
-若存在以下 java 代码
+若存在以下java代码
 
 ```java
 public class HelloWorld {
@@ -172,7 +170,6 @@ sparrow query run -d ./db/ -gdl example.gdl -o ./
 - 执行完毕后可在当前目录下找到 example.json 文件
 
 对应的脚本输出 json 文件内容如下
-
 ```java
 [{"name": "getHello"},
 {"name": "getWorld"},

@@ -12,8 +12,9 @@ toc: content
 
 [![Generic badge](https://img.shields.io/badge/🤗-Huggingface%20Repo-green.svg)](https://huggingface.co/codefuse-ai)&nbsp;
 <a href="https://github.com/codefuse-ai/MFTCoder/blob/main/LICENSE">
-<img alt="GitHub" src="https://img.shields.io/github/license/huggingface/transformers.svg?color=blue">
+    <img alt="GitHub" src="https://img.shields.io/github/license/huggingface/transformers.svg?color=blue">
 </a>
+
 
 ## 1. Updates
 
@@ -30,47 +31,44 @@ toc: content
 🔥 MFTCoder-accelerate supports finetuning most of mainstream open-source base models: codellama, llama2, llama, starcoder, codegeex2, chatglm2, qwen.
 
 ## 2. Data Format
-
 ### 2.1 Training Data Format
-
-The training data is required to be a uniformed JSONL format, in which each line of data has the following "chatML"-style JSON format. The "chat_rounds" field is required, and other fields can be added or removed based on specific needs.
+The training data is required to be a uniformed JSONL format, in which each line of data has the following "chatML"-style JSON format. The "chat_rounds" field is required, and other fields can be added or removed based on specific needs. 
 The reason why we selected "chatML" style as our training and inference data format is that "chatML" style is compatible with both "conversation" and "instruction/response" scenarios.
 
 For the keys of roles in "chat_rounds", you could use "system/human/bot" tuple or "system/user/assistant" tuple.
 
 ```json
 {
-  "id": 0,
-  "data_name": "code-helper",
-  "chat_rounds": [
-    {
-      "role": "system",
-      "content": "You are a expert in coding and help answer code questions"
-    },
-    {
-      "role": "human",
-      "content": "Write a python function of quick sort"
-    },
-    {
-      "role": "bot",
-      "content": "Below is the function of quick sort: ..."
-    },
-    {
-      "role": "human",
-      "content": "Explain the code"
-    },
-    {
-      "role": "bot",
-      "content": "OK, this code ..."
-    }
-  ]
+    "id":0,
+    "data_name":"code-helper",
+    "chat_rounds":[
+        {
+            "role": "system",
+            "content": "You are a expert in coding and help answer code questions"
+        },
+        {
+            "role": "human",
+            "content": "Write a python function of quick sort"
+        },
+        {
+            "role": "bot",
+            "content": "Below is the function of quick sort: ..."
+        },
+        {
+            "role": "human",
+            "content": "Explain the code"
+        },
+        {
+            "role": "bot",
+            "content": "OK, this code ..."
+        }
+    ]
 }
 ```
 
 ### 2.2 Default Inference Data Format
-
 Inference data format is the real string format consumed by tokenizers and then LLMs. It is also the string format to which the training data is converted before tokenization.
-The default inference data format contains strings concatenated by conversation data(system, human and bot contents) in the training data format.
+The default inference data format contains strings concatenated by conversation data(system, human and bot contents) in the training data format. 
 It is used as the data "seen"(before tokenization) by the model in training process.
 It is used as input during the inference process as well.
 Here is an example format of the inference string:
@@ -96,24 +94,23 @@ User nth round input
 {Assistant output to be genreated}{EOS_TOKEN}
 """
 ```
+When applying inference, you always make your input string end with ```<s>bot\n``` to request the model generating answers.
 
-When applying inference, you always make your input string end with `<s>bot\n` to request the model generating answers.
+
 
 ## 3. Model Training
-
-Currently, the "MFTCoder-accelerate" codebase supports Full-parameters/LoRA/QLoR along with Multi-Task FineTuning(MFT).
+Currently, the "MFTCoder-accelerate" codebase supports Full-parameters/LoRA/QLoR along with Multi-Task FineTuning(MFT). 
 In theory, this project can be used to train any publicly available model in the HuggingFace Format.
 
 Here are some excellent pre-trained models weights available on Huggingface that can be finetuned with this codebase:
 
-🤗 [Latest code pre-trained SOTA, CodeLlama-34b-Python](https://huggingface.co/codellama/CodeLlama-34b-Python-hf) : code-llama-34b, code-llama-34b-python, a new SOTA base model.
+🤗 [Latest code pre-trained SOTA, CodeLlama-34b-Python](https://huggingface.co/codellama/CodeLlama-34b-Python-hf) : code-llama-34b, code-llama-34b-python, a new SOTA base model. 
 
 🤗 [Best 10B level pre-trained Code LLM, Starcoder:](https://huggingface.co/bigcode/starcoder) wizardCoder-15B, PanGu-coder2, and other previous SOTA were trained on it.
 
 🤗 [Multilingual powerhouse, Qwen-7b](https://huggingface.co/Qwen/Qwen-7B): Suitable for multilingual tasks, including Chinese tasks, for instruction fine-tuning.
 
 **mftcoder_accelerate directory structure**
-
 ```
 mftcoder_accelerate
        |
@@ -132,52 +129,46 @@ mftcoder_accelerate
        |
        evals
 ```
+我们将训练中使用的各种组件抽取出来，以便后续的扩展和优化， 详见```src```目录下的实现。
 
-我们将训练中使用的各种组件抽取出来，以便后续的扩展和优化， 详见`src`目录下的实现。
+训练入口文件是```mftcoder_accelerate/src/pefts/mft_accelerate.py```
 
-训练入口文件是`mftcoder_accelerate/src/pefts/mft_accelerate.py`
+参数配置存储在```mftcoder_accelerate/src/configs```目录下，方便统一管理和更改。
 
-参数配置存储在`mftcoder_accelerate/src/configs`目录下，方便统一管理和更改。
-
-**_所以，在你开启训练之前，请进入 src 目录_**
-
+**_所以，在你开启训练之前，请进入src目录_**
 ```
 cd mftcoder_accelerate/src
 ```
 
-You can find the implementations in the `mftcoder_accelerate/src` directory.
-The entry directory for fine-tuning training is `mftcoder_accelerate/src`, and the entry file for training is `mftcoder_accelerate/src/pefts/mft_accelerate.py`.
-Configurations are stored in the `mftcoder_accelerate/src/configs` directory for easy management and modification.
+You can find the implementations in the ```mftcoder_accelerate/src``` directory.
+The entry directory for fine-tuning training is ```mftcoder_accelerate/src```, and the entry file for training is ```mftcoder_accelerate/src/pefts/mft_accelerate.py```. 
+Configurations are stored in the ```mftcoder_accelerate/src/configs``` directory for easy management and modification.
 
 **_As a result, before you start training, you should first change your dir by_**
-
 ```
 cd mftcoder_accelerate/src
 ```
 
 ### 3.1 Tokenization
+During training, we concatenate multi-turn dialogues into the following format (also known as the inference data format mentioned before) and then tokenize it. 
 
-During training, we concatenate multi-turn dialogues into the following format (also known as the inference data format mentioned before) and then tokenize it.
+In default format, ```<s>human\n``` starts the user's input (i.e., prompt),```<s>bot\n``` starts the assistant's output (i.e., response)
 
-In default format, `<s>human\n` starts the user's input (i.e., prompt),`<s>bot\n` starts the assistant's output (i.e., response)
-
-`{EOS_TOKEN}` represents the proper eos_token.
-We have different eos_tokens in `src/pefts/model_mapping.py` which fits different base models.
+```{EOS_TOKEN}``` represents the proper eos_token.
+We have different eos_tokens in ```src/pefts/model_mapping.py``` which fits different base models.
 
 Here is a visionable example of the training data after formatting:
-
 ```
 f"<s>human\n{input1}<s>bot\n{target1}{EOS_TOKEN}\n<s>human\n{input2}<s>bot\ntarget2{EOS_TOKEN}\n"
 ```
-
-During the calculation of loss, we use a `loss mask` to ensure that the loss from the input part does not contribute to parameter updates. Only the loss from the `target{EOS_TOKEN}` part is used for updating parameters.
-This approach takes full advantage of the benefits of model parallelism, making training more efficient. It also leverages the characteristic of decoder-only models with left-to-right attention.
+During the calculation of loss, we use a ```loss mask``` to ensure that the loss from the input part does not contribute to parameter updates. Only the loss from the ```target{EOS_TOKEN}``` part is used for updating parameters.
+This approach takes full advantage of the benefits of model parallelism, making training more efficient. It also leverages the characteristic of decoder-only models with left-to-right attention. 
 By including all target parts from multiple turns in a single training iteration, the training process becomes more efficient.
+
 
 ### 3.2 LoRA/QLoRA
 
 #### Intro
-
 You can refer to the Lora paper for details about LoRA：[LORA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS](https://arxiv.org/pdf/2106.09685.pdf)
 
 You can refer to the Qlora paper for details about QLoRA：[QLORA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/pdf/2305.14314.pdf)
@@ -189,42 +180,33 @@ According to the QLoRA paper, this method enables fine-tuning of a 33B model on 
 To perform LoRA/QLoRA fine-tuning, you can execute the following command:
 
 #### Launch via Deepspeed
-
 DeepSpeed config in accelerate_ds_config.yaml.
-
 ```bash
-accelerate launch --config_file accelerate_ds_config.yaml pefts/mft_accelerate.py --train_config configs/xxx_train_config.json --distributed_type "DeepSpeed"
+accelerate launch --config_file accelerate_ds_config.yaml pefts/mft_accelerate.py --train_config configs/xxx_train_config.json --distributed_type "DeepSpeed" 
 ```
-
 or
 DeepSpeed config in command line arguments
-
 ```bash
 sh ds_single_launch.sh
 ```
 
 #### Launch via FSDP
-
 FSDP config in accelerate_fsdp_config.yaml.
-
 ```bash
 accelerate launch --config_file accelerate_fsdp_config.yaml pefts/mft_accelerate.py --train_config configs/xxx_train_config.json --distributed_type "FSDP"
 ```
-
 or
 FSDP config in command line arguments
-
 ```bash
 sh ds_single_launch.sh
 ```
 
 #### Traing Arguments
+All arguments allowed in ***_train_config.josn are defined in ```arguments.py```.
 
-All arguments allowed in \*\*\*\_train_config.josn are defined in `arguments.py`.
+Frequently used arguments are provided in ```configs/***_train_config``` and explained as follows. You can modify these parameters according to your needs:
 
-Frequently used arguments are provided in `configs/***_train_config` and explained as follows. You can modify these parameters according to your needs:
-
-- **load_raw_dataset**: Need to be true at present. Only JSONL format is supported.
+- **load_raw_dataset**:  Need to be true at present. Only JSONL format is supported.
 
 - **data_paths**: Input data paths in a String of list format, e.g., "[path1,path2,path3]". Each path represents a task directory and each task directory contains one or more JSONL data files.
 
@@ -236,7 +218,7 @@ Frequently used arguments are provided in `configs/***_train_config` and explain
 
 - **attn_implementation**: "flash_attention_2" or "eager" or "sdpa", worked when model is supported by transformers officially
 
-- **peft_type**: null or "lora" or "qlora". null for full-params training
+- **peft_type**: null or  "lora" or "qlora". null for full-params training
 
 - **lora_rank**: Rank value for Lora.
 
@@ -254,31 +236,31 @@ Frequently used arguments are provided in `configs/***_train_config` and explain
 
 - **padding_mode**: The way tokenized data is set. "padding" means padding for each sample to seq_length, "pack" means putting samples into seq_length as many as possible.
 
-- **num_train_epochs**: Number of training epochs.
+- **num_train_epochs**: Number of training epochs. 
 
 - **per_device_train_batch_size**: Batch size per GPU for training.
 
 - **per_device_eval_batch_size**: Batch size per GPU for evaluation.
 
-- **gradient_accumulation_steps**: Number of gradient accumulation steps. Global batch size is calculated as num*gpus * per*device_train_batch_size * gradient_accumulation_steps.
+- **gradient_accumulation_steps**: Number of gradient accumulation steps. Global batch size is calculated as num_gpus * per_device_train_batch_size * gradient_accumulation_steps.
 
 - **learning_rate**: Initial Learning rate. For full-parameter fine-tuning, it is recommended to use a smaller value such as 1e-5 or 5e-6. For QLoRA, a larger learning rate is generally used, such as 1e-4 or 2e-4.
 
 - **min_lr**: Minimum learning rate. Usually set to one-tenth of the learning rate.
 
-- **seq_length**: Maximum input sequence length during training.
+- **seq_length**: Maximum input sequence length during training. 
 
-- **log_interval**: Log training loss every `log_interval` steps.
+- **log_interval**: Log training loss every ```log_interval``` steps.
 
-- **checkpointing_steps**: Save a checkpoint every `checkpointing_steps` steps.
+- **checkpointing_steps**: Save a checkpoint every ```checkpointing_steps``` steps.
 
-- **evaluation_steps**: Evaluate on the validation set every `evaluation_steps` steps.
+- **evaluation_steps**: Evaluate on the validation set every ```evaluation_steps``` steps.
 
 - **early_stopping**: Enable early stopping or not.
 
 - **early_stopping_stall_num**: Number of evaluation points without improvement which triggers early stopping.
 
-- **lr_scheduler_type**: Type of learning rate scheduler. "cosine" is a good choice already.
+- **lr_scheduler_type**: Type of learning rate scheduler. "cosine" is a good choice already. 
 
 - **num_warmup_steps**: Number of warm-up steps to gradually increase the learning rate.
 
@@ -288,13 +270,12 @@ Frequently used arguments are provided in `configs/***_train_config` and explain
 
 - **role_markers**: {"system": "\<s\>system\n", "user": "\<s\>human\n", "assistant": "\<s\>bot\n} as default(null). You could set your preferred role_markers as the templates startting "system", "user" and "assistant". e.g. {"system": "### System:\n", "user": "### Instruction:\n", "assistant": "### Response:\n"}
 
+
 ## 4. Model Usage
 
 ### 4.1 Merge Adaptor weights
-
-Using LoRA or QLoRA for training, this project only saves the weights and configuration files of the adapters.
-To merge the adapter weights with the base model:
-
+Using LoRA or QLoRA for training, this project only saves the weights and configuration files of the adapters. 
+To merge the adapter weights with the base model: 
 ```
 python pefts/merge_base_and_lora_to_hf.py \
     --base_model_or_path model_path \
@@ -304,12 +285,10 @@ python pefts/merge_base_and_lora_to_hf.py \
 ```
 
 ### 4.2 Inference demo
-
 Here is the script for inference on models trained by MFTCoder since v0.3.0, which is compatible with most HuggingFace models:
-
 ```python
 from transformers import (
-    AutoTokenizer,
+    AutoTokenizer, 
     AutoModelForCausalLM,
 )
 model_name_or_path = "codefuse-ai/CodeFuse-Deepseek-33B"
@@ -338,7 +317,8 @@ gen_text = tokenizer.batch_decode(outputs[:, inputs["input_ids"].shape[1]:], ski
 print(gen_text)
 ```
 
-Indeed, the parameters top_p, temperature, repetition_penalty, do_sample, etc., have a significant impact on the model's generation output.
+
+Indeed, the parameters top_p, temperature, repetition_penalty, do_sample, etc., have a significant impact on the model's generation output. 
 You can modify these parameters based on your specific use case.
 
 In code generation scenarios, if you are using the sampling mode (do_sample=True), the following parameter settings can yield good results for the Pass@1 metric:
@@ -351,30 +331,24 @@ These parameter combinations can control the diversity of the generated outputs 
 
 If you choose the non-sampling mode (do_sample=False), you can consider the following parameter settings:
 
-beam_num: Set a smaller value such as 1 or 3. `beam_num=1` represents greedy decoding, which selects the most probable single generated word. `beam_num=3` represents beam search mode, which considers multiple potential generation paths and chooses the best path among them.
+beam_num: Set a smaller value such as 1 or 3. ```beam_num=1``` represents greedy decoding, which selects the most probable single generated word. ```beam_num=3``` represents beam search mode, which considers multiple potential generation paths and chooses the best path among them.
 
 ## 5. FAQ
-
 #### Q1：What should I do when cuda OOM happens？
-
-If OOM happened，you can reduce parameters such as per_device_train_batch_size and seq_length. Since you are dealing with large models (6B, 13B, 34B, 70B, etc.), you are already using gradient checkpointing technology by default, which significantly reduces GPU memory consumption.
+If OOM happened，you can reduce parameters such as per_device_train_batch_size and seq_length. Since you are dealing with large models (6B, 13B, 34B, 70B, etc.), you are already using gradient checkpointing technology by default, which significantly reduces GPU memory consumption. 
 However, this may slightly slow down the training speed.
 
 #### Q2：install packages
-
 Please refer to init_env.sh and requirements.txt
 We highly recommend you install Flash Attention 2 (flash_attn>=2.1.0, 2.3.6 used by us) first to get memory-efficient and fast training.
 
 #### Q3：How should I specify the GPUs for training？
-
 You can specify the visiable GPUs as below:
-
 ```bash
 CUDA_VISIBLE_DEVICES=0,1 accelerate launch --config_file accelerate_ds_config.yaml pefts/mft_accelerate.py --train_config configs/xxx_train_config.json
 ```
 
 #### Q4：Whats is a recommended Distributed Training?
-
 For LoRA/QLoRA, we recommend DeepSpeed(ZeRO2) as the underlying framework, because it is easy and stable to use, moreover it is more compatable for different settings.
 And FSDP does not support Quantization(integer type in training).
 

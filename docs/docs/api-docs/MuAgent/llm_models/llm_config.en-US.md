@@ -8,9 +8,7 @@ toc: content
 ---
 
 ## Prepare Relevant Parameters
-
 First, add the OpenAI configuration, or you can use another model similar to the OpenAI interface (launched through fastchat).
-
 ```
 import os, sys
 
@@ -19,8 +17,8 @@ api_base_url= "https://api.openai.com/v1"
 model_name = "gpt-3.5-turbo"
 ```
 
-## Build LLM Config
 
+## Build LLM Config
 - By passing the class `openai`
 
 ```
@@ -32,8 +30,8 @@ llm_config = LLMConfig(
 )
 ```
 
-- Customizing and inputting langchain LLM
 
+- Customizing and inputting langchain LLM
 ```
 from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
 from langchain.llms.base import BaseLLM, LLM
@@ -44,7 +42,7 @@ class CustomizedModel(LLM):
         temperature = 0.2
         top_k = 40
         top_p = 0.9
-
+        
         def predict(self, prompt: str, stop: Optional[List[str]] = None) -> str:
             return self._call(prompt, stop)
 
