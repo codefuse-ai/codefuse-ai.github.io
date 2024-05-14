@@ -1,0 +1,78 @@
+@import (reference) '.dumi/theme/styles/variables.less';
+
+.@{prefix}-Contribution {
+  margin: -@s-header-height auto 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media @mobile {
+    margin-top: -@s-header-height-m - 20;
+    padding-top: 160px;
+    height: 660px;
+  }
+
+  +* {
+    position: relative;
+  }
+
+  .banner {
+    position: relative;
+    padding-top: 30px;
+    height: 380px;
+    width: 100%;
+    box-sizing: border-box;
+    // background: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);
+    background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*EamVR52XxpUAAAAAAAAAAAAADlHYAQ/original');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .bannerContent {
+      width: 1200px;
+      padding: 0px 24px;
+      margin-top: 30px;
+      width: 900px;
+      color: #f8f9fa;
+      font-size: 2.7rem;
+      display: flex;
+      justify-content: center;
+
+
+      img {
+        width: 35%;
+      }
+    }
+  }
+
+  .content {
+    width: 1000px;
+    margin: 0 auto;
+    color: #e4e9ec;
+    line-height: 30px;
+    padding: 24px;
+
+    .contentTitle {
+      margin: 40px 0 32px;
+      text-align: left;
+      font-weight: 400;
+      font-size: 32px;
+    }
+
+    .contentText {
+      font-size: 16px;
+      letter-spacing: 0.61px;
+      padding-left: 20px;
+      line-height: 30px;
+
+      li {
+        margin-top: 5px;
+      }
+    }
+  }
+}

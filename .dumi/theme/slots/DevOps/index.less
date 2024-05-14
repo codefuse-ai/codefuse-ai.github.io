@@ -1,0 +1,102 @@
+.devOps {
+  margin-top: 71px;
+  display: flex;
+  justify-content: center;
+
+  .devOps-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 1200px;
+
+    .devOpsTitle {
+      margin: 0 auto;
+      text-align: center;
+      min-width: 343px;
+      font-size: 40px;
+      color: #ffffff;
+      letter-spacing: 1.35px;
+      font-weight: 600;
+      background-image: linear-gradient(90deg, #d8d8d8 0%, #545eff 100%);
+      display: inline-block;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      .line {
+        margin: 0 auto;
+        margin-top: 19px;
+        background-image: linear-gradient(90deg, #e5b2ca 0%, #7546f3 100%);
+        height: 4px;
+        width: 323px;
+      }
+    }
+
+    .DevOpsContent {
+      width: 100%;
+
+      .DevOpsUl {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex: 1;
+        margin-top: 83px;
+        padding: 0;
+
+
+        .DevOpsLi {
+          position: relative;
+          width: 379px;
+          height: 383px;
+          border-radius: 33px;
+          cursor: pointer;
+
+          img {
+            position: absolute;
+            width: 379px;
+            height: 383px;
+            border-radius: 33px;
+          }
+
+          .title {
+            position: absolute;
+            font-size: 36px;
+            color: #ffffff;
+            letter-spacing: 1.21px;
+            font-weight: 600;
+            top: 38px;
+            left: 43px;
+          }
+
+          .desc {
+            display: none;
+            position: absolute;
+            width: 323px;
+            font-size: 18px;
+            color: #ffffff;
+            letter-spacing: 0.61px;
+            top: 38px;
+            left: 31px;
+          }
+
+          &:hover {
+            background-image: linear-gradient(138deg, #5aefff -10%, #502fe6 42%, #92764d 99%);
+            border-radius: 33px;
+
+            img {
+              display: none;
+            }
+
+            .title {
+              display: none;
+            }
+
+            .desc {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

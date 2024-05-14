@@ -1,0 +1,46 @@
+{
+  "name": "CodeFuse-Docs",
+  "version": "0.0.1",
+  "description": "A static-site powered by dumi",
+  "repository": {
+    "type": "git",
+    "url": "https://code.alipay.com/LinkE/CodeFuse-Docs"
+  },
+  "license": "MIT",
+  "author": "zhenjinsong.szj",
+  "scripts": {
+    "build": "dumi build",
+    "dev": "dumi dev",
+    "prepare": "husky install && dumi setup",
+    "start": "npm run dev"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ]
+  },
+  "dependencies": {
+    "antd": "^5.16.5",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.8"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/lodash": "^4.17.0",
+    "dumi": "^2.2.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "tnpm": {
+    "mode": "npm"
+  },
+  "yuyanId": "180020010001264005"
+}
