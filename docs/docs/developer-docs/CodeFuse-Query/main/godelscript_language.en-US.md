@@ -159,85 +159,85 @@ GödelScript includes basic types `int`, `string`, and `bool`. `bool` is a basic
 
 #### `int` Type Native Functions
 
-| Function  | Type               | Explanation                                             |
-| --------- | ------------------ | ------------------------------------------------------- |
-| pow       | (int, int) -> int  | Exponentiation. Arguments must be non-negative numbers. |
-| rem       | (int, int) -> int  | Remainder operation.                                    |
-| bitand    | (int, int) -> int  | Bitwise conjunction.                                    |
-| bitor     | (int, int) -> int  | Bitwise disjunction.                                    |
-| bitxor    | (int, int) -> int  | Bitwise exclusive disjunction.                          |
-| bitnot    | (int) -> int       | Bitwise negation.                                       |
-| neg       | (int) -> int       | Arithmetic negation.                                    |
-| to_string | (int) -> string    | Conversion to a string.                                 |
-| add       | (int, int) -> int  | Addition (+).                                           |
-| sub       | (int, int) -> int  | Subtraction (-).                                        |
-| mul       | (int, int) -> int  | Multiplication (\*).                                    |
-| div       | (int, int) -> int  | Division (/).                                           |
-| eq        | (int, int) -> bool | Equality (=).                                           |
-| ne        | (int, int) -> bool | Inequality (!=).                                        |
-| gt        | (int, int) -> bool | Greater than (>).                                       |
-| ge        | (int, int) -> bool | Greater than or equal to (>=).                          |
-| lt        | (int, int) -> bool | Less than (<).                                          |
-| le        | (int, int) -> bool | Less than or equal to (<=).                             |
-| to_set    | (int) -> \*int     | Cast to a set type.                                     |
+| Function | Type | Explanation |
+| --- | --- | --- |
+| pow | (int, int) -> int | Exponentiation. Arguments must be non-negative numbers. |
+| rem | (int, int) -> int | Remainder operation. |
+| bitand | (int, int) -> int | Bitwise conjunction. |
+| bitor | (int, int) -> int | Bitwise disjunction. |
+| bitxor | (int, int) -> int | Bitwise exclusive disjunction. |
+| bitnot | (int) -> int | Bitwise negation. |
+| neg | (int) -> int | Arithmetic negation. |
+| to_string | (int) -> string | Conversion to a string. |
+| add | (int, int) -> int | Addition (+). |
+| sub | (int, int) -> int | Subtraction (-). |
+| mul | (int, int) -> int | Multiplication (*). |
+| div | (int, int) -> int | Division (/). |
+| eq | (int, int) -> bool | Equality (=). |
+| ne | (int, int) -> bool | Inequality (!=). |
+| gt | (int, int) -> bool | Greater than (>). |
+| ge | (int, int) -> bool | Greater than or equal to (>=). |
+| lt | (int, int) -> bool | Less than (<). |
+| le | (int, int) -> bool | Less than or equal to (<=). |
+| to_set | (int) -> *int | Cast to a set type. |
 
 #### `string` Type Native Functions
 
-| Function               | Type                            | Explanation                                                                                                                                                                              |
-| ---------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| len                    | (string) -> int                 | Gets the length of a string.                                                                                                                                                             |
-| substr                 | (string, int, int) -> string    | Substring extraction using initial index and length.                                                                                                                                     |
-| contains               | (string, string) -> bool        | Checks if one string is contained within the current string.                                                                                                                             |
-| matches                | (string, string) -> bool        | Checks if a regular expression fully matches the current string.                                                                                                                         |
-| get_regex_match_result | (string, string, int) -> string | Gets a capture result from a full regex match on the current string, determined by the second parameter (int). For example, "abcdef".get_regex_match_result("a(.\*)f", 1) yields "bcde". |
-| to_int                 | (string) -> int                 | Converts to an integer.                                                                                                                                                                  |
-| add                    | (string, string) -> string      | String concatenation.                                                                                                                                                                    |
-| eq                     | (string, string) -> bool        | Checks string equality.                                                                                                                                                                  |
-| ne                     | (string, string) -> bool        | Checks string inequality.                                                                                                                                                                |
-| to_set                 | (string) -> \*string            | Cast to a set type.                                                                                                                                                                      |
+| Function | Type | Explanation |
+| --- | --- | --- |
+| len | (string) -> int | Gets the length of a string. |
+| substr | (string, int, int) -> string | Substring extraction using initial index and length. |
+| contains | (string, string) -> bool | Checks if one string is contained within the current string. |
+| matches | (string, string) -> bool | Checks if a regular expression fully matches the current string. |
+| get_regex_match_result | (string, string, int) -> string | Gets a capture result from a full regex match on the current string, determined by the second parameter (int). For example, "abcdef".get_regex_match_result("a(.*)f", 1) yields "bcde". |
+| to_int | (string) -> int | Converts to an integer. |
+| add | (string, string) -> string | String concatenation. |
+| eq | (string, string) -> bool | Checks string equality. |
+| ne | (string, string) -> bool | Checks string inequality. |
+| to_set | (string) -> *string | Cast to a set type. |
 
 #### `bool` Type Native Functions
 
 While `bool` exists as a basic type, it cannot be used as data in intermediate calculations, only as a conditional result.
 
-| Function | Type                 | Explanation          |
-| -------- | -------------------- | -------------------- |
-| not      | (bool) -> bool       | Logical negation.    |
-| and      | (bool, bool) -> bool | Logical conjunction. |
-| or       | (bool, bool) -> bool | Logical disjunction. |
-| eq       | (bool, bool) -> bool | Equality.            |
-| ne       | (bool, bool) -> bool | Inequality.          |
+| Function | Type | Explanation |
+| --- | --- | --- |
+| not | (bool) -> bool | Logical negation. |
+| and | (bool, bool) -> bool | Logical conjunction. |
+| or | (bool, bool) -> bool | Logical disjunction. |
+| eq | (bool, bool) -> bool | Equality. |
+| ne | (bool, bool) -> bool | Inequality. |
 
 #### Native Functions for Sets
 
-| Function | Type           | Explanation                                        |
-| -------- | -------------- | -------------------------------------------------- |
-| len      | (\*T) -> int   | Gets the count of a data set.                      |
-| max      | (\*int) -> int | Finds the maximum value.                           |
-| min      | (\*int) -> int | Finds the minimum value.                           |
-| sum      | (\*int) -> int | Summation of the values.                           |
-| find     | (\*T0) -> T1   | Finds a data entry from a set using a primary key. |
+| Function | Type | Explanation |
+| --- | --- | --- |
+| len | (*T) -> int | Gets the count of a data set. |
+| max | (*int) -> int | Finds the maximum value. |
+| min | (*int) -> int | Finds the minimum value. |
+| sum | (*int) -> int | Summation of the values. |
+| find | (*T0) -> T1 | Finds a data entry from a set using a primary key. |
 
 #### Global Native Functions
 
-| Function | Type                           | Explanation            |
-| -------- | ------------------------------ | ---------------------- |
-| output   | ((...) -> bool) -> <null-type> | Outputs query content. |
+| Function | Type | Explanation |
+| --- | --- | --- |
+| output | ((...) -> bool) -> <null-type> | Outputs query content. |
 
 #### Database Native Functions
 
-| Function | Type          | Explanation         |
-| -------- | ------------- | ------------------- |
-| load     | (string) -> T | Loads the database. |
+| Function | Type | Explanation |
+| --- | --- | --- |
+| load | (string) -> T | Loads the database. |
 
 #### Schema Native Functions
 
-| Function    | Type              | Explanation                                                                                                                                                                     |
-| ----------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to&lt;T&gt; | (self) -> T       | Converts to another schema type, using duck typing.                                                                                                                             |
-| is&lt;T&gt; | (self) -> bool    | Determines if it can be another schema type, using duck typing. If the schema has a primary key, the underlying check will only use the primary key to determine compatibility. |
-| key_eq      | (self, T) -> bool | Checks if the primary keys of two schema instances are equal.                                                                                                                   |
-| key_neq     | (self, T) -> bool | Checks if the primary keys of two schema instances are **not** equal.                                                                                                           |
+| Function | Type | Explanation |
+| --- | --- | --- |
+| to&lt;T&gt; | (self) -> T | Converts to another schema type, using duck typing. |
+| is&lt;T&gt; | (self) -> bool | Determines if it can be another schema type, using duck typing. If the schema has a primary key, the underlying check will only use the primary key to determine compatibility. |
+| key_eq | (self, T) -> bool | Checks if the primary keys of two schema instances are equal. |
+| key_neq | (self, T) -> bool | Checks if the primary keys of two schema instances are **not** equal. |
 
 Schema native function example:
 
@@ -276,7 +276,7 @@ Query functions are recommended to have a `bool` return type and need to use `ou
 The query functions called within `output()` are no longer invoked in the conventional manner of passing arguments to functions. At this point, the parameter list changes to represent the table schema of the output table. Here are two examples of how query functions are applied:
 
 1. Single-table `output`
-
+   
    A single-table `output` specifically refers to using `output` only once within the `main` function to produce output.
 
    ```rust
@@ -291,8 +291,8 @@ The query functions called within `output()` are no longer invoked in the conven
 
    ```json
    [
-     { "a": 0, "b": "xxx" },
-     { "a": 1, "b": "xxx" }
+       {"a": 0, "b": "xxx"},
+       {"a": 1, "b": "xxx"}
    ]
    ```
 
@@ -314,14 +314,14 @@ The query functions called within `output()` are no longer invoked in the conven
 
    ```json
    {
-     "example0": [
-       { "a": 0, "b": "xxx" },
-       { "a": 1, "b": "xxx" }
-     ],
-     "example1": [
-       { "a": "xxx", "b": 0 },
-       { "a": "xxx", "b": 1 }
-     ]
+       "example0":[
+           {"a": 0, "b": "xxx"},
+           {"a": 1, "b": "xxx"}
+       ],
+       "example1":[
+           {"a": "xxx", "b": 0},
+           {"a": "xxx", "b": 1}
+       ]
    }
    ```
 
@@ -329,7 +329,7 @@ Below is a more detailed example where we directly construct two sets of data fo
 
 1. In GödelScript, boolean values can be represented with the keywords `true` and `false`.
 
-2. The `=` symbol in GödelScript is quite special and should not be interpreted in the same way as in conventional programming languages. GödelScript is a Datalog language. Here, the `=` symbol carries dual semantics: both **assignment** and **equality comparison**. Details can be found in [`=` operator](#assignment-and-equality-comparison-operator).
+2. The `=` symbol in GödelScript is quite special and should not be interpreted in the same way as in conventional programming languages. GödelScript is a Datalog language. Here, the `=` symbol carries dual semantics: both __assignment__ and __equality comparison__. Details can be found in [`=` operator](#assignment-and-equality-comparison-operator).
 
 3. In the conditional statements of this example, both `a` and `b` use the assignment semantics of `=`, because the `int` and `string` type parameters are considered `ungrounded (unassigned/unbound)` within the function body and must be assigned before they can be used.
 
@@ -357,8 +357,8 @@ The expected output should be:
 
 ```json
 [
-  { "a": 1, "b": "1" },
-  { "a": 2, "b": "2" }
+    {"a": 1, "b": "1"},
+    {"a": 2, "b": "2"}
 ]
 ```
 
@@ -578,7 +578,6 @@ impl File {
 	...
 }
 ```
-
 ##### Static Methods
 
 Static methods do not require `self` as the first argument and are straightforward to use: `ClassName::MethodName(...)`.
@@ -1101,12 +1100,12 @@ fn class_method(className: string, methodName: string, methodSignature: string) 
 GödelScript will determine symbols that are not bound to a set as `ungrounded`. The basic rule of judgment is:
 
 - Uninitialized/unusued/unbound symbols
-  - Unbound `int`, `string` arguments
-  - Unused database type arguments
-  - Function body has statements, but no return statements
+   - Unbound `int`, `string` arguments
+   - Unused database type arguments
+   - Function body has statements, but no return statements
 - Symbols bound within negation blocks
-  - For example, `!(__tmp = 1)`, `__tmp` is considered unbound
-  - Calling inline functions or data constructors in negation blocks
+   - For example, `!(__tmp = 1)`, `__tmp` is considered unbound
+   - Calling inline functions or data constructors in negation blocks
 
 #### 1. Unused Database/Basic Type Parameters
 
@@ -1280,7 +1279,7 @@ fn class_hierarchy(className : string, superClassName : string) -> bool {
     }
 }
 
-fn main() {
+fn main() { 
 	output(class_hierarchy())
 }
 ```
@@ -1305,7 +1304,7 @@ fn methods(className : string, methodName : string) -> bool {
     }
 }
 
-fn main() {
+fn main() { 
 	output(methods())
 }
 ```
@@ -1460,10 +1459,10 @@ impl PublicVisitedElement {
 
     pub fn getName(self) -> string {
         let (tmp = Class(__all_data__).find(self)) {
-            return tmp.getQualifiedName()
+            return tmp.getQualifiedName() 
         }
         let (tmp = Function(__all_data__).find(self)) {
-            return tmp.getQualifiedName()
+            return tmp.getQualifiedName() 
         }
     }
 }
@@ -1505,7 +1504,7 @@ fn output_result(
     eline: int,
     isCommented: int) -> bool {
     for (e in PublicVisitedElement(default_db())) {
-        if (type = e.getType() &&
+        if (type = e.getType() && 
             name = e.getName() &&
             filePath = e.getLocation().getFile().getRelativePath() &&
             sline = e.getLocation().getStartLineNumber() &&

@@ -18,7 +18,6 @@ toc: content
 ---
 
 ## CodeFuse-VLM
-
 CodeFuse-VLM is a Multimodal LLM(MLLM) framework that provides users with multiple vision encoders, multimodal alignment adapters, and LLMs. Through CodeFuse-VLM framework, users are able to customize their own MLLM model to adapt their own tasks.
 As more and more models are published on Huggingface community, there will be more open-source vision encoders and LLMs. Each of these models has their own specialties, e.g. Code-LLama is good at code-related tasks but has poor performance for Chinese tasks. Therefore, we built CodeFuse-VLM framework to support multiple vision encoders, multimodal alignment adapters, and LLMs to adapt different types of tasks.
 ![img.jpg](https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*t7OIS58EJmIAAAAAAAAAAAAADlHYAQ/original)
@@ -30,7 +29,7 @@ Here is the table for different MLLM model's performance on benchmarks
 Model | MMBench | MMBench-CN | VqaV2 | GQA | TextVQA | Vizwiz
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 LLAVA-1.5 | 67.7 | 63.6 | 80.0 | 63.3 | 61.3 | 53.6
-Qwen-VL | 60.6 | 56.7 | 78.2 | 57.5 | 63.8 | 38.9
+Qwen-VL | 60.6 | 56.7 | 78.2 | 57.5 | 63.8 | 38.9 
 CodeFuse-VLM-14B | 75.7 | 69.8 | 79.3 | 59.4 | 63.9 | 45.3
 
 Our model achieved high ranking on MMBenchmark: https://mmbench.opencompass.org.cn/leaderboard

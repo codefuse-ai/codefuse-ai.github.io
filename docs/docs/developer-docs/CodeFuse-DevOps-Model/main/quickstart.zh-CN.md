@@ -11,32 +11,30 @@ toc: content
 ---
 
 ## 依赖安装
-
 需要先 PIP 安装一下 Github 地址下的 requirement.txt 中的包，可以参考一下代码
 pip install -r requirements.txt
 
+
 ## 模型下载
-
 模型下载相关信息如下：
-🤗 Huggingface 地址
+ 🤗 Huggingface 地址
 
-| -   | 基座模型              | 对齐模型              |
-| --- | --------------------- | --------------------- |
-| 7B  | DevOps-Model-7B-Base  | DevOps-Model-7B-Chat  |
-| 14B | DevOps-Model-14B-Base | DevOps-Model-14B-Chat |
+| - |	基座模型	|对齐模型|
+| -- | ---------- | ------- |
+|7B|	DevOps-Model-7B-Base|	DevOps-Model-7B-Chat|
+|14B|   DevOps-Model-14B-Base|	DevOps-Model-14B-Chat|
 
 🤖 ModelScope 地址
-| - | 基座模型 |对齐模型|
+| - |	基座模型	|对齐模型|
 | -- | ---------- | ------- |
-|7B | DevOps-Model-7B-Base |DevOps-Model-7B-Chat|
-|14B| DevOps-Model-14B-Base| DevOps-Model-14B-Chat|
+|7B	|   DevOps-Model-7B-Base	|DevOps-Model-7B-Chat|
+|14B|	DevOps-Model-14B-Base|	DevOps-Model-14B-Chat|
 
 找到自己想要下载的 Chat 模型版本，当前提供了 7B 和 14B 的模型
 
+
 ## 模型使用
-
 根据以下代码来和 Chat 模型进行交互
-
 ```
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig

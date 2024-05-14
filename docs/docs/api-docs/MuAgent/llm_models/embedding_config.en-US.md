@@ -7,10 +7,9 @@ order: 0
 toc: content
 ---
 
+
 ## Prepare Relevant Parameters
-
 First, add the OpenAI configuration; this could also be a model similar to the OpenAI interface (launched via fastchat).
-
 ```
 import os, sys
 
@@ -21,9 +20,7 @@ embed_model_path = "{{embed_model_path}}"
 ```
 
 ## Build LLM Config
-
 - Constructing with a local model file
-
 ```
 from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
 
@@ -32,8 +29,8 @@ embed_config = EmbedConfig(
 )
 ```
 
-- Constructing via OpenAI
 
+- Constructing via OpenAI
 ```
 from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
 
@@ -43,7 +40,6 @@ embed_config = EmbedConfig(
 ```
 
 - Customizing and inputting langchain embeddings
-
 ```
 from muagent.llm_models.llm_config import EmbedConfig, LLMConfig
 

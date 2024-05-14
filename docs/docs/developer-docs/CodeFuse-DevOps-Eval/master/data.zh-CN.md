@@ -48,7 +48,6 @@ toc: content
   ````
 
 - 方法三：使用[modelscope](https://modelscope.cn/datasets/codefuse-ai/devopseval-exam/files)下载相关所有数据。示例如下：
-
   ````python
   from modelscope.msdatasets import MsDataset
   MsDataset.clone_meta(dataset_work_dir='./xxx', dataset_id='codefuse-ai/devopseval-exam')```

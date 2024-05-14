@@ -1,11 +1,9 @@
 ---
-nav:
-  title: Community
-  order: 1
 group:
   title: ❤️ Contribution Guide
-  index: true
   order: -1
+title: Pull Request
+order: 1
 toc: content
 ---
 
@@ -54,6 +52,6 @@ You can also choose to read and analyze the code to fix it yourself (it is best 
 
 ### Modify Code and Submit a PR (Pull Request)
 
-You can download the code, compile, install, and deploy to try it out (you can refer to the compilation documentation to see if it works as you expected). If there are any issues, you can directly contact us, submit an Issue, or fix it yourself by reading and analyzing the source code. For more details, see[How to Submit a PR.](/contribution/contribution/pr)
+You can download the code, compile, install, and deploy to try it out (you can refer to the compilation documentation to see if it works as you expected). If there are any issues, you can directly contact us, submit an Issue, or fix it yourself by reading and analyzing the source code. For more details, see[How to Submit a PR.](/contribution/pull-request)
 
 Whether it's fixing a bug or adding a feature, we warmly welcome it. If you wish to submit code to Doris, you need to fork the code repository to your project space on GitHub, create a new branch for your submitted code, add the original project as an upstream, and submit a PR. The method for submitting a PR can be referenced in the Pull Request documentation.

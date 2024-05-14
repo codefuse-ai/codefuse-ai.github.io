@@ -11,37 +11,34 @@ toc: content
 ---
 
 ## Dependency Installation
-
 Please install the packages listed in the requirements.txt file from the GitHub address first. You can refer to the following code:
-
 ```
 pip install -r requirements.txt
 ```
 
-## Model Download
 
+## Model Download
 Model download information is as follows:
 
 🤗 Huggingface Address
 
-| -   | Base Model            | Aligned Model         |
-| --- | --------------------- | --------------------- |
-| 7B  | DevOps-Model-7B-Base  | DevOps-Model-7B-Chat  |
-| 14B | DevOps-Model-14B-Base | DevOps-Model-14B-Chat |
+| - |	Base Model	|Aligned Model|
+| -- | ---------- | ------- |
+|7B|	DevOps-Model-7B-Base|	DevOps-Model-7B-Chat|
+|14B|   DevOps-Model-14B-Base|	DevOps-Model-14B-Chat|
 
 🤖 ModelScope Address
 
-| -   | Base Model            | Aligned Model         |
-| --- | --------------------- | --------------------- |
-| 7B  | DevOps-Model-7B-Base  | DevOps-Model-7B-Chat  |
-| 14B | DevOps-Model-14B-Base | DevOps-Model-14B-Chat |
+| - |	Base Model	|Aligned Model|
+| -- | ---------- | ------- |
+|7B	|   DevOps-Model-7B-Base	|DevOps-Model-7B-Chat|
+|14B|	DevOps-Model-14B-Base|	DevOps-Model-14B-Chat|
 
 Find the version of the Chat model you want to download; currently, 7B and 14B models are provided.
 
+
 ## Model Usage
-
 Interact with the Chat model using the following code:
-
 ```
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig

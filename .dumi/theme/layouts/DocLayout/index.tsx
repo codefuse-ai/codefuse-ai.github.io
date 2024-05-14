@@ -21,7 +21,7 @@ import React, { useEffect, useState, type FC } from 'react';
 import './index.less';
 import AboutDocs from 'dumi/theme/slots/AboutDocs';
 import Foot from 'dumi/theme/slots/Foot';
-import Contribution from 'dumi/theme/slots/Contribution';
+import Publication from 'dumi/theme/slots/Publication';
 
 const DocLayout: FC = () => {
   const intl = useIntl();
@@ -34,7 +34,8 @@ const DocLayout: FC = () => {
   const about = pathname.split("/").pop();
   const doc = pathname.includes("/docs");
   const showSidebar = fm.sidebar !== false && sidebar?.length > 0;
-  const Publication = pathname.split("/").pop();
+  const publication = pathname.split("/").pop();
+  const com = pathname.includes("/contribution");
 
   // handle hash change or visit page hash after async chunk loaded
   useEffect(() => {
@@ -81,22 +82,16 @@ const DocLayout: FC = () => {
         about === 'aboutdocs' && <AboutDocs />
       }
       {
-        Publication === 'contribution' && <Contribution />
+        publication === 'publication' && <Publication />
       }
       {
-        doc && <main>
+        com ? <main>
           {/* 文档页两侧展示 */}
-          {showSidebar && doc && <Sidebar />}
+          {showSidebar && <Sidebar />}
           <Content>
-            {
-              <article>{outlet}</article>
-            }
-            {
-              <ContentFooter />
-            }
-            {
-              <Footer />
-            }
+            {<article>{outlet}</article>}
+            {<ContentFooter />}
+            {<Footer />}
           </Content>
           {fm.toc === 'content' && (
             <div className="dumi-default-doc-layout-toc-wrapper">
@@ -104,7 +99,28 @@ const DocLayout: FC = () => {
               <Toc />
             </div>
           )}
-        </main>
+        </main> :
+          doc && <main>
+            {/* 文档页两侧展示 */}
+            {showSidebar && <Sidebar />}
+            <Content>
+              {
+                <article>{outlet}</article>
+              }
+              {
+                <ContentFooter />
+              }
+              {
+                <Footer />
+              }
+            </Content>
+            {fm.toc === 'content' && (
+              <div className="dumi-default-doc-layout-toc-wrapper">
+                {/* <h4>大纲</h4> */}
+                <Toc />
+              </div>
+            )}
+          </main>
       }
       <Foot />
     </div>
