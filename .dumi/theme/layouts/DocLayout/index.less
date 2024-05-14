@@ -1,0 +1,214 @@
+@import (reference) '../../styles/variables.less';
+
+// @{dark-selector} {
+//   color-scheme: dark;
+// }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: @c-site-bg;
+  // @{dark-selector} & {
+  //   background-color: @c-site-bg-dark;
+  // }
+}
+
+.@{prefix}-doc-layout {
+  font-family: sans-serif;
+  background-color: @c-site-bg;
+
+  // @{dark-selector} & {
+  //   background-color: @c-site-bg-dark;
+  // }
+
+  @media @mobile {
+    &::before {
+      content: '';
+      position: fixed;
+      z-index: 11; // 1 more than header
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background-color: #ffffff;
+      transition: all 0.1s;
+    }
+
+    &:not([data-mobile-sidebar-active])::before {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &-mobile-bar {
+    @height: 36px;
+    position: sticky;
+    z-index: 9; // 1 less than header
+    top: @s-header-height-m;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    padding: 0 24px;
+    height: @height;
+    border-top: 1px solid @c-border-light;
+    background-color: fadeout(@c-site-bg, 10%);
+    backdrop-filter: blur(6px);
+
+    @{dark-selector} & {
+      border-top-color: @c-border-less-dark;
+      background-color: fadein(@c-site-bg-dark, 10%);
+    }
+
+    @media @mobile {
+      display: flex;
+    }
+
+    .@{prefix}-sidebar-btn {
+      padding: 0;
+      color: @c-text-secondary;
+      border: 0;
+      background-color: transparent;
+
+      @{dark-selector} & {
+        color: @c-text-secondary-dark;
+      }
+
+      >svg {
+        width: 16px;
+        margin-right: 6px;
+        fill: @c-text-secondary;
+        vertical-align: middle;
+
+        @{dark-selector} & {
+          fill: @c-text-secondary-dark;
+        }
+      }
+    }
+  }
+
+  >main {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 24px;
+    box-sizing: border-box;
+
+    >section {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    >.@{prefix}-doc-layout-toc-wrapper {
+      position: sticky;
+      top: @s-header-height;
+      max-width: @s-sidebar-width;
+      margin-inline-start: 24px;
+      max-height: 80vh;
+      overflow: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+
+      @media @mobile {
+        display: none;
+      }
+
+      >h4 {
+        margin: 0 0 20px;
+        color: @c-text-note;
+        font-size: 15px;
+        line-height: 1;
+
+        @{dark-selector} & {
+          color: @c-text-note-dark;
+        }
+      }
+    }
+
+    .dumi-default-article .dumi-default-content:not([data-no-sidebar]) {
+      background-color: #070b13;
+      box-shadow: 0px 2px 4px 0px #000000ff;
+    }
+
+    .markdown {
+      font-size: 16px;
+      color: #e4e9ec;
+      line-height: 30px;
+      letter-spacing: 0.61px;
+      font-weight: 300;
+      margin: 0 auto;
+
+      a {
+        color: #9999FF;
+      }
+    }
+
+    .dumi-default-content-tool {
+      color: #b5b5b5;
+    }
+
+    .dumi-default-content-tool>dl dd>a {
+      color: #b5b5b5;
+    }
+
+    .dumi-default-toc>li>a.active {
+      color: #fff !important;
+    }
+
+    .dumi-default-toc>li>a {
+      color: #b5b5b5;
+    }
+
+    .dumi-default-source-code {
+      background: #2c2d2e;
+      border-radius: 4px;
+    }
+
+    .dumi-default-source-code>pre.prism-code {
+      color: #e4e9ec;
+      background: #2c2d2e;
+    }
+
+    .dumi-default-source-code-copy {
+      background: #2c2d2e;
+    }
+
+    .dumi-default-article .dumi-default-content:not([data-no-sidebar]) {
+      padding: 10px 18px 48px 28px;
+    }
+
+    .ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
+      background: #070b13;
+    }
+
+    .ant-menu-light .ant-menu-item {
+      color: #b5b5b5;
+    }
+
+    .ant-menu-light:not(.ant-menu-horizontal) .ant-menu-submenu-title:active {
+      background-color: #181d29;
+      border-radius: 5px;
+
+    }
+
+    .ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item:not(.ant-menu-item-selected):hover {
+      background-color: #181d29;
+      color: #fff;
+    }
+
+    .ant-select-single .ant-select-selector {
+      color: #fff;
+    }
+
+    .ant-select .ant-select-arrow {
+      color: #fff;
+    }
+
+    .ant-menu-light .ant-menu-item-selected {
+      background-color: #181d29;
+    }
+  }
+  .markdown:not(:lang(zh)):not(:lang(ja)):not(:lang(kr)), .markdown:not(:lang(zh)) {
+    letter-spacing: 0.61px;
+  }
+
+}

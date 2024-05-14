@@ -1,0 +1,120 @@
+@import (reference) '.dumi/theme/styles/variables.less';
+
+.@{prefix}-about {
+  margin: -@s-header-height auto 0 auto;
+  // margin:  0 auto ;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media @mobile {
+    margin-top: -@s-header-height-m - 20;
+    padding-top: 160px;
+    height: 660px;
+  }
+
+  +* {
+    position: relative;
+  }
+
+  .banner {
+    position: relative;
+    padding-top: 30px;
+    height: 380px;
+    width: 100%;
+    box-sizing: border-box;
+    // background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*wCCKR7plqDMAAAAAAAAAAAAADlHYAQ/original');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .bannerContent {
+      padding: 0px 24px;
+      margin-top: 30px;
+      width: 900px;
+      color: #f8f9fa;
+      font-size: 2.7rem;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 35%;
+      }
+    }
+  }
+
+  p {
+    font-weight: 500;
+    text-align: center;
+    line-height: 72px;
+    margin-top: 0px;
+    font-size: 36px;
+    color: #ffffff;
+    letter-spacing: 1.21px;
+
+    @{dark-selector} & {
+      color: @c-text-secondary-dark;
+    }
+
+    @media @mobile {
+      font-size: 16px;
+    }
+  }
+
+  &-actions {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+
+    >a {
+      display: inline-block;
+      height: 52px;
+      font-size: 18px;
+      line-height: 52px;
+      text-decoration: none;
+      min-width: 168px;
+
+      border-radius: 16px;
+      box-sizing: border-box;
+      transition: opacity 0.2s;
+
+      @media @mobile {
+        font-size: 16px;
+        height: 42px;
+        line-height: 40px;
+        min-width: 128px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:not(:first-child) {
+        margin-inline-start: 48px;
+        color: @c-primary;
+        border: 2px solid @c-primary;
+
+        @{dark-selector} & {
+          color: @c-primary-dark;
+          border-color: @c-primary-dark;
+        }
+      }
+
+      &:first-child {
+        color: #fff;
+        background-color: @c-primary;
+
+        @{dark-selector} & {
+          background-color: @c-primary-dark;
+        }
+      }
+    }
+  }
+}
+
