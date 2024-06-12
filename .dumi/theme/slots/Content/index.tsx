@@ -4,7 +4,6 @@ import './heti.scss';
 import './index.less';
 
 const Content: FC<{ children: ReactNode }> = (props) => {
-  console.log('children==',props.children);
   const sidebar = useSidebarData();
   const { themeConfig } = useSiteData();
   const { frontmatter } = useRouteMeta();

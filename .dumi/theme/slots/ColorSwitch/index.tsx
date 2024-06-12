@@ -1,5 +1,5 @@
-import { useIntl, usePrefersColor, useSiteData } from 'dumi';
-import React, { type FC } from 'react';
+import { useIntl, usePrefersColor, useSiteData, useLocation, useRouteMeta } from 'dumi';
+import React, { useEffect, useState, type FC } from 'react';
 import './index.less';
 
 const IconDark = ({
@@ -22,7 +22,6 @@ const IconLight = ({
   </svg>
 );
 
-
 const IconAuto = () => (
   <svg viewBox="0 0 16 16">
     <path d="M14.595 8a6.595 6.595 0 1 1-13.19 0 6.595 6.595 0 0 1 13.19 0ZM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm0 2.014v11.972A5.986 5.986 0 0 0 8 2.014Z" />
@@ -30,10 +29,11 @@ const IconAuto = () => (
 );
 
 const ICON_MAPPING = {
-  light: IconLight,
-  dark: IconDark,
+  light: IconDark,
+  dark: IconLight,
   auto: IconAuto,
 };
+
 
 const ColorSwitch: FC = () => {
   const {
@@ -44,6 +44,12 @@ const ColorSwitch: FC = () => {
   const intl = useIntl();
   const [, prefersColor = defaultColor, setPrefersColor] = usePrefersColor();
   const Icon = ICON_MAPPING[prefersColor];
+  const { pathname } = useLocation();
+  let slashIndex = pathname.indexOf("/");
+  var path = (slashIndex !== -1) && (slashIndex < pathname.length - 1);
+  useEffect(() => {
+    !path && setPrefersColor('light');
+  }, [pathname])
 
   // 切换颜色模式的函数
   const switchColorMode = () => {
@@ -52,16 +58,15 @@ const ColorSwitch: FC = () => {
     setPrefersColor(nextMode);
   };
 
-  return (
-    <span
-      className="dumi-default-color-switch"
-      data-dumi-tooltip={intl.formatMessage({
-        id: `header.color.mode.${prefersColor}`,
-      })}
-      data-dumi-tooltip-bottom
-    >
-      {Icon && <Icon onClick={switchColorMode} />}
-    </span>
+  return (<span
+    className="dumi-default-color-switch"
+    data-dumi-tooltip={intl.formatMessage({
+      id: `header.color.mode.${prefersColor}`,
+    })}
+    data-dumi-tooltip-bottom
+  >
+    {Icon && <Icon onClick={switchColorMode} />}
+  </span>
   );
 };
 

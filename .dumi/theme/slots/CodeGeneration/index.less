@@ -10,7 +10,6 @@
   background-size: cover;
   background-position: center;
 
-
   .code-Generation-center {
     display: flex;
     justify-content: center;
@@ -80,10 +79,48 @@
             font-family: PingFangSC-Regular;
             width: 530px;
             margin-top: 31px;
-            font-size: 18px;
+            font-size: 16px;
             color: #ffffff;
-            letter-spacing: 0.61px;
+            letter-spacing: 1px;
             opacity: 0.8;
+          }
+
+          .buttom {
+            z-index: 1111 !important;
+            cursor: pointer;
+            width: 150px;
+            height: 37px;
+            background-image: url("https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*eMQHT670srQAAAAAAAAAAAAADlHYAQ/original");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            border-radius: 7px;
+            margin-top: 32px;
+            color: #a8abff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            .anticon {
+              svg {
+                width: 30px;
+                height: 23px;
+                position: absolute;
+                bottom: 5px;
+              }
+              margin-left: 8px;
+              width: 25px;
+              height: 25px;
+            }
+ 
+            &:hover {
+              background-image: url("https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*Pm85SKQpQ88AAAAAAAAAAAAADlHYAQ/original");
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+              color: #fff;
+            }
           }
         }
       }
@@ -95,27 +132,26 @@
         width: 576px;
         height: 40px;
         text-align: center;
-
       }
 
       .generationButtomzh-CN {
-        width: 132px;
+        cursor: pointer;
+        width: 230px;
         display: flex;
         height: 40px;
         border-radius: 25px;
         border: 1px solid #979797;
         font-size: 18px;
         color: #ffffff;
-        letter-spacing: 2.7px;
         font-weight: 600;
         align-items: center;
         justify-content: center;
-
       }
 
       .generationButtomen-US {
+        cursor: pointer;
         display: flex;
-        width: 145px;
+        width: 230px;
         height: 40px;
         border-radius: 25px;
         border: 1px solid #979797;
@@ -162,7 +198,7 @@
 
   .slick-dots {
     li {
-      width: 145px;
+      width: 230px;
     }
   }
 

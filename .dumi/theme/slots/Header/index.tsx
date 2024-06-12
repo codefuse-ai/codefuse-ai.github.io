@@ -16,8 +16,6 @@ const Header: FC = () => {
   const { frontmatter } = useRouteMeta();
   const [showMenu, setShowMenu] = useState(false);
   const { themeConfig } = useSiteData();
-  console.log('themeConfig==', themeConfig);
-  console.log('frontmatter==', frontmatter);
   const hero = frontmatter.hero;
   const socialIcons = useMemo(
     () =>
@@ -31,7 +29,6 @@ const Header: FC = () => {
         : [],
     [themeConfig.socialLinks],
   );
-  // console.log("themeConfig.prefersColor.switch===",themeConfig);
 
   return (
     <div
@@ -49,15 +46,22 @@ const Header: FC = () => {
           <Navbar />
           {/* 导航➕国际化 */}
           <div className="dumi-default-header-right-aside">
+            <div className='headerLineleft' />
             <LangSwitch />
             <RtlSwitch />
             {/* 亮度显示 */}
-            {/* {
+            {
               !hero && themeConfig.prefersColor.switch && <ColorSwitch />
-            } */}
+            }
+            <div className='headerLine' />
             {socialIcons.map((item) => (
               <SocialIcon icon={item.icon} link={item.link} key={item.link} />
             ))}
+            <div className='hugging' onClick={() => { window.open('https://huggingface.co/codefuse-ai') }}>
+
+            </div>
+            <div className='moda' onClick={() => { window.open('https://modelscope.cn/organization/codefuse-ai') }}>
+            </div>
             <HeaderExtra />
             {/* <SearchBar /> */}
           </div>

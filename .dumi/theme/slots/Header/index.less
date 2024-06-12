@@ -3,7 +3,7 @@
 .@{prefix}-header {
   top: 0;
   position: sticky;
-  -webkit-backdrop-filter:blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   z-index: 10;
 
@@ -12,7 +12,7 @@
     position: sticky;
     // background-color: fadeout(@c-site-bg, 10%);
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter:blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 
     // @{dark-selector} & {
     //   background-color: fadeout(@c-site-bg-dark, 10%);
@@ -56,7 +56,62 @@
   &-right {
     display: flex;
     justify-content: space-between;
-    min-width: 450px;
+    .headerLineleft {
+      width: 1px;
+      background-color: #fff;
+      height: 20px;
+      margin-right: 15px;
+
+      @{dark-selector} & {
+        background-color: #8590a0;
+      }
+    }
+
+    .headerLine {
+      width: 1px;
+      background-color: #fff;
+      height: 20px;
+      margin: 0 15px;
+
+      @{dark-selector} & {
+        background-color: #8590a0;
+      }
+    }
+
+    .hugging {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*dsLvQ7bhO6kAAAAAAAAAAAAADlHYAQ/original');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      margin: 0 15px;
+
+      @{dark-selector} & {
+        background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*AJydRq-SfzQAAAAAAAAAAAAADlHYAQ/original');
+      }
+
+    }
+
+    .moda {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*GnOXQo9YtlcAAAAAAAAAAAAADlHYAQ/original');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 20px;
+      height: 15px;
+
+      @{dark-selector} & {
+        background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*uonuR4F2H3kAAAAAAAAAAAAADlHYAQ/original');
+      }
+    }
 
     &-aside {
       display: flex;
@@ -84,7 +139,7 @@
       background-color: fadeout(@c-site-bg, 40%);
       border-top: 1px solid @c-border-light;
       backdrop-filter: blur(30px);
-      -webkit-backdrop-filter:blur(30px);
+      -webkit-backdrop-filter: blur(30px);
       box-sizing: border-box;
       transition: all 0.2s;
 
@@ -142,18 +197,51 @@
   }
 
   .dumi-default-icon>svg {
-    width: 25px;
-    height: 25px;
-    fill: #fff
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+
+    @{dark-selector} & {
+      fill: #8590a0;
+      // fill: #1b1b1b;
+    }
   }
 
-  .dumi-default-icon:hover svg {
+  .dumi-default-color-switch:hover svg {
     fill: #1677ff;
+
+    @{dark-selector} & {
+      fill: #1677ff;
+    }
+  }
+
+  .dumi-default-color-switch svg {
+    fill: #fff;
+
+    @{dark-selector} & {
+      fill: #8590a0;
+      // fill: #1b1b1b;
+    }
+  }
+
+  .dumi-default-lang-switch:hover {
+    color: #fff;
+    background-image: linear-gradient(90deg, #5c6cf7 0%, #e5b2ca 100%);
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .dumi-default-lang-switch {
     font-size: 16px;
-    color: #fff
+    color: #fff;
+
+    @{dark-selector} & {
+      color: #8590a0;
+      font-weight: 600;
+    }
+
   }
 
   .dumi-default-lang-switch:hover {
@@ -161,7 +249,7 @@
   }
 
   .dumi-default-navbar>li:not(:last-child) {
-    margin-inline-end: 40px;
+    margin-inline-end: 20px;
   }
 
   .dumi-default-icon {

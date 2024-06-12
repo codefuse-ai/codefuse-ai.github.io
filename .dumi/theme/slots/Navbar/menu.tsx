@@ -41,7 +41,7 @@ export const NavbarMenus = (items: MenuProps['items']) => {
     <ConfigProvider
       theme={{
         algorithm:
-          color === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
+          color === 'dark' ?  theme.defaultAlgorithm:theme.darkAlgorithm,
         components: {
           Menu: {
             algorithm: true,
@@ -49,8 +49,8 @@ export const NavbarMenus = (items: MenuProps['items']) => {
             itemMarginInline: 0,
             itemHeight: 32,
             padding: 12,
-            itemActiveBg: color === 'dark' ? '#5c6cf7' : 'rgb(238, 242, 254)',
-            itemHoverBg: color === 'dark' ? '#5c6cf7' : 'rgb(238, 242, 254)',
+            itemActiveBg: color === 'light' ? '#5c6cf7' : 'rgb(238, 242, 254)',
+            itemHoverBg: color === 'light' ? '#5c6cf7' : 'rgb(238, 242, 254)',
           },
         },
       }}

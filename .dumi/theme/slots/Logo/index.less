@@ -12,6 +12,23 @@
   @{dark-selector} & {
     color: @c-text-dark;
   }
+  .logoImg {
+    width: 148px;
+    height: 30px;
+    background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*_pzERpyma84AAAAAAAAAAAAADlHYAQ/original');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    
+    @{dark-selector} & {
+      width: 168px;
+      height: 30px;
+      background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*9K9dSYx7NaMAAAAAAAAAAAAADlHYAQ/original');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left;
+    }
+  }
 
   @media @mobile {
     font-size: 18px;

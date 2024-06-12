@@ -4,6 +4,7 @@ import React, { type FC } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { SwapRightOutlined } from '@ant-design/icons';
 
 const CodeGeneration: FC = () => {
   const locale = useLocale();
@@ -22,19 +23,24 @@ const CodeGeneration: FC = () => {
         style={{
           display: "flex",
           justifyContent: 'space-between',
-          width: '576px',
+          width: '800px',
+          height: '100px',
           textAlign: 'center',
           position: 'absolute',
-          top: '75px',
+          top: '-80px',
           left: '50%',
           transform: 'translate(-50%, -50%)'
         }}> {dots} </div>
-
     ),
     customPaging: i => (
       <div className={`${'generationButtom'}${locale.id}`}>
-       
-        {frontmatter?.CodeGenerationTitle.buttomText}{i + 1}
+        {
+          frontmatter?.CodeGeneration.map((item: any, index: number) => {
+            return <div >
+              {index === i && item.buttom}
+            </div>
+          })
+        }
       </div >
     )
   };
@@ -48,17 +54,21 @@ const CodeGeneration: FC = () => {
         <Slider {...settings}>
           {
             frontmatter?.CodeGeneration.map(item => {
-              return  <div className="generationContentItem">
-              <img src={item.image} alt="" />
-              <div className="generationText">
-                <div className="generationTextTitle">
-                  {item.title}
-                </div>
-                <div className="desc">
-                  {item.description}
+              return <div className="generationContentItem">
+                <img src={item.image} alt="" />
+                <div className="generationText">
+                  <div className="generationTextTitle">
+                    {item.title}
+                  </div>
+                  <div className="desc">
+                    {item.description}
+                  </div>
+                  <div className="buttom" onClick={() => { window.open(item.link) }}>
+                    {locale.id === 'zh-CN' ? '了解更多' : 'Learn more'}
+                    <SwapRightOutlined />
+                  </div>
                 </div>
               </div>
-            </div>
             })
           }
         </Slider>

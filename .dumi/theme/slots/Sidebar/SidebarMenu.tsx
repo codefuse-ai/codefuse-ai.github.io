@@ -128,7 +128,7 @@ const SidebarMenu = ({ menuData }: { menuData: ISidebarGroup[] }) => {
     for (const item of data) {
       if (item.link === pathname) {
         // 找到匹配项，返回累积的父链接数组
-        return parentLinks;
+        return parentLinks.concat(item.link ?? item.title);
       }
       // 如果当前节点有子节点，递归搜索子节点
       if (item.children && item.children.length) {
