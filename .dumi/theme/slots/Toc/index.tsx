@@ -9,6 +9,7 @@ import {
   useRouteMeta,
   useSiteData,
   useTabMeta,
+  useLocale
 } from 'dumi';
 import React, {
   useEffect,
@@ -25,7 +26,6 @@ const Toc: FC = () => {
   const meta = useRouteMeta();
   const tabMeta = useTabMeta();
   const { loading } = useSiteData();
-
   const intl = useIntl();
   const prevIndexRef = useRef(0);
   const { frontmatter } = useRouteMeta();
@@ -43,7 +43,8 @@ const Toc: FC = () => {
     // only render h2 ~ h4
     return toc.filter(({ depth }) => depth > 1 && depth < 4);
   }, [meta, tabMeta]);
-
+  const locale = useLocale();
+  
   useEffect(() => {
     // wait for page component ready (DOM ready)
     if (!loading) {
@@ -69,6 +70,12 @@ const Toc: FC = () => {
     }
   }, [showLastUpdated]);
 
+  const HrefImport = () => {
+    const pathnameLink = pathname.replace(/\/zh-CN/g, "");
+    const link = `https://github.com/codefuse-ai/codefuse-ai.github.io/blob/main/docs${pathnameLink}.${locale.id}.md`;
+    return link
+  }
+
   return (
     <>
       <div className="dumi-default-content-tool">
@@ -81,10 +88,7 @@ const Toc: FC = () => {
           <dd>
             <a
               target="_blank"
-              href={`${intl.formatMessage(
-                { id: '$internal.edit.link' },
-                { filename: frontmatter.filename },
-              )}`}
+              href={HrefImport()}
               rel="noreferrer"
             >
               <EditOutlined />{' '}

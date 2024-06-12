@@ -63,6 +63,7 @@ const Sidebar: FC = () => {
   );
   /** 仓库枚举 */
   const StoreOptions = toOptions(Object.keys(devDocsObj));
+
   /** 上一次保存的版本号 */
   const versionPrevious = useRef<string>();
   /** 仓库：[版本号] 映射关系 */
@@ -71,7 +72,8 @@ const Sidebar: FC = () => {
 
   /** 判断是否是开发者文档 */
   const isDevDocs = pathname.includes('developer-docs');
-
+  const isApiDocs = pathname.includes('/api-docs');
+  const { frontmatter } = useRouteMeta();
   /** 根据路由获取仓库名和版本号 */
   function getStoreAndVersion() {
     /** 根据 url 获取当前仓库 */
@@ -79,7 +81,7 @@ const Sidebar: FC = () => {
     /** 根据 url 和 仓库 获取当前版本号 */
     const regex = new RegExp(`/${storeMatch}/([^/]+)`, 'i');
     const versionMatch = pathname.match(regex)?.[1];
-
+    
     return {
       storeMatch,
       versionMatch,
@@ -116,9 +118,8 @@ const Sidebar: FC = () => {
   }
 
   useEffect(() => {
-    if (!isDevDocs) {
-      setCloneSidebar(sidebar);
-    } else {
+
+    if (isDevDocs ) {
       const { storeMatch, versionMatch } = getStoreAndVersion();
       // 仓库：[版本号] 映射关系
       versionMap.current = getVersionOptions();
@@ -127,6 +128,12 @@ const Sidebar: FC = () => {
       setVersionOptions(versionMap.current[storeMatch]);
       // 保存默认版本号
       setVersionValue(versionMatch);
+    } 
+    // else if (isApiDocs ){
+    //    ''
+    // }
+    else {
+       setCloneSidebar(sidebar);
     }
     return () => {
       setStoreValue('');
@@ -154,14 +161,13 @@ const Sidebar: FC = () => {
   }, [storeValue, versionValue]);
 
   if (!sidebar) return null;
-
   return (
     <div className="dumi-default-sidebar">
       {isDevDocs && (
         <ConfigProvider
           theme={{
             algorithm:
-              color === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
+              color === 'dark' ? theme.defaultAlgorithm : theme.darkAlgorithm,
             token: {
               colorPrimary: '#5c6cf7',
             },
@@ -192,10 +198,11 @@ const Sidebar: FC = () => {
                 navigate(pathname.replace(versionPrevious.current!, e));
               }}
             />
-            <Button style={{ marginLeft: '5px' }} icon={<GithubOutlined />} />
+            <Button style={{ marginLeft: '5px' }} icon={<GithubOutlined />} onClick={() => window.open(frontmatter.github)} />
           </div>
         </ConfigProvider>
       )}
+
       <SidebarMenu menuData={cloneSidebar!} />
     </div>
   );
