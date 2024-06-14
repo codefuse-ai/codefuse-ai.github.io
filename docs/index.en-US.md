@@ -1,7 +1,7 @@
 ---
 title: CodeFuse - 让研发变得更简单
 hero:
-  title: 'https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*29lySZry1NwAAAAAAAAAAAAADlHYAQ/original'
+  title: 'https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*Krw9Sq6gevwAAAAAAAAAAAAADlHYAQ/original'
   description: Make R&D Simpler
 CodeGenerationTitle:
   title: 'Code Generation'

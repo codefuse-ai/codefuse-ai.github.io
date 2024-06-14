@@ -14,7 +14,7 @@ CodeGeneration:
     link: https://github.com/codefuse-ai/MFTCoder
   - title: CodeFuse-MFT-VLM
     buttom: MFT-VLM
-    image: 'https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*UhdvTKE_ZsEAAAAAAAAAAAAADlHYAQ/original'
+    image: 'https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*19mRTadlUDYAAAAAAAAAAAAADlHYAQ/original'
     description: CodeFuse-MFT-VLM是一个为多模态大语言模型设计的框架，旨在兼容和适应多种视觉和语言模型以支持不同类型的任务。它集成了众多视觉编码器如CLIP系列和语言模型如Vicuna和LLAMA系列，提供灵活的配置选项，允许用户通过VL-MFTCoder自由组合不同的模型，从而简化多模态任务的开发和应用过程。
     link: https://github.com/codefuse-ai/CodeFuse-MFT-VLM
   - title: Awesome-Code-LLM
