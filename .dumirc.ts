@@ -21,5 +21,7 @@ export default defineConfig({
   mfsu: false,
   resolve: {
     forceKebabCaseRouting: false,
-  }
+  },
+  extraRemarkPlugins: ['remark-math'],
+  extraRehypePlugins: ['rehype-katex']
 });

@@ -1,7 +1,7 @@
 import type { SocialTypes } from '@/client/theme-api/types';
 import { ReactComponent as IconClose } from '@ant-design/icons-svg/inline-svg/outlined/close.svg';
 import { ReactComponent as IconMenu } from '@ant-design/icons-svg/inline-svg/outlined/menu.svg';
-import { useRouteMeta, useSiteData } from 'dumi';
+import { useRouteMeta, useSiteData, useLocation } from 'dumi';
 import ColorSwitch from '../ColorSwitch';
 import HeaderExtra from 'dumi/theme/slots/HeaderExtra';
 import LangSwitch from 'dumi/theme/slots/LangSwitch';
@@ -16,7 +16,8 @@ const Header: FC = () => {
   const { frontmatter } = useRouteMeta();
   const [showMenu, setShowMenu] = useState(false);
   const { themeConfig } = useSiteData();
-  const hero = frontmatter.hero;
+  const { hash, pathname } = useLocation();
+  const blogDet = pathname.includes("/blogDetails");
   const socialIcons = useMemo(
     () =>
       themeConfig.socialLinks
@@ -29,7 +30,6 @@ const Header: FC = () => {
         : [],
     [themeConfig.socialLinks],
   );
-
   return (
     <div
       className="dumi-default-header"
@@ -40,18 +40,22 @@ const Header: FC = () => {
       <div className="dumi-default-header-content">
         <section className="dumi-default-header-left">
           <Logo />
-        </section>
-        <section className="dumi-default-header-right">
           {/* 文档信息下拉弹框 */}
           <Navbar />
+        </section>
+
+        <section className="dumi-default-header-right">
           {/* 导航➕国际化 */}
           <div className="dumi-default-header-right-aside">
-            <div className='headerLineleft' />
-            <LangSwitch />
+            {
+              !blogDet && <><LangSwitch />
+                <div className='headerLineleft' /></>
+            }
+
             <RtlSwitch />
             {/* 亮度显示 */}
             {
-              !hero && themeConfig.prefersColor.switch && <ColorSwitch />
+              themeConfig.prefersColor.switch && <ColorSwitch />
             }
             <div className='headerLine' />
             {socialIcons.map((item) => (
@@ -63,7 +67,8 @@ const Header: FC = () => {
             <div className='moda' onClick={() => { window.open('https://modelscope.cn/organization/codefuse-ai') }}>
             </div>
             <HeaderExtra />
-            {/* <SearchBar /> */}
+            <div className='headerLineleft' />
+            <SearchBar />
           </div>
         </section>
         {/* 移动端导航栏 */}

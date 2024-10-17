@@ -2,7 +2,7 @@
 title: Publication
 nav:
   title: Publication
-  order: 2
+  order: 3
 bannerTitle: https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*r31CSbR3uFUAAAAAAAAAAAAADlHYAQ/original
 contentTitle: Selected Publications
 

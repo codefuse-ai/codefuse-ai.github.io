@@ -20,6 +20,7 @@ const Hero: FC = () => {
         )}
         {frontmatter.hero!.description && (
           <p
+            className="bannerDesc"
             dangerouslySetInnerHTML={{ __html: frontmatter.hero!.description }}
           />
         )}
@@ -30,21 +31,6 @@ const Hero: FC = () => {
       <IntelligentInference/>
       <AutomatedTesting/>
       <PerformanceEvaluation/>
-      {/* {Boolean(frontmatter.hero!.actions?.length) && (
-        <div className="dumi-default-hero-actions">
-          {frontmatter.hero!.actions!.map(({ text, link }) =>
-            /^(\w+:)\/\/|^(mailto|tel):/.test(link) ? (
-              <a href={link} target="_blank" rel="noreferrer" key={text}>
-                {text}
-              </a>
-            ) : (
-              <Link key={text} to={link}>
-                {text}
-              </Link>
-            ),
-          )}
-        </div>
-      )} */}
     </div>
   );
 };
