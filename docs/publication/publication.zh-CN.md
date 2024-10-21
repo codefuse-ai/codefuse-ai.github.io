@@ -8,6 +8,8 @@ contentTitle: 精选论文
 
 titleConDirectly: CodeFuse 相关
 contentDirectly:
+  - titleCon: \[EMNLP 2024] CoBa:\ Convergence Balancer for Multitask Finetuning of Large Language Models
+    desc: Zi Gong, Hang yu, Cong Liao, Bingchang Liu, Chaoyu Chen, Jianguo Li
   - titleCon: \[ICSE-SEIP 2024] CodeFuse-13B:\ A Pretrained Multi-lingual Code Large Language Model
     desc: Peng Di, Jianguo Li, Hang Yu, Wei Jiang, Wenting Cai, ..., Xianying Zhu
   - titleCon: \[KDD 2024] MFTCoder:\ Boosting Code LLMs with Multitask Fine-Tuning
