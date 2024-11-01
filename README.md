@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[**简体中文**](./README_ZH.md)|[**HuggingFace**](https://huggingface.co/codefuse-ai)|[**ModelScope**](https://modelscope.cn/organization/codefuse-ai)
+[**简体中文**](./README_CN.md)|[**HuggingFace**](https://huggingface.co/codefuse-ai)|[**ModelScope**](https://modelscope.cn/organization/codefuse-ai)
 
 Hello!! This is CodeFuse!
 CodeFuse's mission is to develop large-scale code language models (Code LLMs) specifically designed to support the entire software development lifecycle, covering key stages such as design, requirements, coding, testing, deployment, operations, and more. We are committed to creating innovative solutions to make the process of software development as smooth as silk for developers.
