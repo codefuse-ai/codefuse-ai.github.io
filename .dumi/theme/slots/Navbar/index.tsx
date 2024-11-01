@@ -44,7 +44,7 @@ const NavbarItem: FC<{ data: ReturnType<typeof useNavData>[0] }> = ({
       data-docs={isDevDocs}
     >
       {isDevDocs ? (
-        <NavbarChildrenContent/>
+        <NavbarChildrenContent />
       ) : (
         <NavbarContent data={data.children} />
       )}
@@ -56,7 +56,6 @@ const NavbarItem: FC<{ data: ReturnType<typeof useNavData>[0] }> = ({
     activePath && pathname.startsWith(activePath)
       ? { className: 'active' }
       : {};
-
   return data.link ? (
     <>
       <Link to={data.link} {...extraProps}>
@@ -147,9 +146,12 @@ const NavbarChildrenContent: FC = () => {
 
 const Navbar: FC = () => {
   const nav = useNavData();
+  // 删除导航中博客详情数据
+  const filteredNav = nav.filter(item => item.title !== 'blogDetails');
+  
   return (
     <ul className="dumi-default-navbar">
-      <NavbarContent data={nav} />
+      <NavbarContent data={filteredNav} />
       <NavbarExtra />
     </ul>
   );

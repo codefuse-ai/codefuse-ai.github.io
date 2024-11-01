@@ -4,10 +4,10 @@ import { ReactComponent as IconSearch } from '@ant-design/icons-svg/inline-svg/o
 import { useSiteSearch } from 'dumi';
 import SearchResult from 'dumi/theme/slots/SearchResult';
 import React, { useEffect, useRef, useState, type FC } from 'react';
-import { Input } from './Input';
+import { Input } from './input';
 import { Mask } from './Mask';
 import './index.less';
-export { Input as SearchInput } from './Input';
+export { Input as SearchInput } from './input';
 export { Mask as SearchMask } from './Mask';
 
 const isAppleDevice = /(mac|iphone|ipod|ipad)/i.test(
@@ -99,14 +99,16 @@ const SearchBar: FC = () => {
         onChange={(keywords) => setKeywords(keywords)}
         ref={inputRef}
       />
-      <span className="dumi-default-search-shortcut">{symbol} K</span>
+      {/* <span className="dumi-default-search-shortcut">{symbol} K</span> */}
       {keywords.trim() && focusing && !modalVisible && (
         <div className="dumi-default-search-popover">
           <section>
             <SearchResult data={result} loading={loading} />
           </section>
         </div>
+
       )}
+
 
       <Mask
         visible={modalVisible}

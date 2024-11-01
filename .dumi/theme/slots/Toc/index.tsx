@@ -23,6 +23,7 @@ import './index.less';
 
 const Toc: FC = () => {
   const { pathname, search, hash } = useLocation();
+  const blogDet = pathname.includes("/blogDetails");;
   const meta = useRouteMeta();
   const tabMeta = useTabMeta();
   const { loading } = useSiteData();
@@ -35,6 +36,7 @@ const Toc: FC = () => {
   const { themeConfig } = useSiteData();
   const showEditLink = themeConfig.editLink && frontmatter.filename;
   const showLastUpdated = themeConfig.lastUpdated && frontmatter.lastUpdated;
+  const [Istool, setIstool] = useState(true);
   const memoToc = React.useMemo(() => {
     let toc = meta.toc;
     if (tabMeta) {
@@ -44,7 +46,7 @@ const Toc: FC = () => {
     return toc.filter(({ depth }) => depth > 1 && depth < 4);
   }, [meta, tabMeta]);
   const locale = useLocale();
-  
+
   useEffect(() => {
     // wait for page component ready (DOM ready)
     if (!loading) {
@@ -78,25 +80,28 @@ const Toc: FC = () => {
 
   return (
     <>
-      <div className="dumi-default-content-tool">
-        <dl>
-          <dd>
-            <ClockCircleOutlined />{' '}
-            {/* <FormattedMessage id="content.footer.last.updated" /> */}
-            <time dateTime={isoLastUpdated}>{lastUpdated}</time>
-          </dd>
-          <dd>
-            <a
-              target="_blank"
-              href={HrefImport()}
-              rel="noreferrer"
-            >
-              <EditOutlined />{' '}
-              <FormattedMessage id="content.footer.actions.edit" />
-            </a>
-          </dd>
-        </dl>
-      </div>
+      {
+        !blogDet && <div className="dumi-default-content-tool">
+          <dl>
+            <dd>
+              <ClockCircleOutlined />{' '}
+              {/* <FormattedMessage id="content.footer.last.updated" /> */}
+              <time dateTime={isoLastUpdated}>{lastUpdated}</time>
+            </dd>
+            <dd>
+              <a
+                target="_blank"
+                href={HrefImport()}
+                rel="noreferrer"
+              >
+                <EditOutlined />{' '}
+                <FormattedMessage id="content.footer.actions.edit" />
+              </a>
+            </dd>
+          </dl>
+        </div>
+      }
+
       {sectionRefs.length ? (
         <>
           <ScrollSpy sectionRefs={sectionRefs}>

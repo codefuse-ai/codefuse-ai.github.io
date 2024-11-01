@@ -2,6 +2,10 @@
   margin-top: 100px;
   display: flex;
   justify-content: center;
+  
+  @{dark-selector} & {
+    margin-bottom: 150px;
+  }
 
   .Performance-center {
     display: flex;
@@ -64,6 +68,10 @@
       background-size: cover;
       background-position: center;
 
+      @{dark-selector} & {
+        background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*4scPTrdP_xIAAAAAAAAAAAAADlHYAQ/original');
+      }
+
       img {
         margin: 21px auto 41px auto;
         border-radius: 5px;
@@ -78,6 +86,11 @@
         font-size: 16px;
         color: #ffffff;
         letter-spacing: 1px;
+
+        @{dark-selector} & {
+          font-size: 16px;
+          color: #171616;
+        }
       }
     }
   }

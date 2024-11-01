@@ -2,4 +2,6 @@ node_modules
 .dumi/tmp
 .dumi/tmp-production
 .DS_Store
-cp_docs.sh
+.node
+package-lock.json
+*log

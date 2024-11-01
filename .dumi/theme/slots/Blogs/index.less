@@ -1,0 +1,300 @@
+@import (reference) '.dumi/theme/styles/variables.less';
+
+.@{prefix}-blogs {
+  margin: -@s-header-height auto 0 auto;
+  // margin:  0 auto ;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media @mobile {
+    margin-top: -@s-header-height-m - 20;
+    padding-top: 160px;
+    height: 660px;
+  }
+
+  +* {
+    position: relative;
+  }
+
+  .banner {
+    position: relative;
+    padding-top: 30px;
+    height: 380px;
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*H68hT641jX0AAAAAAAAAAAAADlHYAQ/original');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @{dark-selector} & {
+      background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*mm_8QaNji70AAAAAAAAAAAAADlHYAQ/original');
+    }
+
+    .bannerContent {
+      padding: 0px 24px;
+      margin-top: 30px;
+      width: 900px;
+      color: #f8f9fa;
+      font-size: 2.7rem;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 150%;
+      }
+    }
+  }
+
+  .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  .content {
+    margin-top: 67px;
+    width: 1200px;
+
+    .ant-tabs {
+      padding: 0 40px;
+      color: #ffffff;
+    }
+
+    .ant-tabs .ant-tabs-tab {
+      color: #bfbfbf;
+      font-size: 16px;
+
+      @{dark-selector} & {
+        color: #8a909a;
+      }
+    }
+
+    .ant-tabs-top>.ant-tabs-nav::before {
+      border: 1px solid #3d3d53;
+
+      @{dark-selector} & {
+        border: 1px solid #cccccc;
+      }
+    }
+
+    .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+      color: #fff;
+      font-size: 16px;
+
+      @{dark-selector} & {
+        color: #171616;
+      }
+
+    }
+
+    .ant-tabs .ant-tabs-ink-bar {
+      background-color: #5c6cf7;
+    }
+
+    .ant-list-split.ant-list-something-after-last-item .ant-spin-container>.ant-list-items>.ant-list-item:last-child {
+      border-block-end: 1px solid #3d3d53;
+
+      @{dark-selector} & {
+        border-block-end: 1px solid #cccccc;
+      }
+    }
+
+    .list {
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: unset;
+        padding: 32px 0;
+        border-bottom: 1px solid #3d3d53;
+
+        @{dark-selector} & {
+          border-bottom: 1px solid #cccccc;
+        }
+
+        .listTime {
+          font-size: 18px;
+          color: #67686e;
+          letter-spacing: 0.5px;
+        }
+
+        .listTitle {
+          font-size: 24px;
+          color: #ffffff;
+          letter-spacing: 0.7px;
+          font-weight: 600;
+
+          @{dark-selector} & {
+            color: #171616;
+          }
+        }
+
+        .listDesc {
+          min-height: 90px;
+          font-size: 16px;
+          color: #fff5f5;
+          line-height: 30px;
+          margin: 13px 0 26px 0;
+
+          @{dark-selector} & {
+            color: #1b1b1b;
+          }
+        }
+      }
+
+      .ant-pagination .ant-pagination-item-active {
+        background-color: #262628;
+        border-radius: 3px;
+
+        @{dark-selector} & {
+          background-color: #fff;
+        }
+      }
+
+      .ant-pagination .ant-pagination-item-active {
+        border-color: #5c6cf7;
+
+        @{dark-selector} & {
+          background-color: #fff;
+          border: 1px solid #b5b5b5;
+          border-radius: 3px;
+        }
+      }
+
+      .ant-pagination .ant-pagination-item-active a {
+        color: #fff;
+        background-color: #5c6cf7;
+
+        @{dark-selector} & {
+          background: #dee2fd;
+          border-radius: 3px;
+        }
+      }
+
+      .ant-pagination .ant-pagination-item {
+        background-color: #262628;
+        border-radius: 3px;
+        color: #fff;
+
+        @{dark-selector} & {
+          background-color: transparent;
+          border: 1px solid #b5b5b5;
+        }
+      }
+
+      .ant-pagination .ant-pagination-item a {
+        color: #fff;
+
+        @{dark-selector} & {
+          color: #5d5d5d;
+        }
+      }
+
+      .ant-pagination .ant-pagination-disabled .ant-pagination-item-link {
+        background-color: #262628;
+
+        @{dark-selector} & {
+          color: #b5b5b5;
+          background-color: transparent;
+          border: 1px solid #b5b5b5;
+        }
+      }
+
+      .ant-pagination .ant-pagination-next .ant-pagination-item-link {
+        background-color: #262628;
+        color: #fff;
+
+        @{dark-selector} & {
+          background-color: transparent;
+          border: 1px solid #b5b5b5;
+          color: #5d5d5d;
+        }
+      }
+
+      .ant-pagination .ant-pagination-disabled .ant-pagination-item-link {
+        color: #bfbfbf;
+
+        @{dark-selector} & {
+          background-color: transparent;
+          border: 1px solid #b5b5b5;
+          color: #b5b5b5;
+        }
+      }
+
+      .ant-pagination .ant-pagination-next button {
+        color: #fff;
+      }
+
+      .ant-pagination .ant-pagination-prev .ant-pagination-item-link {
+        background-color: #262628;
+        color: #bfbfbf;
+
+        @{dark-selector} & {
+          color: #5d5d5d;
+          border: 1px solid #b5b5b5;
+          background-color: transparent;
+        }
+      }
+
+      .ant-list-pagination {
+        margin-top: 60px;
+      }
+    }
+
+    .slot {
+      display: flex;
+      color: #bfbfbf;
+
+      .ant-btn {
+        padding: 4px 10px;
+      }
+
+      .correct {
+        cursor: pointer;
+        color: #a8abff;
+        font-size: 16px;
+
+        @{dark-selector} & {
+          color: #5c6cf7;
+        }
+      }
+
+      .inverted {
+        cursor: pointer;
+        color: #bfbfbf;
+        font-size: 16px;
+      }
+    }
+  }
+
+  p {
+    font-weight: 500;
+    text-align: center;
+    line-height: 72px;
+    margin-top: 0px;
+    font-size: 36px;
+    color: #ffffff;
+    letter-spacing: 1.21px;
+
+    @{dark-selector} & {
+      color: @c-text-secondary-dark;
+    }
+
+    @media @mobile {
+      font-size: 16px;
+    }
+  }
+}

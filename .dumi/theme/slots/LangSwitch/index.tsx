@@ -6,9 +6,11 @@ import {
   useLocale,
   useLocation,
   useSiteData,
+  usePrefersColor,
 } from 'dumi';
 import React, { useEffect, useState, type FC } from 'react';
 import './index.less';
+import { set } from 'lodash';
 
 type ILocaleItem = ReturnType<typeof useSiteData>['locales'][0];
 
@@ -24,16 +26,16 @@ function getTargetLocalePath({
   const clearPath =
     'base' in current
       ? // handle '/en-US/a' => '/a' or '/en-US' => '' => '/'
-        pathname.replace(current.base.replace(/\/$/, ''), '') || '/'
+      pathname.replace(current.base.replace(/\/$/, ''), '') || '/'
       : pathname.replace(new RegExp(`${current.suffix}$`), '');
 
   return 'base' in target
     ? `${
-        // for `/` base, strip duplicated leading slash
-        target.base.replace(/\/$/, '')
+      // for `/` base, strip duplicated leading slash
+      target.base.replace(/\/$/, '')
       }${clearPath}`
-        // for `/` clearPath, strip duplicated ending slash
-        .replace(/([^/])\/$/, '$1')
+      // for `/` clearPath, strip duplicated ending slash
+      .replace(/([^/])\/$/, '$1')
     : `${clearPath}${target.suffix}`;
 }
 
@@ -52,7 +54,9 @@ const SingleSwitch: FC<{ locale: ILocaleItem; current: ILocaleItem }> = ({
 
   return (
     <Link className="dumi-default-lang-switch" to={path}>
-      {locale.name}
+      <span>
+        {locale.name}
+      </span>
     </Link>
   );
 };

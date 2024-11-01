@@ -2,12 +2,6 @@
   margin-top: 180px;
   display: flex;
   justify-content: center;
-  position: relative;
-  background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*C8E9RZGf5eEAAAAAAAAAAAAADlHYAQ/original');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
 
   .automatedTesting-center {
     display: flex;
@@ -54,6 +48,11 @@
         color: #ffffff;
         letter-spacing: 1px;
         opacity: 0.8;
+        
+        @{dark-selector} & {
+          font-size: 16px;
+          color: #171616;
+        }
       }
 
       .buttom {

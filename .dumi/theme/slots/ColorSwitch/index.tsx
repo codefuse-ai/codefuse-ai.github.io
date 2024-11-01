@@ -1,4 +1,4 @@
-import { useIntl, usePrefersColor, useSiteData, useLocation, useRouteMeta } from 'dumi';
+import { useIntl, usePrefersColor, useSiteData, } from 'dumi';
 import React, { useEffect, useState, type FC } from 'react';
 import './index.less';
 
@@ -34,7 +34,6 @@ const ICON_MAPPING = {
   auto: IconAuto,
 };
 
-
 const ColorSwitch: FC = () => {
   const {
     themeConfig: {
@@ -44,18 +43,18 @@ const ColorSwitch: FC = () => {
   const intl = useIntl();
   const [, prefersColor = defaultColor, setPrefersColor] = usePrefersColor();
   const Icon = ICON_MAPPING[prefersColor];
-  const { pathname } = useLocation();
-  let slashIndex = pathname.indexOf("/");
-  var path = (slashIndex !== -1) && (slashIndex < pathname.length - 1);
-  useEffect(() => {
-    !path && setPrefersColor('light');
-  }, [pathname])
 
+  // useEffect(() => {
+  //   setPrefersColor(prefersColor);
+  //   sessionStorage.setItem('prefersColortest', prefersColor);
+  // }, [prefersColor])
   // 切换颜色模式的函数
+
   const switchColorMode = () => {
     // 根据当前模式切换到另一模式
     const nextMode = prefersColor === 'light' ? 'dark' : 'light';
     setPrefersColor(nextMode);
+    sessionStorage.setItem('prefersColortest', prefersColor);
   };
 
   return (<span
