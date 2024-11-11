@@ -1,23 +1,25 @@
-import { Link, useLocale, useSiteData, useRouteMeta } from 'dumi';
+import { useLocale, usePrefersColor, useRouteMeta, } from 'dumi';
 import './index.less';
 import React, { type FC } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import HomeTitle from '../HomeTitle';
 import { SwapRightOutlined } from '@ant-design/icons';
 
 const CodeGeneration: FC = () => {
   const locale = useLocale();
   const { frontmatter } = useRouteMeta();
+  const [color] = usePrefersColor();
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 900,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <img style={{ width: '58px', height: '58px' }} src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*NPVCQ4gXms4AAAAAAAAAAAAADlHYAQ/original" alt="" />,
-    prevArrow: <img style={{ width: '58px', height: '58px' }} src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*jjxJRZsDm6YAAAAAAAAAAAAADlHYAQ/original" alt="" />,
-    appendDots: dots => (
+    nextArrow: <img style={{ width: '58px', height: '58px' }} src={color === 'dark' ? 'https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*dWy8S7M89cUAAAAAAAAAAAAADlHYAQ/original' : 'https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*NPVCQ4gXms4AAAAAAAAAAAAADlHYAQ/original'} alt="" />,
+    prevArrow: <img style={{ width: '58px', height: '58px' }} src={color === 'dark' ? 'https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*yf8TRK_otgkAAAAAAAAAAAAADlHYAQ/original' : 'https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*jjxJRZsDm6YAAAAAAAAAAAAADlHYAQ/original'} alt="" />,
+    appendDots: (dots: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined) => (
       <div
         className='buttomDots'
         style={{
@@ -32,7 +34,7 @@ const CodeGeneration: FC = () => {
           transform: 'translate(-50%, -50%)'
         }}> {dots} </div>
     ),
-    customPaging: i => (
+    customPaging: (i: number) => (
       <div className={`${'generationButtom'}${locale.id}`}>
         {
           frontmatter?.CodeGeneration.map((item: any, index: number) => {
@@ -46,16 +48,13 @@ const CodeGeneration: FC = () => {
   };
   return <div className="code-Generation">
     <div className="code-Generation-center">
-      <div className="generationTitle">
-        {frontmatter?.CodeGenerationTitle.title}
-        <div className="line" />
-      </div>
+      <HomeTitle title={frontmatter?.CodeGenerationTitle.title} line={'19px auto 0'} />
       <div className="generationContent">
         <Slider {...settings}>
           {
-            frontmatter?.CodeGeneration.map(item => {
-              return <div className="generationContentItem">
-                <img src={item.image} alt="" />
+            frontmatter?.CodeGeneration.map((item: any, index: number) => {
+              return <div className="generationContentItem" key={index}>
+                <img src={color === 'dark' ? item.imageColor : item.image} alt="" />
                 <div className="generationText">
                   <div className="generationTextTitle">
                     {item.title}

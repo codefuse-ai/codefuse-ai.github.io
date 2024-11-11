@@ -40,4 +40,9 @@ EventConsultation:
     title: Not updated yet
     desc: Not updated yet
     link: /blogDetails/001
+
+  - time: '2024-11-11'
+    title: CodeFuse 编码挑战季」
+    desc: 本次「编码挑战季」活动，共涉及 muAgent、MFTCoder、ModelCache、CodeFuse-IDE四个代码仓库，社区任务会在 https://github.com/orgs/codefuse-ai/projects  中进行发放。每个代码仓库将会有难、中、易不同程度的任务分类，开发者可以自由选择自己要参与的项目任务，并跟帖，我们将在第一时间分配任务，完成任务即获得所对应任务的积分。
+    link: /blogDetails/20241111
 ---

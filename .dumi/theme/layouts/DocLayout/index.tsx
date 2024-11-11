@@ -11,7 +11,6 @@ import {
 } from 'dumi';
 import Content from 'dumi/theme/slots/Content';
 import ContentFooter from 'dumi/theme/slots/ContentFooter';
-import Features from 'dumi/theme/slots/Features';
 import Footer from 'dumi/theme/slots/Footer';
 import Header from 'dumi/theme/slots/Header';
 import Hero from 'dumi/theme/slots/Hero';
@@ -22,6 +21,8 @@ import './index.less';
 import AboutDocs from 'dumi/theme/slots/AboutDocs';
 import Foot from 'dumi/theme/slots/Foot';
 import Publication from 'dumi/theme/slots/Publication';
+import Blogs from 'dumi/theme/slots/Blogs';
+import BlogDetails from 'dumi/theme/slots/BlogDetails';
 
 const DocLayout: FC = () => {
   const intl = useIntl();
@@ -35,7 +36,9 @@ const DocLayout: FC = () => {
   const doc = pathname.includes("/docs");
   const showSidebar = fm.sidebar !== false && sidebar?.length > 0;
   const publication = pathname.split("/").pop();
+  const blog = pathname.split("/").pop();
   const com = pathname.includes("/contribution");
+  const blogDet = pathname.includes("/blogDetails");
 
   // handle hash change or visit page hash after async chunk loaded
   useEffect(() => {
@@ -79,11 +82,18 @@ const DocLayout: FC = () => {
       <Header />
       <Hero />
       {
+        blogDet && <BlogDetails />
+      }
+      {
         about === 'aboutdocs' && <AboutDocs />
+      }
+      {
+        blog === 'blogs' && <Blogs />
       }
       {
         publication === 'publication' && <Publication />
       }
+
       {
         com ? <main>
           {/* 文档页两侧展示 */}
@@ -95,7 +105,6 @@ const DocLayout: FC = () => {
           </Content>
           {fm.toc === 'content' && (
             <div className="dumi-default-doc-layout-toc-wrapper">
-              {/* <h4>大纲</h4> */}
               <Toc />
             </div>
           )}

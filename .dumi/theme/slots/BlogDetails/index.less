@@ -1,0 +1,383 @@
+@import (reference) '.dumi/theme/styles/variables.less';
+
+.@{prefix}-blogDetail {
+  margin: -@s-header-height auto 0 auto;
+  // margin:  0 auto ;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media @mobile {
+    margin-top: -@s-header-height-m - 20;
+    padding-top: 160px;
+    height: 660px;
+  }
+
+  +* {
+    position: relative;
+  }
+
+  .@{prefix}-blogDetail-banner {
+    position: relative;
+    padding-top: 60px;
+    height: 380px;
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*H68hT641jX0AAAAAAAAAAAAADlHYAQ/original');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @{dark-selector} & {
+      background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*mm_8QaNji70AAAAAAAAAAAAADlHYAQ/original');
+    }
+
+    .bannerCon {
+      padding: 0px 24px;
+      min-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .time {
+        font-size: 22px;
+        color: #fff5f5;
+        letter-spacing: 0.68px;
+        margin-bottom: 21px;
+        font-weight: 00;
+
+        @{dark-selector} & {
+          color: #5d5d5d;
+        }
+      }
+
+      .title {
+        font-size: 28px;
+        color: #ffffff;
+        letter-spacing: 0.94px;
+        font-weight: 600;
+
+        @{dark-selector} & {
+          color: #171616;
+        }
+      }
+    }
+  }
+
+  .@{prefix}-blogDetail-content {
+    max-width: 1280px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0 20px 0 150px;
+
+    .dumi-default-article {
+      display: flex;
+      flex: 1 1;
+      flex-direction: column;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    >main {
+      display: flex;
+      align-items: flex-start;
+      padding: 0 24px;
+      box-sizing: border-box;
+
+      >section {
+        flex: 1;
+        max-width: 100%;
+      }
+
+      >.@{prefix}-doc-layout-toc-wrapper {
+        position: sticky;
+        top: @s-header-height;
+        max-width: @s-sidebar-width;
+        margin-inline-start: 24px;
+        max-height: 80vh;
+        overflow: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+
+        @media @mobile {
+          display: none;
+        }
+
+        >h4 {
+          margin: 0 0 20px;
+          color: @c-text-note;
+          font-size: 15px;
+          line-height: 1;
+
+          @{dark-selector} & {
+            color: @c-text-note-dark;
+          }
+        }
+      }
+
+      .dumi-default-article .dumi-default-content:not([data-no-sidebar]) {
+        background-color: #070b13;
+        box-shadow: 0px 2px 4px 0px #000000ff;
+
+        @{dark-selector} & {
+          background: #ffffff;
+          box-shadow: 0px 2px 4px 0px rgb(249, 249, 249);
+        }
+      }
+
+      .markdown {
+        font-size: 16px;
+        color: #e4e9ec;
+        line-height: 30px;
+        letter-spacing: 0.61px;
+        font-weight: 300;
+        margin: 0 auto;
+        // line-height: 1.5;
+
+        @{dark-selector} & {
+          font-size: 18px;
+          color: #1b1b1b;
+          line-height: 30px;
+        }
+
+        a {
+          color: #9999FF;
+        }
+      }
+
+      .markdown th {
+        background-color: #828287;
+
+        @{dark-selector} & {
+          background-color: #bcbec1;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+
+      .dumi-default-content-tool {
+        color: #b5b5b5;
+      }
+
+      .dumi-default-content-tool>dl dd>a {
+        color: #b5b5b5;
+      }
+
+      .dumi-default-toc>li>a {
+        color: #b5b5b5;
+      }
+
+      .dumi-default-source-code {
+        background: #2c2d2e;
+        border-radius: 4px;
+
+        @{dark-selector} & {
+          background-color: #fbfcfd;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+
+      .markdown *:not(pre) code {
+        background: #2c2d2e;
+
+        @{dark-selector} & {
+          background: #f0f4f8;
+        }
+      }
+
+
+      .dumi-default-source-code>pre.prism-code {
+        color: #e4e9ec;
+        background: #2c2d2e;
+
+        @{dark-selector} & {
+          color: #383a42;
+          background-color: #fbfcfd;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+
+      .dumi-default-source-code-copy {
+        background: #2c2d2e;
+      }
+
+      .dumi-default-article .dumi-default-content:not([data-no-sidebar]) {
+        padding: 10px 18px 48px 28px;
+
+        // @{dark-selector} & {
+
+        //   padding: 10px 18px 48px 28px;
+        // }
+      }
+
+      .ant-menu-light:not(.ant-menu-horizontal) .ant-menu-submenu-title:active {
+        background-color: #181d29;
+
+        @{dark-selector} & {
+          background-color: #f0f4ff;
+        }
+
+      }
+
+      .ant-menu-light .ant-menu-submenu-title {
+        color: #f0f4ff;
+
+        @{dark-selector} & {
+          color: #000;
+        }
+      }
+
+      .ant-menu-light .ant-menu-item {
+        color: #f0f4ff;
+
+        @{dark-selector} & {
+          color: #000;
+        }
+      }
+
+      .ant-menu-light .ant-menu-item-selected {
+        background-color: #181d29;
+        // color: #fff;
+        color: #000;
+
+        @{dark-selector} & {
+          background-color: #f0f4ff;
+          color: #000;
+        }
+
+      }
+
+      .ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item:not(.ant-menu-item-selected):active {
+        background-color: #181d29;
+
+        @{dark-selector} & {
+          background-color: #f0f4ff;
+        }
+
+      }
+    }
+
+  }
+
+  .dumi-default-article .dumi-default-content:not([data-no-sidebar]) {
+    background-color: #070b13;
+    box-shadow: 0px 2px 4px 0px #000000ff;
+
+    @{dark-selector} & {
+      background: #ffffff;
+      box-shadow: 0px 2px 4px 0px rgb(249, 249, 249);
+    }
+  }
+
+  .markdown {
+    font-size: 16px;
+    color: #e4e9ec;
+    line-height: 30px;
+    letter-spacing: 0.61px;
+    font-weight: 300;
+    margin: 0 auto;
+    // line-height: 1.5;
+
+    @{dark-selector} & {
+      font-size: 18px;
+      color: #1b1b1b;
+      line-height: 30px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+      letter-spacing: 0.61px;
+      line-height: 30px;
+      font-weight: 300;
+    }
+
+    a {
+      color: #9999FF;
+    }
+  }
+
+  .markdown th {
+    background-color: #828287;
+
+    @{dark-selector} & {
+      background-color: #bcbec1;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+
+  .dumi-default-content-tool {
+    color: #b5b5b5;
+  }
+
+  .dumi-default-content-tool>dl dd>a {
+    color: #b5b5b5;
+  }
+
+  .dumi-default-toc>li>a {
+    color: #b5b5b5;
+  }
+
+  .dumi-default-source-code {
+    background: #2c2d2e;
+    border-radius: 4px;
+
+    @{dark-selector} & {
+      background-color: #fbfcfd;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+
+  .markdown *:not(pre) code {
+    background: #2c2d2e;
+
+    @{dark-selector} & {
+      background: #f0f4f8;
+    }
+  }
+
+
+  .dumi-default-source-code>pre.prism-code {
+    color: #e4e9ec;
+    background: #2c2d2e;
+
+    @{dark-selector} & {
+      color: #383a42;
+      background-color: #fbfcfd;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+
+  .dumi-default-source-code-copy {
+    background: #2c2d2e;
+  }
+
+  .dumi-default-article .dumi-default-content:not([data-no-sidebar]) {
+    padding: 10px 18px 48px 28px;
+    
+
+    @{dark-selector} & {
+      padding: 55px;
+    }
+  }
+
+  .markdown:not(:lang(zh)):not(:lang(ja)):not(:lang(kr)),
+  .markdown:not(:lang(zh)) {
+    letter-spacing: 0.61px;
+  }
+
+}

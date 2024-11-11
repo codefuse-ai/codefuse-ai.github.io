@@ -1,19 +1,18 @@
-import { useLocale, useRouteMeta } from 'dumi';
+import { useLocale, useRouteMeta, usePrefersColor } from 'dumi';
 import './index.less';
 import React, { type FC } from 'react';
 import { SwapRightOutlined } from '@ant-design/icons';
+import HomeTitle from '../HomeTitle';
 
 const IntelligentInference: FC = () => {
   const { frontmatter } = useRouteMeta();
   const locale = useLocale();
+  const [color] = usePrefersColor();
   if (!('IntelligentInference' in frontmatter)) return null;
   return <div className="codeAnalysis">
     <div className="IntelligentInference-center">
       <div className="generationContent">
-        <div className="generationTitle">
-          {frontmatter.IntelligentInference.title}
-          <div className="line" />
-        </div>
+        <HomeTitle title={frontmatter.IntelligentInference.title} textAlign={'left'} />
         <div className="desc">
           {frontmatter.IntelligentInference.description}
         </div>
@@ -22,7 +21,12 @@ const IntelligentInference: FC = () => {
           <SwapRightOutlined />
         </div>
       </div>
-      <img src={frontmatter.IntelligentInference.image} alt="" />
+      <img
+        src={
+          color === 'dark' ?
+            frontmatter.IntelligentInference.imageColor : frontmatter.IntelligentInference.image
+        }
+        alt="" />
     </div>
   </div>
 };

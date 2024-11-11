@@ -6,8 +6,28 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: #04040e;
+  // background-color: #04040e;
+  position: relative;
+  background: url(https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*GXCzTqeCn-QAAAAAAAAAAAAADlHYAQ/original);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  width: 100vw;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+
+  @{dark-selector} & {
+    background: url(https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*3r6wTK9KMQMAAAAAAAAAAAAADlHYAQ/original);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    width: 100vw;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
 
   @media @mobile {
     margin-top: -@s-header-height-m - 20;
@@ -22,37 +42,38 @@
   .banner {
     position: relative;
     height: 100vh;
+    // width: 100vw;
     text-align: center;
     box-sizing: border-box;
-    background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*jv_PRqNyheQAAAAAAAAAAAAADlHYAQ/original');
+    background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*4hf5Tb5Rtd8AAAAAAAAAAAAADlHYAQ/original');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @{dark-selector} & {
+      background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*faXFT6UtWckAAAAAAAAAAAAADlHYAQ/original');
+    }
+
+    .bannerDesc {
+      font-size: 45px;
+      color: #ccd8ff;
+      letter-spacing: 5.27px;
+      text-align: center;
+
+      @{dark-selector} & {
+        font-size: 45px;
+        color: #1b1b1b;
+        letter-spacing: 5.27px;
+        text-align: center;
+      }
+    }
   }
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   display: block;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   opacity: 0.8;
-  //   pointer-events: none;
-  //   background: no-repeat center/cover;
-  //   background-image: url('https://mdn.alipayobjects.com/huamei_v98cj4/afts/img/A*PpkBT7PHhsYAAAAAAAAAAAAADo6VAQ/original');
-  //   // background-image: url('https://gw.alipayobjects.com/zos/bmw-prod/a6c3488a-994c-4dd3-8e92-2324d9a1ca48/l9dmd9wl_w2858_h1864.png');
 
-  //   @{dark-selector} & {
-  //     opacity: 1;
-  //   }
-  // }
-
-  p {   
+  p {
     font-weight: 300;
     text-align: center;
     line-height: 72px;

@@ -29,3 +29,4 @@ export const NavbarEnumsEn = {
   'Overview': '/docs/about/overview',
   'AboutDocs':'/aboutDocs/aboutdocs'
 }
+

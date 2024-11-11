@@ -2,12 +2,6 @@
   margin-top: 180px;
   display: flex;
   justify-content: center;
-  position: relative;
-  background-image: url('https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*C8E9RZGf5eEAAAAAAAAAAAAADlHYAQ/original');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
 
   .automatedTesting-center {
     display: flex;
@@ -26,27 +20,6 @@
       margin-left: 57px;
       padding-top: 41px;
 
-      .generationTitle {
-        margin: 0 auto;
-        text-align: left;
-        font-size: 40px;
-        color: #ffffff;
-        letter-spacing: 1.35px;
-        font-weight: 600;
-        background-image: linear-gradient(90deg, #d8d8d8 0%, #545eff 100%);
-        display: inline-block;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        .line {
-          margin-top: 19px;
-          background-image: linear-gradient(90deg, #e5b2ca 0%, #7546f3 100%);
-          height: 4px;
-          width: 323px;
-        }
-      }
-
       .desc {
         width: 542px;
         margin-top: 48px;
@@ -54,6 +27,11 @@
         color: #ffffff;
         letter-spacing: 1px;
         opacity: 0.8;
+
+        @{dark-selector} & {
+          font-size: 16px;
+          color: #171616;
+        }
       }
 
       .buttom {
@@ -91,6 +69,10 @@
           background-size: contain;
           background-position: center;
           color: #fff;
+
+          @{dark-selector} & {
+            color: #7031FD;
+          }
         }
       }
     }

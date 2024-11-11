@@ -1,4 +1,4 @@
-import { Link, useRouteMeta } from 'dumi';
+import { Link, useRouteMeta, usePrefersColor } from 'dumi';
 import HeroTitle from 'dumi/theme/slots/HeroTitle';
 import CodeGeneration from '../CodeGeneration';
 import React, { type FC } from 'react';
@@ -11,40 +11,28 @@ import PerformanceEvaluation from '../PerformanceEvaluation';
 
 const Hero: FC = () => {
   const { frontmatter } = useRouteMeta();
+  const [color] = usePrefersColor();
+
   if (!('hero' in frontmatter)) return null;
   return (
     <div className="dumi-default-hero">
       <div className="banner">
         {frontmatter.hero!.title && (
-          <HeroTitle>{frontmatter.hero!.title}</HeroTitle>
+          <HeroTitle>{color === 'dark' ? frontmatter.hero!.titleLight : frontmatter.hero!.title}</HeroTitle>
         )}
         {frontmatter.hero!.description && (
           <p
+            className="bannerDesc"
             dangerouslySetInnerHTML={{ __html: frontmatter.hero!.description }}
           />
         )}
       </div>
-      <CodeGeneration/>
-      <DevOps/>
-      <CodeAnalysis/>
-      <IntelligentInference/>
-      <AutomatedTesting/>
-      <PerformanceEvaluation/>
-      {/* {Boolean(frontmatter.hero!.actions?.length) && (
-        <div className="dumi-default-hero-actions">
-          {frontmatter.hero!.actions!.map(({ text, link }) =>
-            /^(\w+:)\/\/|^(mailto|tel):/.test(link) ? (
-              <a href={link} target="_blank" rel="noreferrer" key={text}>
-                {text}
-              </a>
-            ) : (
-              <Link key={text} to={link}>
-                {text}
-              </Link>
-            ),
-          )}
-        </div>
-      )} */}
+      <CodeGeneration />
+      <DevOps />
+      <CodeAnalysis />
+      <IntelligentInference />
+      <AutomatedTesting />
+      <PerformanceEvaluation />
     </div>
   );
 };

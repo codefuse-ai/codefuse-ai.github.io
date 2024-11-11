@@ -9,14 +9,16 @@ const Foot: FC = () => {
     <div className='dumi-default-foot'>
       <div className='foot'>
         <div className='copyright'>
-          Copyright © 支付宝（中国）网络技术有限公司 ｜
-          备案号：沪ICP备15027489号
+          Copyright © 支付宝（中国）网络技术有限公司
+          {/* ｜ */}
+          {/* 备案号：沪ICP备15027489号 */}
         </div>
       </div>
       <div className='foot-mobile'>
         <div className='copyright'>
-          Copyright © 支付宝（中国）网络技术有限公司 ｜
-          备案号：沪ICP备15027489号
+          Copyright © 支付宝（中国）网络技术有限公司
+          {/* ｜ */}
+          {/* 备案号：沪ICP备15027489号 */}
         </div>
       </div>
     </div>
