@@ -1,4 +1,4 @@
-import { useRouteMeta, useOutlet, } from 'dumi';
+import { useRouteMeta } from 'dumi';
 import React, { type FC } from 'react';
 import './index.less';
 

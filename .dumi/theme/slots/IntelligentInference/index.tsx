@@ -2,6 +2,7 @@ import { useLocale, useRouteMeta, usePrefersColor } from 'dumi';
 import './index.less';
 import React, { type FC } from 'react';
 import { SwapRightOutlined } from '@ant-design/icons';
+import HomeTitle from '../HomeTitle';
 
 const IntelligentInference: FC = () => {
   const { frontmatter } = useRouteMeta();
@@ -11,10 +12,7 @@ const IntelligentInference: FC = () => {
   return <div className="codeAnalysis">
     <div className="IntelligentInference-center">
       <div className="generationContent">
-        <div className="generationTitle">
-          {frontmatter.IntelligentInference.title}
-          <div className="line" />
-        </div>
+        <HomeTitle title={frontmatter.IntelligentInference.title} textAlign={'left'} />
         <div className="desc">
           {frontmatter.IntelligentInference.description}
         </div>

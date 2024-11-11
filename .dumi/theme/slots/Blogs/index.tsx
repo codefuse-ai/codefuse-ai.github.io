@@ -11,7 +11,7 @@ type MyTabName = {
 const SortList = (list: any, seq: string) => {
   if (list?.length > 0) {
     return seq === 'correct' ? list?.sort((a: any, b: any) => new Date(b?.time).getTime() - new Date(a?.time)?.getTime()) : list?.sort((a: any, b: any) => new Date(b?.time).getTime() - new Date(a?.time)?.getTime());
-  }else {
+  } else {
     return '';
   }
 }
@@ -83,7 +83,6 @@ const Blogs: FC = () => {
           </List.Item>
         )}
         pagination={{
-          // hideOnSinglePage: true,
           defaultCurrent: 1,
           pageSize: 10,
           align: 'center'
@@ -180,7 +179,7 @@ const Blogs: FC = () => {
     },
     {
       key: 'Event Consultation',
-      label: locale.id === 'zh-CN' ? '活动咨询' : 'Event Consultation',
+      label: locale.id === 'zh-CN' ? '活动资讯' : 'Event Consultation',
       children: (<List
         className='list'
         itemLayout="horizontal"
