@@ -2,6 +2,7 @@ import { useRouteMeta, useLocale, usePrefersColor } from 'dumi';
 import './index.less';
 import React, { type FC } from 'react';
 import { SwapRightOutlined } from '@ant-design/icons';
+import HomeTitle from '../HomeTitle';
 
 const AutomatedTesting: FC = () => {
   const { frontmatter } = useRouteMeta();
@@ -13,10 +14,7 @@ const AutomatedTesting: FC = () => {
     <div className="automatedTesting-center">
       <img src={color === 'dark' ? frontmatter.AutomatedTesting.imageColor : frontmatter.AutomatedTesting.image} alt="" />
       <div className="automatedTestingContent">
-        <div className="generationTitle">
-          {frontmatter.AutomatedTesting.title}
-          <div className="line" />
-        </div>
+        < HomeTitle title={frontmatter.AutomatedTesting.title} />
         <div className="desc">
           {frontmatter.AutomatedTesting.description}
         </div>

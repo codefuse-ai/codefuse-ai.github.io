@@ -4,6 +4,7 @@ import React, { type FC } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import HomeTitle from '../HomeTitle';
 import { SwapRightOutlined } from '@ant-design/icons';
 
 const CodeGeneration: FC = () => {
@@ -47,10 +48,7 @@ const CodeGeneration: FC = () => {
   };
   return <div className="code-Generation">
     <div className="code-Generation-center">
-      <div className="generationTitle">
-        {frontmatter?.CodeGenerationTitle.title}
-        <div className="line" />
-      </div>
+      <HomeTitle title={frontmatter?.CodeGenerationTitle.title} line={'19px auto 0'} />
       <div className="generationContent">
         <Slider {...settings}>
           {

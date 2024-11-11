@@ -2,6 +2,8 @@ import { useLocale, useRouteMeta, usePrefersColor } from 'dumi';
 import './index.less';
 import React, { type FC } from 'react';
 import { SwapRightOutlined } from '@ant-design/icons';
+import HomeTitle from '../HomeTitle';
+
 
 const DevOps: FC = () => {
   const { frontmatter } = useRouteMeta();
@@ -10,10 +12,7 @@ const DevOps: FC = () => {
   if (!('DevOps' in frontmatter)) return null;
   return <div className="devOps">
     <div className="devOps-center">
-      <div className="devOpsTitle">
-        {frontmatter.DevOpsTitle.title}
-        <div className="line" />
-      </div>
+      <HomeTitle title={frontmatter.DevOpsTitle.title} />
       <div className="DevOpsContent">
         <ul className="DevOpsUl">
           {frontmatter.DevOps.map((item: any) => {

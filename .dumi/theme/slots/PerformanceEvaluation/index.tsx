@@ -2,6 +2,7 @@ import { Link, useLocale, usePrefersColor, useRouteMeta } from 'dumi';
 import './index.less';
 import React, { type FC } from 'react';
 import { SwapRightOutlined } from '@ant-design/icons';
+import HomeTitle from '../HomeTitle';
 
 const PerformanceEvaluation: FC = () => {
   const { frontmatter } = useRouteMeta();
@@ -11,8 +12,7 @@ const PerformanceEvaluation: FC = () => {
   return <div className="Performance">
     <div className="Performance-center">
       <div className="PerformanceTitle">
-        {frontmatter.PerformanceEvaluation.title}
-        <div className="line" />
+        <HomeTitle title={frontmatter.PerformanceEvaluation.title} line={'19px auto 0'} />
         <div className='more' onClick={() => window.open(frontmatter.PerformanceEvaluation.link)}>
           {locale.id === 'zh-CN' ? '了解更多' : 'Learn more'}
           <SwapRightOutlined />
