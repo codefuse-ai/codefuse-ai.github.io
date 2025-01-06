@@ -14,146 +14,181 @@ order: -1
 toc: content
 ---
 
-# Introduction
+## Background
 
-To enhance the performance of large models in terms of inference accuracy, various innovative Large Language Model (LLM) playbooks have emerged in the industry. From the earliest Chain of Thought (CoT) and Thread of Thought (ToT) to Games on Tracks (GoT), these methods have continually expanded the capability boundaries of LLMs. When handling complex problems, we can select, invoke and execute tool feedback through the ReAct process, while realizing multi-round tool use and multi-step execution.
+From the current perspective, large language models (LLMs) perform well in solving general single-step tasks (e.g., SQL generation) and single-step tool usage (e.g., weather queries). However, scenarios in the real world are often complex and involve multiple steps, especially in rigorous and specialized fields. LLMs tend to provide generic answers (including ChatGPT). For C-end user experiences, this might not be a significant issue, but for B/P-end actual production, it often lacks utility. LLMs resemble newly graduated individuals from prestigious universities, possessing excellent foundational qualities but lacking the ability for targeted learning in specific domains, which hinders their ability to provide complete task planning and decision-making. The capability to assist people in problem-solving or for an agent to effectively solve problems lies at the core of the PLANNER's reasoning ability.
 
-However, for more complex scenarios, such as the development of complex code, a single-function LLM Agent is clearly not up to the task. Therefore, the community has begun to develop combinations of multiple Agents, such as projects focused on the development field like metaGPT, GPT-Engineer, and chatDev, as well as the AutoGen project that focuses on automating the construction of Agents and Agent dialogue.
+_“The core competitiveness of different domain experts lies in their long-term accumulation of industry knowledge and experience in handling complex issues.”_
 
-After an in-depth analysis of these frameworks, it has been found that most Agent frameworks are highly coupled, with poor usability and extensibility. They implement specific scenarios in preset settings, but expanding to new scenarios can be very challenging.
+Individuals possess rich experience when dealing with professional and complex tasks. Where does this experience come from?
+Two sources:
 
-Therefore, we hope to build an extensible, easy-to-use Multi-Agent framework to support ChatBots in retrieving knowledge base information while assisting with various general tasks such as daily office work, data analysis, development, and operations.
+- Mentorship: Specific problems are taught hands-on, guiding newcomers on how to tackle issues.
+- Self-exploration: Reading documents, interactive exploration, and eventually forming a pathway to success stored in memory.
 
-This project's Multi-Agent framework incorporates excellent designs from multiple frameworks, such as the message pool from metaGPT and the agent selector from autogen.
+Inspired by human experience acquisition and learning models, we introduce a new Agent framework that elevates knowledge graphs (KGs) from mere knowledge acquisition sources to an Agent orchestration engine! Driven by LLM + EKG (Eventic Knowledge Graph for Industry Knowledge), and coupled with MultiAgent, FunctionCall, and CodeInterpreter technologies, we enable complex multi-step task completion with ease of drag-and-drop and lightweight text input, all under the guidance of human experience. Our solution is compatible with existing agent frameworks on the market while also achieving four core differentiating technical functionalities: complex reasoning, online collaboration, human interaction, and on-demand knowledge accessibility.
+
+## Introduction
+
+To achieve automation of complex multi-step processes (Standard Operating Procedures, SOPs), let's first take a look at the components of an SOP. Deconstructing it abstractly, any task flow's SOP is fundamentally composed of three parts: "Experience" + "Tools" + "Person," seamlessly connecting LLM reasoning to realize the organic integration of these three elements.
+
+- **Experience**: How are complex tasks handled in specific professional fields? What are the process steps?
+- **Tools**: What tools are used in the task flow? How to use these tools?
+- **Person**: Who should be consulted during the task flow (Person or agents)? What should be asked?
 
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/muagent_framework.png" alt="图片">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*FMOJRJotp2gAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
 </div>
 
-# MuAgent Framework
+To this end, the overall architecture diagram of muAgent is as follows, aligning with the industry definitions of agent frameworks, encompassing three core modules: _Planner_, _Memory_, and _ActionSpace_, along with diagnostic debugging and product interface components.
 
-In MuAgent, in addition to defining the Agent interaction link and AgentBase basic execution flow, we have also designed two basic components: Prompt Manager and Memory Manager, which are used for automated construction of Prompts and chat history management, respectively. We have built an extensible, easy-to-use Multi-Agent framework, including the following content:
-
-- **Agent Base:** Established four basic types of Agents – BaseAgent, ReactAgent, ExecutorAgent, SelectorAgent – to support basic activities in various scenarios.
-- **Communication:** Completes the transfer of information between Agents through Message and Parse Message entities, and interacts with Memory Manager to manage memory in the Memory Pool.
-- **Prompt Manager:** Automates the assembly of Customized Agent Prompts through Role Handler, Doc/Tool Handler, Session Handler, Customized Handler.
-- **Memory Manager:** Supports storage management of chat history, information compression, memory retrieval, and finally storage in databases, local or vector databases through the Memory Pool.
-- **Component:** Auxiliary ecosystem components for building Agents, including Retrieval, Tool, Action, Sandbox, etc.
-- **Customized Model:** Supports the integration of private LLM and Embedding.
-
-## Agent Base
-
-At the Agent level, we provide four basic types of Agents, with Role settings for these Agents that can meet the interactions and uses of various common scenarios. All Actions are executed by Agents.
-
-1. BaseAgent: Provides basic question answering, tool usage, and code execution functions, and realizes input => output according to the Prompt format.
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/baseagent.png" alt="图片" style="width: 500px;  height:auto;">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*AhJNS5-ZCM8AAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
 </div>
 
-2. ReactAgent: Provides standard React functionality, according to questions to execute current tasks.
+## Experience
+
+### Storage Structure
+
+For different industries and types of workflows/SOPs, how should we abstractly design a unified schema to store experiential knowledge effectively? As the old saying goes, "_teaching someone to fish is better than giving them fish_," implying that we should design to store "process experience" rather than "result experience." Compared to storing state results, it is more beneficial to teach the model how to achieve a result. For example, instead of rigidly instructing the model on current weather, a more appropriate approach is to teach the model how to query the weather. MuAgent has designed four major node types to accommodate experiential knowledge storage: "Scene Intent + Event Flow + Organizing Person + Unified Tools." The following image illustrates this structure.
+
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/reactagent.webp" alt="图片" style="width: 500px;  height:auto;">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*l7OQSLUYPH8AAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
 </div>
 
-3. ExecutorAgent: Sequentially executes a list of tasks, completing related tasks according to plans arranged by the User or the previous Agent. The Agent receives a task list ([List[task]) and loops through the tasks (Feedback Agents can also be added in the middle for task re-optimization), until the task is complete.
+As task flows often naturally present as graph or tree structures, muAgent utilizes a graph database to store experiences. In comparison to traditional Retrieval-Augmented Generation (RAG) or Microsoft's GraphRAG—which mainly uses knowledge graphs as data sources—muAgent directly upgrades the knowledge graph to serve as an orchestration engine. Through "drag-and-drop" and "light text" writing, we can achieve the sedimentation of complex SOPs in specific fields and automate the SOP process.
+
+### Knowledge Acquisition
+
+With a well-designed experience storage framework, akin to a functioning brain, the next task is to address how to acquire knowledge. MuAgent offers two capabilities for building experiences. The first is the previously mentioned product-side canvas-style lightweight text writing. The second capability focuses on a vast amount of legacy documents, where muAgent possesses automated extraction abilities to convert plain text and flow charts into graph structures. If extracted information contains errors or gaps, simple editing and debugging can refine it into perfect SOP experiences.
+
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/executoragent.png" alt="图片" style="width: 500px;  height:auto;">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*P25aQo9VupQAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
 </div>
 
-4. SelectorAgent: Provides the function of selecting an Agent, choosing the appropriate Agent to respond based on the question from the User or the previous Agent.
+Given that the graph engine design inherently carries graph capabilities, while storing experiences, muAgent also provides the ability to "split" and "merge" experiences:
+
+- **Experience Splitting**: We expect models to possess a certain generalization capability, rather than simply delivering specific answers (unlike the rigid task flows of DiFY and the random reasoning of AutoGPT). For instance, once the experience of "Hangzhou travel itinerary planning" is accumulated, we should abstract it into "travel itinerary planning." Thus, when faced with a query about "Beijing travel itinerary planning," the model should be able to respond appropriately. Further abstraction could involve isolating atomic experiences such as "hotel booking, train ticket booking, dining choices," enabling the model to efficiently generate responses even when confronted with queries about "Beijing short trip planning"! This reflects a human problem-solving approach where they explain a specific problem's resolution path. The goal of muAgent's "experience splitting" is to implement divergent reasoning under human guidance through the framework of "phenomenon-task-judgment-conclusion."
+- **Experience Merging**: One thousand people may have a thousand interpretations of Hamlet, just as blind men describe an elephant; recorded experiences serve as a concrete manifestation of abstraction. The better approach is to merge different collaborative experiences to enhance a comprehensive understanding of the essence of things. For instance, in the experience of ordering travel tickets, a distant person may solidify the idea of "ticket booking - airplane," whereas someone nearer may specify "ticket booking - high-speed train." A local traveler might record "ticket booking - subway." Aligning and merging these experiences produces a comprehensive atomic experience of "ticket booking."
+
+### Experience Reasoning
+
+With an established knowledge storage, the next challenge is to tackle the reasoning problem. The reasoning aspect of muAgent encompasses two major modules:
+
+- **Intent Recognition**: This module focuses on multi-layer intent handling, supporting "sequential + direct" intent identification. It identifies different intents (execution or consultation) to address various kinds of queries. When faced with ambiguous intents, it can also ask users for additional information.
+  - **Sequential OR Direct Recognition**: It facilitates locating multi-layer intents as required by different scenarios. Users can perform either sequential intent searches or directly match vectors along with model filtering (ideal for unclear scene intent descriptions).
+  - **Execution OR Consultation Confirmation**: It acknowledges that different scenarios entail different intent categories. For example, upon receiving the request, "Help me check the weather in Hangzhou," muAgent executes the entire task flow to retrieve and provide the end result. Conversely, if a user requests, "How do I check the weather in Hangzhou," muAgent will only return the process steps without executing the actual experience.
+- **Graph Reasoning**: Based on user-embedded experience and collaboration, utilizing FuncCall for diverse user questions and multi-route reasoning (execution or question-answering).
+  - **Traversal Reasoning**: Against user queries, the LLM model performs tasks via node text descriptions, relational links, and property configurations, outputting decisions based on results: whether to continue executing tasks at that node or proceed downstream (supporting multiple branches and cycles).
+  - **Divergent Reasoning**: For user queries, the model self-organizes reasoning. It selects similar experience references to make decisions using the extracted atomic experiences (supporting Few-shot divergence), and cycles towards outputs/results/new phenomena, continually leveraging atomic experience references.
+  - **Graph Question-Answering**: Responds to user queries by retrieving relevant content based on the already embedded graph data, providing answers in natural language (KGQA: Knowledge Graph Question Answer).
+
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/selectoragent.webp" alt="图片" style="width: 500px;  height:auto;">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*3XPVRZfp2CMAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
 </div>
 
-## Communication
+## Person
 
-To enable better interaction between Agents, as well as to provide each Agent with enough information to complete their specific tasks, we have divided the Message information body into several parts, such as System Content, Info Content, LLM Content, and LLM Parsed Content, etc.
+### Composition of Characters
 
-System Content: Used to store and manage the timing of the current LLM output, Role information, etc.
-Info Content: LLM auxiliary information, such as knowledge base query information, code library retrieval information, tool information, Agent information, etc.
+In the context of task flow and experience advancement, interactions with "Person" are inevitable. In muAgent, the composition of Person can be categorized into three main types: "Agents," "User," and "Enterprise Personnel."
 
-LLM Content: Directly stores and conveys information generated by the LLM.
-LLM Parsed Content: Parses the LLM's output into a more manageable key-value data structure, making it easier to filter through LLM content.
-Customized Content: Manages key-value data content generated by custom actions, used for subsequent assembly and construction of custom Prompt templates.
-By defining the above message formats, we can accomplish the transfer and management of general messages. Specific assembly methods can be seen in the Prompt Manager module.
+- **Agents**: In the game scenario "Who's the Undercover," such agents represent only simple prompts and LLMs. In real-world applications, they can be layered and nested. Agents created with muAgent are equipped with capabilities encompassing knowledge, tools, and personas, making them suitable for enterprise-level team collaboration scenarios (e.g., development agents, testing agents, operation agents).
 
-## Context Manager
+- **User**: Initially designed for processes that require user participation, such as AI text-based games. They can also be applied in online guidance and teaching scenarios where user input is essential for the advancement of the any process.
 
-### Memory Manager
+- **Enterprise Personnel**: Primarily targeted at the design of enterprise processes, covering both "Enterprise Employees" and "Organizational Structure." Not every capability can be abstracted into API interfaces; many scenarios (e.g., task approval flows) require human involvement for screening and communication. Including enterprise personnel allows consulting specific individuals for explicit responses before progressing. The inclusion of organizational structures serves the purpose of tracking personnel changes.
 
-Mainly used for the management of chat history:
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*iP6dR4zwz1gAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
+</div>
 
-- Storage Management: Implements the save and load management of chat history in the database or locally, including user input, LLM output, observation output.
-- Information Compression: Summarizes key information from the chat history into a summary context, such as single text summaries, summaries from different angles, key information extraction, multi-text summaries, and serves as Prompt context.
-- Memory Retrieval: Provides basic retrieval functions, retrieving information related to questions from chat history or Summary Context to assist in Q&A.
-- LLM Automatic Trigger: Future definitions of policies or the use of LLM to trigger the compression summary and retrieval functions.
+### Communication Among Characters
 
-### Prompt Manager
+What is a multi-Agent framework? The core concept revolves around the implementation of multi-Agent information exchange. Multi-Agent information interaction refers to a discussion mode among agents. Based on human communication patterns, muAgent abstractly derives eight discussion modes to satisfy information isolation demands in different scenarios (all/part/individually visible).
 
-Asking LLMs has become common practice, but how to coordinate the planning and usage of tools, code writing abilities among multiple large models to guide their expected outputs has become a key issue. Essentially, this involves abstracting business problems into executable Prompts, so we're not just designing Agents but rather engaging in framework design after a deep understanding of the current demands.
+- **Public Consultation**: The host publicly consults different agents for responses.
+- **Public Notification**: The host publicly notifies different agents of information.
+- **Private Consultation**: The host privately consults different agents for responses.
+- **Private Notification**: The host privately notifies different agents of information.
+- **Sequential Speaking**: The host triggers agents to respond publicly in sequence.
+- **Simultaneous Speaking**: The host triggers agents to respond publicly at the same time.
+- **Free Discussion**: The host triggers agents to engage in free public discussion.
+- **Private Discussion**: The host triggers agents to engage in private discussion.
 
-In actual business scenarios where LLMs are involved (excluding the SFT process), we can designate LLM to complete specific tasks and obtain expected outputs through the design of Agent Prompt content. In the process of MuAgent, the Prompt is divided into three parts: System Prompt, Context Prompt, Customized Prompt.
+These modes can be broadly classified into two categories: information communication (What can and should I see?) and information processing (How can I better visualize information?). muAgent can fulfill the demand of different scenarios through simple configurations of attributes and the linking of edges. We will explore the case of "Who's the Undercover" to provide a comprehensive understanding of different information communication modes.
 
-- System Prompt includes Role Name, Role Description, Task, etc.
-- Context Prompt includes Doc Context, Code Context, Tool Context, Agent Context, Session Context, etc.
-- Customized Prompt involves custom inputs and outputs, such as...
-  We can also ask the model to output structured texts, such as the JSON string of a tool, code\ncode_content, etc., to complete particular workflows.
+#### Information Communication
 
-**Automatic Prompt Assemble**
+**Public Notification**: During the seat assignment phase, everyone knows where each other's seat is. The host uniformly assigns seats but doesn't require feedback on the assignment results. MuAgent achieves this through the "public" setting within the task node-information isolation attribute.
 
-After defining the structure as above, we can complete the automation assembly of Prompts in the following ways, without having to make extensive adjustments to the prompt each time:
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*ZnCWRLDWIFEAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
+</div>
 
-1. Upon defining an Agent, configure Role Name, Role Description, Task, etc., to determine what the Agent needs to do.
-2. Pre-package some reusable Context Prompt general strategies, such as selectable Role's SessionContext, configurable Tool, Code Retrieval, Doc Retrieval, Search Retrieval, Agent to complete corresponding assemblies.
-3. As the Agent's Prompt requires relatively personalized operations, it also supports the addition of new key-context designs within the Prompt Manager module to achieve personalized Agent Prompts.
+**Private Notification**: In the word assignment phase, each participant only knows the word assigned to them. The host uniformly assigns words, knowing everyone’s words, and no response is required concerning the assigned word. MuAgent achieves this using the "private" setting for task node-information isolation attributes.
 
-**Automatic Prompt Design**
-Able to automatically design the best prompt based on role description, task, query, etc.; to be defined...
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*6OPUQLrXL_cAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
+</div>
 
-**Multi Prompt Design**
-Based on the previous definition of Prompt, we know that a Prompt consists of three parts: System Prompt, Context Prompt, Customized Prompt. Any changes in the three parts may cause changes in the final output of the LLM.
+**Sequential Speaking**: In the sharing discussion phase, the host specifies the sequence of responses based on assigned seat numbers and available participants. The host then initiates each person's sharing (requiring responses), with everyone aware of others' replies. A tool usage mode setting will also be introduced, detailed in the tools section.
 
-For the same type of task, their System Prompt is the same. So, without considering the variations of Customiezd Prompt, it is possible to achieve the assembly differences of different contexts. For example, Prompt A obtains 10 rounds of chat history, while Prompt B uses 5 rounds of chat history, or alternatively, filters and compresses information in chat history.
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*Wp-WSZg4xbIAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
+</div>
 
-To be implemented...
+#### Information Processing
 
-## Component
+With a solid information communication framework ensuring varying scenarios' needs are met, the next challenge is how to help users better visualize information. For example, if suddenly tagged in a group chat with a question, users must sift through extensive previous text to ascertain what action to take. Could there be a better way to succinctly summarize the context, allowing them to quickly understand their required action? This justifies the necessity for the information processing module. We provide three information processing modes (achieved through attribute settings):
 
-### Retrieval
+- **Information Retrieval**: Seek historical dialogues and current queries for similar messages, categorized into rule-based retrieval (e.g., K-nearest information) and model-based retrieval (e.g., vector retrieval).
+- **Information Processing**: Summarize and refine historical dialogues to facilitate rapid comprehension, categorized as model summarization and information entailment (supporting prompt settings).
+- **Global Variables**: Maintain global variables to conveniently track the current status of variables and enhance planning and decision-making. For example, in “Who's the Undercover,” the current players or the witch’s poison/antidote in "Werewolf" (without this setting, when the model's reasoning ability wanes, mistakes are likely in multi-round games).
 
-In all Prompts' Contexts, aside from Chat History session information, information based on external document libraries, code repositories, internet search results is also relied upon. This knowledge system beyond the model parameters can significantly enhance the Agent's ability to complete complex tasks.
+## Tools
 
-Thus, in MuAgent, we integrated three ways to retrieve information: Doc, Internet Search, Code Retrieval, and defined an abstract class IMRetrieval, supporting developers to customize their knowledge bases to complete the Agent's knowledge base registration.
+### Usage Methods
 
-**Doc Retrieval**
+After addressing experience and characters, we turn to the final link in process advancement: tools. The current industry practices can be summarized into three general approaches:
 
-Document vector databases are currently the mainstream method for building knowledge bases, using Text Embedding models to vectorize documents and store them in vector databases. In the future, we will also support queries based on knowledge graphs and automatically extract entities and relations through large models to explore the complex relationships in data.
+- **Without Thinking**: Directly provide single-step decisions for a problem. This method is quick and effective in fixed scenarios but inconvenient for multi-step tasks. This is achieved by setting the task node-execution mode to "single".
+- **Plan Before Action**: Directly provide a complete plan for a problem and then execute that plan, facilitating multi-step task execution. However, it lacks flexibility for adjustments based on intermediate results, realized via "plan" and "parallel/simultaneous execution" property settings.
+- **Think While Doing**: This represents the current mainstream ReAct mode where the next decision relies on the output from the previous step. While the slowest, it offers flexibility to adjust based on intermediate outcomes. This is achieved through "interactive" property settings.
 
-**Code Retrieval**
+In the context of voting for a culprit, multiple agents can simultaneously be consulted and provided with responses to avoid them disguising their descriptions based on each other's output.
 
-LLMs face the challenge of lagging training data for code generation, repair, and component understanding tasks, as well as not being able to perceive the context-dependent structure of code. During development, understanding, retrieving and querying metadata from the existing codebase and dependencies can take a considerable amount of time. Hence, we hope to provide an external knowledge system
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*vbT9SIGh4dcAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
+</div>
 
-**Search Retrieval**
-In addition to the readily available document and code knowledge bases, in daily practice, browsing a large amount of web content to acquire more knowledge helps us understand emerging scenarios, businesses, technologies, and more. Hence, we've integrated duckduckgosearch, an open-source search tool, to provide LLMs with content beyond their knowledge reserves.
+### Tool Management
 
-### Tool
+- **Tool Registration Method**: Most implementations in the industry rely on the protocol and specifications defined by OpenAI, and muAgent is no exception. MuAgent simplifies the Swagger protocol for rapid integration of different API tools.
+- **Tool Registration Management**: Starting from the realization of large models’ limitations, we define five major tool categories (e.g., providing a sandbox execution environment for additional code execution to address the model's deficiencies). By categorizing them, we facilitate tool selection and usage for large models.
 
-With OpenAI launching the Function Call feature, which generates parameters for specified tools through LLM and executes the call, machines can better understand and respond to human needs, thus solving practical problems and repetitive work. Nowadays, the ability to learn tools is increasingly becoming a standard feature of open-source models. Therefore, in MuAgent, it also supports agents to complete Tool registration. By using the Python registration template BaseToolModel class and writing related properties and methods such as Tool_name, Tool_description, ToolInputArgs, ToolOutputArgs, and run, tools can be quickly integrated. It also supports the direct use of langchain Tool interfaces.
-For example, functions like the above XXRetrieval can also be registered as a Tool, ultimately called by LLM.
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*YcQoR4tGqBgAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
+</div>
 
-### Action
+## Experience
 
-In the definition of MuAgent, Action is viewed as a specific action or action flow that LLM needs to execute, including LLM information processing, knowledge retrieval, tool invocation, and code execution, etc., constituting a comprehensive and complex dynamic process. For instance, in the React process, we obtained a Tool parameter through LLM, and then "putting the tool parameter into the Tool and executing the call" is an Action, which practically invokes the Tool. Or, we defined an Agent, who orchestrates a fixed agent's Action steps, with the input parameters of this Agent specially designated by the Action. That is to say, whether the parameters are generated by LLM or set by engineering, as long as it involves a specific execution process, it is an Action.
+### Technical Differences
 
-## 模块分类
+Based on the architectural design introduced above, returning to the initial mention of the muAgent framework compared to existing agent frameworks on the market, we can identify four core differentiators.
 
-- [connector](/docs/api-docs/MuAgent/connector/connector_agent)
-- document_loaders
-- embeddings
-- llm_models
-- orm
-- sandbox
-- service
-- text_splitter
-- tools
-- utils
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*B_i3SLXW_ZMAAAAAAAAAAAAADlHYAQ/original" alt="Image" style="width: 500px;  height:auto;">
+</div>
+
+- **Complex Reasoning**: Current frameworks retain two primary reasoning logic types: Pure LLM reasoning, represented by AutoGPT, and fixed reasoning, represented by DiFy. The former has stability challenges while lacking specialized domain service capabilities; the latter presents minimal flexibility and bears little difference from engineering implementations. MuAgent utilizes a graph as an orchestration engine to house knowledge while incorporating a design of atomic experiences and divergent reasoning from the graph, allowing models to act organically under human experience/design guidance. This structure fosters adaptability, enabling exploration in unknown scenarios while also summarizing successful exploration experiences for knowledge retention. The overall procedure supports platform integration (rule configuration) and natural language triggers to meet various demands.
+- **Human Interaction**: Based on the design of person nodes (agents, enterprise staff, and user participants) alongside different information communication and processing methods, muAgent can flexibly manage enterprise task flow knowledge, allowing human involvement within process propagation, while also innovatively applying this framework in multi-player text games.
+- **Knowledge at Hand**: Through the unified graph design comprising scene intent, event flow, unified tools, and personnel organization, muAgent meets the knowledge-facilitation requirements for various SOP scenarios. A simple drag-and-drop text input can create deployable content directly; moreover, faced with extensive legacy documents (ordinary texts, flow charts, etc.), muAgent supports intelligent text parsing, one-click importation, as well as experience splitting and merging for generalization.
+- **Collaborative Capacity**: By constructing virtual teams and segmenting scene intents, you experience differences between online documents and local documents; simultaneously, through the node usage method of textual semantic input, you perceive distinctions between annotated and unannotated code, making the advantages of online collaboration clear.
+  We also provide debugging and execution capabilities, allowing for visual debugging post-graph editing, ensuring rapid identification of flow errors and modification enhancements, while associating successful configurations for automatic sedimentation, reducing model interaction costs and accelerating reasoning procedures. Additionally, we offer full-link visual monitoring during online operations.
+
+### Open Source Collaboration
+
+Creating an open-source framework is challenging—doing it well is even harder. From serving purely internal purposes to separating foundational components for consistent internal and external versions, muAgent currently has many unrefined features and ongoing developmental plans. We welcome any suggestions, feedback (including criticism), and contributions, which can be submitted via GitHub Issues.
+
+There are multiple ways to contribute to the Codefuse project: implementing code, writing tests, enhancing documentation, etc. Any contribution is highly welcomed, further details can be found in the [Contribution Guide](https://codefuse-ai.github.io/contribution/contribution).

@@ -14,137 +14,176 @@ order: -1
 toc: content
 ---
 
-# 简介
+## 背景
 
-为了提高大型模型在推理准确性方面的表现，业界出现了多种创新的大型语言模型(LLM)玩法。从最早的 CoT、ToT 到 GoT，这些方法不断拓展了 LLM 的能力边界。在处理复杂问题时，我们可以通过 ReAct 过程来选择、调用和执行工具反馈，同时实现多轮工具使用和多步骤执行。
+站在当前视角，LLM 大模型能很好的解决通用单步任务（如 SQL 生成）、单步工具使用（如天气查询），但实际现实中的场景却是复杂多步骤的，尤其面向严谨专业私有领域，LLM 只能给出泛泛而谈的答案（包括 ChatGPT ），面向 C 端体验用户可能问题不大，但面向 B/P 端实际生产往往用处不大。大模型就像才毕业的名校博士，具备优秀的基础素养，但却无法面向特定领域进一步学习，能够面向特定领域给出完善的任务规划决策。LLM 能逐步协助人来解决问题或者 Agent 能实际解决问题，核心在于 PLANNER 推理能力。
 
-但对于更复杂的场景，例如复杂代码的开发，单一功能的 LLM Agent 显然难以胜任。因此，社区开始发展出多 Agent 的组合玩法，比如专注于 metaGPT、GPT-Engineer、chatDev 等开发领域的项目，以及专注于自动化构建 Agent 和 Agent 对话的 AutoGen 项目。
+_“不同领域专家核心竞争力在于行业的长久沉淀，面向专业领域复杂问题的处理经验。”_
+人面向专业复杂事务处理具备丰富的经验，人的经验从哪里来？两部分：
 
-经过对这些框架的深入分析，发现大多数的 Agent 框架整体耦合度较高，其易用性和可扩展性较差。在预设场景中实现特定场景，但想要进行场景扩展却困难重重。
+- 老人带新人，特定问题、手把手教 => 教会新人面向问题该如何处理
+- 自我的摸索，文档阅读、交互探索，最终形成一条成功路径存于脑中
 
-因此，我们希望构建一个可扩展、易于使用的 Multi-Agent 框架，以支持 ChatBot 在获取知识库信息的同时，能够辅助完成日常办公、数据分析、开发运维等各种通用任务。
+参考人的经验获取学习模式，为此我们带来全新体验的 Agent 框架，将 KG（知识图谱）从知识获取来源直接升级为 Agent 编排引擎！基于 LLM+ EKG（Eventic Knowledge Graph 行业知识承载）驱动，协同 MultiAgent、FunctionCall、CodeInterpreter 等技术，通过画布式拖拽、轻文字编写，让大模型在人的经验指导下帮助你完成各类复杂多步任务。兼容现有市面各类 Agent 框架，同时可实现复杂推理、在线协同、人工交互、知识即用四大核心差异技术功能。
 
-本项目的 Mutli-Agent 框架汲取兼容了多个框架的优秀设计，比如 metaGPT 中的消息池（message pool）、autogen 中的代理选择器（agent selector）等。
+## 简介
 
-<div align=center>
-  <img src="../../../../static/api-docs/muAgent/muagent_framework.png" alt="图片">
-</div>
+为了实现复杂多步流程 SOP（Standard Operating Procedure）自动化，我们先来看下 SOP 的构成。拆开抽象，任何任务流 SOP 的推进本质由三部分组成“经验”+ “工具”+ “人物”，衔接 LLM 推理，实现整体三者的有机结合。
 
-# muAgent 框架
-
-在 MuAgent 中，我们除了定义 Agent 交互链路和 AgentBase 基础执行流以外，还额外设计了 Prompt Manager 和 Memory Manager 两个基础组件，分别用于自动化构建 Prompt 和 chat history 管理。最终构建出一个可扩展、易于使用的 Multi-Agent 框架，包括以下内容
-
-- Agent Base：构建了四种基本的 Agent 类型 BaseAgent、ReactAgent、ExecutorAgent、SelectorAgent，支撑各种场景的基础活动
-- Communication：通过 Message 和 Parse Message 实体完成 Agent 间的信息传递，并与 Memory Manager 交互再 Memory Pool 完成记忆管理
-- Prompt Manager：通过 Role Handler、Doc/Tool Handler、Session Handler、Customized Handler，来自动化组装 Customized 的 Agent Prompt
-- Memory Manager： 用于支撑 chat history 的存储管理、信息压缩、记忆检索等管理，最后通过 Memory Pool 在数据库、本地、向量数据库中完成存储
-- Component：用于构建 Agent 的辅助生态组件，包括 Retrieval、Tool、Action、Sandbox 等
-- Customized Model：支持私有化的 LLM 和 Embedding 的接入
-
-## Agent Base
-
-在 Agent 层面，提供四种基本的 Agent 类型，对这些 Agent 进行 Role 的基础设定，可满足多种通用场景的交互和使用。所有的 Action 都由 Agent 执行。
-
-1. BaseAgent：提供基础问答、工具使用、代码执行的功能，根据 Prompt 格式实现 输入 => 输出
+- **经验**：面向特定专业领域，复杂任务是如何操作处理？流程步骤是什么？
+- **工具**：在流程推进中，周边工具的使用，使用什么工具？如何使用工具？
+- **人物**：在流程推进中，周边人物的咨询，找谁（人、智能体）？问什么？
 
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/baseagent.png" alt="图片" style="width: 500px;  height:auto;">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*FMOJRJotp2gAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
 </div>
 
-2. ReactAgent：提供标准 React 的功能，根据问题实现当前任务
+为此，muAgent 整体的架构大图如下，和业界 Agent 框架定义对标，包含 _Planner_、_Memory_ 和 _ActionSpace_ 三大核心模块，以及 Diagnose 的调试监控和 Interface 的产品界面。
+
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/reactagent.webp" alt="图片" style="width: 500px;  height:auto;">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*AhJNS5-ZCM8AAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
 </div>
 
-3. ExecutorAgent：对任务清单进行顺序执行，根据 User 或 上一个 Agent 编排的计划，完成相关任务
-Agent 接受到任务清单(List[task])，对这个任务清单 Task 进行循环执行（中间也可添加 Feedback Agent 来进行任务重新优化），直到任务完成
+## 经验
+
+### 存储结构
+
+面向不同行业、不同类型的工作流/SOP，我们该如何抽象统一，能够比较好地设计 schema 来存储经验知识？古语有云“_授人以鱼不如授人以渔_”，即应该设计存储“过程经验”，而非“结果经验”。相比存储状态结果，更应该告诉大模型如何来做一件事获得结果。例如相比于僵化的告知大模型今天天气如何，更合适的做法是教会大模型如何去查询天气。muAgent 设计了“场景意图+ 事件流程+ 组织人物+ 统一工具”四大类节点，可满足不同场景所需的 SOP 经验承载。如下图所示。
+
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/executoragent.png" alt="图片" style="width: 500px;  height:auto;">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*l7OQSLUYPH8AAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
 </div>
 
-4. SelectorAgent：提供选择 Agent 的功能，根据 User 或 上一个 Agent 的问题选择合适的 Agent 来进行回答.
+由于任务流通常天然呈现为图或者树结构，因此 muAgent 采取图数据库来承载经验的存储。相比传统的 RAG，或者微软的 GraphRAG ---更多的是把知识图谱 KG 作为一个数据的来源---muAgent 直接把 KG 升级作为编排引擎。通过“拖拉式”“轻文字”编写实现特定领域复杂 SOP 的沉淀以及 SOP 的自动化。
+
+### 经验获取
+
+有了经验的存储设计，就像有了人脑，接下来要解决知识的获取构建问题。muAgent 提供两种经验构建能力。第一种是刚才提及的通过产品侧画布式轻文字编写；第二种是面向海量的存量文档，muAgent 具备自动化抽取的能力，能将普通文本和流程图自动抽取转换为图谱结构。对于抽取的部分信息错误或者信息缺失，通过简易的编辑调试即可获取完善的 SOP 经验。
+
 <div align=center>
-  <img src="../../../../static/api-docs/muAgent/selectoragent.webp" alt="图片" style="width: 500px;  height:auto;">
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*P25aQo9VupQAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
 </div>
 
-## Communication
+由于图谱的引擎设计自然继承了图谱的能力实现，在承载经验的同时，muAgent 提供“经验拆分”和“经验合并”的能力。
 
-为了让 Agent 之间进行更好的交互，以及能够让每一个 Agent 接受到足够的信息完成它们特定任务，我们将 Message 信息体分成了多个部分，System Content、Info Content、LLM Content 和 LLM Parsed Content 等
+- 经验拆分：我们期望模型具备一定的泛化能力，而不是告诉什么回答什么（类似 DiFY 固定僵化的任务流，同时不同于 AutoGPT 纯随机发散的推理），举个例子，当沉淀了“杭州旅游行程规划”后，那么我们应该抽象出“旅游行程规划”，在面对“北京旅游行程规划”的 Query 问题时，也应该能很好的作答。再发散一点，抽象原子经验“酒店订购、车票订购、餐饮选择”，那么在面对“北京差旅行程规划”我们也能利用好原子经验进行回答！类似于告诉人一个特定问题的解决思路的时候，他会举一反三，我们期望拥有原子经验的模型也具备这一能力。为此 muAgent 提供“经验拆分”，通过“现象-任务-判断-结论”这一四段论的形式，结合下一小节的推理能力，实现在人的经验指导下的发散推理。
+- 经验合并：一千个人读哈姆雷特有一千个看法，如同盲人摸象，录入承载的经验更像是一个抽象类的具象化，更好的做法是将不同共建的经验合并来提供事物本质的模样。以旅游车票订购为例，距离较远的人会沉淀经验“车票订购-飞机”，距离较近的会沉淀“车票订购-高铁”，本地游的会沉淀“车票订购-地铁”，将这几个经验对齐合并，才能完整的形成原子经验“车票订购” 。
 
-- System Content：用于存储管理当前 LLM 输出的时间，Role 信息等
-- Info Content：LLM 辅助信息，比如像知识库查询信息、代码库检索信息、工具信息、Agent 信息等
-- LLM Content：直接存储和传递 LLM 产生的信息
-- LLM Parsed Content：对 LLM 进行解析转成更易操作的 key-value 数据结构，方便对 LLM 内容进行过滤
-- Customized Content：用于管理自定义 action 产生的 key-value 数据内容，用于后续自定义 Prompt 模板的组装构建
+### 经验推理
 
-通过对以上消息格式的定义，我们便可以完成通用消息的传递和管理。具体组装见 Prompt Manager 模块
+有了经验的知识存储，接下要解决知识的利用推理问题。推理方面 muAgent 整体包含两大模块：
 
-## Context Manager
+- 意图识别：面向多层意图，支持“顺序+ 直接”意图定位；面向不同问题，支持意图分类（执行 OR 咨询）；面对模糊意图，支持反问用户以得到信息补充
+  - 顺序 OR 直接定位：面向多层意图不同场景所需，可逐层顺序意图找寻，也可向量匹配+ 模型精筛直接匹配定位（面向意图描述设计不清场景）
+  - 执行 OR 咨询确认：不同场景 Query 意图不同。以天气查询为例，当用户问“帮我查一下杭州天气”时，muAgent 会执行整个任务流，以获取最终的结果给出输出；当用户问“如何查看杭州天气”时，muAgent 只会返回任务节点的流程步骤，而不做实际的经验执行，这一实现也可广泛应用于日常业务中老人带新人和答疑咨询等场景
+- 图谱推理：基于用户沉淀经验，协同 FuncCall，面向不同类型用户问题，多路推理（执行 OR 问答）
+  - 游走推理：针对用户 Query，LLM 大模型按照节点文本描述、关系链接和属性配置实际执行任务节点（包括和工具、人物交互），并针对不同结果输出决策：是否本节点继续任务执行或者往下游节点推进（支持多分枝和循环）
+  - 发散推理：针对用户 Query，自我编排推理。给予拆分出的原子经验，针对当前现象选择类似经验参考决策执行（支持 Few-shot 发散），并面向输出结果/新现象，循环思考执行（新的原子经验参考）
+  - 图谱问答：针对用户 Query，大模型基于已经沉淀的图谱数据，自动检索相关内容，并以自然语言的形式回答用户问题（即 KGQA, Knowledge Graph Question Answer）
 
-### Memory Manager
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*3XPVRZfp2CMAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
+</div>
 
-主要用于 chat history 的管理
+## 人物
 
-- 存储管理：在数据库或本地实现对 chat history 进行 save 和 load 管理，包括 user input、 llm output、observation ouput
-- 信息压缩：对 chat history 进行关键信息压缩总结 summary context，比如说单文本概况、侧重不同角度进行文本概况、关键信息提取、多文本概况，作为 Prompt context
-- 记忆检索：提供基础检索功能，检索 chat history 或者 Summary Context 中与问题相关信息，辅助问答
-- LLM 自动触发：后续定义策略或通过 LLM 来 触发 压缩总结和检索的功能
+### 人物构成
 
-### Prompt Manager
+在任务流/经验推进的过程中，避免不了和“人物”的交互。muAgent 中对人物的构成整体上可以分为三类：“智能体”、“用户人”、“企业人”。在谁是卧底的场景中，我们已经感受到了“用户人”和“智能体”，在这统一做下介绍和说明。
 
-提问 LLM 已经成为一种常见的实践，但如何让多个大模型分工并协调好 LLM 间的规划、调用工具、代码编写能力，来引导它们产生期望的输出，成为了一个关键的问题，其本质就是将业务问题抽象并拆解到可执行的 Prompt，那与其说我们是在设计 Agents，不如说是对当前需求的深入理解后进行框架设计。
-在 LLM 介入到实际业务场景（不涉及 SFT 过程），我们能通过设计 Agent Prompt 的内容来指定 LLM 完成相应任务得到相应输出。在 MuAgent 这个过程中，将这个 Prompt 分成了三个部分，System Prompt、Context Prompt、Customized Prompt
+- 智能体：在谁是卧底游戏中只是简易的 Prompt+ LLM，在实际场景应用中，可以多层嵌套。Agent 本身即是一套由 muAgent 构建的，赋予经验、工具和人物的能力；方便于企业级的团队协作场景，比如开发智能体、测试智能体、运维智能体等，在外还有一层整体任务流控制智能体。
+- 用户人：设计之初主要面向于需要人参与体验互动的流程推进，比如 AI 文本游戏中的玩家。也可用于在线指导教学等场景，需要“用户人的输入”才可继续流程推进。
+- 企业人：主要面向企业流程设计，包含“企业员工”和“组织架构”两部分。在实际中，不是所有能力都能被抽象量化为 API 接口，很多场景（比如任务审批流）还是需要人的参与审核、沟通，企业人的纳入，即需要咨询特定的人给出明确回复后才能继续推进。组织架构的纳入主要服务于人员变动，可以往上进一步追溯咨询。
 
-- System Prompt 包括 Role Name、Role Description、Task 等
-- Context Prompt 包括 Doc Context、Code Context、Tool Context、Agent Context、Session Context 等
-- Customized Prompt 则是 自定义的一些 Input 和 Ouput，比如说 ...
-  我们还可以要求模型输出结构化的文本，比如说 tool 的 json 串、*code\ncode_content*等来完成特定工作流。
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*iP6dR4zwz1gAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
+</div>
 
-**Automatic Prompt Assemble**
-在按照上述结构定义后，我们便可以通过以下方式来完成 Prompt 的自动化组装，不需要每次去做大量的 prompt 调整工作
+### 人物交流
 
-1. 定义 Agent 时直接配置 Role Name、Role Description、Task 等来决定 Agent 需要做的事情
-2. 预封装一些可复用的 Context Prompt 通用策略，比如说可筛选 Role 的 SessionContext、可配置的 Tool、Code Retrieval、Doc Retrieval、Search Retrieval、Agent 来完成对应的组装
-3. 由于 Agent 的 Prompt 是相对个性化的操作，所以也支持在 Prompt Manager 模块内新增新的 key-context 设计，实现个性化的 Agent Prompt。
+什么是多 Agent/MultiAgent 框架？核心在于多 Agent 信息交互的实现。多 Agent 信息交互即多 Agent 讨论模式。
+基于人类交流讨论的模式，muAgent 抽象归纳出 8 种讨论模式，可同时满足不同场景信息隔离诉求（全部/部分/单独可见）
 
-**Automatic Prompt Design**
-能根据 role description、task、query 等来自动化设计出最优的 prompt；待定义...
+- 公开咨询：由主持人公开咨询不同 Agent 回答
+- 公开通知：由主持人公开通知不同 Agent 信息
+- 私下咨询：由主持人私下咨询不同 Agent 回答
+- 私下通知：由主持人私下通知不同 Agent 信息
+- 顺序发言：由主持人触发 Agent 顺序公开回答
+- 同时发言：由主持人触发 Agent 同时公开回答
+- 自由讨论：由主持人触发 Agent 自由公开讨论
+- 私下讨论：由主持人触发 Agent 自由私下讨论
 
-**Multi Prompt Design**
-根据前面 Prompt 的定义，我们可以了解到 Prompt 由 System Prompt、Context Prompt、Customized Prompt 三个部分组成，三个部分的任一变化都有可能会引起 LLM 最终输出结果的变化。
-对于同种任务而言，即它们的 System Prompt 是相同的。那么在不考虑 Customiezd Prompt 变化时，就可实现不同上下文的组装差异，比如说 Prompt A 获取 10 轮的 chat history，而 Pormpt B 采用 5 轮的 chat history，又或者是对 chat history 进行信息过滤、信息压缩等。
-待实现...
+这里又可以归结为两大类问题，信息通信（我能、应该看到什么信息？）和信息加工（我如何能更好的看到信息？），muAgent 可通过属性的简单配置和边的链接来实现不同的场景需求。接下来，我们将通过谁是卧底的案例带大家整体认知下不同的信息通信模式。
 
-## Component
+#### 信息通信
 
-### Retrieval
+**公开通知**：座位分配环节每个人都知道对方的座位在哪，由主持人统一分配，同时不需要针对分配结果给出回复。muAgent 通过任务节点-信息隔离属性的“公开”设置实现。
 
-在所有 Prompt 的 Context 中，除了 Chat History 的会话信息外，还需要依赖于从外界文档知识库、代码库、互联网搜索得来的相关信息，这些模型参数知识外的知识体系能够极大提升 Agent 完成复杂任务的能力。
-于是在 MuAgent 中我们集成了 Doc、Internet Search、Code Retrieval 三种检索信息的方式，并定义了一个抽象 IMRetrieval 类，可支持开发者自定义个性化的知识库，来完成 Agent 的知识库注册。
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*ZnCWRLDWIFEAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
+</div>
 
-**Doc Retrieval**
-文档向量数据库是当前最主流的知识库构建方法，使用 Text Embedding 模型对文档进行向量化并在向量数据库中存储。未来我们也会去支持基于知识图谱查询以及通过大模型自动抽取实体和关系的方式，来挖掘数据中多种复杂关系。
+**私下通知**：单词分配环节每个人只知道自己分配到的单词，主持人统一分配且知道每个人的单词，针对分配单词不需要给出回复。muAgent 通过任务节点-信息隔离属性的“私有”设置实现。
 
-**Code Retrieval**
-LLM 在代码生成、修复以及组件理解的任务上，会面临代码训练数据滞后、无法感知代码上下文依赖结构。以及在开发的过程中，对现有代码库和依赖包的理解、检索相关代码、查询元信息等会占用较长的时间。于是我们希望通过代码结构分析和代码检索生成来，以及为 LLM 提供知识体系外的代码。
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*6OPUQLrXL_cAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
+</div>
 
-**Search Retrieval**
-除了现成的文档和代码知识库以及之外，在日常中实践中会去浏览大量网页内容获取更多的知识，帮助我们理解新兴的场景、业务、技术等，于是我们接入了 duckduckgosearch 这款开源的搜索工具，能够为 LLM 提供知识储备以外的内容。
+**顺序发言**: 分享讨论环节，主持人根据分配座位号，以及现场存活的人员，制定接下来发言的顺序，然后实际发起每个人的分享（需回复），每个人知道其他人的回复。这里新增一个工具使用模式的设置，我们在工具章节详细介绍。
 
-### Tool
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*Wp-WSZg4xbIAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
+</div>
 
-随着 OpenAI 推出了 Function Call 功能，通过 LLM 生成指定工具的参数并执行调用，使机器能更好地理解和回应人类的需求，从而解决实际问题和重复性的工作。现如今工具学习能力越来越作为开源模型的标配。那在 MuAgent 中也支持 Agent 完成 Tool 的注册，通过 Python 注册模板`BaseToolModel`类，编写 Tool_name、Tool_description、ToolInputArgs、ToolOutputArgs、run 等相关属性和方法即可实现工具的快速接入，同时支持 langchain Tool 接口的直接使用。
-例如像上述 XXRetrieval 的功能也可以注册为 Tool，最终由 LLM 执行调用。
+#### 信息加工
 
-### Action
+在有了良好的信息通信的实现保障不同场景所需，接下来的问题就是怎么让人更好的看到信息？举个大家都会遇到的场景，突然被拉入一个群聊被艾特一个问题，我们需要从很长的历史长下文中梳理出我到底要干什么？那么有没有更好的方式，直接把上下文总结提炼好了从而一眼就能知道我要干什么？这就是信息加工模块存在的必要性。我们提供 3 种信息加工的模式（通过属性设置来实现），分别如下：
 
-在 MuAgent 的定义里，Action 是作为 LLM 具体要执行的动作或动作流，会包括 LLM 信息处理、知识检索、工具调用以及代码执行等一个综合性的复杂过程，是一个动态过程。比如在 React 过程中，我们通过 LLM 获取到了一个 Tool 参数，接下来"将工具参数放入到 Tool 并执行调用"这个过程就是 Action，它去实践性的调用了 Tool。又或者说我们定义了一个 Agent，它编排在一个固定 Agent 的 Action 步骤之中，这个 Agent 的输入参数由 Action 特殊指定。也就是说无论是由 LLM 产生参数还是工程设定参数，只有涉及具体的执行过程，就是一个 Action。
+- 信息检索：找寻历史对话和当前 Query 相近消息，具体分为规则检索（如 K 邻信息）和模型检索（如向量检索）
+- 信息加工：通过总结精炼历史对话信息实现信息快速理解，具体分为模型总结、信息精排（支持 Prompt 设置）
+- 全局变量：通过全局变量的维护，方便快速知道变量当前状态来更好的服务规划决策，举个例子，谁是卧底里面当前存活的人员，或者狼人杀中女巫的毒药解药（如果不设置，当模型推理能力不强且游戏多轮后，经常容易搞错）
 
-## 模块分类
+## 工具
 
-- [connector](/zh-CN/docs/api-docs/MuAgent/connector/connector_agent) 主要介绍这块 Agent 框架的工作
-- llm_models
-- retrieval
-- tools
-- sandbox
-- utils
+### 使用方式
+
+介绍完经验和人物，还剩流程推进中的最后一环 - 工具，我们先从工具使用方式出发来介绍。目前业界整体的工作可以归纳为 3 种思考使用方式：
+
+- 没有思考：针对问题直接给出单步决策，优势是速度快，面向固定场景能快速执行，缺点是不方便做单节点多步任务；我们通过任务节点-执行方式“单次”的属性设置实现。
+- 谋定后动：针对问题直接给出完整的 Plan 计划，然后针对这个计划去实际执行，方便于限定场景，可实现多步任务执行，但不能根据中间执行结果的偏离做调整，通过“计划”和“并行”/同时执行的属性设置实现。
+- 边想边做：即现在主流的 ReAct 模式，下一步的决策依赖上一步的结果输出。缺点是速度最慢，优势是可以灵活的根据中间步骤调整。通过“交互”属性的设置来实现。
+
+以票选凶手环节为例，同步咨询不同的智能体，同时给出回复，避免不同智能体根据别人的信息输出来伪装自己的描述。
+
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*vbT9SIGh4dcAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
+</div>
+
+### 工具管理
+
+- 工具注册方式：业界的实现基本上基于 OpenAI 定义的协议和规范，我们也不例外。muAgent 遵循简化 Swagger 协议，方便不同的 API 工具快速接入。
+- 工具注册管理：从大模型实际欠缺的能力出发，我们定义了 5 大类工具范畴（如大模型数值计算薄弱，我们提供沙箱执行环境，方便代码编写执行），分门别类管理，便于大模型工具选择使用。
+
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*YcQoR4tGqBgAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
+</div>
+
+## 体验
+
+技术差异
+基于上述的架构设计介绍，我们回看最开头提及的 muAgent 框架，相比现有市面各类 Agent 框架，四大核心差异体现。
+
+<div align=center>
+  <img src="https://mdn.alipayobjects.com/huamei_bvbxju/afts/img/A*B_i3SLXW_ZMAAAAAAAAAAAAADlHYAQ/original" alt="图片" style="width: 500px;  height:auto;">
+</div>
+
+- 复杂推理：现有市面框架的推理逻辑有两大类，以 AutoGPT 为代表的纯模型推理（Pure LLM），以及以 DiFy 为代表的固定推理（Fix Flow），前者稳定性较差、同时面向专有领域无法服务，后者灵活性较差、和工程实现没有本质差别。muAgent 采用图谱作为编排引擎承载知识，同时通过原子经验的设计以及图谱的发散推理，可友好的实现让大模型在人的经验/设计指导下做事。整体灵活可控，面向未知局面能自由探索，也将成功探索经验总结/图谱沉淀，从而面向相似问题可少走弯路。整体流程唤起支持平台对接（规则配置）和自然语言触发，能满足各类诉求。
+- 人工交互：基于人物节点的设计（智能体、企业人、用户人）、不同信息通讯和加工方法，muAgent 可以灵活的处理企业任务流的知识承载，让人能加入到流程的推进；同时又可灵活应用于多人文本游戏的创新场景研发。
+- 知识即用：通过场景意图、事件流程、统一工具、组织人物四部分的统一图谱设计，muAgent 能满足各类 SOP 场景所需知识承载，简易拖拉拽轻文字编写即可直接可用；同时面向海量存量文档（通用文本、流程画板等），muAgent 支持文本智能解析、一键导入，以及经验拆分合并泛化。
+- 多人协同：通过虚拟团队构建、场景意图划分，让你体验在线文档 VS 本地文档的差别；同时，文本语义输入的节点使用方式，让你感受有注释代码 VS 无注释代码的差别，充分体现在线协同的优势。
+  同时我们还提供调试运行功能，图谱编辑完成后，可视调试，快速发现流程错误、修改优化，同时面向调试成功路径，关联配置自动沉淀，减少模型交互、模型开销，加速推理流程；此外，在线运行中，我们提供全链路可视化监控。
+
+### 开源共建
+
+做出开源不易，做好开源更难，从原来纯面向内部服务，到内部基础组件剥离，内外部版本一致研发，muAgent 目前还有很多功能的不完善和规划的研发进行中，我们欢迎您的任何建议、意见（包括批评）和贡献，可以通过 GitHub 的 Issues 提出。
+参与 Codefuse 项目并为其作出贡献的方法有很多：代码实现、测试编写、文档完善等等。任何贡献我们都会非常欢迎，详见[Contribution Guide](https://codefuse-ai.github.io/contribution/contribution)。

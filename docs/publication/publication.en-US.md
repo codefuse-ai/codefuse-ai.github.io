@@ -20,6 +20,8 @@ contentDirectly:
     desc: Ke Chen, Wen Hu, Zhi Wang, Peng Du, Jianguo Li, Sheng Zhang
   - titleCon: \[ICDE 2024] VDTuner:\ Automated Performance Tuning for Vector Data Management Systems.
     desc: Tiannuo Yang, Wen Hu, Wangqi Peng, Yusen Li, Jianguo Li, Gang Wang, Xiaoguang Liu
+  - titleCon: \[EMNLP 2024] CoBa:\ Convergence Balancer for Multitask Finetuning of Large Language Models
+    desc: Zi Gong, Hang yu, Cong Liao, Bingchang Liu, Chaoyu Chen, Jianguo Li
 
 titleConRelated: LLM Related
 contentRelated:

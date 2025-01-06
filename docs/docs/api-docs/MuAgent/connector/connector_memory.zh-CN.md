@@ -1,7 +1,7 @@
 ---
 group:
   title: Connector
-  order: 0
+  order: 99
 title: Memory
 order: 3
 toc: content

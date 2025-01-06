@@ -1,7 +1,7 @@
 ---
 group:
-  title: Tools
-  order: 2
+  title: 工具
+  order: 4
 title: 自定义 Tool 接入
 order: -1
 toc: content
@@ -21,7 +21,7 @@ toc: content
 
 ## BaseTool 结构
 
-```
+```python
 from langchain.agents import Tool
 from pydantic import BaseModel, Field
 from typing import List, Dict
@@ -60,7 +60,7 @@ class BaseToolModel:
 
 ## 注册示例
 
-```
+```python
 from pydantic import BaseModel, Field
 from typing import List, Dict
 import requests
@@ -96,31 +96,12 @@ class Multiplier(BaseToolModel):
 
 ## 使用示例
 
-```
-from langchain.tools import StructuredTool
-from muagent.tools import (
-    WeatherInfo, Multiplier, toLangchainTools,
-    TOOL_DICT, TOOL_SETS
-)
+```python
+from muagent.tools import get_tool, toLangchainTools
+tools = toLangchainTools([get_tool("Multiplier")])
 
-# 函数执行
-tools =  [
-    StructuredTool(
-            name=Multiplier.name,
-            func=Multiplier.run,
-            description=Multiplier.description,
-            args_schema=Multiplier.ToolInputArgs,
-        ),
-        StructuredTool(
-            name=WeatherInfo.name,
-            func=WeatherInfo.run,
-            description=WeatherInfo.description,
-            args_schema=WeatherInfo.ToolInputArgs,
-        )
-        ]
-
-tools = toLangchainTools([TOOL_DICT["Multiplier"]])
-
+print(get_tool("Multiplier").intput_to_json_schema())
+print(get_tool("Multiplier").output_to_json_schema())
 # tool run 测试
 print(tools[0].func(1,2))
 ```

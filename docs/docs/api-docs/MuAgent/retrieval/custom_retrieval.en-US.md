@@ -1,7 +1,7 @@
 ---
 group:
   title: Retrieval
-  order: 3
+  order: 98
 title: Custom retrieval
 order: -1
 toc: content

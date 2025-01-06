@@ -1,7 +1,7 @@
 ---
 group:
   title: Retrieval
-  order: 3
+  order: 98
 title: 自定义 Retrieval 接入
 order: -1
 toc: content

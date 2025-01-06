@@ -1,7 +1,7 @@
 ---
 group:
   title: Tools
-  order: 2
+  order: 4
 title: Custom Tool
 order: -1
 toc: content
@@ -96,31 +96,12 @@ class Multiplier(BaseToolModel):
 
 ## Use Example
 
-```
-from langchain.tools import StructuredTool
-from muagent.tools import (
-    WeatherInfo, Multiplier, toLangchainTools,
-    TOOL_DICT, TOOL_SETS
-)
+```python
+from muagent.tools import get_tool, toLangchainTools
+tools = toLangchainTools([get_tool("Multiplier")])
 
-# Function exec
-tools =  [
-    StructuredTool(
-            name=Multiplier.name,
-            func=Multiplier.run,
-            description=Multiplier.description,
-            args_schema=Multiplier.ToolInputArgs,
-        ),
-        StructuredTool(
-            name=WeatherInfo.name,
-            func=WeatherInfo.run,
-            description=WeatherInfo.description,
-            args_schema=WeatherInfo.ToolInputArgs,
-        )
-        ]
-
-tools = toLangchainTools([TOOL_DICT["Multiplier"]])
-
-# tool run Test
+print(get_tool("Multiplier").intput_to_json_schema())
+print(get_tool("Multiplier").output_to_json_schema())
+# tool run
 print(tools[0].func(1,2))
 ```

@@ -7,6 +7,8 @@ order: 0
 toc: content
 ---
 
+我们将会在 muAgent v0.2.0 移除`Agent 编排` 文章，增加新的 pipeline 和 graph 来完成整个链路的串联。
+
 ## 核心 Connector 介绍
 
 为了便于大家理解整个 CoAgent 的链路，我们采取 Flow 的形式来详细介绍如何通过配置构建

@@ -7,6 +7,8 @@ order: 1
 toc: content
 ---
 
+We will update the Quick Start article in muAgent v0.2.0, adding new pipelines and graphs to complete the entire chain linkage.
+
 ## Quick Start
 
 For a complete example, see [examples/muagent_examples](https://github.com/codefuse-ai/CodeFuse-muAgent/tree/main/examples/muagent_examples)

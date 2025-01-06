@@ -7,6 +7,8 @@ order: 0
 toc: content
 ---
 
+We will remove the 'Agent Orchestration' article in muAgent v0.2.0 and add new pipelines and graphs to complete the entire chain linkage.
+
 ## Introduction to Core Connectors
 
 To facilitate everyone's understanding of the entire CoAgent link, we use a Flow format to detail how to build through configuration settings.

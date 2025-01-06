@@ -13,6 +13,11 @@ publish:
     desc: For complex SOPs requiring constant redefinition of agents and numerous post-processing stages, this procedure can become cumbersome and challenging. Striving to lift this weight and accelerate the execution of SOP workflows，this system streamlines the construction process with a suite of core components, enabling a more convenient and rapid build procedure. It spares users the need to delve into the intricacies of internal prompt construction logic. At last, The paper highlights muAgent's implementation for automating Code Q&A functionalities within Java code repositories, enabling query execution, API documentation, and test case generation.
     link: /blogDetails/20240423
 
+  - time: '2024-12-31'
+    title: muAgent series 2
+    desc: release muagent v2.2～
+    link: /blogDetails/20241231
+
 # 技术
 develop:
   - time: '2024-09-05'
@@ -29,10 +34,10 @@ products:
 
 # 使用
 use:
-  - time: '2024-04-23'
-    title: Multi-Agent Framework MuAgent Unlocks New Paradigms in Code Development
-    desc: For complex SOPs requiring constant redefinition of agents and numerous post-processing stages, this procedure can become cumbersome and challenging. Striving to lift this weight and accelerate the execution of SOP workflows，this system streamlines the construction process with a suite of core components, enabling a more convenient and rapid build procedure. It spares users the need to delve into the intricacies of internal prompt construction logic. At last, The paper highlights muAgent's implementation for automating Code Q&A functionalities within Java code repositories, enabling query execution, API documentation, and test case generation.
-    link: /blogDetails/20240423
+  - time: '2024-09-15'
+    title: Not updated yet
+    desc: Not updated yet
+    link: /blogDetails/001
 
 # 活动咨询
 EventConsultation:

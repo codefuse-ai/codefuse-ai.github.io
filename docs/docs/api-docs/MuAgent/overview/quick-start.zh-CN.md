@@ -7,6 +7,8 @@ order: 1
 toc: content
 ---
 
+我们将会在 muAgent v0.2.0 更新`快速开始` 文章，增加新的 pipeline 和 graph 来完成整个链路的串联。
+
 ## 快速使用
 
 更多示例见 [examples/muagent_examples](https://github.com/codefuse-ai/CodeFuse-muAgent/tree/main/examples/muagent_examples)

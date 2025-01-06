@@ -28,6 +28,11 @@ publish:
     desc: 在这个信息技术爆炸的时代，我们都知道大型语言模型（LLM）拥有处理复杂问题的能力，但当遇到编程难题这种更高级的挑战时，单独的LLM Agent可能就不够看了。社区里动起了脑筋，玩出了新花样——组合多个Agent来应对高难度挑战！正如Multi Agent的构建过程所示，与其说我们是在设计Agents，不如说是对当前需求的深入理解后去构建出一条专属于某个场景的SOP。
     link: /zh-CN/blogDetails/20240423
 
+  - time: '2024-12-31'
+    title: muAgent系列文章·二
+    desc: muagent v2.2 版本发布啦！～～
+    link: /zh-CN/blogDetails/20241231
+
 # 技术
 develop:
   - time: '2024-01-23'

@@ -1,7 +1,7 @@
 ---
 group:
   title: Connector
-  order: 0
+  order: 99
 subGroup:
   title: Memory
 title: Tbase Memory Builder
