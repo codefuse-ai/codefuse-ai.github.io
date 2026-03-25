@@ -28,9 +28,9 @@ const Publication: FC = () => {
             }
           </div>
           <div>
-            <h2 >{frontmatter?.titleConPreprint}</h2>
+            <h2 >{frontmatter?.titleConRelated}</h2>
             {
-              frontmatter?.contentPreprint?.map((item: any) => {
+              frontmatter?.contentRelated?.map((item: any) => {
                 return <li>
                   <div className="titleCon">
                     {item?.titleCon.replace(/\\/g, "")}
@@ -41,9 +41,22 @@ const Publication: FC = () => {
             }
           </div>
           <div>
-            <h2 >{frontmatter?.titleConRelated}</h2>
+            <h2 >{frontmatter?.titleAIRelated}</h2>
             {
-              frontmatter?.contentRelated?.map((item: any) => {
+              frontmatter?.contentAIRelated?.map((item: any) => {
+                return <li>
+                  <div className="titleCon">
+                    {item?.titleCon.replace(/\\/g, "")}
+                  </div>
+                  <p className="descCon">{item?.desc}</p>
+                </li>
+              })
+            }
+          </div>
+          <div>
+            <h2 >{frontmatter?.titleConPreprint}</h2>
+            {
+              frontmatter?.contentPreprint?.map((item: any) => {
                 return <li>
                   <div className="titleCon">
                     {item?.titleCon.replace(/\\/g, "")}
