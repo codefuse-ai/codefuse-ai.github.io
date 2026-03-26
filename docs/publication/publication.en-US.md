@@ -84,8 +84,6 @@ contentRelated:
 
 titleAIRelated: Artificial Intelligence
 contentAIRelated:
-  - titleCon: \[SIGMOD 2023]  Balance:\ Bayesian linear attribution for root cause localization
-    desc: C. Chen, H. Yu, Z. Lei, J. Li, S. Ren, T. Zhang, S. Hu, J. Wang, and W. Shi
   - titleCon: \[ICLR 2026]  ACCORD:\ Alleviating Concept Coupling through Dependence Regularization for Text-to-Image Diffusion Personalization
     desc: S. Liu, H. Zheng, H. Yu, and J. Li
   - titleCon: \[ICLR 2026] :\  A Problem-Oriented Perspective and Anchor Verification for Code Optimization
@@ -159,8 +157,6 @@ contentPreprint:
     desc: Y. Guo, P. Liu, W. Ma, Z. Deng, X. Zhu, P. Di, ... S. Wen
   - titleCon: \[arXiv preprint]  Boosting Pointer Analysis With LLM-Enhanced Allocation Function Detection
     desc: B. Cheng, K. Wang, L. Shi, H. Wang, P. Di, D. Li, ... Y. Guo
-  - titleCon: \[submitted to ISSTA 2026]  CodeFuse-CR-Bench:\ A Comprehensiveness-aware Benchmark for End-to-End Code Review Evaluation in Python Projects
-    desc: H. Guo, X. Zheng, Z. Liao, H. Yu, P. Di, Z. Zhang, H.Dai
   - titleCon: \[arXiv preprint]  Static code analysis in the ai era:\ An in-depth exploration of the concept, function, and potential of intelligent code analysis agents
     desc: G. Fan, X. Xie, X. Zheng, Y. Liang, P. Di
 ---
